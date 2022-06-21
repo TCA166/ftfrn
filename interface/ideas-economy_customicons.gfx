@@ -1,0 +1,27 @@
+spriteTypes = { 
+	##Icon For: Plane Production Focus
+	SpriteType = { 
+		name = "GFX_idea_plane_production_focus-1461"
+		texturefile = "gfx/interface/ideas/economy-ideas/plane_production_focus-1461.dds"
+	}
+
+	##Icon For: Industrial Miracle
+	SpriteType = { 
+		name = "GFX_idea_industrial_miracle-1366"
+		texturefile = "gfx/interface/ideas/economy-ideas/industrial_miracle-1366.dds"
+	}
+
+	##Icon For: Weapons Production Focus
+	SpriteType = { 
+		name = "GFX_idea_weapons_production_focus-122625"
+		texturefile = "gfx/interface/ideas/economy-ideas/weapons_production_focus-122625.dds"
+	}
+
+	##Icon For: Tea Export
+	SpriteType = { 
+		name = "GFX_idea_tea_export-1"
+		texturefile = "gfx/interface/ideas/economy-ideas/tea_export-1.dds"
+	}
+
+ 
+ }

@@ -1,0 +1,459 @@
+spriteTypes = { 
+	##Icon For: Strike South
+	SpriteType = { 
+		name = "GFX_CAM_strike_south-108495"
+		texturefile = "gfx/interface/goals/GFX_CAM_strike_south-108495.dds"
+	}
+
+	##Icon Shine For: Strike South
+	SpriteType = { 
+		name = "GFX_CAM_strike_south-108495_shine"
+		texturefile = "gfx/interface/goals/GFX_CAM_strike_south-108495.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_strike_south-108495.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_strike_south-108495.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: The Constructors of Angkor
+	SpriteType = { 
+		name = "GFX_CAM_the_constructors_of_angkor-107627"
+		texturefile = "gfx/interface/goals/GFX_CAM_the_constructors_of_angkor-107627.dds"
+	}
+
+	##Icon Shine For: The Constructors of Angkor
+	SpriteType = { 
+		name = "GFX_CAM_the_constructors_of_angkor-107627_shine"
+		texturefile = "gfx/interface/goals/GFX_CAM_the_constructors_of_angkor-107627.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_the_constructors_of_angkor-107627.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_the_constructors_of_angkor-107627.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Continue Industrialisation
+	SpriteType = { 
+		name = "GFX_CAM_continue_industrialisation-108490"
+		texturefile = "gfx/interface/goals/GFX_CAM_continue_industrialisation-108490.dds"
+	}
+
+	##Icon Shine For: Continue Industrialisation
+	SpriteType = { 
+		name = "GFX_CAM_continue_industrialisation-108490_shine"
+		texturefile = "gfx/interface/goals/GFX_CAM_continue_industrialisation-108490.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_continue_industrialisation-108490.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_continue_industrialisation-108490.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Communist Interpretation
+	SpriteType = { 
+		name = "GFX_CAM_communist_interpretation-108488"
+		texturefile = "gfx/interface/goals/GFX_CAM_communist_interpretation-108488.dds"
+	}
+
+	##Icon Shine For: Communist Interpretation
+	SpriteType = { 
+		name = "GFX_CAM_communist_interpretation-108488_shine"
+		texturefile = "gfx/interface/goals/GFX_CAM_communist_interpretation-108488.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_communist_interpretation-108488.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_communist_interpretation-108488.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Accept Soviet Aid
+	SpriteType = { 
+		name = "GFX_CAM_accept_soviet_aid-108486"
+		texturefile = "gfx/interface/goals/GFX_CAM_accept_soviet_aid-108486.dds"
+	}
+
+	##Icon Shine For: Accept Soviet Aid
+	SpriteType = { 
+		name = "GFX_CAM_accept_soviet_aid-108486_shine"
+		texturefile = "gfx/interface/goals/GFX_CAM_accept_soviet_aid-108486.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_accept_soviet_aid-108486.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_accept_soviet_aid-108486.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Contact the CPC
+	SpriteType = { 
+		name = "GFX_CAM_contact_the_cpc-108489"
+		texturefile = "gfx/interface/goals/GFX_CAM_contact_the_cpc-108489.dds"
+	}
+
+	##Icon Shine For: Contact the CPC
+	SpriteType = { 
+		name = "GFX_CAM_contact_the_cpc-108489_shine"
+		texturefile = "gfx/interface/goals/GFX_CAM_contact_the_cpc-108489.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_contact_the_cpc-108489.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_contact_the_cpc-108489.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Indochineese Revolution
+	SpriteType = { 
+		name = "GFX_CAM_indochineese_revolution-108493"
+		texturefile = "gfx/interface/goals/GFX_CAM_indochineese_revolution-108493.dds"
+	}
+
+	##Icon Shine For: Indochineese Revolution
+	SpriteType = { 
+		name = "GFX_CAM_indochineese_revolution-108493_shine"
+		texturefile = "gfx/interface/goals/GFX_CAM_indochineese_revolution-108493.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_indochineese_revolution-108493.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_indochineese_revolution-108493.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Greater Indochinese Union
+	SpriteType = { 
+		name = "GFX_CAM_greater_indochinese_union-108491"
+		texturefile = "gfx/interface/goals/GFX_CAM_greater_indochinese_union-108491.dds"
+	}
+
+	##Icon Shine For: Greater Indochinese Union
+	SpriteType = { 
+		name = "GFX_CAM_greater_indochinese_union-108491_shine"
+		texturefile = "gfx/interface/goals/GFX_CAM_greater_indochinese_union-108491.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_greater_indochinese_union-108491.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_greater_indochinese_union-108491.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Indochineese Alliance
+	SpriteType = { 
+		name = "GFX_CAM_indochineese_alliance-108492"
+		texturefile = "gfx/interface/goals/GFX_CAM_indochineese_alliance-108492.dds"
+	}
+
+	##Icon Shine For: Indochineese Alliance
+	SpriteType = { 
+		name = "GFX_CAM_indochineese_alliance-108492_shine"
+		texturefile = "gfx/interface/goals/GFX_CAM_indochineese_alliance-108492.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_indochineese_alliance-108492.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_indochineese_alliance-108492.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Try to Prevent War
+	SpriteType = { 
+		name = "GFX_CAM_try_to_prevent_war-108496"
+		texturefile = "gfx/interface/goals/GFX_CAM_try_to_prevent_war-108496.dds"
+	}
+
+	##Icon Shine For: Try to Prevent War
+	SpriteType = { 
+		name = "GFX_CAM_try_to_prevent_war-108496_shine"
+		texturefile = "gfx/interface/goals/GFX_CAM_try_to_prevent_war-108496.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_try_to_prevent_war-108496.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_try_to_prevent_war-108496.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: American Military Industry
+	SpriteType = { 
+		name = "GFX_CAM_american_military_industry-108487"
+		texturefile = "gfx/interface/goals/GFX_CAM_american_military_industry-108487.dds"
+	}
+
+	##Icon Shine For: American Military Industry
+	SpriteType = { 
+		name = "GFX_CAM_american_military_industry-108487_shine"
+		texturefile = "gfx/interface/goals/GFX_CAM_american_military_industry-108487.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_american_military_industry-108487.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_american_military_industry-108487.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Revive the Tributary System
+	SpriteType = { 
+		name = "GFX_CAM_revive_the_tributary_system-108494"
+		texturefile = "gfx/interface/goals/GFX_CAM_revive_the_tributary_system-108494.dds"
+	}
+
+	##Icon Shine For: Revive the Tributary System
+	SpriteType = { 
+		name = "GFX_CAM_revive_the_tributary_system-108494_shine"
+		texturefile = "gfx/interface/goals/GFX_CAM_revive_the_tributary_system-108494.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_revive_the_tributary_system-108494.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_CAM_revive_the_tributary_system-108494.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+ 
+ }

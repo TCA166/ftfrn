@@ -1,0 +1,117 @@
+spriteTypes = { 
+	##Icon For: American Industry
+	SpriteType = { 
+		name = "GFX_HAW_american_industry-108361"
+		texturefile = "gfx/interface/goals/GFX_HAW_american_industry-108361.dds"
+	}
+
+	##Icon Shine For: American Industry
+	SpriteType = { 
+		name = "GFX_HAW_american_industry-108361_shine"
+		texturefile = "gfx/interface/goals/GFX_HAW_american_industry-108361.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_HAW_american_industry-108361.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_HAW_american_industry-108361.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Naval Research Institute
+	SpriteType = { 
+		name = "GFX_HAW_naval_research_institute-107624"
+		texturefile = "gfx/interface/goals/GFX_HAW_naval_research_institute-107624.dds"
+	}
+
+	##Icon Shine For: Naval Research Institute
+	SpriteType = { 
+		name = "GFX_HAW_naval_research_institute-107624_shine"
+		texturefile = "gfx/interface/goals/GFX_HAW_naval_research_institute-107624.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_HAW_naval_research_institute-107624.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_HAW_naval_research_institute-107624.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Accept American Naval Investment
+	SpriteType = { 
+		name = "GFX_HAW_accept_american_naval_investment-108497"
+		texturefile = "gfx/interface/goals/GFX_HAW_accept_american_naval_investment-108497.dds"
+	}
+
+	##Icon Shine For: Accept American Naval Investment
+	SpriteType = { 
+		name = "GFX_HAW_accept_american_naval_investment-108497_shine"
+		texturefile = "gfx/interface/goals/GFX_HAW_accept_american_naval_investment-108497.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_HAW_accept_american_naval_investment-108497.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_HAW_accept_american_naval_investment-108497.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+ 
+ }

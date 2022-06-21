@@ -1,0 +1,459 @@
+spriteTypes = { 
+	##Icon For: Strenghten the Military Junta
+	SpriteType = { 
+		name = "GFX_PRE_strenghten_the_military_junta-126833"
+		texturefile = "gfx/interface/goals/GFX_PRE_strenghten_the_military_junta-126833.dds"
+	}
+
+	##Icon Shine For: Strenghten the Military Junta
+	SpriteType = { 
+		name = "GFX_PRE_strenghten_the_military_junta-126833_shine"
+		texturefile = "gfx/interface/goals/GFX_PRE_strenghten_the_military_junta-126833.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_strenghten_the_military_junta-126833.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_strenghten_the_military_junta-126833.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Legacy of the Teutons
+	SpriteType = { 
+		name = "GFX_PRE_legacy_of_the_teutons-126221"
+		texturefile = "gfx/interface/goals/GFX_PRE_legacy_of_the_teutons-126221.dds"
+	}
+
+	##Icon Shine For: Legacy of the Teutons
+	SpriteType = { 
+		name = "GFX_PRE_legacy_of_the_teutons-126221_shine"
+		texturefile = "gfx/interface/goals/GFX_PRE_legacy_of_the_teutons-126221.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_legacy_of_the_teutons-126221.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_legacy_of_the_teutons-126221.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: New Industrial Core
+	SpriteType = { 
+		name = "GFX_PRE_new_industrial_core-108490"
+		texturefile = "gfx/interface/goals/GFX_PRE_new_industrial_core-108490.dds"
+	}
+
+	##Icon Shine For: New Industrial Core
+	SpriteType = { 
+		name = "GFX_PRE_new_industrial_core-108490_shine"
+		texturefile = "gfx/interface/goals/GFX_PRE_new_industrial_core-108490.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_new_industrial_core-108490.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_new_industrial_core-108490.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: War Preparations
+	SpriteType = { 
+		name = "GFX_PRE_war_preparations-107564"
+		texturefile = "gfx/interface/goals/GFX_PRE_war_preparations-107564.dds"
+	}
+
+	##Icon Shine For: War Preparations
+	SpriteType = { 
+		name = "GFX_PRE_war_preparations-107564_shine"
+		texturefile = "gfx/interface/goals/GFX_PRE_war_preparations-107564.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_war_preparations-107564.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_war_preparations-107564.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Approach Saxony
+	SpriteType = { 
+		name = "GFX_PRE_approach_saxony-127080"
+		texturefile = "gfx/interface/goals/GFX_PRE_approach_saxony-127080.dds"
+	}
+
+	##Icon Shine For: Approach Saxony
+	SpriteType = { 
+		name = "GFX_PRE_approach_saxony-127080_shine"
+		texturefile = "gfx/interface/goals/GFX_PRE_approach_saxony-127080.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_approach_saxony-127080.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_approach_saxony-127080.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: German Canals
+	SpriteType = { 
+		name = "GFX_PRE_german_canals-116418"
+		texturefile = "gfx/interface/goals/GFX_PRE_german_canals-116418.dds"
+	}
+
+	##Icon Shine For: German Canals
+	SpriteType = { 
+		name = "GFX_PRE_german_canals-116418_shine"
+		texturefile = "gfx/interface/goals/GFX_PRE_german_canals-116418.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_german_canals-116418.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_german_canals-116418.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Approach Wurtemburg
+	SpriteType = { 
+		name = "GFX_PRE_approach_wurtemburg-127078"
+		texturefile = "gfx/interface/goals/GFX_PRE_approach_wurtemburg-127078.dds"
+	}
+
+	##Icon Shine For: Approach Wurtemburg
+	SpriteType = { 
+		name = "GFX_PRE_approach_wurtemburg-127078_shine"
+		texturefile = "gfx/interface/goals/GFX_PRE_approach_wurtemburg-127078.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_approach_wurtemburg-127078.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_approach_wurtemburg-127078.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Automobile Subsidies
+	SpriteType = { 
+		name = "GFX_PRE_automobile_subsidies-107241"
+		texturefile = "gfx/interface/goals/GFX_PRE_automobile_subsidies-107241.dds"
+	}
+
+	##Icon Shine For: Automobile Subsidies
+	SpriteType = { 
+		name = "GFX_PRE_automobile_subsidies-107241_shine"
+		texturefile = "gfx/interface/goals/GFX_PRE_automobile_subsidies-107241.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_automobile_subsidies-107241.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_automobile_subsidies-107241.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Plan North
+	SpriteType = { 
+		name = "GFX_PRE_plan_north-123415"
+		texturefile = "gfx/interface/goals/GFX_PRE_plan_north-123415.dds"
+	}
+
+	##Icon Shine For: Plan North
+	SpriteType = { 
+		name = "GFX_PRE_plan_north-123415_shine"
+		texturefile = "gfx/interface/goals/GFX_PRE_plan_north-123415.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_plan_north-123415.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_plan_north-123415.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Approach Hanover
+	SpriteType = { 
+		name = "GFX_PRE_approach_hanover-127079"
+		texturefile = "gfx/interface/goals/GFX_PRE_approach_hanover-127079.dds"
+	}
+
+	##Icon Shine For: Approach Hanover
+	SpriteType = { 
+		name = "GFX_PRE_approach_hanover-127079_shine"
+		texturefile = "gfx/interface/goals/GFX_PRE_approach_hanover-127079.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_approach_hanover-127079.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_approach_hanover-127079.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Approach Bavaria
+	SpriteType = { 
+		name = "GFX_PRE_approach_bavaria-127077"
+		texturefile = "gfx/interface/goals/GFX_PRE_approach_bavaria-127077.dds"
+	}
+
+	##Icon Shine For: Approach Bavaria
+	SpriteType = { 
+		name = "GFX_PRE_approach_bavaria-127077_shine"
+		texturefile = "gfx/interface/goals/GFX_PRE_approach_bavaria-127077.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_approach_bavaria-127077.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_approach_bavaria-127077.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Lessons of Industrial Revolution
+	SpriteType = { 
+		name = "GFX_PRE_lessons_of_industrial_revolution-116412"
+		texturefile = "gfx/interface/goals/GFX_PRE_lessons_of_industrial_revolution-116412.dds"
+	}
+
+	##Icon Shine For: Lessons of Industrial Revolution
+	SpriteType = { 
+		name = "GFX_PRE_lessons_of_industrial_revolution-116412_shine"
+		texturefile = "gfx/interface/goals/GFX_PRE_lessons_of_industrial_revolution-116412.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_lessons_of_industrial_revolution-116412.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_PRE_lessons_of_industrial_revolution-116412.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+ 
+ }

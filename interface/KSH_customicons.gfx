@@ -1,0 +1,155 @@
+spriteTypes = { 
+	##Icon For: Invite German Industry
+	SpriteType = { 
+		name = "GFX_KSH_invite_german_industry-107625"
+		texturefile = "gfx/interface/goals/GFX_KSH_invite_german_industry-107625.dds"
+	}
+
+	##Icon Shine For: Invite German Industry
+	SpriteType = { 
+		name = "GFX_KSH_invite_german_industry-107625_shine"
+		texturefile = "gfx/interface/goals/GFX_KSH_invite_german_industry-107625.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_KSH_invite_german_industry-107625.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_KSH_invite_german_industry-107625.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Deal with Poland
+	SpriteType = { 
+		name = "GFX_KSH_deal_with_poland-111258"
+		texturefile = "gfx/interface/goals/GFX_KSH_deal_with_poland-111258.dds"
+	}
+
+	##Icon Shine For: Deal with Poland
+	SpriteType = { 
+		name = "GFX_KSH_deal_with_poland-111258_shine"
+		texturefile = "gfx/interface/goals/GFX_KSH_deal_with_poland-111258.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_KSH_deal_with_poland-111258.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_KSH_deal_with_poland-111258.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Polish Economic Integration Effort
+	SpriteType = { 
+		name = "GFX_KSH_polish_economic_integration_effort-107564"
+		texturefile = "gfx/interface/goals/GFX_KSH_polish_economic_integration_effort-107564.dds"
+	}
+
+	##Icon Shine For: Polish Economic Integration Effort
+	SpriteType = { 
+		name = "GFX_KSH_polish_economic_integration_effort-107564_shine"
+		texturefile = "gfx/interface/goals/GFX_KSH_polish_economic_integration_effort-107564.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_KSH_polish_economic_integration_effort-107564.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_KSH_polish_economic_integration_effort-107564.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Continue Industrial Development
+	SpriteType = { 
+		name = "GFX_KSH_continue_industrial_development-116412"
+		texturefile = "gfx/interface/goals/GFX_KSH_continue_industrial_development-116412.dds"
+	}
+
+	##Icon Shine For: Continue Industrial Development
+	SpriteType = { 
+		name = "GFX_KSH_continue_industrial_development-116412_shine"
+		texturefile = "gfx/interface/goals/GFX_KSH_continue_industrial_development-116412.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_KSH_continue_industrial_development-116412.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_KSH_continue_industrial_development-116412.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+ 
+ }

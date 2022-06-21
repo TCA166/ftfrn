@@ -1,0 +1,9 @@
+spriteTypes = { 
+	##Icon For: Test
+	SpriteType = { 
+		name = "test-504"
+		texturefile = "gfx/interface/events/tea_empire-event/test-504.dds"
+	}
+
+ 
+ }

@@ -1,0 +1,193 @@
+spriteTypes = { 
+	##Icon For: Sieze Polish Crown
+	SpriteType = { 
+		name = "GFX_SAX_sieze_polish_crown-111258"
+		texturefile = "gfx/interface/goals/GFX_SAX_sieze_polish_crown-111258.dds"
+	}
+
+	##Icon Shine For: Sieze Polish Crown
+	SpriteType = { 
+		name = "GFX_SAX_sieze_polish_crown-111258_shine"
+		texturefile = "gfx/interface/goals/GFX_SAX_sieze_polish_crown-111258.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_SAX_sieze_polish_crown-111258.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_SAX_sieze_polish_crown-111258.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: North German Vassalage
+	SpriteType = { 
+		name = "GFX_SAX_north_german_vassalage-108494"
+		texturefile = "gfx/interface/goals/GFX_SAX_north_german_vassalage-108494.dds"
+	}
+
+	##Icon Shine For: North German Vassalage
+	SpriteType = { 
+		name = "GFX_SAX_north_german_vassalage-108494_shine"
+		texturefile = "gfx/interface/goals/GFX_SAX_north_german_vassalage-108494.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_SAX_north_german_vassalage-108494.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_SAX_north_german_vassalage-108494.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Military Industry Investment
+	SpriteType = { 
+		name = "GFX_SAX_military_industry_investment-108490"
+		texturefile = "gfx/interface/goals/GFX_SAX_military_industry_investment-108490.dds"
+	}
+
+	##Icon Shine For: Military Industry Investment
+	SpriteType = { 
+		name = "GFX_SAX_military_industry_investment-108490_shine"
+		texturefile = "gfx/interface/goals/GFX_SAX_military_industry_investment-108490.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_SAX_military_industry_investment-108490.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_SAX_military_industry_investment-108490.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: Prepared Industry
+	SpriteType = { 
+		name = "GFX_SAX_prepared_industry-116416"
+		texturefile = "gfx/interface/goals/GFX_SAX_prepared_industry-116416.dds"
+	}
+
+	##Icon Shine For: Prepared Industry
+	SpriteType = { 
+		name = "GFX_SAX_prepared_industry-116416_shine"
+		texturefile = "gfx/interface/goals/GFX_SAX_prepared_industry-116416.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_SAX_prepared_industry-116416.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_SAX_prepared_industry-116416.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	##Icon For: American Military Outposts
+	SpriteType = { 
+		name = "GFX_SAX_american_military_outposts-108361"
+		texturefile = "gfx/interface/goals/GFX_SAX_american_military_outposts-108361.dds"
+	}
+
+	##Icon Shine For: American Military Outposts
+	SpriteType = { 
+		name = "GFX_SAX_american_military_outposts-108361_shine"
+		texturefile = "gfx/interface/goals/GFX_SAX_american_military_outposts-108361.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_SAX_american_military_outposts-108361.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = -90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/goals/GFX_SAX_american_military_outposts-108361.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds"
+			animationrotation = 90.0
+			animationlooping = no
+			animationtime = 0.75
+			animationdelay = 0
+			animationblendmode = "add"
+			animationtype = "scrolling"
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+ 
+ }

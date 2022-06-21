@@ -1,0 +1,15 @@
+spriteTypes = { 
+	##Icon For: Better Equipment
+	SpriteType = { 
+		name = "GFX_idea_xVJiytvL-1057"
+		texturefile = "gfx/interface/ideas/equipment-bonus-ideas/xVJiytvL-1057.dds"
+	}
+
+	##Icon For: Better Planes
+	SpriteType = { 
+		name = "GFX_idea_better_planes-1044"
+		texturefile = "gfx/interface/ideas/equipment-bonus-ideas/better_planes-1044.dds"
+	}
+
+ 
+ }
