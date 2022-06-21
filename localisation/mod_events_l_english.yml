@@ -1,0 +1,317 @@
+﻿l_english: 
+    ftfrn.1.t:0 "Scotland suggests centralization of the alliance"
+    ftfrn.1.d:0 "The scottish have suggested that we pass legislation that would tie us further with them, essentially centralizing the alliance into a confederation of states under scottish leadership."
+    ftfrn.1.a:0 "What a splendid idea! This will benefit us greatly!"
+    ftfrn.1.b:0 "We would rather not give up our full independence"
+    ftfrn.1.c:0 "Who do they think they are? That's it we are leaving"
+    
+    ftfrn.2.t:0 "Wales suggests a non-agression pact"
+    ftfrn.2.d:0 "The welsh countinue to seek our support. They have proposed a non agression pact in exchange for humanitarian aid. How do we respond?"
+    ftfrn.2.a:0 "What a splendid idea! This will benefit us greatly!"
+    ftfrn.2.b:0 "We would rather not"
+    ftfrn.2.c:0 "How about an alliance?"
+    
+    ftfrn.3.t:0 "Scottish suggest our entry into their faction"
+    ftfrn.3.d:0 "Scotland suggest the creation of a new faction with us as their members. This might our only chance to ensure their support in dire times ahead."
+    ftfrn.3.a:0 "What a splendid idea! This will benefit us greatly!"
+    ftfrn.3.b:0 "We would rather not"
+    
+    ftfrn.4.t:0 "Occitania suggests our entry into their faction"
+    ftfrn.4.d:0 "Ocittania suggest creation of a Pan-French faction as a solution to the unification issue. How do we respond?"
+    ftfrn.4.a:0 "Yes, this seems like a good idea"
+    ftfrn.4.b:0 "We would rather not"
+    
+    ftfrn.5.t:0 "Communist uprising!"
+    ftfrn.5.d:0 "Today communist militia and army units turned rouge have taken control of Occitan capital. Similar takeovers have taken place in most major cities across Ocittania  and some of our own cities. The goverment of Ocittania has seemingly collapsed and the rebels have proclaimed the creation of the Pan French Workers Commune. They demand our surrender, while what remains of Ocittanian goverment has assured its support in case we refuse."
+    ftfrn.5.a:0 "There is nothing we can do. Long live the Unified Commune of France!"
+    ftfrn.5.b:0 "Better dead than red!"
+    
+    ftfrn.6.t:0 "Royal Reunification"
+    ftfrn.6.d:0 "Following a sudden resurgance of royal ideas in our society the Occitan goverment has crowned their new king and demanded our vassalization. How do we respond?"
+    ftfrn.6.a:0 "Long live the king!"
+    ftfrn.6.b:0 "We shall never swear fealty to the Occitan 'King'"
+    
+    ftfrn.7.t:0 "Unified commune of France wants to join the Comintern"
+    ftfrn.7.d:0 "The french seek to join the Cominten. How do we respond?"
+    ftfrn.7.a:0 "Ok, this will only benefit us"
+    ftfrn.7.b:0 "No deals with the syndycalists!"
+    
+    ftfrn.9.t:0 "Egypt wants to join the Axis"
+    ftfrn.9.d:0 "The egyptians have aproached us asking for entry into the Axis. How do we respond?"
+    ftfrn.9.a:0 "Ok, deal with Egypt will be useful for joint mediterean domination"
+    ftfrn.9.b:0 "No, we have enough 'allies' to protect"
+    
+    ftfrn.10.t:0 "Egypt demands our annexation"
+    ftfrn.10.d:0 "Today the egyptian army has crossed our border in multiple places and we have recieved a message from the Egyptian ambassador that our country no longer exists in the eye of the egyptian government. How do we respond?"
+    ftfrn.10.a:0 "There is nothing we can do."
+    ftfrn.10.b:0 "We shall never surrender!"
+    
+    ftfrn.11.t:0 "Egypt asks for a guarantee"
+    ftfrn.11.d:0 "Today the egyptians have aproached all major nations and asked for a guarantee of independance to ensure the suez trade keeps flowing. How do we respond?"
+    ftfrn.11.a:0 "Yes, this will only benefit global stability."
+    ftfrn.11.b:0 "We have enough obligations to uphold"
+    
+    ftfrn.12.t:0 "Egypt asks for us to give up gibraltar"
+    ftfrn.12.d:0 "The egytpians have asked us to hand over control over the gibraltar. This way they could have full control over what goes in and out of the mediterean. If we refure the egyptians might cause extra trouble for our ships in the suez canal."
+    ftfrn.12.a:0 "Yes, while we would rather not give up gibraltar, the possibility of being banned from the suez is too dangerous."
+    ftfrn.12.b:0 "We will defend that rock to the end!"
+    
+    ftfrn.13.t:0 "Egypt suggests our entry into their faction"
+    ftfrn.13.d:0 "The egyptians have created a faction and suggest to enter it for our shared security"
+    ftfrn.13.a:0 "Yes, we shall be strong in numbers."
+    ftfrn.13.b:0 "We prefer to stay alone"
+    
+    ftfrn.14.t:0 "Egypt suggests a surprise attack on the turkish soil"
+    ftfrn.14.d:0 "Our socialist brothers in egypt have suggested that we commence a surprise attack on the turkish soil from two sides. How do we respond?"
+    ftfrn.14.a:0 "Yes, we shall finally secure access to the mediterean"
+    ftfrn.14.b:0 "Send no response"
+    
+    ftfrn.15.t:0 "Cambodia seeks our entry into their faction"
+    ftfrn.15.d:0 "Cambodian officials have asked us to join their alliance with the hope that together we will be strong."
+    ftfrn.15.a:0 "Yes, together we shall be strong"
+    ftfrn.15.b:0 "We would rather not"
+    
+    ftfrn.16.t:0 "Non agression pact with Cambodia?"
+    ftfrn.16.d:0 "Cambodia cowadly askes us to sign a non-agression pact with them. How do we respond to this rather pathetic suggestion"
+    ftfrn.16.a:0 "We have enough enemies right now."
+    ftfrn.16.b:0 "Hahahaha... no"
+    
+    ftfrn.17.t:0 "Alliance with Cambodia?"
+    ftfrn.17.d:0 "The cambodians seek to join our faction and help us in our conquest."
+    ftfrn.17.a:0 "All help is welcome"
+    ftfrn.17.b:0 "Why would we ally our prey?"
+    
+    ftfrn.18.t:0 "Morroco demands Granada"
+    ftfrn.18.d:0 "Morroco today has demanded we hand over the control over Granada, noting our lose control and the protection of civilians from the civil war as reason."
+    ftfrn.18.a:0 "We have to give in"
+    ftfrn.18.b:0 "What makes them think we would give in?"
+    
+    ftfrn.19.t:0 "Morroco seeks to join the Axis"
+    ftfrn.19.d:0 "Morroco, a new fascist nation wants to join the Axis. How do we respond?"
+    
+    ftfrn.20.t:0 "Sell the islas canarias?"
+    ftfrn.20.d:0 "The morrocan goverment has suggested that we sell those small insignificant isles to them. How do we respond?"
+    ftfrn.20.a:0 "These isles are literally pointless. We agree."    
+    ftfrn.20.b:0 "Pointless or not they are spanish and will remain spanish"
+    
+    ftfrn.21.t:0 "Ukraine wishes to enter our faction"
+    ftfrn.21.d:0 "Ukraine, once a part of our union now wants to join our faction. How do we respond?"
+    
+    ftfrn.22.t:0 "Ukraine demands we hand over their core lands"
+    ftfrn.22.d:0 "Today we have recieved an ultimatum from the Ukrainian government. Give up their righful lands or face war."
+    ftfrn.22.a:0 "We must give that land up."
+    ftfrn.22.b:0 "We will defend Lwów to the last. In the spirit of Orlęta Lwowskie we shall prevail!"
+    
+    ftfrn.23.t:0 "Ukraine wants control of Crimea"
+    ftfrn.23.d:0 "Ukrainian officals have suggested we hand over control of Crimea. How do we respond?"
+    ftfrn.23.a:0 "Why not? As long as they are loyal we don't have a reason to not give them that land."
+    ftfrn.23.b:0 "No"
+    
+    ftfrn.24.t:0 "Ukraine demands we hand over Bessarabia"
+    ftfrn.24.d:0 "Today we have recieved an ultimatum from the Ukrainian government. Give up Bessarabia"
+    ftfrn.24.a:0 "We must give that land up."
+    ftfrn.24.b:0 "Never!"
+    
+    ftfrn.25.t:0 "Pakistan demands our annexation"
+    ftfrn.25.d:0 "Today we have recieved an ultimatum from Pakistan. They demand our annexation"
+    ftfrn.25.a:0 "We must give in"
+    ftfrn.25.b:0 "Never!"
+    
+    ftfrn.26.t:0 "Catalonia demands the return of their lands"
+    ftfrn.26.d:0 "Today we have recieved an ultimatum from Catalonia. They want the return of 'their' land"
+    ftfrn.26.a:0 "We must give in"
+    ftfrn.26.b:0 "Never!"
+    
+    ftfrn.27.t:0 "Referendum Disturbed!"
+    ftfrn.27.d:0 "During the referendum communist militias have attacked polling places and engaged army units. Some army units have deserted and joined their side. This is a beginning of a civil war. Which side do we support?"
+    ftfrn.27.a:0 "Death to the communists!"
+    ftfrn.27.b:0 "Death to the fascists!"
+    
+    ftfrn.28.t:0 "Cyprus seeks to join our faction"
+    ftfrn.28.d:0 "Cyprus wants to enter our faction. They say for our shared security and protection. How do we respond?"
+    ftfrn.28.a:0 "Yes, the more allies the merrier"
+    ftfrn.28.b:0 "We have enough obligations"
+    
+    ftfrn.29.t:0 "A new Soviet Union?"
+    ftfrn.29.d:0 "Ukraine suggests we create a new Soviet Union with us gaining Belarus as a new SSR and them being the leader of the faction. How do we respond?"
+    ftfrn.29.a:0 "Yes, we are stronger together"
+    ftfrn.29.b:0 "They clearly just want to dominate us"
+    
+    ftfrn.30.t:0 "Belarussian SSR"
+    ftfrn.30.d:0 "Soviets have demanded that we join the new Soviet Union as an SSR. How do we respond?"
+    ftfrn.30.a:0 "There is nothing we can do"
+    ftfrn.30.b:0 "Never!"
+    
+    ftfrn.31.t:0 "Soviets said no"
+    ftfrn.31.d:0 "There will be no peaceful reunification"
+    ftfrn.31.a:0 "Sad, but this was worth giving a shot"
+    ftfrn.31.b:0 "They have lost their communist mandate..."
+    ftfrn.31.c:0 "Leave their faction in protest"
+    
+    ftfrn.32.t:0 "The German Question"
+    ftfrn.32.d:0 "Germans are threatening us and we need to something about it"
+    ftfrn.32.a:0 "We shall trade Danzig for peace"
+    ftfrn.32.b:0 "We shall demand a non agression pact"
+    ftfrn.32.c:0 "Time for a preemptive strike"
+    
+    ftfrn.33.t:0 "Danzig for non agression"
+    ftfrn.33.d:0 "Ukrainians want non agression for Danzig"
+    ftfrn.33.a:0 "Good deal, we must agree"
+    ftfrn.33.b:0 "Send no response"
+    
+    ftfrn.34.t:0 "Demand for non-agression"
+    ftfrn.34.d:0 "Ukrainians have demanded we sign a non agression pact with them, "or else""
+    ftfrn.34.a:0 "It doesn't cost anything so why not"
+    ftfrn.34.b:0 "How dare they threaten us!"
+    
+    ftfrn.35.t:0 "Demand for Istanbul"
+    ftfrn.35.d:0 "Ukrainians have demanded we give them control over Istanbul. How do we respond?"
+    ftfrn.35.a:0 "We can't risk war"
+    ftfrn.35.b:0 "How dare they threaten us!"
+    
+    ftfrn.36.t:0 "Non-Agression on the Isles"
+    ftfrn.36.d:0 "England suggests we sign a non agression pact with them to ensure peace on the isles"
+    ftfrn.36.a:0 "We can't risk war"
+    ftfrn.36.b:0 "We would rather not"
+    
+    ftfrn.37.t:0 "Support England?"
+    ftfrn.37.d:0 "English seeek our support, we can support them , but that will come with drawbacks. What should we do"
+    ftfrn.37.a:0 "We will support them"
+    ftfrn.37.b:0 "We would rather not"
+    
+    ftfrn.38.t:0 "Unification for Subjugation"
+    ftfrn.38.d:0 "English seeek for us to become a protectorate of them in exchange for northern ireland. How do we respond?"
+    ftfrn.38.a:0 "Sounds good"
+    ftfrn.38.b:0 "We would rather not"
+    
+    ftfrn.39.t:0 "Demand from England"
+    ftfrn.39.d:0 "English seeek for us to become a protectorate of them. How do we respond?"
+    ftfrn.39.a:0 "Sounds good"
+    ftfrn.39.b:0 "We would rather not"
+    
+    ftfrn.40.t:0 "Prussian Legacy"
+    ftfrn.40.d:0 "The prussian legacy runs deep in the german state. We must ask ourselves whether we should try to change that, or keep the status quo"
+    ftfrn.40.a:0 "A new Germany"
+    ftfrn.40.b:0 "Preußens Gloria"
+    
+    ftfrn.41.t:0 "The Saarland Question"
+    ftfrn.41.d:0 "We have been in conflict with the french on who should control the Saarlad. How do we approach that problem?"
+    ftfrn.41.a:0 "Offer Confessions"
+    ftfrn.41.b:0 "It's ours!"
+    
+    ftfrn.42.t:0 "West German non-agression?"
+    ftfrn.42.d:0 "We have been approached by the western german government. They have suggested we sign a non-agression pact to proctect the peace. How do we respond?"
+    ftfrn.42.a:0 "Sure, why not. We can always break it later anyways"
+    ftfrn.42.b:0 "They don't even exist on our maps!"
+    
+    ftfrn.43.t:0 "Referendum?"
+    ftfrn.43.d:0 "We have been approached by the western german government. They demand we conduct a referendum on whether our people want to join their country. How do we respond?"
+    ftfrn.43.a:0 "Sure, why not? Our people will vote how we want anyways."
+    ftfrn.43.b:0 "No way!"
+    ftfrn.43.c:0 "Rig the ballot"
+    
+    ftfrn.44.t:0 "The referendum fails"
+    ftfrn.44.d:0 "The austrians have replied to our request that they agree, and now a week later they have responded that the referendum has failed."
+    ftfrn.44.a:0 "We tried"
+    ftfrn.44.b:0 "Clearly rigged!"
+    
+    ftfrn.45.t:0 "The referendum denied!"
+    ftfrn.45.d:0 "The austrians have replied to our request that they don't see the point of conducting such a referendum. The same day the austrian border was closed 'temporarily'. How do we respond to this clear insult?"
+    ftfrn.45.a:0 "You know the rules, and so do I..."
+    ftfrn.45.b:0 "Protest peacefully"
+    
+    ftfrn.46.t:0 "Disunified Unification"
+    ftfrn.46.d:0 "The western germans suggest we give them control over the east germany. Given their cooperation this doesn't seem all that stupid..."
+    ftfrn.46.a:0 "Sure"
+    ftfrn.46.b:0 "No way"
+    
+    ftfrn.47.t:0 "Worker's Uprising"
+    ftfrn.47.d:0 "A worker's uprising has occured in Berlin. They wanted to destabilise the government. The troublemakers were dealt with by Stasi"
+    ftfrn.47.a:0 "This had to be done"
+    
+    ftfrn.48.t:0 "Worker's Protest"
+    ftfrn.48.d:0 "A peaceful protest has started in Berlin. They wanted ordinary changes to improve their lives. After some negotiations the situation was resolved"
+    ftfrn.48.a:0 "A triumph of our new state"
+    
+    ftfrn.49.t:0 "The Polish Question"
+    ftfrn.49.d:0 "We must ask ourselves what our position on Poland shall be."
+    ftfrn.49.a:0 "Cooperation"
+    ftfrn.49.b:0 "Reafirm historic claims"
+    
+    ftfrn.50.t:0 "The East German Negotiations"
+    ftfrn.50.d:0 "The East Germans have approached us asking for us to open the straits for them"
+    ftfrn.50.a:0 "Sure why not"
+    ftfrn.50.b:0 "What are they gonna do? Invade us like last time?"
+    
+    ftfrn.51.t:0 "A House Divided"
+    ftfrn.51.d:0 "The great depression left no one untouched. So when several states declared independence no one inside those states opposed and that triggered a domino effect that lead to the situation US finds itself in now. Afterall, how can a state fight against the total breakdown of itself? Tough times lay ahead for everyone on the continent."
+    ftfrn.51.a:0 "...that house couldn't stand"
+    
+    ftfrn.52.t:0 "Pan German Alliance"
+    ftfrn.52.d:0 "Bavaria has suggested that we join a new german alliance. How do we respond?"
+    ftfrn.52.a:0 "Sure why not"
+    ftfrn.52.b:0 "What are they gonna do? Invade us like last time?"
+    
+    ftfrn.53.t:0 "Night of Burned Paintings"
+    ftfrn.53.d:0 "The streets of every city are covered in ash and broken glass. An angry, poor mob has moved through every large city destroying everything in their path that they deemed progressive and liberal. Nothing of the old system remains intact."
+    ftfrn.53.b:0 "A common working man fighting against the bourgeoisie"
+    ftfrn.53.a:0 "A return to the roots"
+    
+    ftfrn.54.t:0 "Saxon Demand"
+    ftfrn.54.d:0 "The saxon king has demanded we become his vassal. How do we respond?"
+    ftfrn.54.b:0 "We would rather die!"
+    ftfrn.54.a:0 "We must agree"
+    ftfrn.54.c:0 "We would rather agree to a full annexation"
+    
+    ftfrn.55.t:0 "Gather Allies"
+    ftfrn.55.d:0 "We need allies for our conquest of Romania. Who should we ask for future help?"
+    ftfrn.55.b:0 "Soviet help in exchange for Moldavia sounds good"
+    ftfrn.55.a:0 "Bulgarians are natural enemies of Romania"
+    ftfrn.55.c:0 "We will do fine on our own"
+    
+    ftfrn.56.t:0 "Romanian Deal"
+    ftfrn.56.d:0 "Romanians have suggested we participate in a future Romanian conquest. How do we respond?"
+    ftfrn.56.b:0 "Sure"
+    ftfrn.56.a:0 "How about no..."
+    
+    ftfrn.57.t:0 "Separatist Riots"
+    ftfrn.57.d:0 "A wave of riots and general incompliance has swept through our country leading to a major destabilisation of society."
+    ftfrn.57.b:0 "Shit"
+    
+    ftfrn.58.t:0 "Election"
+    ftfrn.58.d:0 "The time has come to decide who will rule us. This election is of utmost importance as we are a new nation."
+    ftfrn.58.a:0 "Far Right Candidate"
+    ftfrn.58.b:0 "Democratic Candidate"
+    ftfrn.58.c:0 "Liberal Candidate"
+    
+    ftfrn.59.t:0 "Anatra Refounded"
+    ftfrn.59.d:0 "After being destroyed during the revolution in 1918, Anatra has dissapeared from the Ukrainian market. Now that we have refounded the company and brought back the engineers many celebrate the return of this ukrainian aircraft manufacturer."
+    ftfrn.59.a:0 "Turn this into a propaganda story"
+    ftfrn.59.b:0 "Cool"
+    
+    ftfrn.60.t:0 "Occitan Demand"
+    ftfrn.60.d:0 "Today we have recieved a diplomatic notice from the Occitan Government where they have threatened our independence. This is clearly a demand for our submission. What shall we do?"
+    ftfrn.60.a:0 "We shall submit"
+    ftfrn.60.b:0 "We would rather die!"
+    ftfrn.60.c:0 "Offer them tribute"
+    
+    ftfrn.61.t:0 "Tunisian Reply"
+    ftfrn.61.d:0 "The tunisian have suggested they pay us a trbute instead of becoming our protectorate"
+    ftfrn.61.a:0 "Sure"
+    ftfrn.61.b:0 "Uhhh... I prefer the land"
+    
+    ftfrn.62.t:0 "The First Elections"
+    ftfrn.62.d:0 "The results of the elections are back and... they have been obviously subverted by foreign operatives. Or sleeper agents left behind by the Polish and Germans"
+    ftfrn.62.a:0 "Blame the Germans"
+    ftfrn.62.b:0 "Blame the Polish"
+    ftfrn.62.c:0 "Tough times ahead of us"
+    
+    ftfrn.63.t:0 "Silesian Demand"
+    ftfrn.63.d:0 "The silesian government today has sent us a demand for us to dissolve Czechoslovakia, and allow them to help Slovakia secure it's independence and accept Silesian overlorship over Slovakia. They have assured Italian and Hungarian support in this matter. How do we respond?"
+    ftfrn.63.a:0 "Sure"
+    ftfrn.63.b:0 "Send no reply..."
+    
+    ftfrn.64.t:0 "Sao Tome Siezed"
+    ftfrn.64.d:0 "Nigeria has illegally siezed our island of Sao Tome near their coast. How do we respond?"
+    ftfrn.64.a:0 "Whatever. It's a useless piece of land anyways."
+    ftfrn.64.b:0 "War it is!"
