@@ -1,0 +1,1594 @@
+focus_tree = {
+	id = Brittany
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = BRI
+		}
+	}
+	
+	continuous_focus_position = { x = 50 y = 1500 }
+	
+	shared_focus = army_effort_dup
+	shared_focus = aviation_effort_dup
+	shared_focus = naval_effort_dup
+	
+	#Focus for Research Grants
+	focus = {
+		id = BRI_research_grants
+		icon = GFX_focus_mex_privatisation
+		x = 15
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_push_back_the_germanic_invaders }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Dockyard Expansion
+	focus = {
+		id = BRI_dockyard_expansion
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 13
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_kill_the_idea_of_rome 
+		}
+		prerequisite = { 
+			focus = BRI_push_back_the_germanic_invaders 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = dockyard
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Take Cornwall
+	focus = {
+		id = BRI_take_cornwall
+		icon = GFX_goal_generic_major_war
+		x = 9
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_liberate_galicia }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_core= 123  create_wargoal= { 
+type = annex_everything 
+target = ENG
+}
+		}
+	}
+
+	#Focus for Help against Communists
+	focus = {
+		id = BRI_help_against_communists
+		icon = GFX_focus_attack_soviet
+		x = 7
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_align_with_the_germans }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			SOV={has_government = communism}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = SOV
+}
+		}
+	}
+
+	#Focus for Claim Spanish Throne
+	focus = {
+		id = BRI_claim_spanish_throne
+		icon = GFX_focus_generic_monarchy_2
+		x = 5
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_royal_alliance }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_country={
+limit = {controls_state = 41 has_civil_war = no}
+create_wargoal= { 
+type = annex_everything 
+target = PREV
+}
+ }
+		}
+	}
+
+	#Focus for Preemptive Strike against Germans
+	focus = {
+		id = BRI_preemptive_strike_against_germans
+		icon = GFX_goal_generic_political_pressure
+		x = 3
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_align_with_the_democrats 
+			focus = BRI_royal_alliance 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = GER
+}
+		}
+	}
+
+	#Focus for Join the Allies
+	focus = {
+		id = BRI_join_the_allies
+		icon = GFX_goal_support_democracy
+		x = 1
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_align_with_the_democrats }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			ENG = {has_government = ROOT}
+		}
+		completion_reward = {
+			ENG = {add_to_faction = ROOT}
+		}
+	}
+
+	#Focus for Equip the Army
+	focus = {
+		id = BRI_equip_the_army
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 16
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_build_steel_mills
+		}
+		prerequisite = { 
+			focus = BRI_no_shall_pass 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for More Forts
+	focus = {
+		id = BRI_more_forts
+		icon = GFX_goal_generic_defence
+		x = 18
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_no_shall_pass 
+		}
+		prerequisite = { 
+			focus = BRI_freedom_of_research 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = deterrence
+		}
+	}
+
+	#Focus for Liberate Galicia
+	focus = {
+		id = BRI_liberate_galicia
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 10
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_free_the_scottish_and_welsh 
+		}
+		prerequisite = { 
+			focus = BRI_embrace_autarky 
+		}
+		mutually_exclusive = { focus = BRI_align_with_the_germans }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_core= 171
+		}
+	}
+
+	#Focus for Align with the Democrats
+	focus = {
+		id = BRI_align_with_the_democrats
+		icon = GFX_goal_tripartite_pact
+		x = 2
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_invite_the_royalists 
+		}
+		prerequisite = { 
+			focus = BRI_royal_universities 
+		}
+		mutually_exclusive = { 
+			focus = BRI_royal_alliance 
+		}
+		mutually_exclusive = { 
+			focus = BRI_align_with_the_germans 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = ENG modifier = medium_increase }
+add_opinion_modifier = { target = USA modifier = medium_increase }
+ENG={
+add_opinion_modifier = { target = BRI modifier = medium_increase }}
+USA={
+add_opinion_modifier = { target = BRI modifier = medium_increase }}
+		}
+	}
+
+	#Focus for Royal Universities
+	focus = {
+		id = BRI_royal_universities
+		icon = GFX_focus_research2
+		x = 3
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_spread_the_counter_revolution 
+		}
+		prerequisite = { 
+			focus = BRI_contact_the_carlists 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Invite the Royalists
+	focus = {
+		id = BRI_invite_the_royalists
+		icon = GFX_goal_generic_propaganda
+		x = 1
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_contact_the_carlists }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  add_stability= -0.05  add_war_support= 0.2
+		}
+	}
+
+	#Focus for Build Manufacturies
+	focus = {
+		id = BRI_build_manufacturies
+		icon = GFX_goal_generic_construct_civilian
+		x = 3
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_denounce_the_french_revolution }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Honor the Counter-Revolutionaries
+	focus = {
+		id = BRI_honor_the_counterrevolutionaries
+		icon = GFX_goal_generic_major_alliance
+		x = 1
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_denounce_the_french_revolution }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= counter_revolution
+		}
+	}
+
+	#Focus for Spread the Counter Revolution
+	focus = {
+		id = BRI_spread_the_counter_revolution
+		icon = GFX_focus_attack_france
+		x = 5
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_revive_the_ancien_rgime }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 100000}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = FRA
+}
+		}
+	}
+
+	#Focus for Revive the Ancien Régime
+	focus = {
+		id = BRI_revive_the_ancien_rgime
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		x = 5
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_denounce_the_french_revolution }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = neutrality 
+popularity = 0.3 
+}
+  add_stability= 0.1  set_politics= {
+ ruling_party = neutrality 
+elections_allowed = no 
+}
+  set_party_name= { 
+ideology = neutrality 
+long_name = BRI_royal 
+name = BRI_royal 
+}
+add_ideas = absolute_monarchy_i
+		}
+	}
+
+	#Focus for Promote Celtic Culture
+	focus = {
+		id = BRI_promote_celtic_culture
+		icon = GFX_goal_generic_propaganda
+		x = 11
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_reinstate_breton_language }
+		mutually_exclusive = { focus = BRI_denounce_the_french_revolution }
+		mutually_exclusive = { focus = BRI_democratic_bastion }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			has_government = fascism
+		}
+		available = {
+			is_subject= no
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.3 
+}
+  add_stability= -0.1  add_war_support= 0.15
+		}
+	}
+
+	#Focus for Democratic Bastion
+	focus = {
+		id = BRI_democratic_bastion
+		icon = GFX_goal_support_democracy
+		x = 19
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_reinstate_breton_language }
+		mutually_exclusive = { 
+			focus = BRI_denounce_the_french_revolution 
+		}
+		mutually_exclusive = { 
+			focus = BRI_promote_celtic_culture 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.3 
+}
+  add_stability= 0.1
+		}
+	}
+
+	#Focus for Denounce the French Revolution
+	focus = {
+		id = BRI_denounce_the_french_revolution
+		icon = GFX_focus_focus_fra_down_marianne
+		x = 3
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_reinstate_breton_language }
+		mutually_exclusive = { focus = BRI_promote_celtic_culture }
+		mutually_exclusive = { focus = BRI_democratic_bastion }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			has_government = neutrality
+		}
+		available = {
+			is_subject= no
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = neutrality
+popularity = 0.3 
+}
+  add_stability= -0.1  add_war_support= 0.1
+		}
+	}
+
+	#Focus for Build Steel Mills
+	focus = {
+		id = BRI_build_steel_mills
+		icon = GFX_focus_generic_steel
+		x = 15
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_military_expansion }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = steel 
+amount = 16 
+state = 14 
+}
+		}
+	}
+
+	#Focus for Contact the Carlists
+	focus = {
+		id = BRI_contact_the_carlists
+		icon = GFX_focus_spa_supremacy_of_the_communion
+		x = 1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_honor_the_counterrevolutionaries }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  add_stability= 0.1  add_war_support= 0.2
+		}
+	}
+
+	#Focus for Reinstate Breton Language
+	focus = {
+		id = BRI_reinstate_breton_language
+		icon = GFX_goal_generic_demand_territory
+		x = 11
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  add_stability= 0.1
+		}
+	}
+
+	#Focus for Royal Industry
+	focus = {
+		id = BRI_royal_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_revive_the_ancien_rgime 
+		}
+		prerequisite = { 
+			focus = BRI_honor_the_counterrevolutionaries 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Claim French Throne
+	focus = {
+		id = BRI_claim_french_throne
+		icon = GFX_focus_rom_royal_dictatorship
+		x = 5
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_spread_the_counter_revolution }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			FRA = {exists= yes}
+		}
+		completion_reward = {
+			set_cosmetic_tag= BRI_regime
+every_state={
+limit = {is_core_of = FRA}
+add_core_of = BRI
+}
+		}
+	}
+
+	#Focus for Pan Celtism
+	focus = {
+		id = BRI_pan_celtism
+		icon = GFX_goal_tripartite_pact
+		x = 9
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_promote_celtic_culture }
+		mutually_exclusive = { focus = BRI_gaul_superiority }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_party_name= { 
+ideology = fascism
+long_name = BRI_celtic_long 
+name = BRI_celtic_short 
+}
+add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+  set_politics= {
+ ruling_party = fascism 
+elections_allowed = no 
+}
+		}
+	}
+
+	#Focus for Gaul Superiority
+	focus = {
+		id = BRI_gaul_superiority
+		icon = GFX_goal_support_fascism
+		x = 13
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_promote_celtic_culture }
+		mutually_exclusive = { focus = BRI_pan_celtism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_party_name= { 
+ideology = fascism
+long_name = BRI_gaul_long 
+name = BRI_gaul_short 
+}
+add_popularity= { 
+ideology = fascism 
+popularity = 0.3 
+}
+  set_politics= {
+ ruling_party = fascism 
+elections_allowed = no 
+}
+		}
+	}
+
+	#Focus for State Industry Expansion
+	focus = {
+		id = BRI_state_industry_expansion
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 7
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_revive_the_ancien_rgime 
+			focus = BRI_pan_celtism 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Attack Ireland
+	focus = {
+		id = BRI_attack_ireland
+		icon = GFX_goal_generic_major_war
+		x = 9
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_pan_celtism }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 100000}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = IRE
+}
+  add_state_core= 135  add_state_core= 113  add_state_core= 134  add_state_core= 119
+		}
+	}
+
+	#Focus for Free the Scottish and Welsh
+	focus = {
+		id = BRI_free_the_scottish_and_welsh
+		icon = GFX_goal_generic_political_pressure
+		x = 9
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_attack_ireland }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = SCO
+}
+  create_wargoal= { 
+type = annex_everything 
+target = WLS
+}
+  add_state_core= 122  add_state_core= 133  add_state_core= 121  add_state_core= 136  add_state_core= 120  
+set_cosmetic_tag = GRT_SCO
+		}
+	}
+
+	#Focus for Expand weapon manufacturing
+	focus = {
+		id = BRI_expand_weapon_manufacturing
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 7
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_spread_the_counter_revolution 
+			focus = BRI_attack_ireland 
+		}
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for The Last Village
+	focus = {
+		id = BRI_the_last_village
+		icon = GFX_focus_generic_support_the_left_right
+		x = 11
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_pan_celtism 
+			focus = BRI_gaul_superiority 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= gaulspirit
+add_manpower = 100000
+		}
+	}
+
+	#Focus for Retake Our Homeland
+	focus = {
+		id = BRI_retake_our_homeland
+		icon = GFX_goal_demand_sudetenland
+		x = 13
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_gaul_superiority }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 100000}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = FRA
+}
+  create_wargoal= { 
+type = annex_everything 
+target = OCC
+}
+		}
+	}
+
+	#Focus for Restore The Gaul Empire
+	focus = {
+		id = BRI_restore_the_gaul_empire
+		icon = GFX_goal_generic_propaganda
+		x = 13
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_retake_our_homeland }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_cosmetic_tag= BRI_gaul
+every_state={
+limit = {is_core_of = FRA}
+add_core_of = BRI
+}
+every_state={
+limit = {is_core_of = OCC}
+add_core_of = BRI
+}
+		}
+	}
+
+	#Focus for Embrace Autarky
+	focus = {
+		id = BRI_embrace_autarky
+		icon = GFX_goal_generic_construction2
+		x = 11
+		y = 5
+		cost = 15
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_retake_our_homeland 
+			focus = BRI_attack_ireland 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = industrial_complex
+ level = 5
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Fortress Brittany
+	focus = {
+		id = BRI_fortress_brittany
+		icon = GFX_goal_generic_fortify_city
+		x = 17
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_democratic_bastion }
+		mutually_exclusive = { focus = BRI_protect_democracy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 100000  
+14 = {
+	add_building_construction = {
+		type = bunker
+        	province = 9510
+		level = 2
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 9495
+		level = 2
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 11508
+		level = 2
+	}
+}
+		}
+	}
+
+	#Focus for Protect Democracy
+	focus = {
+		id = BRI_protect_democracy
+		icon = GFX_goal_rhineland
+		x = 21
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_democratic_bastion }
+		mutually_exclusive = { focus = BRI_fortress_brittany }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= defender_democracy
+		}
+	}
+
+	#Focus for Western Equipment
+	focus = {
+		id = BRI_western_equipment
+		icon = GFX_focus_secret_rearmament
+		x = 19
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_fortress_brittany 
+			focus = BRI_protect_democracy 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_equipment_to_stockpile= {
+ type = infantry_equipment_0
+amount = 100000
+producer = FRA 
+}
+add_political_power = -150
+		}
+	}
+
+	#Focus for Continue Fortification
+	focus = {
+		id = BRI_continue_fortification
+		icon = GFX_goal_generic_construct_military
+		x = 17
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_fortress_brittany }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			14 = {
+	add_building_construction = {
+		type = bunker
+        	province = 9510
+		level = 3
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 9495
+		level = 3
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 11508
+		level = 3
+	}
+}
+		}
+	}
+
+	#Focus for No Shall Pass!
+	focus = {
+		id = BRI_no_shall_pass
+		icon = GFX_goal_generic_military_sphere
+		x = 17
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_continue_fortification }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			14 = {
+	add_building_construction = {
+		type = bunker
+        	province = 9510
+		level = 2
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 9495
+		level = 2
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 11508
+		level = 2
+	}
+	add_building_construction = {
+		type = coastal_bunker 
+        	province = 3552
+		level = 4
+	}
+	add_building_construction = {
+		type = coastal_bunker 
+        	province = 6536
+		level = 4
+	}
+}
+		}
+	}
+
+	#Focus for Military Expansion
+	focus = {
+		id = BRI_military_expansion
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 15
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_fortress_brittany 
+			focus = BRI_gaul_superiority 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Freedom of Research
+	focus = {
+		id = BRI_freedom_of_research
+		icon = GFX_focus_research2
+		x = 19
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_western_equipment }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for French Solidarity
+	focus = {
+		id = BRI_french_solidarity
+		icon = GFX_goal_anschluss
+		x = 21
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_protect_democracy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			give_guarantee = FRA
+FRA = {give_guarantee=BRI}
+		}
+	}
+
+	#Focus for American Protection
+	focus = {
+		id = BRI_american_protection
+		icon = GFX_goal_generic_improve_relations
+		x = 21
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_french_solidarity }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			USA = {give_guarantee=BRI}
+		}
+	}
+
+	#Focus for Industrial Expansion
+	focus = {
+		id = BRI_industrial_expansion
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 13
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_reinstate_breton_language }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Start Urbanisation Programs
+	focus = {
+		id = BRI_start_urbanisation_programs
+		icon = GFX_goal_generic_construct_civilian
+		x = 9
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_reinstate_breton_language }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			14= {
+ add_extra_state_shared_building_slots = 7 
+}
+		}
+	}
+
+	#Focus for Build Public Schools
+	focus = {
+		id = BRI_build_public_schools
+		icon = GFX_focus_research2
+		x = 7
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_reinstate_breton_language }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Industrial Investment
+	focus = {
+		id = BRI_industrial_investment
+		icon = GFX_goal_generic_construction2
+		x = 15
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_reinstate_breton_language }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Royal Alliance
+	focus = {
+		id = BRI_royal_alliance
+		icon = GFX_goal_generic_national_unity
+		x = 4
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_claim_french_throne 
+		}
+		prerequisite = { 
+			focus = BRI_royal_universities 
+		}
+		mutually_exclusive = { 
+			focus = BRI_align_with_the_germans 
+		}
+		mutually_exclusive = { 
+			focus = BRI_align_with_the_democrats 
+		}
+		mutually_exclusive = { 
+			focus = BRI_align_with_the_democrats 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_faction= "Royal Alliance"
+		}
+	}
+
+	#Focus for Align with the Germans
+	focus = {
+		id = BRI_align_with_the_germans
+		icon = GFX_focus_chi_mission_to_germany
+		x = 7
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_claim_french_throne 
+			focus = BRI_free_the_scottish_and_welsh 
+		}
+		mutually_exclusive = { 
+			focus = BRI_liberate_galicia 
+		}
+		mutually_exclusive = { 
+			focus = BRI_royal_alliance 
+		}
+		mutually_exclusive = { 
+			focus = BRI_align_with_the_democrats 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			GER = {add_to_faction = ROOT}
+		}
+	}
+
+	#Focus for Kill the Idea of Rome
+	focus = {
+		id = BRI_kill_the_idea_of_rome
+		icon = GFX_focus_attack_italy
+		x = 12
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_embrace_autarky 
+		}
+		prerequisite = { 
+			focus = BRI_restore_the_gaul_empire 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = ITA
+}
+		}
+	}
+
+	#Focus for Push Back the Germanic Invaders
+	focus = {
+		id = BRI_push_back_the_germanic_invaders
+		icon = GFX_focus_attack_germany
+		x = 14
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_restore_the_gaul_empire 
+		}
+		prerequisite = { 
+			focus = BRI_build_steel_mills 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = GER
+}
+		}
+	}
+
+	#Focus for Mobilise the Country
+	focus = {
+		id = BRI_mobilise_the_country
+		icon = GFX_goal_generic_consumer_goods
+		x = 20
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_freedom_of_research 
+		}
+		prerequisite = { 
+			focus = BRI_american_protection 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = tot_economic_mobilisation
+add_ideas = service_by_requirement
+		}
+	}
+
+	#Focus for Oldest People in Europe
+	focus = {
+		id = BRI_oldest_people_in_europe
+		icon = GFX_goal_generic_secret_weapon
+		x = 11
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_liberate_galicia 
+			focus = BRI_kill_the_idea_of_rome 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_state={
+limit={OR={is_core_of = FRA is_core_of = OCC}}
+remove_core_of = FRA
+remove_core_of = OCC
+add_core_of = BRI
+}
+		}
+	}
+
+	#Focus for Airforce Production Industry
+	focus = {
+		id = BRI_airforce_production_industry
+		icon = GFX_goal_generic_production
+		x = 17
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_equip_the_army 
+		}
+		prerequisite = { 
+			focus = BRI_more_forts 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Tackle Fascism
+	focus = {
+		id = BRI_tackle_fascism
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		x = 21
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BRI_mobilise_the_country }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			GER={has_government = fascism}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = GER
+}
+		}
+	}
+
+	#Focus for Purchase Battleships
+	focus = {
+		id = BRI_purchase_battleships
+		icon = GFX_goal_generic_navy_battleship
+		x = 19
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BRI_more_forts 
+			focus = BRI_mobilise_the_country 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			load_oob= BRI_battleship
+		}
+	}
+
+#End of focuses 
+ }

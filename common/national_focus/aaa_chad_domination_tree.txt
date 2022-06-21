@@ -1,0 +1,218 @@
+focus_tree = {
+	id = chad_domination_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = aaa
+		}
+	}
+	
+	shared_focus = army_effort_dup
+	shared_focus = aviation_effort_dup
+	shared_focus = naval_effort_dup
+	
+	#Focus for Realize Chadness
+	focus = {
+		id = aaa_realize_chadness
+		icon = GFX_goal_generic_demand_territory
+		x = 10
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 450  add_popularity= { 
+ideology = fascism 
+popularity = 1 
+}
+  set_politics= {
+ ruling_party = fascism 
+elections_allowed = no 
+}
+		create_country_leader = {
+		name = "Chad"
+		desc = ""
+		picture = "gfx/leaders/chad.dds"
+		expire = "1969.1.1"
+		ideology = gen_nazism
+		traits = {
+		}
+	}
+		}
+	}
+
+	#Focus for Conjure Civilian Industry
+	focus = {
+		id = aaa_conjure_civilian_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 9
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = aaa_realize_chadness }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 15
+ add_building_construction = {
+ type = industrial_complex
+ level = 15
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Conjure Military Industry
+	focus = {
+		id = aaa_conjure_military_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 9
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = aaa_conjure_civilian_industry }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 10
+ add_building_construction = {
+ type = arms_factory
+ level = 10
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Big Brain
+	focus = {
+		id = aaa_big_brain
+		icon = GFX_focus_research2
+		x = 11
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = aaa_realize_chadness }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 3
+		}
+	}
+
+	#Focus for Chad Soldiers
+	focus = {
+		id = aaa_chad_soldiers
+		icon = GFX_aaa_chad_soldiers-107367
+		x = 11
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = aaa_big_brain }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 1000000  add_ideas= chad
+		}
+	}
+
+	#Focus for Deal with the Virgin Spirit
+	focus = {
+		id = aaa_deal_with_the_virgin_spirit
+		icon = GFX_goal_generic_secret_weapon
+		x = 10
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = aaa_chad_soldiers 
+		}
+		prerequisite = { 
+			focus = aaa_conjure_military_industry 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 1  add_war_support= 1
+		}
+	}
+
+	#Focus for Spread the Chad ways
+	focus = {
+		id = aaa_spread_the_chad_ways
+		icon = GFX_goal_generic_major_war
+		x = 10
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = aaa_deal_with_the_virgin_spirit }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_neighbor_country={
+CHA={
+create_wargoal = {type=annex_everything target=PREV}}}
+		}
+	}
+
+	#Focus for Call upon the Chad of the World
+	focus = {
+		id = aaa_call_upon_the_chad_of_the_world
+		icon = GFX_goal_generic_propaganda
+		x = 10
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = aaa_spread_the_chad_ways }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_state={add_core_of=CHA}
+		}
+	}
+
+#End of focuses 
+ }

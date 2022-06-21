@@ -1,0 +1,132 @@
+EGY_communism_plan = {
+    name = "Communist"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = EGY
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = EGY_ai_behavior
+			option = COMMUNIST
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+		
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		EGY_political_effort
+		EGY_accept_socialist_aid
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+EGY_fascist_plan = {
+    name = "Fascist"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = EGY
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = EGY_ai_behavior
+			option = FASCIST
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+		
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		EGY_political_effort
+		EGY_german_industrial_support
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+EGY_democratic_plan = {
+    name = "Democratic"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = EGY
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = EGY_ai_behavior
+			option = DEMOCRATIC
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+		
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		EGY_political_effort
+		EGY_maintain_the_status_quo
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}

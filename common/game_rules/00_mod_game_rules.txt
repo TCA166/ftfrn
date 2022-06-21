@@ -1,0 +1,359 @@
+SCO_ai_behavior = {
+	name = "SCO_AI_BEHAVIOR"
+	group = "RULE_GROUP_AI_RELEASE_BEHAVIOR"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_AI_DESC"
+	}
+	option = {
+		name = COMMUNIST
+		text = "RULE_OPTION_COMMUNIST"
+		desc = "RULE_OPTION_COMMUNIST_SCO_AI_DESC"
+	}
+	option = {
+		name = DEMOCRATIC
+		text = "RULE_OPTION_DEMOCRATIC"
+		desc = "RULE_DEMOCRATIC_SCO_AI_DESC"
+	}
+	option = {
+		name = DEMOCRATIC_ALTERNATE
+		text = "RULE_OPTION_DEMOCRATIC_ALTERNATE"
+		desc = "RULE_DEMOCRATIC_ALTERNATE_SCO_AI_DESC"
+	}
+	option = {
+		name = FASCIST
+		text = "RULE_OPTION_FASCIST"
+		desc = "RULE_FASCIST_SCO_AI_DESC"
+	}
+}
+UKR_ai_behavior = {
+	name = "UKR_AI_BEHAVIOR"
+	group = "RULE_GROUP_AI_RELEASE_BEHAVIOR"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_AI_DESC"
+	}
+	option = {
+		name = COMMUNIST
+		text = "RULE_OPTION_COMMUNIST"
+		desc = "RULE_OPTION_COMMUNIST_UKR_AI_DESC"
+	}
+	option = {
+		name = COMMUNIST_REFORMED
+		text = "RULE_OPTION_INDEPENDENT_COMMUNIST"
+		desc = "RULE_COMMUNIST_REFORMED_UKR_AI_DESC"
+	}
+	option = {
+		name = DEMOCRATIC
+		text = "RULE_OPTION_DEMOCRATIC"
+		desc = "RULE_DEMOCRATIC_UKR_AI_DESC"
+	}
+	option = {
+		name = FASCIST
+		text = "RULE_OPTION_FASCIST"
+		desc = "RULE_FASCIST_UKR_AI_DESC"
+	}
+	option = {
+		name = MONARCHIST
+		text = "RULE_OPTION_NEUTRALITY_MONARCHIST"
+		desc = "RULE_MONARCHIST_UKR_AI_DESC"
+	}
+}
+OCC_ai_behavior = {
+	name = "OCC_AI_BEHAVIOR"
+	group = "RULE_GROUP_AI_RELEASE_BEHAVIOR"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_AI_DESC"
+	}
+	option = {
+		name = COMMUNIST
+		text = "RULE_OPTION_COMMUNIST"
+		desc = "RULE_OPTION_COMMUNIST_OCC_AI_DESC"
+	}
+	option = {
+		name = PROTESTANT
+		text = "RULE_OPTION_PROTESTANT"
+		desc = "RULE_PROTESTANT_OCC_AI_DESC"
+	}
+	option = {
+		name = DEMOCRATIC
+		text = "RULE_OPTION_DEMOCRATIC"
+		desc = "RULE_DEMOCRATIC_OCC_AI_DESC"
+	}
+	option = {
+		name = FASCIST
+		text = "RULE_OPTION_FASCIST"
+		desc = "RULE_FASCIST_OCC_AI_DESC"
+	}
+	option = {
+		name = MONARCHIST
+		text = "RULE_OPTION_NEUTRALITY_MONARCHIST"
+		desc = "RULE_MONARCHIST_OCC_AI_DESC"
+	}
+}
+CAM_ai_behavior = {
+	name = "CAM_AI_BEHAVIOR"
+	group = "RULE_GROUP_AI_RELEASE_BEHAVIOR"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_AI_DESC"
+	}
+	option = {
+		name = COMMUNIST
+		text = "RULE_OPTION_COMMUNIST"
+		desc = "RULE_OPTION_COMMUNIST_CAM_AI_DESC"
+	}
+	option = {
+		name = DEMOCRATIC
+		text = "RULE_OPTION_DEMOCRATIC"
+		desc = "RULE_DEMOCRATIC_CAM_AI_DESC"
+	}
+	option = {
+		name = FASCIST
+		text = "RULE_OPTION_FASCIST"
+		desc = "RULE_FASCIST_CAM_AI_DESC"
+	}
+}
+EGY_ai_behavior = {
+	name = "EGY_AI_BEHAVIOR"
+	group = "RULE_GROUP_AI_RELEASE_BEHAVIOR"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_AI_DESC"
+	}
+	option = {
+		name = COMMUNIST
+		text = "RULE_OPTION_COMMUNIST"
+		desc = "RULE_OPTION_COMMUNIST_EGY_AI_DESC"
+	}
+	option = {
+		name = DEMOCRATIC
+		text = "RULE_OPTION_DEMOCRATIC"
+		desc = "RULE_DEMOCRATIC_EGY_AI_DESC"
+	}
+	option = {
+		name = FASCIST
+		text = "RULE_OPTION_FASCIST"
+		desc = "RULE_FASCIST_EGY_AI_DESC"
+	}
+}
+CAT_ai_behavior = {
+	name = "CAT_AI_BEHAVIOR"
+	group = "RULE_GROUP_AI_RELEASE_BEHAVIOR"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_AI_DESC"
+	}
+	option = {
+		name = COMMUNIST
+		text = "RULE_OPTION_COMMUNIST"
+		desc = "RULE_OPTION_COMMUNIST_CAT_AI_DESC"
+	}
+	option = {
+		name = DEMOCRATIC
+		text = "RULE_OPTION_DEMOCRATIC"
+		desc = "RULE_DEMOCRATIC_CAT_AI_DESC"
+	}
+	option = {
+		name = FASCIST
+		text = "RULE_OPTION_FASCIST"
+		desc = "RULE_FASCIST_CAT_AI_DESC"
+	}
+	option = {
+		name = NEUTRAL
+		text = "RULE_OPTION_DEMOCRATIC_ALTERNATE"
+		desc = "RULE_NEUTRAL_CAT_AI_DESC"
+	}
+}
+BRI_ai_behavior = {
+	name = "BRI_AI_BEHAVIOR"
+	group = "RULE_GROUP_AI_RELEASE_BEHAVIOR"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_AI_DESC"
+	}
+	option = {
+		name = MONARCHIST
+		text = "RULE_OPTION_NEUTRALITY_MONARCHIST"
+		desc = "RULE_OPTION_MONARCHIST_BRI_AI_DESC"
+	}
+	option = {
+		name = DEMOCRATIC
+		text = "RULE_OPTION_DEMOCRATIC"
+		desc = "RULE_DEMOCRATIC_BRI_AI_DESC"
+	}
+		option = {
+		name = FORT
+		text = "RULE_OPTION_DEMOCRATIC_ALTERNATE"
+		desc = "RULE_DEMOCRATIC_ALTERNATE_BRI_AI_DESC"
+	}
+	option = {
+		name = FASCIST
+		text = "RULE_OPTION_FASCIST"
+		desc = "RULE_FASCIST_BRI_AI_DESC"
+	}
+	option = {
+		name = CELTIC
+		text = "RULE_OPTION_FASCIST_ALTERNATE"
+		desc = "RULE_FASCIST_ALTERNATE_BRI_AI_DESC"
+	}
+}
+ENGLAND_ai_behavior = {
+	name = "ENGLAND_AI_BEHAVIOR"
+	group = "RULE_GROUP_AI_RELEASE_BEHAVIOR"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_AI_DESC"
+	}
+	option = {
+		name = REVIVE
+		text = "RULE_OPTION_GB"
+		desc = "RULE_OPTION_GB_DESC"
+	}
+	option = {
+		name = DEMOCRATIC
+		text = "RULE_OPTION_DEMOCRATIC"
+		desc = "RULE_DEMOCRATIC_ENG_AI_DESC"
+	}
+	option = {
+		name = FASCIST
+		text = "RULE_OPTION_FASCIST"
+		desc = "RULE_FASCIST_ENG_AI_DESC"
+	}
+	option = {
+		name = COMMUNIST
+		text = "RULE_OPTION_COMMUNIST"
+		desc = "RULE_COMMUNIST_ENG_AI_DESC"
+	}
+}
+GER_fragmentation = {
+	name = "GER_FRAGMENTATION"
+	group = "RULE_GROUP_GAME_SETUP"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_FRAGMENTATION_DESC"
+	}
+	option = {
+		name = POSTWW2
+		text = "RULE_OPTION_POSTWW2"
+		desc = "RULE_OPTION_POSTWW2_DESC"
+	}
+	option = {
+		name = VICTORIA
+		text = "RULE_OPTION_1870"
+		desc = "RULE_OPTION_1870_DESC"
+	}
+}
+USA_fragmentation={
+	name = "USA_FRAGMENTATION"
+	group = "RULE_GROUP_GAME_SETUP"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_FRAGMENTATION_DESC"
+	}
+	option = {
+		name = CONFEDERATE_CLASSIC
+		text = "RULE_OPTION_CONFEDERATE_CLASSIC"
+		desc = "RULE_OPTION_CONFEDERATE_CLASSIC_DESC"
+	}
+	option = {
+		name = FRAGMENTED
+		text = "RULE_OPTION_FRAGMENTED_US"
+		desc = "RULE_OPTION_FRAGMENTED_US_DESC"
+	}
+}
+ROM_fragmentation={
+	name = "ROM_FRAGMENTATION"
+	group = "RULE_GROUP_GAME_SETUP"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_FRAGMENTATION_DESC"
+	}
+	option = {
+		name = FRAGMENTED
+		text = "RULE_OPTION_FRAGMENTED_ROM"
+		desc = "RULE_OPTION_FRAGMENTED_ROM_DESC"
+	}
+}
+CZE_fragmentation={
+	name = "CZE_FRAGMENTATION"
+	group = "RULE_GROUP_GAME_SETUP"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_FRAGMENTATION_DESC"
+	}
+	option = {
+		name = FRAGMENTED
+		text = "RULE_OPTION_FRAGMENTED_CZE"
+		desc = "RULE_OPTION_FRAGMENTED_CZE_DESC"
+	}
+}
+KUR_release={
+	name = "KUR_release"
+	group = "RULE_GROUP_GAME_SETUP"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_FRAGMENTATION_DESC"
+	}
+	option = {
+		name = RELEASE
+		text = "RULE_OPTION_KUR_RELEASE"
+		desc = "RULE_OPTION_KUR_RELEASE_DESC"
+	}
+}
+ITA_fragment={
+	name = "ITA_FRAGMENT"
+	group = "RULE_GROUP_GAME_SETUP"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_FRAGMENTATION_DESC"
+	}
+	option = {
+		name = FRAGMENTED
+		text = "RULE_OPTION_FRAGMENTED_ITA"
+		desc = "RULE_OPTION_FRAGMENTED_ITA_DESC"
+	}
+}
+KSH_release={
+	name = "KSH_RELEASE"
+	group = "RULE_GROUP_GAME_SETUP"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_FRAGMENTATION_DESC"
+	}
+	option = {
+		name = RELEASE
+		text = "RULE_OPTION_KSH_RELEASE"
+		desc = "RULE_OPTION_KSH_RELEASE_DESC"
+	}
+}
+SIL_release={
+	name = "SIL_RELEASE"
+	group = "RULE_GROUP_GAME_SETUP"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_FRAGMENTATION_DESC"
+	}
+	option = {
+		name = RELEASE
+		text = "RULE_OPTION_SIL_RELEASE"
+		desc = "RULE_OPTION_SIL_RELEASE_DESC"
+	}
+}

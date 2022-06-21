@@ -1,0 +1,5 @@
+CHA_fabouloustree = {
+	allowed = {
+		original_tag = CHA
+	}
+} 

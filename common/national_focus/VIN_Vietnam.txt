@@ -1,0 +1,1228 @@
+focus_tree = {
+	id = Vietnam
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = VIN
+		}
+	}
+	shared_focus = army_effort_dup
+	shared_focus = aviation_effort_dup
+	shared_focus = naval_effort_dup
+	#Focus for State Military Industry
+	focus = {
+		id = VIN_state_military_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 14
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_communist_primacy }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Create the Coast Guard
+	focus = {
+		id = VIN_create_the_coast_guard
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 12
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_build_popular_support 
+			focus = VIN_state_military_industry 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = dockyard
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Persecute Christians
+	focus = {
+		id = VIN_persecute_christians
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		x = 8
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_reform_the_npv }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.2  add_political_power= 150
+		}
+	}
+
+	#Focus for Mend the NPV Schism
+	focus = {
+		id = VIN_mend_the_npv_schism
+		icon = GFX_goal_generic_major_alliance
+		x = 18
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = VIN_preserve_the_status_quo }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_politics = {ruling_party = neutrality elections_allowed = yes}
+add_stability = 0.05
+		}
+	}
+
+	#Focus for Preserve the Status Quo
+	focus = {
+		id = VIN_preserve_the_status_quo
+		icon = GFX_goal_generic_national_unity
+		x = 10
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = VIN_mend_the_npv_schism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  
+add_stability= -0.1
+		}
+	}
+
+	#Focus for Reform the NPV
+	focus = {
+		id = VIN_reform_the_npv
+		icon = GFX_goal_support_fascism
+		x = 10
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_no_deal }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.1 
+}
+add_popularity= { 
+ideology = fascism 
+popularity = 0.3 
+}
+  
+		}
+	}
+
+	#Focus for Prepare for Civil War
+	focus = {
+		id = VIN_prepare_for_civil_war
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 10
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_radicalise_the_populus }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.1  add_political_power= 150
+		}
+	}
+
+	#Focus for Deal with the Communists
+	focus = {
+		id = VIN_deal_with_the_communists
+		icon = GFX_focus_por_workers_of_iberia
+		x = 16
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_preserve_the_status_quo 
+			focus = VIN_mend_the_npv_schism 
+		}
+		mutually_exclusive = { 
+			focus = VIN_no_deal 
+		}
+		mutually_exclusive = { 
+			focus = VIN_unify_the_democrats 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_political_party = {ideology = communism popularity = 0.1}
+add_popularity= { 
+ideology = ROOT
+popularity = -0.2 
+}
+  add_stability= 0.2
+		}
+	}
+
+	#Focus for No Deal
+	focus = {
+		id = VIN_no_deal
+		icon = GFX_goal_generic_demand_territory
+		x = 10
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_preserve_the_status_quo }
+		mutually_exclusive = { focus = VIN_deal_with_the_communists }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.2 
+}
+  add_stability= -0.3
+		}
+	}
+
+	#Focus for Unify the Democrats
+	focus = {
+		id = VIN_unify_the_democrats
+		icon = GFX_goal_support_democracy
+		x = 20
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_mend_the_npv_schism }
+		mutually_exclusive = { focus = VIN_deal_with_the_communists }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_political_party = {ideology = neutrality popularity = 0.5}
+set_political_party = {ideology = democratic popularity = 0.1}
+  add_stability= 0.1
+		}
+	}
+
+	#Focus for Call back the Cambodian Minority
+	focus = {
+		id = VIN_call_back_the_cambodian_minority
+		icon = GFX_VIN_call_back_the_cambodian_minority-108491
+		x = 12
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_communist_education 
+			focus = VIN_radicalise_the_populus 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 20000  add_political_power= -75
+		}
+	}
+
+	#Focus for Communist Education
+	focus = {
+		id = VIN_communist_education
+		icon = GFX_focus_generic_socialist_science
+		x = 14
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_state_military_industry }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1  add_stability= 0.2
+		}
+	}
+
+	#Focus for Schism Mended
+	focus = {
+		id = VIN_schism_mended
+		icon = GFX_goal_tripartite_pact
+		x = 18
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_deal_with_the_communists 
+			focus = VIN_unify_the_democrats 
+		}
+		mutually_exclusive = { focus = VIN_communist_primacy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.2
+		}
+	}
+
+	#Focus for Communist Primacy
+	focus = {
+		id = VIN_communist_primacy
+		icon = GFX_focus_generic_soviet_politics
+		x = 14
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_deal_with_the_communists }
+		mutually_exclusive = { focus = VIN_schism_mended }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_political_party = {ideology = communism popularity = 0.5}
+set_political_party = {ideology = ROOT popularity = 0.1}
+  add_stability= 0.1
+  set_politics= {
+ ruling_party = communism
+elections_allowed = no 
+}
+		}
+	}
+
+	#Focus for Ensure Democratic Stability
+	focus = {
+		id = VIN_ensure_democratic_stability
+		icon = GFX_goal_generic_neutrality_focus
+		x = 22
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_unify_the_democrats }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.3  add_popularity= { 
+ideology = democratic
+popularity = 0.2 
+}
+		}
+	}
+
+	#Focus for Build Popular Support
+	focus = {
+		id = VIN_build_popular_support
+		icon = GFX_goal_generic_propaganda
+		x = 10
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_reform_the_npv }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+  add_political_power= 150
+		}
+	}
+
+	#Focus for Prepare Local Militias
+	focus = {
+		id = VIN_prepare_local_militias
+		icon = GFX_goal_generic_small_arms
+		x = 12
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_reform_the_npv 
+			focus = VIN_communist_primacy 
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  add_manpower= 10000  
+add_ideas = local_militias
+		}
+	}
+
+	#Focus for Radicalise the Populus
+	focus = {
+		id = VIN_radicalise_the_populus
+		icon = GFX_focus_generic_support_the_left_right
+		x = 10
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_build_popular_support }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  add_war_support= 0.2
+set_politics = {ruling_party = fascism elections_allowed = no}
+		}
+	}
+
+	#Focus for Hold a National Referendum
+	focus = {
+		id = VIN_hold_a_national_referendum
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 10
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_call_back_the_cambodian_minority 
+		}
+		prerequisite = { 
+			focus = VIN_prepare_for_civil_war 
+		}
+		prerequisite = { 
+			focus = VIN_restrict_unions 
+		}
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1 
+		}
+		completion_reward = {
+			add_political_power= 150  country_event= {
+id =  ftfrn.27 
+}
+		}
+	}
+
+	#Focus for Build Weapon Workshops
+	focus = {
+		id = VIN_build_weapon_workshops
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 8
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_build_popular_support }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			286={
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+}
+  671={
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+ }
+		}
+	}
+
+	#Focus for Improve Living Standards
+	focus = {
+		id = VIN_improve_living_standards
+		icon = GFX_goal_generic_consumer_goods
+		x = 16
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_schism_mended 
+			focus = VIN_communist_primacy 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Encourage Economic Activity
+	focus = {
+		id = VIN_encourage_economic_activity
+		icon = GFX_goal_generic_construct_civilian
+		x = 20
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_schism_mended 
+		}
+		prerequisite = { 
+			focus = VIN_ensure_democratic_stability 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Stabilise the Coalition
+	focus = {
+		id = VIN_stabilise_the_coalition
+		icon = GFX_goal_generic_national_unity
+		x = 18
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_schism_mended }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.2
+		}
+	}
+
+	#Focus for Draft a Shared Political Program
+	focus = {
+		id = VIN_draft_a_shared_political_program
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 18
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_stabilise_the_coalition }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  add_political_power= 150
+		}
+	}
+
+	#Focus for Lower Unemployment
+	focus = {
+		id = VIN_lower_unemployment
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 16
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_state_military_industry 
+			focus = VIN_stabilise_the_coalition 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Reform the Plantations
+	focus = {
+		id = VIN_reform_the_plantations
+		icon = GFX_focus_generic_rubber
+		x = 22
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_ensure_democratic_stability }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = rubber 
+amount = 36 
+state = 286 
+}
+		}
+	}
+
+	#Focus for Arsenal of Democracy
+	focus = {
+		id = VIN_arsenal_of_democracy
+		icon = GFX_VIN_arsenal_of_democracy-108361
+		x = 22
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_reform_the_plantations }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = arms_factory
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Open the Stock Exchange
+	focus = {
+		id = VIN_open_the_stock_exchange
+		icon = GFX_focus_mex_privatisation
+		x = 20
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_reform_the_plantations 
+			focus = VIN_stabilise_the_coalition 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand the Armed Forces
+	focus = {
+		id = VIN_expand_the_armed_forces
+		icon = GFX_focus_generic_military_mission
+		x = 16
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_communist_education 
+			focus = VIN_draft_a_shared_political_program 
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 50000  add_ideas= war_economy  add_ideas= service_by_requirement
+		}
+	}
+
+	#Focus for Vietnamese Economic Miracle
+	focus = {
+		id = VIN_vietnamese_economic_miracle
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 20
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_draft_a_shared_political_program 
+			focus = VIN_arsenal_of_democracy 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = industrial_complex
+ level = 5
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Military Investment
+	focus = {
+		id = VIN_military_investment
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 21
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_american_military_bases 
+		}
+		prerequisite = { 
+			focus = VIN_vietnamese_economic_miracle 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Contact the CPC
+	focus = {
+		id = VIN_contact_the_cpc
+		icon = GFX_VIN_contact_the_cpc-108489
+		x = 14
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_communist_education }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = PRC modifier = huge_increase }
+PRC = {
+add_opinion_modifier = { target = ROOT modifier = huge_increase }
+}
+		}
+	}
+
+	#Focus for Neutral Foreign Policy
+	focus = {
+		id = VIN_neutral_foreign_policy
+		icon = GFX_goal_generic_neutrality_focus
+		x = 18
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_draft_a_shared_political_program }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  add_war_support= 0.1
+		}
+	}
+
+	#Focus for Hanoi Fort Line
+	focus = {
+		id = VIN_hanoi_fort_line
+		icon = GFX_goal_generic_fortify_city
+		x = 17
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_neutral_foreign_policy 
+			focus = VIN_expand_the_armed_forces 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			671 = {
+	add_building_construction = {
+		type = bunker
+        	province = 1185
+		level = 5
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 4075
+		level = 5
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 10103
+		level = 5
+	}
+}
+		}
+	}
+
+	#Focus for American Military Bases
+	focus = {
+		id = VIN_american_military_bases
+		icon = GFX_goal_generic_construct_military
+		x = 22
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_arsenal_of_democracy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			USA = {give_guarantee = ROOT}
+671 = {
+	add_building_construction = {
+		type = bunker
+        	province = 4075
+		level = 2
+	}
+} 
+286 = {
+	add_building_construction = {
+		type = bunker
+        	province = 4401
+		level = 2
+	}
+}
+		}
+	}
+
+	#Focus for Point Defense Strategy
+	focus = {
+		id = VIN_point_defense_strategy
+		icon = GFX_focus_generic_coastal_fort
+		x = 19
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_neutral_foreign_policy 
+		}
+		prerequisite = { 
+			focus = VIN_vietnamese_economic_miracle 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			671 = {
+	add_building_construction = {
+		type = coastal_bunker 
+        	province = 1185
+		level = 5
+	}
+}
+286 = {
+	add_building_construction = {
+		type = coastal_bunker 
+        	province = 4401
+		level = 5
+	}
+	add_building_construction = {
+		type = coastal_bunker 
+        	province = 1423
+		level = 2
+	}
+	add_building_construction = {
+		type = coastal_bunker 
+        	province = 1396
+		level = 2
+	}
+}
+		}
+	}
+
+	#Focus for Saigon Fort Line
+	focus = {
+		id = VIN_saigon_fort_line
+		icon = GFX_goal_generic_small_arms
+		x = 18
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_hanoi_fort_line 
+		}
+		prerequisite = { 
+			focus = VIN_point_defense_strategy 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			286 = {
+	add_building_construction = {
+		type = coastal_bunker 
+        	province = 4401
+		level = 5
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 12232
+		level = 5
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 7347
+		level = 5
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 1423
+		level = 5
+	}
+}
+		}
+	}
+
+	#Focus for Build AA
+	focus = {
+		id = VIN_build_aa
+		icon = GFX_goal_generic_air_production
+		x = 20
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_military_investment 
+		}
+		prerequisite = { 
+			focus = VIN_point_defense_strategy 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			286={
+add_building_construction = {
+	type = anti_air_building 
+	level = 2
+	instant_build = yes
+}
+}
+		}
+	}
+
+	#Focus for Submarine Dockyards
+	focus = {
+		id = VIN_submarine_dockyards
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 22
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_military_investment }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = dockyard
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Join the Chinese United Front
+	focus = {
+		id = VIN_join_the_chinese_united_front
+		icon = GFX_goal_generic_attack_allies
+		x = 15
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_contact_the_cpc 
+		}
+		prerequisite = { 
+			focus = VIN_expand_the_armed_forces 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			PRC = {is_in_faction_with = CHI}
+		}
+		completion_reward = {
+			PRC = {add_to_faction = ROOT}
+		}
+	}
+
+	#Focus for Sieze Laos
+	focus = {
+		id = VIN_sieze_laos
+		icon = GFX_goal_generic_major_war
+		x = 16
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = VIN_hanoi_fort_line 
+		}
+		prerequisite = { 
+			focus = VIN_join_the_chinese_united_front 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = LAO
+}
+  add_state_claim= 670
+		}
+	}
+
+	#Focus for Unified Against Japan
+	focus = {
+		id = VIN_unified_against_japan
+		icon = GFX_goal_generic_national_unity
+		x = 14
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_join_the_chinese_united_front }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = against_japan
+PRC={
+add_ideas = against_japan
+}
+		}
+	}
+
+	#Focus for Restrict Unions
+	focus = {
+		id = VIN_restrict_unions
+		icon = GFX_focus_generic_military_academy
+		x = 8
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = VIN_radicalise_the_populus }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = -0.1 
+}
+add_ideas = fight_unions
+		}
+	}
+
+#End of focuses 
+ }

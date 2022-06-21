@@ -1,0 +1,1258 @@
+focus_tree = {
+	id = Based_greek_island
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = CYP
+		}
+	}
+	continuous_focus_position = { x = 50 y = 1500 }
+	#Focus for Reach an Agreement with the Turks
+	focus = {
+		id = CYP_reach_an_agreement_with_the_turks
+		icon = GFX_goal_generic_national_unity
+		x = 14
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = CYP_marginalise_the_turks }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = -0.1 
+}
+  add_popularity= { 
+ideology = democratic 
+popularity = 0.1 
+}
+  remove_ideas= ethnic_divide
+		}
+	}
+
+	#Focus for Mediterean Legacy
+	focus = {
+		id = CYP_mediterean_legacy
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = 7
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_marginalise_the_turks }
+		mutually_exclusive = { focus = CYP_communist_unity }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.3 
+}
+  set_politics= {
+ ruling_party = fascism 
+elections_allowed = no 
+}
+		}
+	}
+
+	#Focus for Submarine Doctrine
+	focus = {
+		id = CYP_submarine_doctrine
+		icon = GFX_goal_generic_navy_anti_submarine
+		x = 4
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_mediterean_navy }
+		mutually_exclusive = { focus = CYP_naval_dominance }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = ti_bonus
+				name = GER_trade_interdiction
+				bonus = 1.0
+				uses = 5
+				category = trade_interdiction_tree
+			}
+		}
+	}
+
+	#Focus for Dockyard Expansion
+	focus = {
+		id = CYP_dockyard_expansion
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 3
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CYP_naval_dominance 
+			focus = CYP_submarine_doctrine 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = dockyard
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Marginalise the Turks
+	focus = {
+		id = CYP_marginalise_the_turks
+		icon = GFX_goal_generic_demand_territory
+		x = 12
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = CYP_reach_an_agreement_with_the_turks }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.1 
+}
+  add_popularity= { 
+ideology =  democratic
+popularity = -0.1 
+}
+		}
+	}
+
+	#Focus for Communist Unity
+	focus = {
+		id = CYP_communist_unity
+		icon = GFX_CYP_communist_unity-108488
+		x = 13
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CYP_marginalise_the_turks 
+			focus = CYP_reach_an_agreement_with_the_turks 
+		}
+		mutually_exclusive = { 
+			focus = CYP_mediterean_legacy 
+		}
+		mutually_exclusive = { 
+			focus = CYP_democratic_stability 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.2 
+}
+  set_politics= {
+ ruling_party = communism
+elections_allowed = no 
+}
+		}
+	}
+
+	#Focus for Democratic Stability
+	focus = {
+		id = CYP_democratic_stability
+		icon = GFX_focus_generic_self_management
+		x = 19
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_reach_an_agreement_with_the_turks }
+		mutually_exclusive = { focus = CYP_communist_unity }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.1 
+}
+  add_stability= 0.2
+		}
+	}
+
+	#Focus for Mediterean Navy
+	focus = {
+		id = CYP_mediterean_navy
+		icon = GFX_goal_generic_navy_battleship
+		x = 3
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  navy_experience= 30
+		}
+	}
+
+	#Focus for Naval Dominance
+	focus = {
+		id = CYP_naval_dominance
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 2
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_mediterean_navy }
+		mutually_exclusive = { focus = CYP_submarine_doctrine }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = bc_bonus
+				bonus = 1.0
+				uses = 1
+				category = bc_tech
+			}
+			add_tech_bonus = {
+				name = bb_bonus
+				bonus = 1.0
+				uses = 1
+				category = bb_tech
+				category = shbb_tech
+			}
+			add_ideas = GER_rebuild_the_high_seas_fleet
+		}
+	}
+
+	#Focus for Greek Nationalism
+	focus = {
+		id = CYP_greek_nationalism
+		icon = GFX_focus_GRE_bedrock_of_balkan_stability
+		x = 5
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_mediterean_legacy }
+		mutually_exclusive = { focus = CYP_cypriot_independence }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.1 
+}
+  add_stability= 0.1
+remove_ideas = ethnic_divide
+		}
+	}
+
+	#Focus for Cypriot Independence
+	focus = {
+		id = CYP_cypriot_independence
+		icon = GFX_focus_generic_support_the_left_right
+		x = 9
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_mediterean_legacy }
+		mutually_exclusive = { focus = CYP_greek_nationalism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+  add_war_support= 0.1
+		}
+	}
+
+	#Focus for Reunify with the Mainland
+	focus = {
+		id = CYP_reunify_with_the_mainland
+		icon = GFX_goal_generic_major_war
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CYP_greek_nationalism 
+		}
+		prerequisite = { 
+			focus = CYP_dockyard_expansion 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 10000}
+is_subject = no
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = GRE
+}
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+every_state={
+limit = {is_core_of = GRE}
+add_core_of = CYP
+}
+		}
+	}
+
+	#Focus for Military Expansion
+	focus = {
+		id = CYP_military_expansion
+		icon = GFX_goal_generic_small_arms
+		x = 7
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CYP_greek_nationalism 
+			focus = CYP_cypriot_independence 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  add_manpower= 20000
+		}
+	}
+
+	#Focus for Embrace Greek Indentity
+	focus = {
+		id = CYP_embrace_greek_indentity
+		icon = GFX_focus_generic_befriend_greece
+		x = 3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_reunify_with_the_mainland }
+		mutually_exclusive = { focus = CYP_religious_freedom_for_catholics }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			GRE = {exists = no}
+		}
+		completion_reward = {
+			set_cosmetic_tag= GRE  
+load_focus_tree = greek_focus
+complete_national_focus = GRE_bring_home_the_exiled_republicans
+complete_national_focus = GRE_compromise_with_the_monarchists
+		}
+	}
+
+	#Focus for Religious Freedom for Catholics
+	focus = {
+		id = CYP_religious_freedom_for_catholics
+		icon = GFX_focus_por_concordat
+		x = 5
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_reunify_with_the_mainland }
+		mutually_exclusive = { focus = CYP_embrace_greek_indentity }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.1 
+}
+  add_political_power= 150
+		}
+	}
+
+	#Focus for Military Industry Complex
+	focus = {
+		id = CYP_military_industry_complex
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 7
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_military_expansion }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Revive the Spirit of the IV Crusade
+	focus = {
+		id = CYP_revive_the_spirit_of_the_iv_crusade
+		icon = GFX_focus_mex_restore_the_army_of_christ
+		x = 5
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CYP_religious_freedom_for_catholics 
+		}
+		prerequisite = { 
+			focus = CYP_military_industry_complex 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_core= 341  add_state_core= 797  add_state_core= 340  add_state_core= 339 
+set_cosmetic_tag = CYP_LAT
+		}
+	}
+
+	#Focus for Steel Mill Expansion
+	focus = {
+		id = CYP_steel_mill_expansion
+		icon = GFX_focus_generic_steel
+		x = 7
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_military_industry_complex }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = steel 
+amount = 16 
+state = 183 
+}
+		}
+	}
+
+	#Focus for Expand Domestic Industry
+	focus = {
+		id = CYP_expand_domestic_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 9
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CYP_cypriot_independence 
+			focus = CYP_communist_bastion 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Public School Expansion
+	focus = {
+		id = CYP_public_school_expansion
+		icon = GFX_focus_research2
+		x = 9
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_expand_domestic_industry }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Ensure Economic Equality
+	focus = {
+		id = CYP_ensure_economic_equality
+		icon = GFX_goal_generic_consumer_goods
+		x = 9
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_public_school_expansion }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			remove_ideas = ethnic_divide
+		}
+	}
+
+	#Focus for Communist Bastion
+	focus = {
+		id = CYP_communist_bastion
+		icon = GFX_focus_generic_soviet_politics
+		x = 11
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_communist_unity }
+		mutually_exclusive = { focus = CYP_revolutionary_ideas }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.3  add_war_support= 0.1
+		}
+	}
+
+	#Focus for Revolutionary Ideas
+	focus = {
+		id = CYP_revolutionary_ideas
+		icon = GFX_goal_support_fourth_int
+		x = 15
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_communist_unity }
+		mutually_exclusive = { focus = CYP_communist_bastion }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.4
+		}
+	}
+
+	#Focus for Communist Economy
+	focus = {
+		id = CYP_communist_economy
+		icon = GFX_goal_generic_soviet_construction
+		x = 13
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CYP_revolutionary_ideas 
+			focus = CYP_communist_bastion 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = war_economy
+		}
+	}
+
+	#Focus for Peasant Conscription
+	focus = {
+		id = CYP_peasant_conscription
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		x = 13
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_communist_economy }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 50000
+		}
+	}
+
+	#Focus for Communist Airforce
+	focus = {
+		id = CYP_communist_airforce
+		icon = GFX_goal_generic_build_airforce
+		x = 15
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_revolutionary_ideas }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			air_experience= 20  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand Armed Forces
+	focus = {
+		id = CYP_expand_armed_forces
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 15
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CYP_communist_airforce 
+			focus = CYP_allied_training_programs 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Turkish Revolution
+	focus = {
+		id = CYP_turkish_revolution
+		icon = GFX_focus_generic_attack_turkey
+		x = 15
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CYP_expand_armed_forces 
+		}
+		prerequisite = { 
+			focus = CYP_peasant_conscription 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = TUR
+}
+		}
+	}
+
+	#Focus for End Rural Landscape
+	focus = {
+		id = CYP_end_rural_landscape
+		icon = GFX_goal_generic_construction2
+		x = 11
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_communist_bastion }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			183= {
+ add_extra_state_shared_building_slots = 7 
+}
+		}
+	}
+
+	#Focus for Ensure High Land Utilisation
+	focus = {
+		id = CYP_ensure_high_land_utilisation
+		icon = GFX_goal_generic_construct_civilian
+		x = 11
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_end_rural_landscape }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			183= {
+ add_extra_state_shared_building_slots = 5 
+}
+		}
+	}
+
+	#Focus for Military Reform
+	focus = {
+		id = CYP_military_reform
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 13
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CYP_ensure_high_land_utilisation 
+			focus = CYP_expand_armed_forces 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience= 20  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Estabilish Collective Farms
+	focus = {
+		id = CYP_estabilish_collective_farms
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 11
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_ensure_high_land_utilisation }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Join the Allies
+	focus = {
+		id = CYP_join_the_allies
+		icon = GFX_focus_chi_british_cooperation
+		x = 17
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_democratic_stability }
+		mutually_exclusive = { focus = CYP_isolationism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			ENG = {NOT={has_government = ROOT}}
+		}
+		completion_reward = {
+			ENG = {
+country_event= {
+id = ftfrn.28 
+}}
+		}
+	}
+
+	#Focus for Isolationism
+	focus = {
+		id = CYP_isolationism
+		icon = GFX_goal_generic_neutrality_focus
+		x = 21
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_democratic_stability }
+		mutually_exclusive = { focus = CYP_join_the_allies }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.3  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand the Coast Guard
+	focus = {
+		id = CYP_expand_the_coast_guard
+		icon = GFX_goal_generic_navy_cruiser
+		x = 19
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CYP_join_the_allies 
+			focus = CYP_isolationism 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			navy_experience= 10  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Naval Research Institute
+	focus = {
+		id = CYP_naval_research_institute
+		icon = GFX_CYP_naval_research_institute-107624
+		x = 19
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_expand_the_coast_guard }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Commision Large Vessels
+	focus = {
+		id = CYP_commision_large_vessels
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 19
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_naval_research_institute }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = dockyard
+ level = 5
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Allied Training Programs
+	focus = {
+		id = CYP_allied_training_programs
+		icon = GFX_goal_rhineland
+		x = 17
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_join_the_allies }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  army_experience= 30
+		}
+	}
+
+	#Focus for Allied Investment
+	focus = {
+		id = CYP_allied_investment
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 17
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_allied_training_programs }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Arm Purchase
+	focus = {
+		id = CYP_arm_purchase
+		icon = GFX_goal_generic_small_arms
+		x = 17
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_allied_investment }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_equipment_to_stockpile= {
+ type = infantry_equipment_0 
+amount = 50000 
+producer = ENG 
+}
+		}
+	}
+
+	#Focus for Deterrence
+	focus = {
+		id = CYP_deterrence
+		icon = GFX_goal_generic_construct_military
+		x = 21
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_isolationism }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = deterrence
+		}
+	}
+
+	#Focus for The Rock
+	focus = {
+		id = CYP_the_rock
+		icon = GFX_goal_generic_fortify_city
+		x = 21
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_deterrence }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = the_rock
+		}
+	}
+
+	#Focus for Prepare for the Worst
+	focus = {
+		id = CYP_prepare_for_the_worst
+		icon = GFX_goal_generic_demand_territory
+		x = 21
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CYP_the_rock }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  add_ideas= tot_economic_mobilisation
+		}
+	}
+
+#End of focuses 
+ }

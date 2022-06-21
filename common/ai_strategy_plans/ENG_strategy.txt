@@ -1,0 +1,192 @@
+ENG_democratic = {
+    name = "Democratic peace"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = ENG
+	}
+	
+    # When this plan is enabled.
+    enable = {
+		OR = {
+			is_historical_focus_on = yes
+			has_game_rule = {
+				rule = ENGLAND_ai_behavior
+				option = DEMOCRATIC
+			}
+		}
+		has_cosmetic_tag = ENG_england
+    }
+    
+    # When this plan is aborted.
+    abort = {
+        
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		ENG_england_first
+		ENG_preserve_the_peace
+	}
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+ENG_reunification = {
+    name = "Reunification"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = ENG
+	}
+	
+    # When this plan is enabled.
+    enable = {
+		OR = {
+			has_game_rule = {
+				rule = ENGLAND_ai_behavior
+				option = REVIVE
+			}
+		}
+		has_cosmetic_tag = ENG_england
+    }
+    
+    # When this plan is aborted.
+    abort = {
+        
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		ENG_british_stoicism
+	}
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+ENG_fascism = {
+    name = "Fascism"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = ENG
+	}
+	
+    # When this plan is enabled.
+    enable = {
+		OR = {
+			has_game_rule = {
+				rule = ENGLAND_ai_behavior
+				option = FASCIST
+			}
+		}
+		has_cosmetic_tag = ENG_england
+    }
+    
+    # When this plan is aborted.
+    abort = {
+        
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		ENG_england_first
+		ENG_english_nationalism
+	}
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+ENG_communism = {
+    name = "Communism"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = ENG
+	}
+	
+    # When this plan is enabled.
+    enable = {
+		OR = {
+			has_game_rule = {
+				rule = ENGLAND_ai_behavior
+				option = COMMUNIST
+			}
+		}
+		has_cosmetic_tag = ENG_england
+    }
+    
+    # When this plan is aborted.
+    abort = {
+        
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		ENG_england_first
+		ENG_reform_than_revolution
+	}
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}

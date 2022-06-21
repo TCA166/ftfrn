@@ -1,0 +1,134 @@
+CAM_communism_plan = {
+    name = "Communist"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = CAM
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = CAM_ai_behavior
+			option = COMMUNIST
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+		
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		CAM_the_constructors_of_angkor
+		CAM_communist_interpretation
+		CAM_postcolonial_industrialisation
+		CAM_continue_industrialisation
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+CAM_fascist_plan = {
+    name = "Fascist"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = CAM
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = CAM_ai_behavior
+			option = FASCIST
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+		
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		CAM_the_constructors_of_angkor
+		CAM_fascist_interpretation
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+CAM_democratic_plan = {
+    name = "Democratic"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = CAM
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = CAM_ai_behavior
+			option = DEMOCRATIC
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+		
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		CAM_the_constructors_of_angkor
+		CAM_normal_interpretation
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}

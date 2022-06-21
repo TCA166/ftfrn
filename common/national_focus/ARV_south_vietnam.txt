@@ -1,0 +1,886 @@
+focus_tree = {
+	id = south_vietnam
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = ARV
+		}
+	}
+	shared_focus = army_effort_dup
+	shared_focus = aviation_effort_dup
+	shared_focus = naval_effort_dup
+	#Focus for Counter Guerrilla Warfare
+	focus = {
+		id = ARV_counter_guerrilla_warfare
+		icon = GFX_ARV_counter_guerrilla_warfare-108480
+		x = 12
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_study_great_war }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			remove_ideas = guerrila_warfare
+		}
+	}
+
+	#Focus for Economic Independence
+	focus = {
+		id = ARV_economic_independence
+		icon = GFX_focus_generic_self_management
+		x = 16
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Emergency Powers
+	focus = {
+		id = ARV_emergency_powers
+		icon = GFX_goal_generic_demand_territory
+		x = 5
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150
+		}
+	}
+
+	#Focus for General Mobilisation
+	focus = {
+		id = ARV_general_mobilisation
+		icon = GFX_focus_generic_manpower
+		x = 5
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_emergency_powers }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = extensive_conscription
+		}
+	}
+
+	#Focus for Fascist Aid
+	focus = {
+		id = ARV_fascist_aid
+		icon = GFX_focus_chi_mission_to_germany
+		x = 7
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_emergency_powers }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_equipment_to_stockpile= {
+ type = infantry_equipment_0 
+amount = 50000 
+producer = GER 
+}
+		}
+	}
+
+	#Focus for Anti Communist Aid
+	focus = {
+		id = ARV_anti_communist_aid
+		icon = GFX_focus_chi_reach_out_to_france
+		x = 7
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_fascist_aid }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_equipment_to_stockpile= {
+ type = artillery_equipment_1 
+amount = 1000 
+producer = FRA 
+}
+  add_equipment_to_stockpile= {
+ type = support_equipment_1 
+amount = 5000 
+producer = FRA 
+}
+		}
+	}
+
+	#Focus for Foreign Airpower
+	focus = {
+		id = ARV_foreign_airpower
+		icon = GFX_goal_generic_air_fighter2
+		x = 3
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_emergency_powers }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_equipment_to_stockpile= {
+ type = fighter_equipment_0
+amount = 300
+producer = FRA 
+}
+add_tech_bonus = {
+	name = electronics_bonus
+	bonus = 0.5
+        ahead_reduction = 1
+	uses = 1
+	technology = fighter1
+        technology = fighter2
+}
+		}
+	}
+
+	#Focus for Bombing Campaigns
+	focus = {
+		id = ARV_bombing_campaigns
+		icon = GFX_goal_generic_air_bomber
+		x = 3
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_foreign_airpower }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_equipment_to_stockpile= {
+ type = tac_bomber_equipment_0 
+amount = 200 
+producer = ENG 
+}
+		}
+	}
+
+	#Focus for Inmate Construction Programs
+	focus = {
+		id = ARV_inmate_construction_programs
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 5
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_general_mobilisation }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for We are Triumphant!
+	focus = {
+		id = ARV_we_are_triumphant
+		icon = GFX_goal_generic_propaganda
+		x = 5
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARV_inmate_construction_programs 
+			focus = ARV_anti_communist_aid 
+			focus = ARV_bombing_campaigns 
+		}
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_war = no
+has_civil_war = no
+		}
+		completion_reward = {
+			add_stability= 0.2  set_cosmetic_tag=VIN
+		}
+	}
+
+	#Focus for Army Reform
+	focus = {
+		id = ARV_army_reform
+		icon = GFX_goal_generic_position_armies
+		x = 12
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 3
+				category = land_doctrine
+			}
+army_experience = 20
+		}
+	}
+
+	#Focus for Artillery Training
+	focus = {
+		id = ARV_artillery_training
+		icon = GFX_goal_generic_army_artillery2
+		x = 12
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_army_reform }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_equipment_to_stockpile= {
+ type = artillery_equipment_1 
+amount = 500 
+producer = FRA 
+}
+  army_experience= 20
+		}
+	}
+
+	#Focus for Study Great War
+	focus = {
+		id = ARV_study_great_war
+		icon = GFX_goal_rhineland
+		x = 12
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_artillery_training }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 3
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Modern Army Manufacturing
+	focus = {
+		id = ARV_modern_army_manufacturing
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 12
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARV_counter_guerrilla_warfare 
+		}
+		prerequisite = { 
+			focus = ARV_modern_weapon_factories 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Build Workshops
+	focus = {
+		id = ARV_build_workshops
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 14
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARV_army_reform 
+		}
+		prerequisite = { 
+			focus = ARV_economic_independence 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Modernize Workshops
+	focus = {
+		id = ARV_modernize_workshops
+		icon = GFX_goal_generic_production
+		x = 14
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_build_workshops }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Modern Weapon Factories
+	focus = {
+		id = ARV_modern_weapon_factories
+		icon = GFX_goal_generic_production2
+		x = 14
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARV_modernize_workshops 
+		}
+		prerequisite = { 
+			focus = ARV_economic_mobilisation 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Military Research Complex
+	focus = {
+		id = ARV_military_research_complex
+		icon = GFX_focus_research2
+		x = 14
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_modern_weapon_factories }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 2
+		}
+	}
+
+	#Focus for Build Steel Mills
+	focus = {
+		id = ARV_build_steel_mills
+		icon = GFX_focus_generic_steel
+		x = 16
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_economic_independence }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = steel 
+amount = 16 
+state = 286 
+}
+		}
+	}
+
+	#Focus for Economic Mobilisation
+	focus = {
+		id = ARV_economic_mobilisation
+		icon = GFX_goal_generic_consumer_goods
+		x = 16
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_build_steel_mills }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = war_economy
+		}
+	}
+
+	#Focus for Conquer Cambodia
+	focus = {
+		id = ARV_conquer_cambodia
+		icon = GFX_goal_generic_major_war
+		x = 5
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_we_are_triumphant }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = CAM
+}
+		}
+	}
+
+	#Focus for Conquer Laos
+	focus = {
+		id = ARV_conquer_laos
+		icon = GFX_goal_generic_political_pressure
+		x = 7
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_we_are_triumphant }
+		search_filters = { FOCUS_FILTER_FRA_OCCUPATION_COST } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = LAO
+}
+		}
+	}
+
+	#Focus for Expand the Northern Border
+	focus = {
+		id = ARV_expand_the_northern_border
+		icon = GFX_goal_generic_territory_or_war
+		x = 3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_we_are_triumphant }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim= 325  add_state_claim= 599  add_state_claim= 594
+		}
+	}
+
+	#Focus for Unified Indochina
+	focus = {
+		id = ARV_unified_indochina
+		icon = GFX_focus_usa_focus_on_asia
+		x = 5
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARV_expand_the_northern_border 
+		}
+		prerequisite = { 
+			focus = ARV_conquer_laos 
+		}
+		prerequisite = { 
+			focus = ARV_conquer_cambodia 
+		}
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_core= 741  add_state_core= 670
+set_cosmetic_tag = VIN_IND
+		}
+	}
+
+	#Focus for Expand Rubber Plantations
+	focus = {
+		id = ARV_expand_rubber_plantations
+		icon = GFX_focus_generic_rubber
+		x = 16
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_economic_mobilisation }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = rubber 
+amount = 16 
+state = 286
+}
+		}
+	}
+
+	#Focus for Benefits of Trade
+	focus = {
+		id = ARV_benefits_of_trade
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 16
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_expand_rubber_plantations }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Continue the Modernisation
+	focus = {
+		id = ARV_continue_the_modernisation
+		icon = GFX_ARV_continue_the_modernisation-116416
+		x = 12
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_modern_army_manufacturing }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for New Weapon Designs
+	focus = {
+		id = ARV_new_weapon_designs
+		icon = GFX_focus_focus_fra_maquis
+		x = 14
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_military_research_complex }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	#Focus for Develop Ports
+	focus = {
+		id = ARV_develop_ports
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 16
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARV_benefits_of_trade }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = dockyard
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Improve Japanese Relations
+	focus = {
+		id = ARV_improve_japanese_relations
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		x = 3
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARV_expand_the_northern_border 
+		}
+		prerequisite = { 
+			focus = ARV_conquer_cambodia 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT={
+has_war_with= JAP  }
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = JAP modifier = huge_increase }
+JAP={
+add_opinion_modifier = { target = VIN modifier = huge_increase }
+}
+		}
+	}
+
+	#Focus for Siameese Expansion
+	focus = {
+		id = ARV_siameese_expansion
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 7
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARV_conquer_laos 
+		}
+		prerequisite = { 
+			focus = ARV_conquer_cambodia 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = SIA
+}
+		}
+	}
+
+#End of focuses 
+ }

@@ -1,0 +1,283 @@
+focus_tree = {
+	id = michigan
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = ccc
+		}
+	}
+	#Focus for Michigan Legacy
+	focus = {
+		id = ccc_michigan_legacy
+		icon = GFX_goal_generic_propaganda
+		x = 5
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  add_state_core= 393
+		}
+	}
+
+	#Focus for Right Leadership
+	focus = {
+		id = ccc_right_leadership
+		icon = GFX_focus_chi_mission_to_the_us
+		x = 5
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ccc_michigan_legacy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 1 
+}
+  set_politics= {
+ ruling_party = fascism 
+elections_allowed = no 
+}
+  create_country_leader= {
+ name = "Ugandan13579" 
+desc = "" 
+picture = gfx/leaders/knuclez.dds
+expire = "1969.4.20" 
+ideology = gen_nazism
+traits = {
+}
+
+ }
+		}
+	}
+
+	#Focus for Michigan Transfer
+	focus = {
+		id = ccc_michigan_transfer
+		icon = GFX_goal_tripartite_pact
+		x = 7
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ccc_michigan_legacy }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			transfer_state= 393
+		}
+	}
+
+	#Focus for Michiganese Economy
+	focus = {
+		id = ccc_michiganese_economy
+		icon = GFX_goal_generic_production
+		x = 3
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ccc_michigan_legacy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 15
+ add_building_construction = {
+ type = industrial_complex
+ level = 15
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Embrace Michigan
+	focus = {
+		id = ccc_embrace_michigan
+		icon = GFX_goal_generic_demand_territory
+		x = 5
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ccc_michiganese_economy 
+		}
+		prerequisite = { 
+			focus = ccc_michigan_transfer 
+		}
+		prerequisite = { 
+			focus = ccc_right_leadership 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_cosmetic_tag= UGA_MIC
+		}
+	}
+
+	#Focus for Economy in Michigan
+	focus = {
+		id = ccc_economy_in_michigan
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 3
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ccc_embrace_michigan }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			393={
+ add_extra_state_shared_building_slots = 10
+ add_building_construction = {
+ type = industrial_complex
+ level = 10
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Use the Big Brains of our Supreme Leader
+	focus = {
+		id = ccc_use_the_big_brains_of_our_supreme_leader
+		icon = GFX_focus_research2
+		x = 5
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		prerequisite={
+			focus = ccc_embrace_michigan
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 6
+		}
+	}
+
+	#Focus for Invite Romaboos
+	focus = {
+		id = ccc_invite_romaboos
+		icon = GFX_goal_rhineland
+		x = 7
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ccc_embrace_michigan }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience= 1000
+		}
+	}
+
+	#Focus for Scam People
+	focus = {
+		id = ccc_scam_people
+		icon = GFX_goal_generic_secret_weapon
+		x = 3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ccc_economy_in_michigan }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = industrial_complex
+ level = 5
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Awaken the Monster
+	focus = {
+		id = ccc_awaken_the_monster
+		icon = GFX_goal_generic_political_pressure
+		x = 5
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ccc_use_the_big_brains_of_our_supreme_leader }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			CHA = {load_focus_tree = chad_domination_tree}
+		}
+	}
+
+	#Focus for Strike at US
+	focus = {
+		id = ccc_strike_at_us
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 7
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ccc_invite_romaboos }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = USA
+}
+		}
+	}
+
+#End of focuses 
+ }

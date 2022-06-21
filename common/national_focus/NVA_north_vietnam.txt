@@ -1,0 +1,852 @@
+focus_tree = {
+	id = north_vietnam
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = NVA
+		}
+	}
+	#Focus for Optimise Gun Production
+	focus = {
+		id = NVA_optimise_gun_production
+		icon = GFX_goal_generic_small_arms
+		x = 19
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NVA_improve_ambush_tactics 
+			focus = NVA_expand_resource_gathering_operations 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = weapon_production_efficiency
+		}
+	}
+
+	#Focus for Expand Support
+	focus = {
+		id = NVA_expand_support
+		icon = GFX_goal_generic_dangerous_deal
+		x = 7
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_petition_for_soviet_support }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_war = no
+		}
+		completion_reward = {
+			add_equipment_to_stockpile= {
+ type = artillery_equipment_1 
+amount = 1000 
+producer = SOV 
+}
+add_equipment_to_stockpile= {
+ type = anti_air_equipment_1
+amount = 500 
+producer = SOV 
+}
+		}
+	}
+
+	#Focus for Infiltrate the South
+	focus = {
+		id = NVA_infiltrate_the_south
+		icon = GFX_focus_prc_infiltration
+		x = 11
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_conscript_more_men }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			VIN = {add_stability = -0.2}
+add_war_support = 0.2
+		}
+	}
+
+	#Focus for Petition for Soviet Support
+	focus = {
+		id = NVA_petition_for_soviet_support
+		icon = GFX_focus_por_workers_of_iberia
+		x = 7
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_improve_northern_spirit }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_war = no
+		}
+		completion_reward = {
+			add_equipment_to_stockpile= {
+ type = infantry_equipment_0 
+amount = 50000 
+producer = SOV 
+}
+		}
+	}
+
+	#Focus for Start Urbanisation Programs
+	focus = {
+		id = NVA_start_urbanisation_programs
+		icon = GFX_goal_generic_construction2
+		x = 21
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_expand_resource_gathering_operations }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			671= {
+ add_extra_state_shared_building_slots = 5 
+}
+		}
+	}
+
+	#Focus for Reform Guerilla Warfare
+	focus = {
+		id = NVA_reform_guerilla_warfare
+		icon = GFX_focus_secret_rearmament
+		x = 17
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.1  add_stability= -0.1
+		}
+	}
+
+	#Focus for Military Research Teams
+	focus = {
+		id = NVA_military_research_teams
+		icon = GFX_focus_research2
+		x = 19
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NVA_improve_backline_logistics 
+			focus = NVA_start_urbanisation_programs 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Invest State Funds
+	focus = {
+		id = NVA_invest_state_funds
+		icon = GFX_goal_generic_soviet_construction
+		x = 21
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_start_urbanisation_programs }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Improve Northern Spirit
+	focus = {
+		id = NVA_improve_northern_spirit
+		icon = GFX_goal_support_communism
+		x = 9
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_war_support= 1  set_stability= 0.5
+		}
+	}
+
+	#Focus for Build Weapon Workshops
+	focus = {
+		id = NVA_build_weapon_workshops
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 19
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NVA_reform_guerilla_warfare 
+		}
+		prerequisite = { 
+			focus = NVA_start_the_economic_reform 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Small Caliber Artillery
+	focus = {
+		id = NVA_small_caliber_artillery
+		icon = GFX_goal_generic_build_tank
+		x = 17
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_reform_guerilla_warfare }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas= {
+ remove_idea = guerrila_warfare
+add_idea = guerrila_warfare_1
+}
+		}
+	}
+
+	#Focus for Improve Ambush Tactics
+	focus = {
+		id = NVA_improve_ambush_tactics
+		icon = GFX_goal_generic_secret_weapon
+		x = 17
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_small_caliber_artillery }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas= {
+ remove_idea = guerrila_warfare_1 
+add_idea = guerrila_warfare_2 
+}
+		}
+	}
+
+	#Focus for Start the Economic Reform
+	focus = {
+		id = NVA_start_the_economic_reform
+		icon = GFX_goal_generic_consumer_goods
+		x = 21
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_ideas = war_economy
+		}
+	}
+
+	#Focus for Farmer Weapon Production
+	focus = {
+		id = NVA_farmer_weapon_production
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 19
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NVA_small_caliber_artillery 
+		}
+		prerequisite = { 
+			focus = NVA_forced_industrialisation 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Improve Backline Logistics
+	focus = {
+		id = NVA_improve_backline_logistics
+		icon = GFX_goal_generic_army_motorized
+		x = 17
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_improve_ambush_tactics }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas= {
+ remove_idea = guerrila_warfare_2 
+add_idea = guerrila_warfare_3 
+}
+		}
+	}
+
+	#Focus for Assign Machinegun Teams
+	focus = {
+		id = NVA_assign_machinegun_teams
+		icon = GFX_goal_generic_special_forces
+		x = 17
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_improve_backline_logistics }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas= {
+ remove_idea = guerrila_warfare_3 
+add_idea = guerrila_warfare_4 
+}
+		}
+	}
+
+	#Focus for Finish the Reform
+	focus = {
+		id = NVA_finish_the_reform
+		icon = GFX_goal_rhineland
+		x = 19
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NVA_assign_machinegun_teams 
+		}
+		prerequisite = { 
+			focus = NVA_invest_state_funds 
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_war = no
+		}
+		completion_reward = {
+			remove_ideas= guerrila_warfare_4
+		}
+	}
+
+	#Focus for Forced Industrialisation
+	focus = {
+		id = NVA_forced_industrialisation
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 21
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_start_the_economic_reform }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand Resource Gathering Operations
+	focus = {
+		id = NVA_expand_resource_gathering_operations
+		icon = GFX_goal_generic_construction2
+		x = 21
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_forced_industrialisation }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = steel 
+amount = 16
+state = 671 
+}
+		}
+	}
+
+	#Focus for Conscript More Men
+	focus = {
+		id = NVA_conscript_more_men
+		icon = GFX_focus_generic_manpower
+		x = 11
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_improve_northern_spirit }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = extensive_conscription
+add_manpower = 10000
+		}
+	}
+
+	#Focus for Infiltrate Laos
+	focus = {
+		id = NVA_infiltrate_laos
+		icon = GFX_focus_prc_infiltration
+		x = 9
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_improve_northern_spirit }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			LAO = {
+add_popularity= { 
+ideology = communism
+popularity = 0.3 
+}
+  add_stability= -0.3  
+}
+		}
+	}
+
+	#Focus for Coup in Laos
+	focus = {
+		id = NVA_coup_in_laos
+		icon = GFX_goal_generic_major_war
+		x = 9
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_infiltrate_laos }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			puppet = LAO
+		}
+	}
+
+	#Focus for War has been Won!
+	focus = {
+		id = NVA_war_has_been_won
+		icon = GFX_goal_generic_propaganda
+		x = 9
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NVA_infiltrate_the_south 
+			focus = NVA_coup_in_laos 
+			focus = NVA_expand_support 
+		}
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_war = no
+has_civil_war = no
+		}
+		completion_reward = {
+			add_stability= 0.2 
+set_cosmetic_tag = VIN
+		}
+	}
+
+	#Focus for Focus on the Region
+	focus = {
+		id = NVA_focus_on_the_region
+		icon = GFX_focus_usa_focus_on_asia
+		x = 9
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NVA_stick_to_marxism 
+			focus = NVA_stalinism 
+		}
+		mutually_exclusive = { 
+			focus = NVA_communist_isolationism 
+		}
+		mutually_exclusive = { 
+			focus = NVA_join_the_comintern
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  add_war_support= 0.1
+		}
+	}
+
+	#Focus for Stalinism
+	focus = {
+		id = NVA_stalinism
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		x = 7
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_war_has_been_won }
+		mutually_exclusive = { focus = NVA_stick_to_marxism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = stalinism_i
+add_opinion_modifier = { target = SOV modifier = huge_increase }
+SOV = {add_opinion_modifier = { target = ROOT modifier = huge_increase }}
+		}
+	}
+
+	#Focus for Stick to Marxism
+	focus = {
+		id = NVA_stick_to_marxism
+		icon = GFX_focus_spr_unify_the_london_bureau
+		x = 11
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_war_has_been_won }
+		mutually_exclusive = { focus = NVA_stalinism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = socialism_i
+		}
+	}
+
+	#Focus for Communist Isolationism
+	focus = {
+		id = NVA_communist_isolationism
+		icon = GFX_goal_generic_neutrality_focus
+		x = 13
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_stick_to_marxism }
+		mutually_exclusive = { focus = NVA_focus_on_the_region }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.2  add_political_power= 150
+		}
+	}
+
+	#Focus for Join the Comintern
+	focus = {
+		id = NVA_join_the_comintern
+		icon = GFX_goal_support_communism
+		x = 5
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_stalinism }
+		mutually_exclusive = { focus = NVA_focus_on_the_region }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			SOV = {has_government = communism}
+		}
+		completion_reward = {
+			SOV = {add_to_faction = ROOT}
+		}
+	}
+
+	#Focus for Communist Development
+	focus = {
+		id = NVA_communist_development
+		icon = GFX_goal_generic_soviet_construction
+		x = 11
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NVA_communist_isolationism 
+			focus = NVA_focus_on_the_region 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Military Expansion
+	focus = {
+		id = NVA_military_expansion
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 7
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NVA_join_the_comintern 
+			focus = NVA_focus_on_the_region 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Contact the CPC
+	focus = {
+		id = NVA_contact_the_cpc
+		icon = GFX_NVA_contact_the_cpc-108489
+		x = 9
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_focus_on_the_region }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = PRC modifier = huge_increase }
+PRC = {
+add_opinion_modifier = { target = ROOT modifier = huge_increase }}
+add_ideas = foreign_expeditions_focus
+		}
+	}
+
+	#Focus for Invest in the People
+	focus = {
+		id = NVA_invest_in_the_people
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 13
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_communist_isolationism }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Faction Research Teams
+	focus = {
+		id = NVA_faction_research_teams
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 5
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NVA_join_the_comintern }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+#End of focuses 
+ }

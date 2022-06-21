@@ -1,0 +1,8 @@
+UKR_education_reform = {
+	allowed = {
+		original_tag = UKR
+	}
+	visible = {
+		has_completed_focus = UKR_education_reform
+	}
+}

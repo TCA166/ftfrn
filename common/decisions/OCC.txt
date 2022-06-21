@@ -1,0 +1,80 @@
+OCC_radio_free_europe = {
+    ger_radio = {
+          visible = {
+               NOT={GER = {has_government=ROOT  has_civil_war = no}}
+			   country_exists = GER
+          }
+          cost = 100
+          complete_effect = {
+				GER={add_ideas=radio_free_europe}
+          }
+		  fire_only_once = yes
+    }
+	spa_radio = {
+          visible = {
+               NOT={SPA = {has_government=ROOT has_civil_war = no}}
+			   country_exists = SPA
+          }
+          cost = 100
+          complete_effect = {
+				SPA={add_ideas=radio_free_europe}
+          }
+		  fire_only_once = yes
+    }
+	spr_radio = {
+          visible = {
+               NOT={SPR = {has_government=ROOT has_civil_war = no}}
+			   country_exists = SPR
+          }
+          cost = 100
+          complete_effect = {
+				SPR={add_ideas=radio_free_europe}
+          }
+		  fire_only_once = yes
+    }
+	ita_radio = {
+          visible = {
+               NOT={ITA = {has_government=ROOT has_civil_war = no}}
+			   country_exists = ITA
+          }
+          cost = 100
+          complete_effect = {
+				ITA={add_ideas=radio_free_europe}
+          }
+		  fire_only_once = yes
+    }
+	eng_radio = {
+          visible = {
+               NOT={ENG = {has_government=ROOT has_civil_war = no}}
+			   country_exists = ENG
+          }
+          cost = 100
+          complete_effect = {
+				ENG={add_ideas=radio_free_europe}
+          }
+		  fire_only_once = yes
+    }
+	fra_radio = {
+          visible = {
+               NOT={FRA = {has_government=ROOT has_civil_war = no}}
+			   country_exists = FRA
+          }
+          cost = 100
+          complete_effect = {
+				FRA={add_ideas=radio_free_europe}
+          }
+		  fire_only_once = yes
+    }
+	spc_radio = {
+          visible = {
+               NOT={SPC = {has_government=ROOT has_civil_war = no}}
+			   country_exists = SPC
+          }
+          cost = 100
+          complete_effect = {
+				SPC={add_ideas=radio_free_europe}
+          }
+		  fire_only_once = yes
+    }
+
+}

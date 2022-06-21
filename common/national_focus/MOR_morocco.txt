@@ -1,0 +1,1551 @@
+focus_tree = {
+	id = morocco
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = MOR
+		}
+	}
+	shared_focus = army_effort_dup
+	shared_focus = aviation_effort_dup
+	shared_focus = naval_effort_dup
+	#Focus for Start the jihad
+	focus = {
+		id = MOR_start_the_jihad
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		x = 2
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_prepare_for_invasion }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 100000}
+		}
+		completion_reward = {
+			every_country = {
+limit = {has_full_control_of_state = 41}
+MOR = {create_wargoal = {type=annex_everything target=PREV}}}
+add_ideas = jihad
+		}
+	}
+
+	#Focus for Gateway to Africa
+	focus = {
+		id = MOR_gateway_to_africa
+		icon = GFX_focus_generic_africa_infrastructure
+		x = 20
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			290 = {
+    if = {
+        limit = { is_controlled_by = ROOT }
+        add_building_construction = {
+            type = infrastructure
+            level = 2
+            instant_build = yes
+        }
+    }
+}
+461 = {
+    if = {
+        limit = { is_controlled_by = ROOT }
+        add_building_construction = {
+            type = infrastructure
+            level = 2
+            instant_build = yes
+        }
+    }
+}
+		}
+	}
+
+	#Focus for German Industrial Support
+	focus = {
+		id = MOR_german_industrial_support
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = 6
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_join_the_axis }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			GER = {has_government = fascism}
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand the Middle Class
+	focus = {
+		id = MOR_expand_the_middle_class
+		icon = GFX_goal_generic_consumer_goods
+		x = 12
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_revolutionary_army 
+			focus = MOR_stand_against_colonialism 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Start the Political Discussion
+	focus = {
+		id = MOR_start_the_political_discussion
+		icon = GFX_goal_generic_propaganda
+		x = 12
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			country_event = { id = morocco.1 }
+		}
+	}
+
+	#Focus for Strenghten the Sultan
+	focus = {
+		id = MOR_strenghten_the_sultan
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		x = 2
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = MOR_maintain_the_status_quo}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = neutrality 
+popularity = 0.1 
+}
+  add_stability= 0.1
+		}
+	}
+
+	#Focus for Maintain the Status Quo
+	focus = {
+		id = MOR_maintain_the_status_quo
+		icon = GFX_goal_generic_national_unity
+		x = 4
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = MOR_strenghten_the_sultan }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = neutrality 
+popularity = -0.1 
+}
+  add_political_power= 50
+		}
+	}
+
+	#Focus for Disband the Idea of Democracy
+	focus = {
+		id = MOR_disband_the_idea_of_democracy
+		icon = GFX_focus_generic_strike_at_democracy3
+		x = 4
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_strenghten_the_sultan
+		}
+		prerequisite = { 
+			focus = MOR_maintain_the_status_quo
+			focus = MOR_start_the_political_discussion
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = -0.1 
+}
+  add_popularity= { 
+ideology = communism 
+popularity = -0.1 
+}
+		}
+	}
+
+	#Focus for Absolute Monarch
+	focus = {
+		id = MOR_absolute_monarch
+		icon = GFX_goal_generic_secret_weapon
+		x = 2
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_disband_the_idea_of_democracy 
+		}
+		prerequisite = { 
+			focus = MOR_strenghten_the_sultan 
+		}
+		mutually_exclusive = { focus = MOR_puppet_monarch }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = neutrality 
+popularity = 0.1 
+}
+add_ideas = absolute_monarchy_i
+		}
+	}
+
+	#Focus for Puppet Monarch
+	focus = {
+		id = MOR_puppet_monarch
+		icon = GFX_focus_CZE_german_puppet
+		x = 6
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_disband_the_idea_of_democracy }
+		mutually_exclusive = { focus = MOR_absolute_monarch }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.3 
+}
+set_politics = {
+	ruling_party = fascism
+	elections_allowed = no
+}
+		}
+	}
+
+	#Focus for Royal Industries
+	focus = {
+		id = MOR_royal_industries
+		icon = GFX_goal_generic_construct_civilian
+		x = 0
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_absolute_monarch }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Revive the Idea of Andalusia
+	focus = {
+		id = MOR_revive_the_idea_of_andalusia
+		icon = GFX_MOR_revive_the_idea_of_andalusia-107079
+		x = 2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_absolute_monarch }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_state_claim = 173
+add_state_claim = 169
+add_state_claim = 179
+		}
+	}
+
+	#Focus for Demand Granada
+	focus = {
+		id = MOR_demand_granada
+		icon = GFX_goal_generic_forceful_treaty
+		x = 0
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_revive_the_idea_of_andalusia }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			OR = {
+SPR = {has_civil_war = yes}
+SPA = {has_civil_war = yes}
+SPC = {has_civil_war = yes}
+}
+has_army_manpower = {size > 100000}
+		}
+		completion_reward = {
+			every_country = {
+limit = {has_full_control_of_state  = 173}
+country_event= {id=ftfrn.18}
+}
+		}
+	}
+
+	#Focus for Prepare for Invasion
+	focus = {
+		id = MOR_prepare_for_invasion
+		icon = GFX_goal_generic_small_arms
+		x = 2
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_revive_the_idea_of_andalusia }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Military Expansion
+	focus = {
+		id = MOR_military_expansion
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_puppet_monarch 
+			focus = MOR_absolute_monarch 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Realize North African Unity
+	focus = {
+		id = MOR_realize_north_african_unity
+		icon = GFX_goal_generic_territory_or_war
+		x = 6
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_puppet_monarch }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim= 459  add_state_claim= 513  add_state_claim= 460  add_state_claim= 458  add_state_claim= 665
+		}
+	}
+
+	#Focus for Take Western Sahara
+	focus = {
+		id = MOR_take_western_sahara
+		icon = GFX_goal_generic_political_pressure
+		x = 4
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_realize_north_african_unity 
+			focus = MOR_revive_the_idea_of_andalusia 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_core= 699  create_wargoal= { 
+type = annex_everything 
+target = WES
+}
+		}
+	}
+
+	#Focus for Build Public Schools
+	focus = {
+		id = MOR_build_public_schools
+		icon = GFX_focus_research2
+		x = 8
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_start_the_political_discussion }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Move on Portugal
+	focus = {
+		id = MOR_move_on_portugal
+		icon = GFX_focus_generic_attack_portugal
+		x = 0
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_demand_granada }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = POR
+}
+		}
+	}
+
+	#Focus for Attack Our Neighbors
+	focus = {
+		id = MOR_attack_our_neighbors
+		icon = GFX_goal_generic_major_war
+		x = 6
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_start_the_jihad 
+			focus = MOR_german_industrial_support 
+			focus = MOR_african_revolution 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 100000}
+		}
+		completion_reward = {
+			declare_war_on= { 
+target = ALG 
+type = annex_everything 
+}
+  declare_war_on= { 
+target = TUN 
+type = annex_everything 
+}
+		}
+	}
+
+	#Focus for Join the Axis
+	focus = {
+		id = MOR_join_the_axis
+		icon = GFX_focus_chi_mission_to_germany
+		x = 6
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_realize_north_african_unity }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			GER = {country_event = {id=ftfrn.19}}
+		}
+	}
+
+	#Focus for Military Research Teams
+	focus = {
+		id = MOR_military_research_teams
+		icon = GFX_focus_research2
+		x = 4
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_join_the_axis 
+			focus = MOR_prepare_for_invasion 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Continue the Jihad
+	focus = {
+		id = MOR_continue_the_jihad
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		x = 2
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_start_the_jihad 
+		}
+		prerequisite = { 
+			focus = MOR_move_on_portugal 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = ITA
+}
+		}
+	}
+
+	#Focus for State Funded Industries
+	focus = {
+		id = MOR_state_funded_industries
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 8
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_puppet_monarch 
+			focus = MOR_keep_up_the_revolution 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Build a Navy
+	focus = {
+		id = MOR_build_a_navy
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 8
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_state_funded_industries }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = dockyard
+ level = 5
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Ensure the flow of goods
+	focus = {
+		id = MOR_ensure_the_flow_of_goods
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 18
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_gateway_to_africa }
+		mutually_exclusive = { focus = MOR_protectionism }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.05  
+add_ideas = damage_export
+		}
+	}
+
+	#Focus for Down with the Sultan!
+	focus = {
+		id = MOR_down_with_the_sultan
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		x = 12
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_start_the_political_discussion 
+		}
+		prerequisite = { 
+			focus = MOR_maintain_the_status_quo 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = -0.1 
+}
+  add_popularity= { 
+ideology = neutrality 
+popularity = -0.3 
+}
+		}
+	}
+
+	#Focus for Keep up the revolution!
+	focus = {
+		id = MOR_keep_up_the_revolution
+		icon = GFX_goal_tfv_burn_the_royal_portraits
+		x = 10
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_down_with_the_sultan }
+		mutually_exclusive = { focus = MOR_democratic_transition }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.3 
+}
+set_politics = {
+	ruling_party = communism
+	elections_allowed = no
+}
+		}
+	}
+
+	#Focus for Democratic Transition
+	focus = {
+		id = MOR_democratic_transition
+		icon = GFX_goal_support_democracy
+		x = 14
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_down_with_the_sultan }
+		mutually_exclusive = { focus = MOR_keep_up_the_revolution }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic
+popularity = 0.3 
+}
+  add_stability= 0.1
+		}
+	}
+
+	#Focus for Revolutionary Army
+	focus = {
+		id = MOR_revolutionary_army
+		icon = GFX_focus_YUG_pan_slavic_congress
+		x = 10
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_embrace_socialism }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 100000  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Embrace Socialism
+	focus = {
+		id = MOR_embrace_socialism
+		icon = GFX_focus_generic_soviet_politics
+		x = 10
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_keep_up_the_revolution }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = socialism_i
+		}
+	}
+
+	#Focus for Socialist Development
+	focus = {
+		id = MOR_socialist_development
+		icon = GFX_goal_generic_soviet_construction
+		x = 8
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_revolutionary_army 
+		}
+		prerequisite = { 
+			focus = MOR_build_a_navy 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for African Revolution
+	focus = {
+		id = MOR_african_revolution
+		icon = GFX_goal_generic_war_with_comintern
+		x = 10
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_revolutionary_army }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 100000}
+		}
+		completion_reward = {
+			every_neighbor_country={
+limit = {NOT = {has_government=ROOT}}
+MOR = {create_wargoal = {type = annex_everything target = PREV}}}
+		}
+	}
+
+	#Focus for Continue the Revolution
+	focus = {
+		id = MOR_continue_the_revolution
+		icon = GFX_focus_generic_join_comintern
+		x = 10
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_african_revolution }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_war = no
+		}
+		completion_reward = {
+			every_country={
+limit = {has_government=fascism}
+MOR = {create_wargoal = {type = annex_everything target = PREV}}}
+		}
+	}
+
+	#Focus for Estabilish Relations with Portugal
+	focus = {
+		id = MOR_estabilish_relations_with_portugal
+		icon = GFX_focus_generic_befriend_portugal
+		x = 14
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_democratic_transition }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			POR = {democratic < 0.4}
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = POR modifier = medium_increase }
+POR = {add_opinion_modifier = { target = MOR modifier = medium_increase }}
+		}
+	}
+
+	#Focus for Aided Research
+	focus = {
+		id = MOR_aided_research
+		icon = GFX_goal_generic_scientific_exchange
+		x = 8
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_build_public_schools }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_in_faction= yes
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Stand Against Colonialism
+	focus = {
+		id = MOR_stand_against_colonialism
+		icon = GFX_goal_generic_alliance
+		x = 14
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_estabilish_relations_with_portugal }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_faction= "Anti Colonial League"
+		}
+	}
+
+	#Focus for Foreign Investment
+	focus = {
+		id = MOR_foreign_investment
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 12
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_keep_up_the_revolution 
+			focus = MOR_democratic_transition 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Build Houses
+	focus = {
+		id = MOR_build_houses
+		icon = GFX_goal_generic_construction2
+		x = 12
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_estabilish_relations_with_portugal 
+			focus = MOR_embrace_socialism 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Buy the Canary Isles
+	focus = {
+		id = MOR_buy_the_canary_isles
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = 14
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_stand_against_colonialism }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_country={
+limit = {has_full_control_of_state=178}
+country_event = {id=ftfrn.20}
+}
+		}
+	}
+
+	#Focus for Protectionism
+	focus = {
+		id = MOR_protectionism
+		icon = GFX_goal_generic_trade
+		x = 22
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_gateway_to_africa }
+		mutually_exclusive = { focus = MOR_ensure_the_flow_of_goods }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = limited_exports
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Arsenal of Democracy
+	focus = {
+		id = MOR_arsenal_of_democracy
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 16
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_democratic_transition 
+		}
+		prerequisite = { 
+			focus = MOR_benefits_of_trade 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Benefits of Trade
+	focus = {
+		id = MOR_benefits_of_trade
+		icon = GFX_focus_generic_industry_1
+		x = 18
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_ensure_the_flow_of_goods }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Trade Infrastructure
+	focus = {
+		id = MOR_trade_infrastructure
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 18
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_benefits_of_trade }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			461 = {
+			if = {
+        limit = { is_controlled_by = ROOT }
+        add_building_construction = {
+            type = infrastructure
+            level = 2
+            instant_build = yes
+        }
+    }
+}
+290 = {
+    if = {
+        limit = { is_controlled_by = ROOT }
+        add_building_construction = {
+            type = infrastructure
+            level = 2
+            instant_build = yes
+        }
+    }
+}
+		}
+	}
+
+	#Focus for Trade Based Economy
+	focus = {
+		id = MOR_trade_based_economy
+		icon = GFX_focus_generic_industry_2
+		x = 18
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_trade_infrastructure }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Take Part in Trade
+	focus = {
+		id = MOR_take_part_in_trade
+		icon = GFX_focus_generic_industry_3
+		x = 18
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_trade_based_economy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Freedom Dockyards
+	focus = {
+		id = MOR_freedom_dockyards
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 16
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_trade_infrastructure 
+		}
+		prerequisite = { 
+			focus = MOR_estabilish_relations_with_portugal 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Foreign Refineries
+	focus = {
+		id = MOR_foreign_refineries
+		icon = GFX_goal_generic_oil_refinery
+		x = 16
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_trade_based_economy 
+		}
+		prerequisite = { 
+			focus = MOR_stand_against_colonialism 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = oil 
+amount = 16 
+state = 290 
+}
+		}
+	}
+
+	#Focus for Focus on Internal Strength
+	focus = {
+		id = MOR_focus_on_internal_strength
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 22
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_protectionism }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand Resource Production
+	focus = {
+		id = MOR_expand_resource_production
+		icon = GFX_goal_generic_construction2
+		x = 22
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_focus_on_internal_strength }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = tungsten 
+amount = 16 
+state = 461 
+}
+		}
+	}
+
+	#Focus for Prospect for Resources
+	focus = {
+		id = MOR_prospect_for_resources
+		icon = GFX_focus_generic_steel
+		x = 22
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_expand_resource_production }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = steel 
+amount = 16 
+state = 290 
+}
+
+add_resource= { 
+type = tungsten 
+amount = 16 
+state = 290 
+}
+		}
+	}
+
+	#Focus for Find Oil
+	focus = {
+		id = MOR_find_oil
+		icon = GFX_goal_generic_oil_refinery
+		x = 22
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = MOR_prospect_for_resources }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = oil 
+amount = 36 
+state = 290 
+}
+		}
+	}
+
+	#Focus for Create the State Resource Extraction Company
+	focus = {
+		id = MOR_create_the_state_resource_extraction_company
+		icon = GFX_goal_generic_production
+		x = 20
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = MOR_take_part_in_trade 
+			focus = MOR_find_oil 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = resource_company
+		}
+	}
+
+#End of focuses 
+ }

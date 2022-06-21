@@ -1,0 +1,13 @@
+FRA_reint = {
+	
+	allowed = {
+		original_tag = FRA
+	}
+
+	visible = {
+		OCC={
+			has_completed_focus = OCC_emphasize_differences
+		}
+		
+	}
+}

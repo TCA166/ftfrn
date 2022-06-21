@@ -1,0 +1,180 @@
+CAT_communism_plan = {
+    name = "Communist"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = CAT
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = CAT_ai_behavior
+			option = COMMUNIST
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+		
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		CAT_improve_relations_with_spain
+		CAT_deal_with_anarchists
+		CAT_communist_coup
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+CAT_fascist_plan = {
+    name = "Fascist"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = CAT
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = CAT_ai_behavior
+			option = FASCIST
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+		
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		CAT_catalonian_independence
+		CAT_stabilize_new_government
+		CAT_military_coup
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+CAT_democratic_plan = {
+    name = "Democratic"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = CAT
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = CAT_ai_behavior
+			option = DEMOCRATIC
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+		
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		CAT_catalonian_independence
+		CAT_stabilize_new_government
+		CAT_ensure_freedom
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+CAT_neutral_plan = {
+    name = "Neutral"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = CAT
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = CAT_ai_behavior
+			option = NEUTRAL
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+		
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		CAT_improve_relations_with_spain
+		CAT_deal_with_anarchists
+		CAT_ensure_peace
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}

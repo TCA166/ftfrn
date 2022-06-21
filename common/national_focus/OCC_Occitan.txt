@@ -1,0 +1,2692 @@
+focus_tree = {
+	id = Occitan
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = OCC
+		}
+	}
+	continuous_focus_position = { x = 50 y = 1200 }
+	#Focus for State Funded Industries
+	focus = {
+		id = OCC_state_funded_industries
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 6
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_seek_reconciliation_with_the_french }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Lift the Poor Out of Poverty
+	focus = {
+		id = OCC_lift_the_poor_out_of_poverty
+		icon = GFX_goal_generic_soviet_construction
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_contact_the_french_communists }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Workers of France Unite!
+	focus = {
+		id = OCC_workers_of_france_unite
+		icon = GFX_focus_generic_soviet_politics
+		x = 2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_contact_the_french_communists }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.2 
+}
+FRA = {
+every_state = {
+limit = {is_core_of = FRA}
+add_core_of = OCC}
+add_popularity= { 
+ideology = communism 
+popularity = 0.2 
+}
+}
+BRI={every_state = {
+limit = {is_core_of = BRI}
+remove_core_of = FRA
+add_core_of = OCC}}
+		}
+	}
+
+	#Focus for Time to Rise!
+	focus = {
+		id = OCC_time_to_rise
+		icon = GFX_goal_generic_war_with_comintern
+		x = 4
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_lift_the_poor_out_of_poverty 
+		}
+		prerequisite = { 
+			focus = OCC_workers_of_france_unite 
+		}
+		prerequisite = { 
+			focus = OCC_strenghten_the_unions 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_subject = no
+has_army_manpower = {size > 100000}
+		}
+		completion_reward = {
+			FRA = { country_event = { id = ftfrn.5 } }
+BRI = { country_event = { id = ftfrn.5 } }
+set_politics = {
+	ruling_party = communism
+	elections_allowed = no
+}
+add_ideas = french_unity
+set_cosmetic_tag = UNI_OCC
+		}
+	}
+
+	#Focus for Sow Support for Monarchism
+	focus = {
+		id = OCC_sow_support_for_monarchism
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		x = 12
+		y = 3
+		cost = 15
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_connect_with_the_times_of_ducal_france }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_subject = no
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = neutrality 
+popularity = 0.2 
+}
+		}
+	}
+
+	#Focus for Pan-french Alliance
+	focus = {
+		id = OCC_panfrench_alliance
+		icon = GFX_goal_tripartite_pact
+		x = 10
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_connect_with_the_times_of_ducal_france 
+			focus = OCC_help_stabilize_french_democracy 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_faction= "Pan-French Alliance" 
+FRA = { country_event = { id = ftfrn.4 } }
+BRI = { country_event = { id = ftfrn.4 } }
+		}
+	}
+
+	#Focus for Strenghten the Unions
+	focus = {
+		id = OCC_strenghten_the_unions
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 6
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_help_stabilize_french_democracy 
+			focus = OCC_contact_the_french_communists 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.2 
+}
+  add_popularity= { 
+ideology = democratic 
+popularity = 0.1 
+}
+  add_stability= 0.05
+		}
+	}
+
+	#Focus for Emphasize Differences
+	focus = {
+		id = OCC_emphasize_differences
+		icon = GFX_goal_generic_demand_territory
+		x = 14
+		y = 3
+		cost = 15
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_connect_with_protestant_history 
+			focus = OCC_connect_with_the_times_of_ducal_france 
+		}
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= -0.1  add_war_support= 0.1  every_state = {remove_core_of = FRA}
+		}
+	}
+
+	#Focus for Help Stabilize French Democracy
+	focus = {
+		id = OCC_help_stabilize_french_democracy
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 8
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_seek_reconciliation_with_the_french }
+		mutually_exclusive = { 
+			focus = OCC_contact_the_french_communists 
+		}
+		mutually_exclusive = { 
+			focus = OCC_connect_with_the_times_of_ducal_france 
+		}
+		mutually_exclusive = { 
+			focus = OCC_connect_with_protestant_history 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_government = democratic
+FRA = {has_government = democratic}
+		}
+		completion_reward = {
+			FRA = {add_ideas=democracy_stabilization}
+add_popularity = { ideology = democratic popularity = 0.1}
+FRA = { add_ai_strategy = { 
+   type = alliance 
+   id = "OCC"			
+   value = 100
+} }
+		}
+	}
+
+	#Focus for Contact the French Communists
+	focus = {
+		id = OCC_contact_the_french_communists
+		icon = GFX_focus_prc_agrarian_socialism
+		x = 4
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_seek_reconciliation_with_the_french }
+		mutually_exclusive = { 
+			focus = OCC_help_stabilize_french_democracy 
+		}
+		mutually_exclusive = { 
+			focus = OCC_connect_with_the_times_of_ducal_france 
+		}
+		mutually_exclusive = { 
+			focus = OCC_connect_with_protestant_history 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_subject = no
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.15 
+}
+  add_political_power= 100
+		}
+	}
+
+	#Focus for Reinstate Occitan Language
+	focus = {
+		id = OCC_reinstate_occitan_language
+		icon = GFX_goal_generic_demand_territory
+		x = 12
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = OCC_seek_reconciliation_with_the_french }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.05 
+}
+  add_political_power= 150
+		}
+	}
+
+	#Focus for Seek Reconciliation with the French
+	focus = {
+		id = OCC_seek_reconciliation_with_the_french
+		icon = GFX_focus_chi_reach_out_to_france
+		x = 8
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = OCC_reinstate_occitan_language }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier= { 
+target = FRA 
+modifier = medium_increase  
+}
+add_stability = 0.1
+add_popularity = {ideology = democratic popularity = 0.1}
+		}
+	}
+
+	#Focus for Our Place in the World
+	focus = {
+		id = OCC_our_place_in_the_world
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 17
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_convert_to_protestantism 
+			focus = OCC_alliance_with_italy 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = fascism_spirit
+		}
+	}
+
+	#Focus for Connect with Protestant History
+	focus = {
+		id = OCC_connect_with_protestant_history
+		icon = GFX_OCC_connect_with_protestant_history-106746
+		x = 16
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_reinstate_occitan_language }
+		mutually_exclusive = { 
+			focus = OCC_connect_with_the_times_of_ducal_france 
+		}
+		mutually_exclusive = { 
+			focus = OCC_help_stabilize_french_democracy 
+		}
+		mutually_exclusive = { 
+			focus = OCC_contact_the_french_communists 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.1 
+}
+  add_political_power= 100  add_stability= -0.05
+		}
+	}
+
+	#Focus for Connect with the Times of Ducal France
+	focus = {
+		id = OCC_connect_with_the_times_of_ducal_france
+		icon = GFX_goal_generic_national_unity
+		x = 12
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_reinstate_occitan_language }
+		mutually_exclusive = { 
+			focus = OCC_help_stabilize_french_democracy 
+		}
+		mutually_exclusive = { 
+			focus = OCC_connect_with_protestant_history 
+		}
+		mutually_exclusive = { 
+			focus = OCC_contact_the_french_communists 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = neutrality 
+popularity = 0.1 
+}
+FRA = { add_ai_strategy = { 
+   type = alliance 
+   id = "OCC"			
+   value = 100
+} }
+		}
+	}
+
+	#Focus for Issue Military Industry Contracts
+	focus = {
+		id = OCC_issue_military_industry_contracts
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 14
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_reinstate_occitan_language }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Spread the Idea of Royal Unification
+	focus = {
+		id = OCC_spread_the_idea_of_royal_unification
+		icon = GFX_goal_generic_propaganda
+		x = 11
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_panfrench_alliance 
+		}
+		prerequisite = { 
+			focus = OCC_sow_support_for_monarchism 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			OR={
+is_in_faction_with= BRI  is_in_faction_with= FRA
+}
+		}
+		completion_reward = {
+			FRA = {add_ideas=royal_propaganda}
+BRI = {add_ideas=royal_propaganda}
+		}
+	}
+
+	#Focus for Write the New Royal Constitution
+	focus = {
+		id = OCC_write_the_new_royal_constitution
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 13
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_emphasize_differences 
+		}
+		prerequisite = { 
+			focus = OCC_sow_support_for_monarchism 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = neutrality 
+elections_allowed = no 
+}
+  add_political_power= 50
+create_country_leader = {
+		name = "Frederic Davout"
+		desc = ""
+		picture = "gfx/leaders/Europe/Portrait_Europe_Generic_6.dds"
+		expire = "1969.1.1"
+		ideology = despotism
+		traits = {
+		}}
+		}
+	}
+
+	#Focus for Call for the Royal Unification
+	focus = {
+		id = OCC_call_for_the_royal_unification
+		icon = GFX_focus_generic_monarchy_1
+		x = 12
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_write_the_new_royal_constitution 
+		}
+		prerequisite = { 
+			focus = OCC_spread_the_idea_of_royal_unification 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_in_faction_with = FRA
+FRA = {neutrality > 0.4}
+is_subject = no
+has_army_manpower = {size > 100000}
+		}
+		completion_reward = {
+			FRA = { country_event = { id = ftfrn.6 } }
+BRI = { country_event = { id = ftfrn.8 } }
+set_rule = { can_puppet = yes }
+		}
+	}
+
+	#Focus for Western Communism
+	focus = {
+		id = OCC_western_communism
+		icon = GFX_OCC_western_communism-106643
+		x = 3
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_time_to_rise }
+		mutually_exclusive = { focus = OCC_workers_of_the_world_unite_ }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT = {has_war= yes}
+		}
+		completion_reward = {
+			create_faction= "Western Workers Commonwhealth"  add_political_power= 150
+		}
+	}
+
+	#Focus for Workers of the World Unite !
+	focus = {
+		id = OCC_workers_of_the_world_unite_
+		icon = GFX_goal_support_communism
+		x = 5
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_time_to_rise }
+		mutually_exclusive = { focus = OCC_western_communism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			SOV = {is_subject = no}
+is_subject = no
+		}
+		completion_reward = {
+			SOV = { country_event = { id = ftfrn.7 } }
+		}
+	}
+
+	#Focus for Urbanization Programs
+	focus = {
+		id = OCC_urbanization_programs
+		icon = GFX_goal_generic_construction2
+		x = 6
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_strenghten_the_unions }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Claims on the Lowlands
+	focus = {
+		id = OCC_claims_on_the_lowlands
+		icon = GFX_goal_generic_position_armies
+		x = 2
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_workers_of_france_unite }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim= 6
+add_state_claim= 34
+add_state_claim= 8
+add_state_claim= 35
+add_state_claim= 7
+add_state_claim= 36
+		}
+	}
+
+	#Focus for Protect Democracies
+	focus = {
+		id = OCC_protect_democracies
+		icon = GFX_goal_rhineland
+		x = 8
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_help_stabilize_french_democracy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			FRA = {democratic < 0.2}
+		}
+		available = {
+			FRA = {democratic > 0.5}
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_ideas = defender_democracy
+FRA = {add_ideas = defender_democracy}
+		}
+	}
+
+	#Focus for Faction Research Teams
+	focus = {
+		id = OCC_faction_research_teams
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 10
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_reinstate_occitan_language 
+			focus = OCC_seek_reconciliation_with_the_french 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_in_faction= yes
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Expand the Alliance
+	focus = {
+		id = OCC_expand_the_alliance
+		icon = GFX_goal_generic_improve_relations
+		x = 8
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_protect_democracies 
+		}
+		prerequisite = { 
+			focus = OCC_panfrench_alliance 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_faction_name = "European Defensive League"
+USA = { country_event = { id = ftfrn.4 } }
+CAN = { country_event = { id = ftfrn.4 } }
+POR = { country_event = { id = ftfrn.4 }}
+BEL = { country_event = { id = ftfrn.4 }}
+		}
+	}
+
+	#Focus for Security Through Technology
+	focus = {
+		id = OCC_security_through_technology
+		icon = GFX_goal_generic_scientific_exchange
+		x = 7
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_expand_the_alliance 
+		}
+		prerequisite = { 
+			focus = OCC_urbanization_programs 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+add_ideas = security_through_technology
+		}
+	}
+
+	#Focus for Faction Industrial Assistance Programs
+	focus = {
+		id = OCC_faction_industrial_assistance_programs
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 9
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_spread_the_idea_of_royal_unification 
+			focus = OCC_expand_the_alliance 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_country={
+limit = {is_in_faction_with = ROOT}
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+}
+		}
+	}
+
+	#Focus for Embrace Socialism
+	focus = {
+		id = OCC_embrace_socialism
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		x = 7
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_security_through_technology 
+			focus = OCC_workers_of_the_world_unite_ 
+		}
+		mutually_exclusive = { 
+			focus = OCC_occitanian_liberalism 
+		}
+		mutually_exclusive = { 
+			focus = OCC_accept_stalinism 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			communism > 0.2
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = -0.1 
+}
+add_ideas = socialism_i
+		}
+	}
+
+	#Focus for Accept Stalinism
+	focus = {
+		id = OCC_accept_stalinism
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		x = 5
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_workers_of_the_world_unite_ }
+		mutually_exclusive = { focus = OCC_embrace_socialism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = SOV modifier = medium_increase }
+add_ideas = stalinism_i
+		}
+	}
+
+	#Focus for Syndicalism
+	focus = {
+		id = OCC_syndicalism
+		icon = GFX_focus_spr_class_war
+		x = 3
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_western_communism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = syndycalism_i
+		}
+	}
+
+	#Focus for Occitanian Liberalism
+	focus = {
+		id = OCC_occitanian_liberalism
+		icon = GFX_focus_generic_self_management
+		x = 9
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_faction_industrial_assistance_programs 
+		}
+		prerequisite = { 
+			focus = OCC_security_through_technology 
+		}
+		mutually_exclusive = { focus = OCC_embrace_socialism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = liberalism_i
+		}
+	}
+
+	#Focus for Constitutional Monarchy
+	focus = {
+		id = OCC_constitutional_monarchy
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 11
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_call_for_the_royal_unification 
+		}
+		prerequisite = { 
+			focus = OCC_faction_industrial_assistance_programs 
+		}
+		mutually_exclusive = { focus = OCC_absolute_monarchy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = const_monarchy_i
+set_politics = {
+ruling_party = neutrality
+elections_allowed = yes}
+		}
+	}
+
+	#Focus for Absolute Monarchy
+	focus = {
+		id = OCC_absolute_monarchy
+		icon = GFX_focus_usa_voter_registration_act
+		x = 13
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_call_for_the_royal_unification }
+		mutually_exclusive = { focus = OCC_constitutional_monarchy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = absolute_monarchy_i
+		}
+	}
+
+	#Focus for Spread the Revolution!
+	focus = {
+		id = OCC_spread_the_revolution
+		icon = GFX_goal_generic_political_pressure
+		x = 3
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_syndicalism 
+			focus = OCC_accept_stalinism 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_neighbor_country = {
+        limit = { # some sanity checks
+            NOT = {has_government = ROOT}
+            not = {
+                is_guaranteed_by = ROOT # not guaranteed by us
+                is_in_faction_with = ROOT # not in faction with us
+                has_non_aggression_pact_with = ROOT #  # no non aggression by us
+                is_subject_of = ROOT # not our puppet or subject
+            }
+        }
+        ROOT = { # we scope back to our own country
+            create_wargoal = { # declare war on
+                target = PREV # previous scope (random neighbor)
+                type = annex_everything # standard wargoal
+            }
+        }
+    }
+		}
+	}
+
+	#Focus for Take Down the Fascist Threat
+	focus = {
+		id = OCC_take_down_the_fascist_threat
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		x = 5
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_accept_stalinism 
+			focus = OCC_embrace_socialism 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_in_faction_with= SOV
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = GER
+}
+		}
+	}
+
+	#Focus for Socialist Development
+	focus = {
+		id = OCC_socialist_development
+		icon = GFX_goal_generic_soviet_construction
+		x = 7
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_embrace_socialism }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Radio Free Europe
+	focus = {
+		id = OCC_radio_free_europe
+		icon = GFX_goal_generic_radar
+		x = 9
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_occitanian_liberalism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			unlock_decision_category_tooltip=OCC_radio_free_europe
+add_popularity= { 
+ideology = democratic 
+popularity = 0.1 
+}
+		}
+	}
+
+	#Focus for Claim the Spanish Throne
+	focus = {
+		id = OCC_claim_the_spanish_throne
+		icon = GFX_goal_generic_major_war
+		x = 11
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_constitutional_monarchy 
+			focus = OCC_absolute_monarchy 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = puppet_wargoal_focus 
+target = SPR
+}
+		}
+	}
+
+	#Focus for Claim the English Throne
+	focus = {
+		id = OCC_claim_the_english_throne
+		icon = GFX_focus_eng_god_save_the_king
+		x = 13
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_absolute_monarchy 
+			focus = OCC_constitutional_monarchy 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = puppet_wargoal_focus 
+target = ENG
+}
+		}
+	}
+
+	#Focus for Reconciliate with the Anarchist
+	focus = {
+		id = OCC_reconciliate_with_the_anarchist
+		icon = GFX_goal_generic_major_alliance
+		x = 1
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_syndicalism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			country_exists = SPC
+SPC = {country_exists = SPC}
+		}
+		completion_reward = {
+			SPC = {add_opinion_modifier = { target = OCC modifier = medium_increase }}
+SPC = { add_ai_strategy = { 
+   type = alliance 
+   id = "OCC"			
+   value = 100
+} }
+		}
+	}
+
+	#Focus for Convert to Protestantism
+	focus = {
+		id = OCC_convert_to_protestantism
+		icon = GFX_OCC_convert_to_protestantism-106747
+		x = 16
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_connect_with_protestant_history }
+		mutually_exclusive = { focus = OCC_alliance_with_italy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_subject= no
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.1 
+}
+  add_political_power= 150  
+GER = {add_opinion_modifier = { target = OCC modifier = medium_increase }}
+add_stability = -0.5
+		}
+	}
+
+	#Focus for Alliance with Italy
+	focus = {
+		id = OCC_alliance_with_italy
+		icon = GFX_focus_befriend_italy
+		x = 18
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_connect_with_protestant_history }
+		mutually_exclusive = { focus = OCC_convert_to_protestantism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_subject= no
+		}
+		completion_reward = {
+			ITA = {
+add_ai_strategy = { 
+   type = alliance
+   id = "OCC"			
+   value = 200
+}
+add_ai_strategy = { 
+   type = ignore
+   id = "GER"			
+   value = 200
+}
+add_opinion_modifier = { target = OCC modifier = medium_increase }
+}
+create_faction = "Southern Fascist League"
+ITA = { country_event = { id = ftfrn.4 } }
+set_politics = {ruling_party = fascism elections_allowed = no}
+		}
+	}
+
+	#Focus for Expel the French
+	focus = {
+		id = OCC_expel_the_french
+		icon = GFX_focus_attack_france
+		x = 15
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_emphasize_differences 
+		}
+		prerequisite = { 
+			focus = OCC_convert_to_protestantism 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 100000}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = FRA
+}
+		}
+	}
+
+	#Focus for Move North
+	focus = {
+		id = OCC_move_north
+		icon = GFX_focus_usa_focus_on_europe
+		x = 14
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_expel_the_french }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = BRI
+}
+  create_wargoal= { 
+type = annex_everything 
+target = BEL
+}
+		}
+	}
+
+	#Focus for Revive the Spirit of League Wars
+	focus = {
+		id = OCC_revive_the_spirit_of_league_wars
+		icon = GFX_OCC_revive_the_spirit_of_league_wars-106759
+		x = 16
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_expel_the_french 
+		}
+		prerequisite = { 
+			focus = OCC_our_place_in_the_world 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_faction = "Protestant League"
+GER = { country_event = { id = ftfrn.4 } }
+SWE = { country_event = { id = ftfrn.4 } }
+SWE = { add_popularity = {ideology = fascism popularity = 0.3}}
+add_popularity = {ideology = fascism popularity = 0.3}
+set_politics = {
+	ruling_party = fascism
+	elections_allowed = no
+}
+set_party_name = { 
+    ideology = fascism
+    long_name = occ_prot_party_long
+    name = occ_prot_party_short
+}
+create_country_leader = {
+		name = "Francis Pierot"
+		desc = ""
+		picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+		expire = "1969.1.1"
+		ideology = gen_nazism
+		traits = {
+		}
+}
+set_cosmetic_tag = HOL_OCC
+		}
+	}
+
+	#Focus for Move South
+	focus = {
+		id = OCC_move_south
+		icon = GFX_OCC_move_south-106780
+		x = 17
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_revive_the_spirit_of_league_wars 
+			focus = OCC_conquer_north_africa 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_country={
+limit = {original_tag = SPR}
+OCC = {create_wargoal = { type = annex_everything target = PREV }}
+		}
+	}
+} #This may not be in the right place. If your focus tree is having issues, check the above focus, as this closing brace was added to close the focus.
+
+	#Focus for Convert Italy
+	focus = {
+		id = OCC_convert_italy
+		icon = GFX_focus_attack_italy
+		x = 15
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_revive_the_spirit_of_league_wars 
+			focus = OCC_move_north 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal = { type = puppet_wargoal_focus target = ITA }
+		}
+	}
+
+	#Focus for The Final Crusade
+	focus = {
+		id = OCC_the_final_crusade
+		icon = GFX_focus_mex_restore_the_army_of_christ
+		x = 15
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_convert_italy }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim= 454  add_state_claim= 553  add_state_claim= 554  add_state_claim= 455
+		}
+	}
+
+	#Focus for Control the Mediterean
+	focus = {
+		id = OCC_control_the_mediterean
+		icon = GFX_goal_generic_amphibious_assault
+		x = 17
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_move_south }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_core= 118
+  add_state_claim= 453
+		}
+	}
+
+	#Focus for Naval Expansion
+	focus = {
+		id = OCC_naval_expansion
+		icon = GFX_goal_generic_navy_cruiser
+		x = 19
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_alliance_with_italy 
+		}
+		prerequisite = { 
+			focus = OCC_secure_the_swiss_border 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = dockyard
+ level = 5
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Conquer North Africa
+	focus = {
+		id = OCC_conquer_north_africa
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		x = 18
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_naval_expansion 
+		}
+		prerequisite = { 
+			focus = OCC_our_place_in_the_world 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim=458
+  add_state_claim= 665  
+add_state_claim= 460  
+add_state_claim= 459
+add_state_claim= 290
+		}
+	}
+
+	#Focus for Develop Military Industry
+	focus = {
+		id = OCC_develop_military_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 20
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_naval_expansion 
+		}
+		prerequisite = { 
+			focus = OCC_lyon_defense_line 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Civilize Egypt
+	focus = {
+		id = OCC_civilize_egypt
+		icon = GFX_goal_generic_territory_or_war
+		x = 19
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_conquer_north_africa 
+			focus = OCC_develop_military_industry 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim= 447
+  add_state_claim= 446
+  add_state_claim= 457
+  add_state_claim= 452
+ add_state_claim= 451
+ add_state_claim= 456
+		}
+	}
+
+	#Focus for Continue Colonial Expansion
+	focus = {
+		id = OCC_continue_colonial_expansion
+		icon = GFX_focus_usa_focus_on_asia
+		x = 19
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_civilize_egypt }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim= 672
+ add_state_claim= 335
+  add_state_claim= 336
+		}
+	}
+
+	#Focus for Army Reform
+	focus = {
+		id = OCC_army_reform
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 23
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience = 5
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Infantry Equipment Effort
+	focus = {
+		id = OCC_infantry_equipment_effort
+		icon = GFX_goal_generic_build_tank
+		x = 23
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_army_reform }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	#Focus for Grand Strategic Reevaluation
+	focus = {
+		id = OCC_grand_strategic_reevaluation
+		icon = GFX_goal_generic_position_armies
+		x = 21
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_army_reform }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Lyon Defense Line
+	focus = {
+		id = OCC_lyon_defense_line
+		icon = GFX_goal_generic_defence
+		x = 21
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_secure_the_swiss_border 
+		}
+		prerequisite = { 
+			focus = OCC_strenghten_the_spanish_border 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			735 = {
+	add_building_construction = {
+		type = bunker
+        	province = 11573
+		level = 1
+	}
+}
+32 = {
+	add_building_construction = {
+		type = bunker
+        	province = 6784
+		level = 1
+	}
+add_building_construction = {
+		type = bunker
+        	province = 3589
+		level = 1
+	}
+}  
+20 = {
+	add_building_construction = {
+		type = bunker
+        	province = 6613
+		level = 4
+	}
+add_building_construction = {
+		type = bunker
+        	province = 6786
+		level = 1
+	}
+add_building_construction = {
+		type = bunker
+        	province = 3770
+		level = 1
+	}
+}
+26 = {
+	add_building_construction = {
+		type = bunker
+        	province = 9748
+		level = 1
+	}
+add_building_construction = {
+		type = bunker
+        	province = 3754
+		level = 1
+	}
+}
+		}
+	}
+
+	#Focus for Modern Equipment Effort
+	focus = {
+		id = OCC_modern_equipment_effort
+		icon = GFX_OCC_modern_equipment_effort-116416
+		x = 25
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_army_reform }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 3.0
+				technology = motorised_infantry
+			}
+add_tech_bonus = {
+				name = armor_bonus
+				bonus = 0.25
+				uses = 1
+				category = armor
+			}
+		}
+	}
+
+	#Focus for Special Forces Experiments
+	focus = {
+		id = OCC_special_forces_experiments
+		icon = GFX_goal_generic_special_forces
+		x = 23
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_infantry_equipment_effort }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 0.5
+				uses = 4
+				technology = paratroopers
+				technology = paratroopers2
+				technology = tech_mountaineers
+				technology = tech_mountaineers2
+			}
+		}
+	}
+
+	#Focus for Modern Tank Effort
+	focus = {
+		id = OCC_modern_tank_effort
+		icon = GFX_goal_generic_army_tanks
+		x = 25
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_modern_equipment_effort }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 1.0
+				uses = 2
+				category = armor
+			}
+		}
+	}
+
+	#Focus for Italian Forts
+	focus = {
+		id = OCC_italian_forts
+		icon = GFX_goal_generic_fortify_city
+		x = 21
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_grand_strategic_reevaluation }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			735 = {
+	add_building_construction = {
+		type = bunker
+        	province = 9909
+		level = 5
+	}
+add_building_construction = {
+		type = bunker
+        	province = 3959
+		level = 1
+	}
+add_building_construction = {
+		type = bunker
+        	province = 6975
+		level = 1
+	}
+add_building_construction = {
+		type = bunker
+        	province = 3764
+		level = 1
+	}
+add_building_construction = {
+		type = bunker
+        	province = 764
+		level = 1
+	}
+add_building_construction = {
+		type = bunker
+        	province = 9745
+		level = 1
+	}
+add_building_construction = {
+		type = bunker
+        	province = 778
+		level = 1
+	}
+}
+		}
+	}
+
+	#Focus for Secure the Swiss Border
+	focus = {
+		id = OCC_secure_the_swiss_border
+		icon = GFX_goal_tripartite_pact
+		x = 20
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_italian_forts }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			diplomatic_relation = { 
+	country = SWI 
+	relation = non_aggression_pact 
+}
+		}
+	}
+
+	#Focus for Strenghten the Spanish Border
+	focus = {
+		id = OCC_strenghten_the_spanish_border
+		icon = GFX_goal_generic_construct_military
+		x = 22
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_italian_forts 
+		}
+		prerequisite = { 
+			focus = OCC_special_forces_experiments 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			31 = {
+	add_building_construction = {
+		type = bunker
+        	province = 9853
+		level = 2
+	}
+add_building_construction = {
+		type = bunker
+        	province = 3915
+		level = 2
+	}
+}
+		}
+	}
+
+	#Focus for Fast Warfare Experiments
+	focus = {
+		id = OCC_fast_warfare_experiments
+		icon = GFX_goal_generic_army_motorized
+		x = 25
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_modern_tank_effort }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				ahead_reduction = 2
+				uses = 2
+				category = motorized_equipment
+			}
+army_experience = 50
+		}
+	}
+
+	#Focus for Found the Occitan Airforce
+	focus = {
+		id = OCC_found_the_occitan_airforce
+		icon = GFX_goal_generic_build_airforce
+		x = 28
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}
+add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 5.0
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+			}
+		}
+	}
+
+	#Focus for Large Aircraft Effort
+	focus = {
+		id = OCC_large_aircraft_effort
+		icon = GFX_goal_generic_air_bomber
+		x = 27
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_found_the_occitan_airforce }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name =  air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}
+add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 0.25
+				uses = 1
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+				technology = strategic_bomber3
+				category = tactical_bomber
+			}
+		}
+	}
+
+	#Focus for Air Support Experiments
+	focus = {
+		id = OCC_air_support_experiments
+		icon = GFX_goal_generic_CAS
+		x = 27
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_large_aircraft_effort 
+		}
+		prerequisite = { 
+			focus = OCC_modern_equipment_effort 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1.0
+				uses = 1
+			
+				category = tactical_bomber
+category = cas_bomber
+			}
+		}
+	}
+
+	#Focus for Fighter Effort
+	focus = {
+		id = OCC_fighter_effort
+		icon = GFX_goal_generic_air_fighter2
+		x = 29
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_found_the_occitan_airforce }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+			}
+		}
+	}
+
+	#Focus for Improve Air Tactics
+	focus = {
+		id = OCC_improve_air_tactics
+		icon = GFX_goal_generic_air_doctrine
+		x = 29
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_fighter_effort }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			air_experience= 30
+add_tech_bonus = {
+				name =  air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	#Focus for Naval Support Designs
+	focus = {
+		id = OCC_naval_support_designs
+		icon = GFX_goal_generic_air_fighter2
+		x = 27
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_air_support_experiments }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = nav_bomber_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 2
+				category = naval_bomber
+			}
+		}
+	}
+
+	#Focus for Setup National Air Defense
+	focus = {
+		id = OCC_setup_national_air_defense
+		icon = GFX_OCC_setup_national_air_defense-120660
+		x = 29
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_improve_air_tactics }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			31 = {
+	add_building_construction = {
+	type = anti_air_building
+	level = 1
+	instant_build = yes
+}
+} 
+20 = {
+	add_building_construction = {
+	type = anti_air_building
+	level = 1
+	instant_build = yes
+}
+} 
+22 = {
+	add_building_construction = {
+	type = anti_air_building
+	level = 1
+	instant_build = yes
+}
+} 
+26 = {
+	add_building_construction = {
+	type = anti_air_building
+	level = 1
+	instant_build = yes
+}
+}
+		}
+	}
+
+	#Focus for Subsidise Big Industrial Complexes
+	focus = {
+		id = OCC_subsidise_big_industrial_complexes
+		icon = GFX_goal_generic_production2
+		x = 35
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_continue_industrial_expansion }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+		}
+	}
+
+	#Focus for Develop Marine Divisions
+	focus = {
+		id = OCC_develop_marine_divisions
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 23
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_fast_warfare_experiments 
+		}
+		prerequisite = { 
+			focus = OCC_special_forces_experiments 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = special_forces
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 1.0
+				uses = 3
+				
+				technology = marines
+				technology = marines2
+
+technology = marines3
+
+			}
+		}
+	}
+
+	#Focus for Amtrack Experiments
+	focus = {
+		id = OCC_amtrack_experiments
+		icon = GFX_goal_generic_amphibious_assault
+		x = 27
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_fast_warfare_experiments
+			focus = OCC_naval_support_designs
+		}
+		prerequisite = { 
+			focus = OCC_learn_from_the_british
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = USA_amphibious_operations
+				bonus = 1.0
+				uses = 2
+				category = tp_tech 
+			}
+		}
+	}
+
+	#Focus for Naval Design Bureau
+	focus = {
+		id = OCC_naval_design_bureau
+		icon = GFX_OCC_naval_design_bureau-116418
+		x = 32
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			navy_experience= 30
+
+add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}
+		}
+	}
+
+	#Focus for Utilise Subs in the Mediterrean
+	focus = {
+		id = OCC_utilise_subs_in_the_mediterrean
+		icon = GFX_goal_generic_navy_anti_submarine
+		x = 33
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_naval_design_bureau }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 3
+				category = ss_tech
+			}
+		}
+	}
+
+	#Focus for Commission Civilian Ships
+	focus = {
+		id = OCC_commission_civilian_ships
+		icon = GFX_OCC_commission_civilian_ships-107564
+		x = 31
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_naval_design_bureau }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_equipment_to_stockpile= {
+ type = convoy_1 
+amount = 150 
+producer = OCC
+}
+		}
+	}
+
+	#Focus for Expand the Dockyard Base
+	focus = {
+		id = OCC_expand_the_dockyard_base
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 31
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_commission_civilian_ships }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Learn from the British
+	focus = {
+		id = OCC_learn_from_the_british
+		icon = GFX_goal_generic_navy_battleship
+		x = 31
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_expand_the_dockyard_base }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_government = ENG
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 2
+				category = bc_tech
+				category = bb_tech
+				category = cv_tech
+			}
+		}
+	}
+
+	#Focus for New Coast Guard Designs
+	focus = {
+		id = OCC_new_coast_guard_designs
+		icon = GFX_focus_generic_destroyer
+		x = 33
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_utilise_subs_in_the_mediterrean }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = dd_tech
+			}
+navy_experience = 30
+		}
+	}
+
+	#Focus for Improve Fuel Storage
+	focus = {
+		id = OCC_improve_fuel_storage
+		icon = GFX_goal_generic_oil_refinery
+		x = 33
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = OCC_new_coast_guard_designs 
+		}
+		prerequisite = { 
+			focus = OCC_continue_industrial_expansion 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			21 = {
+        add_extra_state_shared_building_slots = 2
+	add_building_construction = {
+	type = synthetic_refinery 
+	level = 1
+	instant_build = yes
+}
+add_building_construction = {
+	type = fuel_silo 
+	level = 1
+	instant_build = yes
+}
+}
+		}
+	}
+
+	#Focus for Monetary Reform
+	focus = {
+		id = OCC_monetary_reform
+		icon = GFX_focus_mex_privatisation
+		x = 36
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_timed_idea= { 
+idea = monetary_reform 
+days = 180 
+}
+		}
+	}
+
+	#Focus for Industrial Expansion
+	focus = {
+		id = OCC_industrial_expansion
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 35
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_monetary_reform }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Continue Industrial Expansion
+	focus = {
+		id = OCC_continue_industrial_expansion
+		icon = GFX_goal_generic_production
+		x = 35
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_industrial_expansion }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Military Industrial Expansion
+	focus = {
+		id = OCC_military_industrial_expansion
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 37
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_monetary_reform }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand the FAMH Infantry Weapon Design Bureau
+	focus = {
+		id = OCC_expand_the_famh_infantry_weapon_design_bureau
+		icon = GFX_focus_focus_fra_maquis
+		x = 37
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_optimize_weapon_production }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	#Focus for Optimize Weapon Production
+	focus = {
+		id = OCC_optimize_weapon_production
+		icon = GFX_OCC_optimize_weapon_production-107564
+		x = 37
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_military_industrial_expansion }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = production_optimalisation
+		}
+	}
+
+	#Focus for The Tunisian Occupation
+	focus = {
+		id = OCC_the_tunisian_occupation
+		icon = GFX_OCC_the_tunisian_occupation-107561
+		x = 31
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = OCC_learn_from_the_british }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT={
+has_government = neutrality
+has_government = democratic
+}
+TUN = {
+exists = yes
+has_war = no
+}
+		}
+		completion_reward = {
+			TUN={
+country_event = {id = ftfrn.60}
+}
+		}
+	}
+
+#End of focuses 
+ }

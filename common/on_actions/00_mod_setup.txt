@@ -1,0 +1,712 @@
+on_actions = {
+	on_startup={
+		effect = {
+			IF={#load english tree
+				limit={
+					AND={
+						has_game_rule = {
+							rule = eng_fragmentation_status
+							option = ENG_FRAGMENTED
+						}
+					}
+				}
+				ENG = {load_focus_tree = Let_me_tell_you_of_the_britons}
+			}
+			IF={#Romania Fragmentation
+				limit={
+					AND={
+						has_game_rule = {
+							rule = ROM_fragmentation
+							option = FRAGMENTED
+						}
+					}
+				}
+				MOL={
+					transfer_state = 78
+					transfer_state = 766
+				}
+				TRA={
+					transfer_state = 76
+					transfer_state = 84
+					transfer_state = 82
+					transfer_state = 83
+				}
+				ROM={
+					transfer_units_fraction = {
+						target = MOL
+						size = 0.1
+					}
+					transfer_units_fraction = {
+						target = TRA
+						size = 0.2
+					}
+				}
+			}
+			IF={#YUG fix cursed fragment
+				limit={
+					AND={
+						has_game_rule = {
+							rule = yug_fragmentation_status
+							option = YUG_FRAGMENTED
+						}
+					}
+				}
+				
+				YUG={
+					remove_state_core = 163
+					remove_state_core = 764
+					release = SLV
+					release = SER
+					transfer_units_fraction = {
+						target = SER
+						size = 1
+					}
+					release = BOS
+					release = MAC
+					release = CRO
+					release = MNT
+				}
+				SER={
+					transfer_state = 764
+					add_state_core = 764
+					transfer_units_fraction = {
+						target = SLV
+						size = 0.1
+					}
+					transfer_units_fraction = {
+						target = BOS
+						size = 0.2
+					}
+					transfer_units_fraction = {
+						target = MAC
+						size = 0.1
+					}
+					transfer_units_fraction = {
+						target = CRO
+						size = 0.2
+					}
+					transfer_units_fraction = {
+						target = MNT
+						size = 0.1
+					}
+				}
+			}
+			IF={#ITA fragment
+				limit={
+					AND={
+						has_game_rule = {
+							rule = ITA_fragment
+							option = FRAGMENTED
+						}
+					}
+				}
+				NAP={
+					add_state_core = 115
+					add_state_core = 156
+					add_state_core = 117
+				}
+				PAP={
+					add_state_core = 2
+					add_state_core = 157
+				}
+				TUS={
+					add_state_core = 162
+				}
+				VNC={
+					add_state_core = 160
+					add_state_core = 163
+					add_state_core = 736
+					add_state_core = 39
+				}
+				MIL={
+					add_state_core = 159
+					add_state_core = 161
+				}
+				GRE={
+					transfer_state = 164
+				}
+				ITA={
+					add_state_core = 735
+					release = NAP
+					release = PAP
+					release = TUS
+					release = VNC
+					release = MIL
+					set_cosmetic_tag = PDM
+					transfer_units_fraction = {
+						target = NAP
+						size = 0.26
+					}
+					transfer_units_fraction = {
+						target = PAP
+						size = 0.16
+					}
+					transfer_units_fraction = {
+						target = TUS
+						size = 0.1
+					}
+					transfer_units_fraction = {
+						target = VNC
+						size = 0.16
+					}
+					transfer_units_fraction = {
+						target = MIL
+						size = 0.16
+					}
+				}
+			}
+			IF={#KUR release
+				limit={
+					AND={
+						has_game_rule = {
+							rule = KUR_release
+							option = RELEASE
+						}
+					}
+				}
+				TUR={release = KUR}
+				KUR={
+					transfer_state = 419
+				}
+				
+			}
+			IF={#SLO release
+				limit={
+					AND={
+						has_game_rule = {
+							rule = CZE_fragmentation
+							option = FRAGMENTED
+						}
+					}
+				}
+				SLO={
+					add_state_core = 70
+					add_state_core = 71
+					add_state_core = 664
+					add_state_core = 73
+				}
+				CZE={
+					remove_ideas = CZE_divided_nation
+					set_cosmetic_tag = CZEH
+					release = SLO
+					transfer_units_fraction = {
+						target = SLO
+						size = 0.4
+					}
+				}
+				
+				
+			}
+			IF={#Post ww2 german setup
+				limit={
+					has_game_rule = {
+						rule = GER_fragmentation
+						option = POSTWW2
+					}
+				}
+				42={
+					set_demilitarized_zone = no
+				}
+				51={
+					set_demilitarized_zone = no
+				}
+				#taken from the yalta conference code
+				WGR = {
+					#pure wgr land
+					add_state_core = 42
+					add_state_core = 50
+					add_state_core = 51
+					add_state_core = 52
+					add_state_core = 53
+					add_state_core = 54
+					add_state_core = 55
+					add_state_core = 56
+					add_state_core = 57
+					add_state_core = 58
+					add_state_core = 59
+					##ddr land
+					add_state_claim = 60
+					add_state_claim = 61
+					add_state_claim = 62
+					add_state_claim = 63
+					add_state_claim = 64
+					add_state_claim = 65
+					add_state_claim = 66
+					add_state_claim = 67
+					add_state_claim = 68
+					add_state_claim = 5
+					add_state_claim = 763
+				}
+				DDR = { # ddr gets also postww2 polish land
+					#ddr land
+					add_state_core = 60
+					add_state_core = 61
+					add_state_core = 62
+					add_state_core = 63
+					add_state_core = 64
+					add_state_core = 65
+					add_state_core = 66
+					add_state_core = 67
+					add_state_core = 68
+					add_state_core = 5
+					add_state_core = 763
+					#wgr land
+					add_state_claim = 42
+					add_state_claim = 50
+					add_state_claim = 51
+					add_state_claim = 52
+					add_state_claim = 53
+					add_state_claim = 54
+					add_state_claim = 55
+					add_state_claim = 56
+					add_state_claim = 57
+					add_state_claim = 58
+					add_state_claim = 59
+				}
+				GER = {release = DDR}
+				GER = {release = WGR}
+				GER = {
+					transfer_units_fraction = {
+						target = WGR
+						size = 0.6
+					}
+					transfer_units_fraction = {
+						target = DDR
+						size = 0.4
+					}
+					delete_unit_template_and_units = { division_template = "Infanterie-Division" }
+					delete_unit_template_and_units = { division_template = "Panzer-Division" }
+					delete_unit_template_and_units = { division_template = "Infanterie-Division (mot.)" }
+					delete_unit_template_and_units = { division_template = "Gebirgs-Brigade" }
+					delete_unit_template_and_units = { division_template = "Kavallerie-Brigade" }
+				}
+				WGR = {change_tag_from = GER}
+			}
+			IF={#1870 german setup
+				limit={
+					has_game_rule = {
+						rule = GER_fragmentation
+						option = VICTORIA
+					}
+				}
+				42={
+					set_demilitarized_zone = no
+				}
+				51={
+					set_demilitarized_zone = no
+				}
+				#taken from the french focus tree
+				WUR = {
+					add_state_core = 50
+				}
+				
+				SAX = {
+					add_state_core = 65
+				}
+				
+				MEK = {
+					add_state_core = 61
+				}
+				
+				SHL = {
+					add_state_core = 58
+				}
+				
+				BAY = {
+					add_state_core = 52
+					add_state_core = 53
+					add_state_core = 54
+				}
+				
+				HAN = {
+					add_state_core = 59
+					add_state_core = 56
+					add_state_core = 57
+				}
+				
+				every_state = {
+					limit = { 
+						is_core_of = GER 
+						NOT = {
+							OR = {
+								is_core_of = BAY
+								is_core_of  = MEK
+								is_core_of  = SAX
+								is_core_of  = HAN
+								is_core_of  = SHL
+								is_core_of  = WUR
+							}	
+						}
+						
+					}
+					PRE = {
+						add_state_core = PREV
+						
+					}
+				}
+				GER={
+					release = HAN
+					release = BAY
+					release = SHL
+					release = MEK
+					release = SAX
+					release = WUR
+					release = PRE
+					transfer_units_fraction = {
+						target = HAN
+						size = 0.15
+					}
+					transfer_units_fraction = {
+						target = SHL
+						size = 0.1
+					}
+					transfer_units_fraction = {
+						target = BAY
+						size = 0.15
+					}
+					transfer_units_fraction = {
+						target = MEK
+						size = 0.1
+					}
+					transfer_units_fraction = {
+						target = SAX
+						size = 0.1
+					}
+					transfer_units_fraction = {
+						target = WUR
+						size = 0.1
+					}
+					transfer_units_fraction = {
+						target = PRE
+						size = 0.3
+					}
+					delete_unit_template_and_units = { division_template = "Infanterie-Division" }
+					delete_unit_template_and_units = { division_template = "Panzer-Division" }
+					delete_unit_template_and_units = { division_template = "Infanterie-Division (mot.)" }
+					delete_unit_template_and_units = { division_template = "Gebirgs-Brigade" }
+					delete_unit_template_and_units = { division_template = "Kavallerie-Brigade" }
+				}
+				PRE={
+					change_tag_from = GER
+				}
+			}
+			IF={#CSA release
+				limit={
+					has_game_rule = {
+						rule = USA_fragmentation
+						option = CONFEDERATE_CLASSIC
+					}
+				}
+				every_state = {
+					limit={
+						OR={
+							state = 375
+							state = 371
+							state = 370
+							state = 374
+							state = 372
+							state = 366
+							state = 367
+							state = 365
+							state = 364
+							state = 363
+							state = 368
+							state = 362
+						}
+					}
+					CSA = {
+						transfer_state = PREV
+						add_state_core = PREV
+						set_stability = 0.75
+						set_war_support = 0
+						add_ideas = racist_legacy
+						add_ideas = great_depression
+						load_oob = "CSA_fascist_uprising"
+					}
+					USA = { 
+						remove_state_core = PREV 
+						add_state_claim = PREV
+						USA_congress_remove_state = yes
+					}
+				}
+			}
+			IF={#Fragmented
+				limit={
+					has_game_rule = {
+						rule = USA_fragmentation
+						option = FRAGMENTED
+					}
+				}
+				USA = {
+					set_cosmetic_tag = US_disunited
+					news_event = {
+					id = ftfrn.51
+					}
+				}
+				CSA = {
+					news_event = {
+					id = ftfrn.51
+					}
+				}
+				USC = {
+					news_event = {
+					id = ftfrn.51
+					}
+				}
+				USB = {
+					news_event = {
+					id = ftfrn.51
+					}
+				}
+				every_state = {
+					limit={
+						OR={
+							state = 375
+							state = 371
+							state = 370
+							state = 374
+							state = 372
+							state = 366
+							state = 367
+							state = 365
+							state = 364
+							state = 363
+							state = 368
+							state = 362
+						}
+					}
+					CSA = {
+						transfer_state = PREV
+						add_state_core = PREV
+						
+						
+						add_ideas = racist_legacy
+						add_ideas = great_depression
+						load_oob = "CSA_fascist_uprising"
+					}
+					USA = { 
+						remove_state_core = PREV 
+						add_state_claim = PREV
+						USA_congress_remove_state = yes
+					}
+				}
+				every_state = {
+					limit = {
+						OR = {
+							state = 393
+							state = 396
+							state = 394
+							state = 392
+							state = 395
+							state = 391
+							state = 373
+							state = 369
+						}
+					}
+					USB = {
+						transfer_state = PREV
+						add_state_core = PREV
+						
+						add_ideas = great_depression
+						load_oob = "USB_defense_force"
+					}
+					USA = {
+						remove_state_core = PREV 
+						add_state_claim = PREV
+						USA_congress_remove_state = yes
+					}
+				}
+				every_state = {
+					limit = {
+						OR = {
+							state = 383
+							state = 384
+							state = 390
+							state = 389
+							state = 376
+							state = 382
+							state = 381
+							state = 388
+							state = 377
+							state = 380
+							state = 387
+							state = 386
+							state = 385
+							state = 378
+							state = 379
+						}
+					}
+					USC = {
+						transfer_state = PREV
+						add_state_core = PREV
+						set_stability = 0.75
+						set_war_support = 0
+						add_ideas = great_depression
+						load_oob = "USC_defense_force"
+						
+					}
+					USA = {
+						remove_state_core = PREV 
+						add_state_claim = PREV
+						USA_congress_remove_state = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = sov_fragmentation_status
+						option = SOV_FRAGMENTED
+					}
+				}
+				SOV = {
+					release = UKR
+					release = BLR
+					release = GEO
+					release = AZR
+					release = ARM
+					release = UZB
+					release = TAJ
+					release = KYR
+					release = TMS
+					release = KAZ
+					transfer_units_fraction = {
+						target = UKR
+						size = 0.3
+					}
+					transfer_units_fraction = {
+						target = BLR
+						size = 0.1
+					}
+					transfer_units_fraction = {
+						target = KAZ
+						size = 0.1
+					}
+					transfer_units_fraction = {
+						target = GEO
+						size = 0.01
+					}
+					transfer_units_fraction = {
+						target = AZR
+						size = 0.01
+					}
+					transfer_units_fraction = {
+						target = ARM
+						size = 0.01
+					}
+					transfer_units_fraction = {
+						target = UZB
+						size = 0.01
+					}
+					transfer_units_fraction = {
+						target = TAJ
+						size = 0.01
+					}
+					transfer_units_fraction = {
+						target = KYR
+						size = 0.01
+					}
+					transfer_units_fraction = {
+						target = TMS
+						size = 0.01
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = sov_fragmentation_status
+						option = SOV_UTTERLY_FRAGMENTED
+					}
+				}
+				SOV = {
+					release = UKR
+					release = BLR
+					release = GEO
+					release = AZR
+					release = ARM
+					release = UZB
+					release = TAJ
+					release = KYR
+					release = TMS
+					release = KAZ
+					transfer_units_fraction = {
+						target = UKR
+						size = 0.3
+					}
+					transfer_units_fraction = {
+						target = BLR
+						size = 0.1
+					}
+					transfer_units_fraction = {
+						target = KAZ
+						size = 0.1
+					}
+					transfer_units_fraction = {
+						target = GEO
+						size = 0.01
+					}
+					transfer_units_fraction = {
+						target = AZR
+						size = 0.01
+					}
+					transfer_units_fraction = {
+						target = ARM
+						size = 0.01
+					}
+					transfer_units_fraction = {
+						target = UZB
+						size = 0.01
+					}
+					transfer_units_fraction = {
+						target = TAJ
+						size = 0.01
+					}
+					transfer_units_fraction = {
+						target = KYR
+						size = 0.01
+					}
+					transfer_units_fraction = {
+						target = TMS
+						size = 0.01
+					}
+                    set_cosmetic_tag = SOV_russia
+                    set_global_flag = SOV_became_russia
+				}
+			}
+			IF={#KSH release
+				limit={
+					AND={
+						has_game_rule = {
+							rule = KSH_release
+							option = RELEASE
+						}
+					}
+				}
+				KSH={
+					transfer_state = 85
+					transfer_state = 807
+					#transfer_state = 63
+					remove_state_core = 63
+				}
+				
+			}
+			IF={#SIL release
+				limit={
+					AND={
+						has_game_rule = {
+							rule = SIL_release
+							option = RELEASE
+						}
+					}
+				}
+				SIL={
+					transfer_state = 762
+					transfer_state = 67
+					transfer_state = 66
+				}
+				
+			}
+		}
+	}
+}

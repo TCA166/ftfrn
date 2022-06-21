@@ -1,0 +1,16 @@
+USA_honor_the_confederacy = {
+	icon = usa_honor_the_confederacy
+	allowed = {
+		OR = {
+			original_tag = USA
+			original_tag = CSA
+		}
+	}
+	visible = {
+		AND = {
+			has_completed_focus = USA_honor_the_confederacy
+			#original_tag = CSA removed this one as it breaks the csa cosmetic tag
+			has_government = fascism
+		}
+	}
+}

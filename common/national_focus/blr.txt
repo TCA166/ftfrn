@@ -1,0 +1,1002 @@
+focus_tree = {
+	id = blr
+	continuous_focus_position = { x = 0 y = 1000 } 
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = BLR
+		}
+	}
+	shared_focus = army_effort_dup
+	shared_focus = aviation_effort_dup
+	shared_focus = naval_effort_dup
+	#Patriotism
+	focus = {
+		id = BLR_patriotism
+		icon = GFX_BLR_patriotism-17041
+		x = 0
+		y = 3
+		cost = 20
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_fascism  }
+		available = {
+			OR = {has_government = communism
+			has_government = fascism}
+		}
+		completion_reward = {
+			add_ideas = patriotism
+}
+	}
+
+	#Madagascar
+	focus = {
+		id = BLR_madagascar
+		icon = GFX_BLR_madagascar-17145
+		x = 12
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_intervention_on_latvia  }
+		available = {
+			has_government = democratic
+		}
+		completion_reward = {
+			FRA = {country_event = {
+				id = belarus.7
+				days = 1
+			}}
+		}
+	}
+
+	#Volunteers
+	focus = {
+		id = BLR_volunteers
+		icon = GFX_focus_generic_little_entente
+		x = 18
+		y = 3
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_works_for_prisoners  }
+		completion_reward = {
+			random_owned_controlled_state ={
+
+			 limit = {
+
+			 free_building_slots = {
+
+			 building = industrial_complex
+
+			 size > 0
+
+			 include_locked = yes
+
+			 }
+
+			 }
+
+			 add_extra_state_shared_building_slots = 2
+
+			 add_building_construction = {
+
+			 type = industrial_complex
+
+			 level = 2
+
+			 instant_build = yes
+
+			 }
+
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+
+			 }
+
+			
+		}
+	}
+
+	#Intervention on Latvia
+	focus = {
+		id = BLR_intervention_on_latvia
+		icon = GFX_goal_generic_military_sphere
+		x = 12
+		y = 3
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_allies  }
+		available = {
+			country_exists = LAT
+
+			is_puppet = no
+		
+			OR = {
+			is_in_faction_with = FRA
+			is_in_faction_with = ENG
+}	
+
+			has_government = democratic
+			threat > 0.2
+		}
+		completion_reward = {
+			create_wargoal = { 
+
+			type = topple_government
+
+			target = LAT
+
+			}
+
+			
+		}
+	}
+
+	#National Education
+	focus = {
+		id = BLR_national_education
+		icon = GFX_focus_spa_unify_the_nationalist_front
+		x = 1
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_alliance_with_germany  }
+		prerequisite = { focus = BLR_patriotism  }
+		available = {
+			
+
+						has_government = fascism
+
+					
+		}
+		completion_reward = {
+			
+
+						add_research_slot = 1
+		}
+	}
+
+	#Great Unite
+	focus = {
+		id = BLR_greatunite
+		icon = GFX_focus_focus_fra_national_resistance_council
+		x = 9
+		y = 4
+		cost = 20
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		
+		prerequisite = {focus = BLR_invite_baltic_countries}
+		prerequisite = {focus = BLR_invite_ukraine }
+		available = {
+			is_puppet = no
+			OR = {
+			is_in_faction_with = LAT  
+			is_in_faction_with = LIT 
+			is_in_faction_with = EST 
+			is_in_faction_with = UKR
+		}}
+		completion_reward = {
+			IF = {
+			limit = {is_in_faction_with = UKR}
+			UKR = { country_event = {
+				id = belarus.12
+				days = 1}}
+				
+
+			}
+			IF = {
+			limit = {is_in_faction_with = LIT}
+			LIT = { country_event = {
+				id = belarus.13
+				days = 1}}
+				
+
+			}
+			IF = {
+			limit = {is_in_faction_with = LAT}
+			LAT = { country_event = {
+				id = belarus.14
+				days = 1}}
+				
+
+			}
+			IF = {
+			limit = {is_in_faction_with = EST}
+			EST = { country_event = {
+				id = belarus.15
+				days = 1}}
+				
+
+			}
+			add_state_claim = 814
+			add_state_claim = 189
+			add_state_claim = 188
+			add_state_claim = 815
+			add_state_claim = 11
+			add_state_claim = 809
+			add_state_claim = 810
+			add_state_claim = 808
+			add_state_claim = 12
+			add_state_claim = 190
+			add_state_claim = 13
+			add_state_claim = 811
+			add_state_claim = 812
+			add_state_claim = 813
+			add_state_claim = 191
+			add_state_claim = 89
+			add_state_claim = 91
+			add_state_claim = 93
+			add_state_claim = 199
+			add_state_claim = 201
+			add_state_claim = 198
+			add_state_claim = 202
+			add_state_claim = 203
+			add_state_claim = 834
+			add_state_claim = 192
+			add_state_claim = 197
+			add_state_claim = 193
+			add_state_claim = 225
+			add_state_claim = 259
+			add_state_claim = 226
+			add_state_claim = 196
+			add_state_claim = 200
+			add_state_claim = 221
+			add_state_claim = 226
+			add_state_claim = 227
+			add_state_claim = 228
+			add_state_claim = 137
+		}
+	}
+
+	#Democracy
+	focus = {
+		id = BLR_democracy
+		icon = GFX_BLR_democracy-44195
+		x = 12
+		y = 1
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		mutually_exclusive = { focus = BLR_dictatorship  }
+		available = {
+			is_puppet = NO
+		}
+		completion_reward = {
+			
+						add_ideas = democrakk
+
+						add_stability = 0.20
+
+						
+
+						add_war_support = -0.25
+
+					
+		}
+	}
+
+	#Dictatorship
+	focus = {
+		id = BLR_dictatorship
+		icon = GFX_focus_focus_fra_fascist_threat
+		x = 3
+		y = 1
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		mutually_exclusive = { focus = BLR_democracy  }
+		available = {
+			is_puppet = NO
+
+			
+		}
+		completion_reward = {
+			
+
+						add_stability = -0.20
+
+						add_war_support = 0.25
+
+					
+		}
+	}
+
+	#Fascism
+	focus = {
+		id = BLR_fascism
+		icon = GFX_BLR_fascism-428
+		x = 2
+		y = 2
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_dictatorship  }
+		mutually_exclusive = { focus = BLR_communism  }
+		available = {
+			is_puppet = no
+		}
+		completion_reward = {
+			add_ideas = nationalism
+}
+	}
+
+	#Communism
+	focus = {
+		id = BLR_communism
+		icon = GFX_BLR_communism-426
+		x = 4
+		y = 2
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_dictatorship  }
+		available = {
+			is_puppet = no
+		}
+		completion_reward = {
+		add_ideas = internationalism
+}
+		mutually_exclusive = { 
+			focus = BLR_fascism 
+			}
+	}
+
+	#Alliance with Germany
+	focus = {
+		id = BLR_alliance_with_germany
+		icon = GFX_focus_chi_mission_to_germany
+		x = 2
+		y = 3
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_fascism  }
+		available = {
+			
+
+						has_government = fascism
+
+						
+
+						is_in_faction = no
+
+						
+
+					
+
+			country_exists = GER
+
+			
+		}
+		completion_reward = {
+			GER = { country_event = {
+				id = belarus.4
+				days = 1
+
+			}}
+		}
+	}
+
+	#Alliance with Russia
+	focus = {
+		id = BLR_alliance_with_russia
+		icon = GFX_focus_eng_crush_the_dream
+		x = 4
+		y = 3
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_communism  }
+		available = {
+			
+
+						has_government = communism
+						is_in_faction = no
+						country_exists = SOV
+		}
+		completion_reward = {
+		SOV = {
+			country_event = { 
+				days = 1 
+				id = belarus.5
+		}}
+	}}
+
+	#Allies
+	focus = {
+		id = BLR_allies
+		icon = GFX_BLR_allies-44
+		x = 12
+		y = 2
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_democracy  }
+		mutually_exclusive={ focus = BLR_our_own_faction}
+		available = {
+			is_puppet = no
+			is_in_faction = no
+		}
+		completion_reward = {
+			ENG = {country_event = {
+				days = 1 
+				id = belarus.3}}
+	}}
+
+	#Demand our lands!
+	focus = {
+		id = BLR_demandourlands
+		icon = GFX_BLR_demandourlands-75404
+		x = 3
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_alliance_with_russia focus = BLR_alliance_with_germany }
+		available = {OR = {
+			has_government = communism
+			has_government = fascism}
+			is_puppet = NO
+		}
+		completion_reward = { POL = {country_event = {
+days = 1
+id = belarus.6
+}} }
+	}
+
+	#Our own Faction
+	focus = {
+		id = BLR_our_own_faction
+		icon = GFX_focus_focus_fra_liberte_egalite_solidarite
+		x = 9
+		y = 2
+		cost = 20
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_democracy }
+		mutually_exclusive = { focus = BLR_allies}
+		available = {
+			
+
+			is_in_faction = no
+			is_puppet = no
+
+			
+		}
+		completion_reward = {
+			
+
+						create_faction = "MESA"
+
+					
+		}
+		
+	}
+
+	#Invite Baltic countries
+	focus = {
+		id = BLR_invite_baltic_countries
+		icon = GFX_goal_generic_improve_relations
+		x = 8
+		y = 3
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_our_own_faction  }
+		available = {
+			is_faction_leader = yes
+
+			is_puppet = no
+
+			
+
+			country_exists = LIT
+			country_exists = LAT
+			country_exists = EST
+
+			
+		}
+		completion_reward = {
+		LIT = {	country_event = {
+				days = 1
+				id = belarus.9
+			}}
+		LAT = {	country_event = {
+				days = 1
+				id = belarus.10
+			}}
+		EST = {
+			country_event = {
+				days = 1
+				id = belarus.11
+			}}
+		}
+	}
+
+	#invite Ukraine
+	focus = {
+		id = BLR_invite_ukraine
+		icon = GFX_goal_generic_major_alliance
+		x = 10
+		y = 3
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_our_own_faction  }
+		available = {
+			is_faction_leader = yes
+
+			is_puppet = no
+
+			country_exists = UKR
+		}
+		completion_reward = {
+			UKR = {country_event = {
+				days = 1 
+				id = belarus.8
+		}}
+		}
+	}
+
+	#Socialist Education
+	focus = {
+		id = BLR_social_education
+		icon = GFX_focus_eng_liberate_the_home_of_marx
+		x = 6
+		y = 3
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_communism  }
+		available = {
+			
+
+						has_government = communism
+
+					
+		}
+		completion_reward = {
+			
+
+						add_research_slot = 1
+
+						
+
+					
+		}
+	}
+
+	#Western Technology
+	focus = {
+		id = BLR_western_technology
+		icon = GFX_focus_eng_unite_the_anglosphere
+		x = 14
+		y = 2
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_democracy  }
+		available = {
+			OR = {
+				is_in_faction_with = ENG
+				is_in_faction_with = FRA
+		}
+
+			
+		}
+		completion_reward = {
+			add_research_slot = 1
+
+			
+		}
+	}
+
+	#Back to motherland.
+	focus = {
+		id = BLR_back_to_motherland
+		icon = GFX_focus_BUL_support_macedonian_organizations
+		x = 8
+		y = 5
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_greatunite  }
+		available = {
+			country_exists = SOV
+
+			is_puppet = NO
+		}
+		completion_reward = {
+			create_wargoal = { 
+
+			type = annex_everything 
+
+			target = SOV
+
+			}
+		}}
+
+	#Polish protection
+	focus = {
+		id = BLR_polish_protection
+		icon = GFX_focus_generic_polish_deal
+		x = 20
+		y = 1
+		cost = 15
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		mutually_exclusive = { focus = BLR_russian_protection  }
+		available = {
+			is_puppet = no
+
+			country_exists = POL
+		}
+		completion_reward = {POL = {country_event = {
+days = 1
+id = belarus.1
+}}}
+	}
+
+	#Western Slavs
+	focus = {
+		id = BLR_western_slavs
+		icon = GFX_focus_GRE_byzantine_themata
+		x = 10
+		y = 5
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_greatunite  }
+		available = {
+			is_puppet = NO
+
+			country_exists = POL
+			country_exists = CZE
+		}
+		completion_reward = {
+			create_wargoal = { 
+
+			type = annex_everything 
+
+			target = POL
+
+			}
+
+			create_wargoal = { 
+
+			type = annex_everything 
+
+			target = CZE
+
+			}
+
+			
+		}
+	}
+
+	#Ukraine is our!
+	focus = {
+		id = BLR_ukraineisour
+		icon = GFX_focus_eng_crush_the_dream
+		x = 4
+		y = 5
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_alliance_with_russia   }
+		available = {
+			is_puppet = no
+
+			country_exists = UKR
+
+			
+				OR = {
+			has_government = fascism
+			has_government = communism
+		}}
+		completion_reward = {
+			
+
+						create_wargoal = { 
+
+						type = annex_everything 
+
+						target = UKR
+
+						}
+
+						
+
+					
+		}
+	}
+
+	#War with Poland
+	focus = {
+		id = BLR_war_with_poland
+		icon = GFX_focus_mex_caudillo_private_armies
+		x = 2
+		y = 5
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_alliance_with_germany   }
+		available = {
+			is_puppet = no
+
+			
+			OR = {
+			has_government = fascism
+			has_government = communism
+		}}
+		completion_reward = {
+			
+
+						create_wargoal = { 
+
+						type = annex_everything
+
+						target = POL
+
+						}
+
+					
+		}
+	}
+
+	#New Technology
+	focus = {
+		id = BLR_new_technology
+		icon = GFX_focus_research2
+		x = 17
+		y = 4
+		cost = 20
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_right_of_access_to_guns  focus = BLR_volunteers  }
+		available = {
+			num_of_factories > 50
+
+			
+		}
+		completion_reward = {
+	add_research_slot = 2
+}
+	}
+
+	#Right of access to guns
+	focus = {
+		id = BLR_right_of_access_to_guns
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 16
+		y = 3
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_central_defence_institue  }
+		completion_reward = {
+			random_owned_controlled_state ={
+
+			 limit = {
+
+			 free_building_slots = {
+
+			 building = arms_factory
+
+			 size > 0
+
+			 include_locked = yes
+
+			 }
+
+			 }
+
+			 add_extra_state_shared_building_slots = 2
+
+			 add_building_construction = {
+
+			 type = arms_factory
+
+			 level = 2
+
+			 instant_build = yes
+
+			 }
+
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+
+			 }
+
+			
+		}
+	}
+
+	#Industry
+	focus = {
+		id = BLR_industry
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 17
+		y = 1
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+
+			add_building_construction = {						type = infrastructure						level = 1
+
+			instant_build = yes					}
+
+			}
+			random_owned_controlled_state = {
+
+			add_building_construction = {						type = infrastructure						level = 1
+
+			instant_build = yes					}
+
+			}
+
+			
+		}
+	}
+
+	#Central Defence Institue
+	focus = {
+		id = BLR_central_defence_institue
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 16
+		y = 2
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_industry  }
+		completion_reward = {
+			add_war_support = 0.05
+
+			
+
+			
+
+			
+
+			random_owned_controlled_state ={
+
+			 limit = {
+
+			 free_building_slots = {
+
+			 building = arms_factory
+
+			 size > 0
+
+			 include_locked = yes
+
+			 }
+
+			 }
+
+			 add_extra_state_shared_building_slots = 2
+
+			 add_building_construction = {
+
+			 type = arms_factory
+
+			 level = 2
+
+			 instant_build = yes
+
+			 }
+
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+
+			 }
+
+			
+		}
+	}
+
+	#Works for prisoners
+	focus = {
+		id = BLR_works_for_prisoners
+		icon = GFX_BLR_works_for_prisoners-230
+		x = 18
+		y = 2
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = BLR_industry  }
+		completion_reward = {
+			random_owned_controlled_state ={
+
+			 limit = {
+
+			 free_building_slots = {
+
+			 building = industrial_complex
+
+			 size > 0
+
+			 include_locked = yes
+
+			 }
+
+			 }
+
+			 add_extra_state_shared_building_slots = 1
+
+			 add_building_construction = {
+
+			 type = industrial_complex
+
+			 level = 1
+
+			 instant_build = yes
+
+			 }
+
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+
+			 }
+
+			
+		}
+	}
+
+	#Russian Protection
+	focus = {
+		id = BLR_russian_protection
+		icon = GFX_BLR_russian_protection-52
+		x = 22
+		y = 1
+		cost = 15
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		mutually_exclusive = { focus = BLR_polish_protection  }
+		available = {
+			is_puppet = no
+
+			country_exists = sov
+		}
+		completion_reward = {
+			SOV = {
+				country_event = {
+				days = 1 
+				id = belarus.2
+}}}
+	}
+
+}

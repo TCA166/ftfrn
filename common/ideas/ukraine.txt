@@ -1,0 +1,262 @@
+ideas = {
+	political_advisor = {
+	
+		grigory_petrovsky = {
+			allowed = {
+				original_tag = UKR
+			}
+			picture = generic_political_advisor_europe_1
+			available={
+				has_completed_focus = UKR_deny_the_tragedy
+			}
+			traits = { sov_diplomat }
+		}
+		leonid_korniyets = {
+			allowed = {
+				original_tag = UKR
+			}
+			picture = generic_political_advisor_europe_3
+			traits = { communist_revolutionary }
+		}
+		dmytro_levytsky = {
+			allowed = {
+				original_tag = UKR
+			}
+			picture = generic_political_advisor_europe_2
+			traits = { democratic_reformer }
+		}
+		dmytro_doncow = {
+			allowed = {
+				original_tag = UKR
+			}
+			picture = generic_political_advisor_europe_1
+			traits = { fascist_demagogue }
+		}
+	}
+	tank_manufacturer = {
+		
+		designer = yes
+		
+		morozov_design_bureau = {
+			
+			
+			allowed = {
+				original_tag = UKR
+			}
+
+			
+			research_bonus = {
+				armor = 0.15
+			}
+			
+			traits = { medium_tank_manufacturer }
+			
+			modifier = {
+			}
+		}
+		
+		KKLF = {
+			
+			
+			allowed = {
+				original_tag = UKR
+			}
+
+			
+			research_bonus = {
+				armor = 0.15
+			}
+			picture = generic_armor
+			traits = { fast_tank_manufacturer }
+			
+			modifier = {
+			}
+		}
+		KBTZ = {
+			allowed = {
+				original_tag = UKR
+			}
+
+			picture = generic_tank_manufacturer_1
+			
+			research_bonus = {
+				armor = 0.2
+			}
+			
+			traits = { tank_manufacturer }
+			
+			modifier = {
+			}
+		}
+	}
+	aircraft_manufacturer = {
+		
+		designer = yes
+		antonov_design_bureau={
+			allowed = {
+				original_tag = UKR
+			}
+			
+			picture = generic_air_manufacturer_3
+			
+			research_bonus = {
+				air_equipment = 0.15
+			}
+			
+			traits = { medium_aircraft_manufacturer }
+			
+			modifier = {
+			}
+		}
+		anatra={
+			allowed = {
+				original_tag = UKR
+			}
+			
+			on_add = {
+				IF={
+					limit={NOT={has_country_flag = anatra_back}}
+					country_event = { id = ftfrn.59 }
+					set_country_flag = anatra_back
+				}
+			}
+			
+			picture = generic_air_manufacturer_1
+			
+			research_bonus = {
+				air_equipment = 0.1
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			modifier = {
+			}
+		}
+	}
+	industrial_concern = {
+				
+		ukr_ms = {
+		
+			
+			allowed = {
+				original_tag = UKR
+			}
+			
+			picture = generic_industrial_concern_1
+			
+			research_bonus = {
+				industry = 0.15
+			}
+			
+			traits = { industrial_concern }
+			
+			modifier = {
+			}
+		}
+		
+		kiev_polytechnical_institute = {
+			
+			
+			allowed = {
+				original_tag = UKR
+			}
+			
+			picture = generic_electronics_concern_1
+			
+			research_bonus = {
+				electronics = 0.15
+			}
+			
+			traits = { electronics_concern }
+			
+			modifier = {
+			}
+		}
+	}
+	materiel_manufacturer = {
+			
+		designer = yes
+		
+		ukr_nuke_factory = {
+			
+			
+			allowed = {
+				original_tag = UKR
+			}
+			available={
+				date > 1944.01.01
+			}
+			research_bonus = {
+				nuclear = 0.15
+				rocketry = 0.05
+				electronics = 0.05
+			}
+			picture = jap_supremacy_of_technology
+			traits = { nuke_company }
+			
+			modifier = {
+			}
+		}	
+		arsenal_factory= {
+			
+			
+			allowed = {
+				original_tag = UKR
+			}
+			
+			picture = generic_artillery_manufacturer_2
+			
+			research_bonus = {
+				artillery = 0.15
+			}
+			
+			traits = { artillery_manufacturer }
+			
+			modifier = {
+			}
+		}
+		zaz = {
+			
+			
+			allowed = {
+				original_tag = UKR
+			}
+			
+			picture = generic_motorized_equipment_manufacturer_3
+			
+			research_bonus = {
+				motorized_equipment = 0.15
+				mot_rockets = 0.50
+			}
+			
+			traits = { motorized_equipment_manufacturer }
+			
+			modifier = {
+			}
+		}
+	
+	}
+	naval_manufacturer = {
+	
+		designer = yes
+		
+		knr = {
+			
+			
+			allowed = {
+				original_tag = UKR
+			}
+			
+			picture = generic_naval_manufacturer_1
+			
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+			
+			traits = { naval_manufacturer }
+			
+			modifier = {
+			}
+		}
+	}
+}

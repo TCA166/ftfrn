@@ -1,0 +1,12 @@
+CHA_fabouloustree = {
+    chad_switch = {
+          cost = 150
+          complete_effect = {
+				load_focus_tree = chad_domination_tree
+          }
+		  fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+    }
+}

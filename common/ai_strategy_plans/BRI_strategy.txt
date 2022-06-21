@@ -1,0 +1,240 @@
+BRI_democratic_plan = {
+    name = "Democratic normal"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = BRI
+	}
+	
+    # When this plan is enabled.
+    enable = {
+		OR = {
+			is_historical_focus_on = yes
+			has_game_rule = {
+				rule = BRI_ai_behavior
+				option = DEMOCRATIC
+			}
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+        NOT = {FRA = {has_government = democratic}}
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		BRI_reinstate_breton_language
+		BRI_democratic_bastion
+		BRI_protect_democracy
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+BRI_democratic__fort_plan = {
+    name = "Democratic fort"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = BRI
+	}
+	
+    # When this plan is enabled.
+    enable = {
+		OR = {
+			has_game_rule = {
+				rule = BRI_ai_behavior
+				option = FORT
+			}
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+		
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		BRI_reinstate_breton_language
+		BRI_democratic_bastion
+		BRI_fortress_brittany
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+BRI_fascist_celtic = {
+    name = "Fascist celtic"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = BRI
+	}
+	
+    # When this plan is enabled.
+    enable = {
+		OR = {
+			has_game_rule = {
+				rule = BRI_ai_behavior
+				option = CELTIC
+			}
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+		
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		BRI_reinstate_breton_language
+		BRI_promote_celtic_culture
+		BRI_pan_celtism
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+BRI_fascist_gaulic = {
+    name = "Fascist gaulic"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = BRI
+	}
+	
+    # When this plan is enabled.
+    enable = {
+		OR = {
+			has_game_rule = {
+				rule = BRI_ai_behavior
+				option = FASCIST
+			}
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+		
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		BRI_reinstate_breton_language
+		BRI_promote_celtic_culture
+		BRI_gaul_superiority
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+BRI_monarchist = {
+    name = "Monarchist"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = BRI
+	}
+	
+    # When this plan is enabled.
+    enable = {
+		OR = {
+			has_game_rule = {
+				rule = BRI_ai_behavior
+				option = MONARCHIST
+			}
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+		
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		BRI_reinstate_breton_language
+		BRI_denounce_the_french_revolution
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}

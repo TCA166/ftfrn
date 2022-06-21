@@ -1,0 +1,82 @@
+ YUG_propaganda = {
+    anti_serbia = {
+          visible = {
+			   is_puppet = no
+			   NOT={original_tag = YUG}
+          }
+          cost = 150
+          complete_effect = {
+			remove_ideas = anti_serbia
+			remove_ideas = anti_croatia
+			remove_ideas = anti_bosnia
+			remove_ideas = anti_slovenia
+			remove_ideas = defensive_prop
+			add_timed_idea = { idea = anti_serbia  days = 365 }
+			
+          }
+		  fire_only_once = no
+    }
+	anti_croatia = {
+          visible = {
+			   is_puppet = no
+			   NOT={original_tag = CRO}
+          }
+          cost = 150
+          complete_effect = {
+			remove_ideas = anti_serbia
+			remove_ideas = anti_croatia
+			remove_ideas = anti_bosnia
+			remove_ideas = anti_slovenia
+			remove_ideas = defensive_prop
+			add_timed_idea = { idea = anti_croatia  days = 365 }
+          }
+		  fire_only_once = no
+    }
+	anti_slovenia = {
+          visible = {
+			   is_puppet = no
+			   NOT={original_tag = SLV}
+          }
+          cost = 150
+          complete_effect = {
+			remove_ideas = anti_serbia
+			remove_ideas = anti_croatia
+			remove_ideas = anti_bosnia
+			remove_ideas = anti_slovenia
+			remove_ideas = defensive_prop
+			add_timed_idea = { idea = anti_slovenia  days = 365 }
+          }
+		  fire_only_once = no
+    }
+	anti_bosnia = {
+          visible = {
+			   is_puppet = no
+			   NOT={original_tag = BOS}
+          }
+          cost = 150
+          complete_effect = {
+			remove_ideas = anti_serbia
+			remove_ideas = anti_croatia
+			remove_ideas = anti_bosnia
+			remove_ideas = anti_slovenia
+			remove_ideas = defensive_prop
+			add_timed_idea = { idea = anti_bosnia  days = 365 }
+          }
+		  fire_only_once = no
+    }
+	defensive_prop = {
+          visible = {
+			   is_puppet = no
+          }
+          cost = 150
+          complete_effect = {
+			remove_ideas = anti_serbia
+			remove_ideas = anti_croatia
+			remove_ideas = anti_bosnia
+			remove_ideas = anti_slovenia
+			remove_ideas = defensive_prop
+			add_timed_idea = { idea = defensive_prop  days = 365 }
+          }
+		  fire_only_once = no
+    }
+}

@@ -1,0 +1,1767 @@
+focus_tree = {
+	id = catalonia
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = CAT
+		}
+	}
+	#Focus for Defense Oriented Industry
+	focus = {
+		id = CAT_defense_oriented_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 25
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_homeland_defence 
+		}
+		prerequisite = { 
+			focus = CAT_take_them_all 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = arms_factory
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Airplane Manufacturing Plants
+	focus = {
+		id = CAT_airplane_manufacturing_plants
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 20
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_republican_heroes 
+		}
+		prerequisite = { 
+			focus = CAT_industrial_cities 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Fight against Spanish Tyrrany
+	focus = {
+		id = CAT_fight_against_spanish_tyrrany
+		icon = GFX_goal_generic_major_war
+		x = 8
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_build_steel_mills 
+		}
+		prerequisite = { 
+			focus = CAT_benefit_from_sea_trade 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = SPA
+}
+create_wargoal= { 
+type = annex_everything 
+target = SPC
+}
+		}
+	}
+
+	#Focus for Advice for Pardons
+	focus = {
+		id = CAT_advice_for_pardons
+		icon = GFX_goal_rhineland
+		x = 11
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_expand_officer_corps 
+		}
+		prerequisite = { 
+			focus = CAT_persecute_spanish_warcrimes 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience= 50
+		}
+	}
+
+	#Focus for Republican Heroes
+	focus = {
+		id = CAT_republican_heroes
+		icon = GFX_focus_generic_support_the_left_right
+		x = 19
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_catalonian_air_force 
+		}
+		prerequisite = { 
+			focus = CAT_demonise_old_regime 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			air_experience= 50
+		}
+	}
+
+	#Focus for Mobilise the Economy
+	focus = {
+		id = CAT_mobilise_the_economy
+		icon = GFX_goal_generic_production
+		x = 27
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_homeland_defence }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = war_economy
+		}
+	}
+
+	#Focus for Retake Sicily
+	focus = {
+		id = CAT_retake_sicily
+		icon = GFX_focus_attack_italy
+		x = 4
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_military_primacy 
+		}
+		prerequisite = { 
+			focus = CAT_barcelonazaragoza_highway 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = ITA
+}
+  add_state_core= 115
+		}
+	}
+
+	#Focus for Retake the Isles
+	focus = {
+		id = CAT_retake_the_isles
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_barcelonazaragoza_highway 
+		}
+		prerequisite = { 
+			focus = CAT_demand_old_lands 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = FRA
+}
+add_state_core= 1  add_state_core= 14
+		}
+	}
+
+	#Focus for Kingdom of Naples
+	focus = {
+		id = CAT_kingdom_of_naples
+		icon = GFX_goal_generic_secret_weapon
+		x = 6
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_military_primacy 
+		}
+		prerequisite = { 
+			focus = CAT_build_steel_mills 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			156 = {is_owned_by= CAT}
+117 = {is_owned_by= CAT}
+		}
+		completion_reward = {
+			add_state_core= 156  add_state_core= 117
+		}
+	}
+
+	#Focus for Dream of Aragon
+	focus = {
+		id = CAT_dream_of_aragon
+		icon = GFX_focus_rom_royal_dictatorship
+		x = 3
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_military_coup }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_core= 794
+add_state_core= 166
+add_state_core= 167
+add_state_core= 177
+add_war_support= 0.1
+set_cosmetic_tag = CAT_aragon
+		}
+	}
+
+	#Focus for Improve Relations with Spain
+	focus = {
+		id = CAT_improve_relations_with_spain
+		icon = GFX_focus_intervention_spain_republic
+		x = 19
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = CAT_catalonian_independence }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier= { 
+target = SPR 
+modifier = medium_increase  
+}
+add_stability = 0.1
+add_popularity = {ideology = communism popularity = 0.1}
+add_popularity = {ideology = neutrality popularity = 0.1}
+		}
+	}
+
+	#Focus for Catalonian Independence
+	focus = {
+		id = CAT_catalonian_independence
+		icon = GFX_goal_generic_demand_territory
+		x = 11
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = CAT_improve_relations_with_spain }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.1
+add_popularity = {ideology = democratic popularity = 0.1}
+add_popularity = {ideology = fascism popularity = 0.1}
+		}
+	}
+
+	#Focus for Stabilize New Government
+	focus = {
+		id = CAT_stabilize_new_government
+		icon = GFX_goal_generic_propaganda
+		x = 7
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_catalonian_independence }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability = 0.1
+add_war_support= 0.1
+add_popularity = {ideology = democratic popularity = 0.05}
+add_popularity = {ideology = fascism popularity = 0.1}
+		}
+	}
+
+	#Focus for Deal with Anarchists
+	focus = {
+		id = CAT_deal_with_anarchists
+		icon = GFX_goal_generic_political_pressure
+		x = 23
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_improve_relations_with_spain }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability = 0.1
+add_popularity = {ideology = communism popularity = 0.1}
+add_popularity = {ideology = neutrality popularity = 0.1}
+		}
+	}
+
+	#Focus for Demand Old Lands
+	focus = {
+		id = CAT_demand_old_lands
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 2
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_dream_of_aragon }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			date > 1937.1.1
+any_country={
+controls_state = 794 controls_state = 167 controls_state = 166
+}
+		}
+		completion_reward = {
+			every_country={
+limit={controls_state = 794 controls_state = 167 controls_state = 166}
+country_event = {id=ftfrn.26}
+}
+		}
+	}
+
+	#Focus for Communist Coup
+	focus = {
+		id = CAT_communist_coup
+		icon = GFX_goal_generic_war_with_comintern
+		x = 19
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_deal_with_anarchists }
+		mutually_exclusive = { focus = CAT_ensure_peace }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = communism 
+elections_allowed = no 
+}
+add_popularity= { 
+ideology = communism 
+popularity = 0.2
+}
+		}
+	}
+
+	#Focus for Recapture Industry
+	focus = {
+		id = CAT_recapture_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 7
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_ensure_freedom 
+			focus = CAT_military_coup 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+		}
+	}
+} #This may not be in the right place. If your focus tree is having issues, check the above focus, as this closing brace was added to close the focus.
+
+	#Focus for Ensure Freedom
+	focus = {
+		id = CAT_ensure_freedom
+		icon = GFX_goal_support_democracy
+		x = 10
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_stabilize_new_government }
+		mutually_exclusive = { focus = CAT_military_coup }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.3 
+}
+add_stability= 0.1
+		}
+	}
+
+	#Focus for Ensure Peace
+	focus = {
+		id = CAT_ensure_peace
+		icon = GFX_goal_generic_national_unity
+		x = 27
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_deal_with_anarchists }
+		mutually_exclusive = { focus = CAT_communist_coup }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = neutrality 
+popularity = 0.15 
+}
+set_politics = {
+	ruling_party = neutrality
+	elections_allowed = yes
+}
+		}
+	}
+
+	#Focus for Military Coup
+	focus = {
+		id = CAT_military_coup
+		icon = GFX_goal_support_fascism
+		x = 4
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_stabilize_new_government }
+		mutually_exclusive = { focus = CAT_ensure_freedom }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_politics = {
+	ruling_party = fascism
+	elections_allowed = no
+}
+add_popularity= { 
+ideology = fascism 
+popularity = 0.05 
+}
+add_stability
+= -0.4
+		}
+	}
+
+	#Focus for Bastion of Peace
+	focus = {
+		id = CAT_bastion_of_peace
+		icon = GFX_goal_generic_small_arms
+		x = 27
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_ensure_peace }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			ENG = {give_guarantee = CAT}
+FRA = {give_guarantee = CAT}
+give_guarantee = FRA
+give_guarantee = ENG
+add_ideas = defender_democracy
+		}
+	}
+
+	#Focus for Atheist State
+	focus = {
+		id = CAT_atheist_state
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		x = 19
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_communist_coup }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= -0.5  
+add_manpower= 50000
+		}
+	}
+
+	#Focus for Demonise Old Regime
+	focus = {
+		id = CAT_demonise_old_regime
+		icon = GFX_goal_tfv_burn_the_royal_portraits
+		x = 19
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_atheist_state }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  
+add_war_support= 0.05  
+add_popularity= { 
+ideology = communism 
+popularity = 0.1 
+}
+		}
+	}
+
+	#Focus for Ministry of Education
+	focus = {
+		id = CAT_ministry_of_education
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 15
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_catalonian_independence 
+			focus = CAT_improve_relations_with_spain 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Barcelona-Zaragoza Highway
+	focus = {
+		id = CAT_barcelonazaragoza_highway
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 3
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_press_the_advantage 
+			focus = CAT_demand_old_lands 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			165 ={is_owned_by= CAT} 
+166 ={is_owned_by= CAT}  
+794 ={is_owned_by= CAT}
+		}
+		completion_reward = {
+			165 = {
+        add_building_construction = {
+            type = infrastructure
+            level = 2
+            instant_build = yes
+        }
+		}
+794 = {
+        add_building_construction = {
+            type = infrastructure
+            level = 2
+            instant_build = yes
+        }
+		}
+166 = {
+        add_building_construction = {
+            type = infrastructure
+            level = 2
+            instant_build = yes
+        }
+		}
+		}
+	}
+
+	#Focus for Press the Advantage
+	focus = {
+		id = CAT_press_the_advantage
+		icon = GFX_goal_generic_political_pressure
+		x = 4
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_dream_of_aragon 
+		}
+		prerequisite = { 
+			focus = CAT_align_with_fascists 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			all_country={
+owns_state = 41
+has_war = no
+has_civil_war = no
+}
+		}
+		completion_reward = {
+			every_country={
+limit={owns_state = 41}
+CAT={
+create_wargoal= { 
+type = annex_everything 
+target = PREV
+}}}
+		}
+	}
+
+	#Focus for Industrial Development
+	focus = {
+		id = CAT_industrial_development
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 15
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_ensure_peace 
+			focus = CAT_ensure_freedom 
+			focus = CAT_communist_coup 
+			focus = CAT_military_coup 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+		}
+	}
+} #This may not be in the right place. If your focus tree is having issues, check the above focus, as this closing brace was added to close the focus.
+
+	#Focus for Expand Universities
+	focus = {
+		id = CAT_expand_universities
+		icon = GFX_focus_research2
+		x = 15
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_ministry_of_education }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Military Industrial Complex
+	focus = {
+		id = CAT_military_industrial_complex
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 15
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_industrial_development }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Invite Refugees
+	focus = {
+		id = CAT_invite_refugees
+		icon = GFX_focus_generic_military_academy
+		x = 23
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_communist_coup 
+			focus = CAT_ensure_peace 
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability
+= -0.2
+add_manpower
+= 200000
+		}
+	}
+
+	#Focus for Take Them All
+	focus = {
+		id = CAT_take_them_all
+		icon = GFX_goal_generic_forceful_treaty
+		x = 23
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_invite_refugees }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability
+= -0.8
+add_manpower
+= 500000
+		}
+	}
+
+	#Focus for Homeland Defence
+	focus = {
+		id = CAT_homeland_defence
+		icon = GFX_goal_generic_fortify_city
+		x = 27
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_bastion_of_peace }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			165 = {
+	add_building_construction = {
+		type = bunker
+        	province = 9824
+		level = 2
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 253
+		level = 2
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 11779
+		level = 2
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 3898
+		level = 2
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 3899
+		level = 2
+	}
+}
+		}
+	}
+
+	#Focus for Industrial Cities
+	focus = {
+		id = CAT_industrial_cities
+		icon = GFX_focus_por_workers_of_iberia
+		x = 21
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_demonise_old_regime 
+		}
+		prerequisite = { 
+			focus = CAT_take_them_all 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_manpower
+> 100000
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 8
+ add_building_construction = {
+ type = arms_factory
+ level = 6
+ instant_build = yes
+ }}
+add_manpower= -100000
+add_stability = -0.1
+		
+	}
+} #This may not be in the right place. If your focus tree is having issues, check the above focus, as this closing brace was added to close the focus.
+
+	#Focus for Align with Fascists
+	focus = {
+		id = CAT_align_with_fascists
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = 5
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_military_coup }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			GER = { add_ai_strategy = { 
+   type = alliance
+   id = "CAT"			
+   value = 100
+} }
+ITA = { add_ai_strategy = { 
+   type = alliance
+   id = "CAT"			
+   value = 100
+} }
+add_political_power = 150
+add_popularity = {ideology = fascism popularity = 0.2}
+		}
+	}
+
+	#Focus for Fascist Military Expansion
+	focus = {
+		id = CAT_fascist_military_expansion
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 6
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_align_with_fascists 
+		}
+		prerequisite = { 
+			focus = CAT_recapture_industry 
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 100000  add_ideas= fascism_spirit
+		}
+	}
+
+	#Focus for Military Primacy
+	focus = {
+		id = CAT_military_primacy
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 5
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_fascist_military_expansion 
+		}
+		prerequisite = { 
+			focus = CAT_press_the_advantage 
+		}
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Socialist Development
+	focus = {
+		id = CAT_socialist_development
+		icon = GFX_goal_generic_soviet_construction
+		x = 21
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_communist_coup }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Peasant Education
+	focus = {
+		id = CAT_peasant_education
+		icon = GFX_focus_generic_socialist_science
+		x = 21
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_socialist_development }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Encourage the Brain Drain
+	focus = {
+		id = CAT_encourage_the_brain_drain
+		icon = GFX_focus_research2
+		x = 25
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_ensure_peace }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 2
+		}
+	}
+
+	#Focus for Peace, Land, Bread
+	focus = {
+		id = CAT_peace_land_bread
+		icon = GFX_goal_generic_consumer_goods
+		x = 25
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_encourage_the_brain_drain }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Guarantee Personal Freedom
+	focus = {
+		id = CAT_guarantee_personal_freedom
+		icon = GFX_focus_generic_self_management
+		x = 9
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_ensure_freedom }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.1 
+}
+add_stability = 0.1
+		}
+	}
+
+	#Focus for Bastion of Iberian Stability
+	focus = {
+		id = CAT_bastion_of_iberian_stability
+		icon = GFX_goal_generic_propaganda
+		x = 11
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_ensure_freedom }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.5  add_political_power= 150
+		}
+	}
+
+	#Focus for Encourage Economic Activity
+	focus = {
+		id = CAT_encourage_economic_activity
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 8
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_recapture_industry 
+		}
+		prerequisite = { 
+			focus = CAT_guarantee_personal_freedom 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = industrial_complex
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Persecute Spanish Warcrimes
+	focus = {
+		id = CAT_persecute_spanish_warcrimes
+		icon = GFX_goal_generic_neutrality_focus
+		x = 10
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_bastion_of_iberian_stability 
+		}
+		prerequisite = { 
+			focus = CAT_guarantee_personal_freedom 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			date > 1937.1.1
+		}
+		completion_reward = {
+			add_stability= 0.05  add_war_support= 0.05  add_political_power= 150
+		}
+	}
+
+	#Focus for Benefit from Sea Trade
+	focus = {
+		id = CAT_benefit_from_sea_trade
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 9
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_persecute_spanish_warcrimes 
+		}
+		prerequisite = { 
+			focus = CAT_encourage_economic_activity 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = dockyard
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Build Steel Mills
+	focus = {
+		id = CAT_build_steel_mills
+		icon = GFX_focus_generic_steel
+		x = 7
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_encourage_economic_activity 
+			focus = CAT_fascist_military_expansion 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = steel 
+amount = 16 
+state = 165 
+}
+		}
+	}
+
+	#Focus for Catalonian Air Force
+	focus = {
+		id = CAT_catalonian_air_force
+		icon = GFX_goal_generic_air_fighter2
+		x = 17
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_modern_equipment }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			165 = {
+add_building_construction = {
+ type = air_base
+ level = 2
+ instant_build = yes
+ }
+}
+air_experience= 25
+add_tech_bonus = {
+ name = fighter_bonus
+ bonus = 1.0
+ uses = 1
+ technology = fighter1
+ technology = fighter2
+ technology = fighter3
+}
+		}
+	}
+
+	#Focus for Expand Officer Corps
+	focus = {
+		id = CAT_expand_officer_corps
+		icon = GFX_goal_generic_air_doctrine
+		x = 13
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_revise_military_strategy }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Naval Air Force
+	focus = {
+		id = CAT_naval_air_force
+		icon = GFX_goal_generic_navy_carrier
+		x = 17
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_catalonian_air_force 
+		}
+		prerequisite = { 
+			focus = CAT_expand_navy 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			air_experience= 10
+navy_experience= 10
+add_tech_bonus = {
+ name = navy_fighter_bonus
+ bonus = 1.0
+ uses = 2
+ technology = naval_bomber1
+ technology = naval_bomber2
+ technology = cv_naval_bomber1
+ technology = cv_naval_bomber2
+ technology = cv_CAS1
+ technology = cv_CAS2
+ technology = cv_fighter1
+ technology = cv_fighter2
+}
+		}
+	}
+
+	#Focus for Loot Anarchist Stockpiles
+	focus = {
+		id = CAT_loot_anarchist_stockpiles
+		icon = GFX_goal_generic_political_pressure
+		x = 12
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_improve_relations_with_spain 
+			focus = CAT_catalonian_independence 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_equipment_to_stockpile= {
+ type = infantry_equipment_0 
+amount = 5000 
+producer = SPR 
+}
+add_manpower= -200
+add_stability= -0.05
+		}
+	}
+
+	#Focus for Modern Equipment
+	focus = {
+		id = CAT_modern_equipment
+		icon = GFX_goal_generic_small_arms
+		x = 17
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_communist_coup 
+			focus = CAT_military_coup 
+			focus = CAT_ensure_freedom 
+			focus = CAT_ensure_peace 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+ name = infantry_artillery_bonus
+ bonus = 1.0
+ uses = 2
+ category = infantry_weapons
+ category = artillery
+}
+		}
+	}
+
+	#Focus for Revise Military Strategy
+	focus = {
+		id = CAT_revise_military_strategy
+		icon = GFX_goal_generic_air_doctrine
+		x = 13
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_communist_coup 
+			focus = CAT_military_coup 
+			focus = CAT_ensure_freedom 
+			focus = CAT_ensure_peace 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience = 25
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Redistribute Land
+	focus = {
+		id = CAT_redistribute_land
+		icon = GFX_goal_generic_improve_relations
+		x = 18
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_improve_relations_with_spain 
+			focus = CAT_catalonian_independence 
+		}
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.05  
+add_political_power= 150
+		}
+	}
+
+	#Focus for Expand Navy
+	focus = {
+		id = CAT_expand_navy
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 15
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_military_industrial_complex }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+165 = {
+	add_building_construction = {
+		type = naval_base
+        	province = 854
+		level = 3
+	}
+}
+		}
+	}
+} #This may not be in the right place. If your focus tree is having issues, check the above focus, as this closing brace was added to close the focus.
+
+	#Focus for Navy Strategy
+	focus = {
+		id = CAT_navy_strategy
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 13
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_expand_officer_corps 
+		}
+		prerequisite = { 
+			focus = CAT_expand_navy 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+ name = naval_doctrine_bonus
+ bonus = 1.0
+ uses = 2
+ category = naval_doctrine
+}
+		}
+	}
+
+	#Focus for Iberian Economic Gateway
+	focus = {
+		id = CAT_iberian_economic_gateway
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 10
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_benefit_from_sea_trade 
+		}
+		prerequisite = { 
+			focus = CAT_advice_for_pardons 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Homes for Refugees
+	focus = {
+		id = CAT_homes_for_refugees
+		icon = GFX_goal_generic_construction2
+		x = 23
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAT_take_them_all }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_state= {
+ add_extra_state_shared_building_slots = 4 
+}
+		}
+	}
+
+	#Focus for Civilian Jobs for Refugees
+	focus = {
+		id = CAT_civilian_jobs_for_refugees
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 22
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_industrial_cities 
+		}
+		prerequisite = { 
+			focus = CAT_homes_for_refugees 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Military Jobs for Refugees
+	focus = {
+		id = CAT_military_jobs_for_refugees
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 24
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_homes_for_refugees 
+		}
+		prerequisite = { 
+			focus = CAT_defense_oriented_industry 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Recruitment Campaign
+	focus = {
+		id = CAT_recruitment_campaign
+		icon = GFX_focus_generic_manpower
+		x = 26
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAT_defense_oriented_industry 
+		}
+		prerequisite = { 
+			focus = CAT_mobilise_the_economy 
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 10000 
+add_ideas = extensive_conscription
+		}
+	}
+
+#End of focuses 
+ }

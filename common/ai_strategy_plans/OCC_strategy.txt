@@ -1,0 +1,227 @@
+OCC_democratic_plan = {
+    name = "Democratic with France"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = OCC
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = OCC_ai_behavior
+			option = DEMOCRATIC
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		OCC_seek_reconciliation_with_the_french
+		OCC_help_stabilize_french_democracy
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 2.0
+		modifier = {
+			factor = 2.0
+		}
+	}
+    
+}
+OCC_communist_plan = {
+    name = "Communist"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = OCC
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = OCC_ai_behavior
+			option = COMMUNIST
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		OCC_seek_reconciliation_with_the_french
+		OCC_contact_the_french_communists
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 2.0
+		modifier = {
+			factor = 2.0
+		}
+	}
+    
+}
+OCC_monarchist_plan = {
+    name = "Monarchist"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = OCC
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = OCC_ai_behavior
+			option = MONARCHIST
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		OCC_reinstate_occitan_language
+		OCC_connect_with_the_times_of_ducal_france
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 2.0
+		modifier = {
+			factor = 2.0
+		}
+	}
+    
+}
+OCC_fascist_plan = {
+    name = "Fascist"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = OCC
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = OCC_ai_behavior
+			option = FASCIST
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		OCC_reinstate_occitan_language
+		OCC_connect_with_protestant_history
+		OCC_alliance_with_italy
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 2.0
+		modifier = {
+			factor = 2.0
+		}
+	}
+    
+}
+OCC_protestant_plan = {
+    name = "Protestant"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = OCC
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = OCC_ai_behavior
+			option = PROTESTANT
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		OCC_reinstate_occitan_language
+		OCC_connect_with_protestant_history
+		OCC_convert_to_protestantism
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 2.0
+		modifier = {
+			factor = 2.0
+		}
+	}
+    
+}

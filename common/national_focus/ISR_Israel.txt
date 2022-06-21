@@ -1,0 +1,877 @@
+focus_tree = {
+	id = Israel
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = ISR
+		}
+	}
+	
+
+	
+	#Focus for Call Upon a Return to Homeland
+	focus = {
+		id = ISR_call_upon_a_return_to_homeland
+		icon = GFX_goal_generic_propaganda
+		x = 17
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ISR_move_towards_secularisation
+			focus = ISR_freedom_for_everyone 
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 30000  add_political_power= 150
+		}
+	}
+
+	#Focus for Research Team Expansion
+	focus = {
+		id = ISR_research_team_expansion
+		icon = GFX_focus_research2
+		x = 14
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ISR_prepare_for_conflicts 
+			focus = ISR_peoples_army 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Rethink Jewish History
+	focus = {
+		id = ISR_rethink_jewish_history
+		icon = GFX_goal_generic_demand_territory
+		x = 14
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150
+		}
+	}
+
+	#Focus for Enough Trials
+	focus = {
+		id = ISR_enough_trials
+		icon = GFX_goal_generic_neutrality_focus
+		x = 17
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_rethink_jewish_history }
+		mutually_exclusive = { focus = ISR_fuel_revanchism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.2 
+}
+  add_stability= 0.1
+		}
+	}
+
+	#Focus for Fuel Revanchism
+	focus = {
+		id = ISR_fuel_revanchism
+		icon = GFX_goal_generic_political_pressure
+		x = 11
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_rethink_jewish_history }
+		mutually_exclusive = { focus = ISR_enough_trials }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+  add_war_support= 0.2
+		}
+	}
+
+	#Focus for Move towards Secularisation
+	focus = {
+		id = ISR_move_towards_secularisation
+		icon = GFX_focus_generic_soviet_politics
+		x = 15
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_enough_trials }
+		mutually_exclusive = { focus = ISR_freedom_for_everyone }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.2 
+}
+  add_stability= 0.1  add_political_power= 150
+		}
+	}
+
+	#Focus for Freedom for Everyone!
+	focus = {
+		id = ISR_freedom_for_everyone
+		icon = GFX_focus_generic_self_management
+		x = 19
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_enough_trials }
+		mutually_exclusive = { focus = ISR_move_towards_secularisation }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.1 
+}
+  add_stability= 0.2
+		}
+	}
+
+	#Focus for Religious Supremacy
+	focus = {
+		id = ISR_religious_supremacy
+		icon = GFX_goal_generic_secret_weapon
+		x = 9
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_fuel_revanchism }
+		mutually_exclusive = { focus = ISR_nationalist_supremacy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+  add_war_support= 0.2
+		}
+	}
+
+	#Focus for Nationalist Supremacy
+	focus = {
+		id = ISR_nationalist_supremacy
+		icon = GFX_goal_support_fascism
+		x = 13
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_fuel_revanchism }
+		mutually_exclusive = { focus = ISR_religious_supremacy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.3 
+}
+  add_stability= 0.1  add_war_support= 0.1
+		}
+	}
+
+	#Focus for Subsidise Imigration
+	focus = {
+		id = ISR_subsidise_imigration
+		icon = GFX_focus_mex_privatisation
+		x = 17
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_call_upon_a_return_to_homeland }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 1000000
+		}
+	}
+
+	#Focus for Sieze Private Enterprise
+	focus = {
+		id = ISR_sieze_private_enterprise
+		icon = GFX_goal_generic_soviet_construction
+		x = 15
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_move_towards_secularisation }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = industrial_complex
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for People's Army
+	focus = {
+		id = ISR_peoples_army
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 15
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_sieze_private_enterprise }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Next Year in Jerusalem
+	focus = {
+		id = ISR_next_year_in_jerusalem
+		icon = GFX_goal_generic_national_unity
+		x = 17
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_subsidise_imigration }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 50000
+		}
+	}
+
+	#Focus for Encourage Urbanisation
+	focus = {
+		id = ISR_encourage_urbanisation
+		icon = GFX_goal_generic_construction2
+		x = 19
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_freedom_for_everyone }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_state= {
+ add_extra_state_shared_building_slots = 12 
+}
+		}
+	}
+
+	#Focus for Foreign Military Investment
+	focus = {
+		id = ISR_foreign_military_investment
+		icon = GFX_ISR_foreign_military_investment-108361
+		x = 19
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_encourage_urbanisation }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Pan National Economic Activity
+	focus = {
+		id = ISR_pan_national_economic_activity
+		icon = GFX_goal_generic_improve_relations
+		x = 19
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_foreign_military_investment }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Jewish Dexterity
+	focus = {
+		id = ISR_jewish_dexterity
+		icon = GFX_focus_generic_support_the_left_right
+		x = 13
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_nationalist_supremacy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = dexterity
+		}
+	}
+
+	#Focus for Prepare for Conflicts
+	focus = {
+		id = ISR_prepare_for_conflicts
+		icon = GFX_goal_generic_small_arms
+		x = 13
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_jewish_dexterity }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = arms_factory
+ level = 5
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Increase Military Spending
+	focus = {
+		id = ISR_increase_military_spending
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 11
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ISR_nationalist_supremacy 
+			focus = ISR_religious_supremacy 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Sieze Foreign Capital
+	focus = {
+		id = ISR_sieze_foreign_capital
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = 11
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_increase_military_spending }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand Our Territory
+	focus = {
+		id = ISR_expand_our_territory
+		icon = GFX_goal_generic_territory_or_war
+		x = 9
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_religious_supremacy }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 50000}
+		}
+		completion_reward = {
+			add_state_claim= 455  add_state_claim= 554  add_state_claim= 553  
+create_wargoal = {
+type = annex_everything
+target = LEB}
+		}
+	}
+
+	#Focus for Strike at Egypt
+	focus = {
+		id = ISR_strike_at_egypt
+		icon = GFX_goal_generic_major_war
+		x = 9
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_expand_our_territory }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = EGY
+}
+  add_state_claim= 453
+		}
+	}
+
+	#Focus for Save Land for Our People
+	focus = {
+		id = ISR_save_land_for_our_people
+		icon = GFX_goal_generic_construct_civilian
+		x = 11
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ISR_strike_at_egypt 
+			focus = ISR_prepare_for_conflicts 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_state= {
+ add_extra_state_shared_building_slots = 2 
+}
+
+random_owned_state= {
+ add_extra_state_shared_building_slots = 2 
+}
+		}
+	}
+
+	#Focus for End Holocaust
+	focus = {
+		id = ISR_end_holocaust
+		icon = GFX_goal_generic_attack_allies
+		x = 9
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_strike_at_egypt }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			GER = {has_government = fascism}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = GER
+}
+		}
+	}
+
+	#Focus for Create a Navy
+	focus = {
+		id = ISR_create_a_navy
+		icon = GFX_goal_generic_navy_cruiser
+		x = 4
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = dockyard
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  navy_experience= 20
+		}
+	}
+
+	#Focus for Army Reform
+	focus = {
+		id = ISR_army_reform
+		icon = GFX_focus_generic_manpower
+		x = 4
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Submarine Patrols
+	focus = {
+		id = ISR_submarine_patrols
+		icon = GFX_goal_generic_navy_submarine
+		x = 2
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_create_a_navy }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 1.0
+				uses = 2
+				technology = convoy_interdiction_ti
+				technology = unrestricted_submarine_warfare
+				technology = wolfpacks
+				technology = advanced_submarine_warfare
+				technology = combined_operations_raiding
+			}
+		}
+	}
+
+	#Focus for Dockyard Expansion
+	focus = {
+		id = ISR_dockyard_expansion
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 4
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_create_a_navy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = dockyard
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Naval Excercise
+	focus = {
+		id = ISR_naval_excercise
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 6
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_create_a_navy }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			navy_experience= 50
+		}
+	}
+
+	#Focus for Eperiment with Tank Production
+	focus = {
+		id = ISR_eperiment_with_tank_production
+		icon = GFX_goal_generic_army_tanks
+		x = 6
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_army_reform }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 1.0
+				uses = 3
+				category = armor
+			}
+		}
+	}
+
+	#Focus for Focus on Equipment Production
+	focus = {
+		id = ISR_focus_on_equipment_production
+		icon = GFX_focus_secret_rearmament
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_army_reform }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				ahead_reduction = 2
+				uses = 3
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	#Focus for Airplane Research
+	focus = {
+		id = ISR_airplane_research
+		icon = GFX_goal_generic_air_fighter2
+		x = 2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ISR_army_reform }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+		}
+	}
+
+#End of focuses 
+ }

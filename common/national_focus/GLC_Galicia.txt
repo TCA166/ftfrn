@@ -1,0 +1,898 @@
+focus_tree = {
+	id = Galicia
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = GLC
+		}
+	}
+	
+	continuous_focus_position = { x = 0 y = 1200 }
+	
+	#Focus for Reform The Galician Language
+	focus = {
+		id = GLC_reform_the_galician_language
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 11
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150
+		}
+	}
+
+	#Focus for Reunify with Portugal
+	focus = {
+		id = GLC_reunify_with_portugal
+		icon = GFX_focus_generic_attack_portugal
+		x = 10
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = GLC_rewrite_the_constitution 
+		}
+		prerequisite = { 
+			focus = GLC_claim_portocale 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 20000}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = POR
+}
+		}
+	}
+
+	#Focus for Military Research Complex
+	focus = {
+		id = GLC_military_research_complex
+		icon = GFX_focus_research2
+		x = 8
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_expand_military_industry }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Neo Colonialism
+	focus = {
+		id = GLC_neo_colonialism
+		icon = GFX_goal_demand_sudetenland
+		x = 6
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_build_nationalist_sentiment }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.2  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = dockyard
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Portuguese Legacy
+	focus = {
+		id = GLC_portuguese_legacy
+		icon = GFX_focus_generic_befriend_portugal
+		x = 10
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_reform_the_galician_language }
+		mutually_exclusive = { focus = GLC_spanish_legacy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.1
+		}
+	}
+
+	#Focus for Spanish Legacy
+	focus = {
+		id = GLC_spanish_legacy
+		icon = GFX_focus_intervention_spain_republic
+		x = 12
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_reform_the_galician_language }
+		mutually_exclusive = { focus = GLC_portuguese_legacy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150
+		}
+	}
+
+	#Focus for Build Nationalist Sentiment
+	focus = {
+		id = GLC_build_nationalist_sentiment
+		icon = GFX_goal_generic_propaganda
+		x = 6
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_portuguese_legacy }
+		mutually_exclusive = { focus = GLC_portuguese_unity }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+  add_stability= 0.1
+		}
+	}
+
+	#Focus for Portuguese Unity
+	focus = {
+		id = GLC_portuguese_unity
+		icon = GFX_goal_generic_national_unity
+		x = 10
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_portuguese_legacy }
+		mutually_exclusive = { focus = GLC_build_nationalist_sentiment }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+  add_political_power= 150
+		}
+	}
+
+	#Focus for Rewrite the Constitution
+	focus = {
+		id = GLC_rewrite_the_constitution
+		icon = GFX_goal_generic_forceful_treaty
+		x = 8
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = GLC_build_nationalist_sentiment 
+			focus = GLC_portuguese_unity 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = fascism 
+elections_allowed = no 
+}
+  add_popularity= { 
+ideology = fascism 
+popularity = 0.1 
+}
+  add_political_power= 50
+		}
+	}
+
+	#Focus for Claim Portocale
+	focus = {
+		id = GLC_claim_portocale
+		icon = GFX_goal_generic_territory_or_war
+		x = 10
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_portuguese_unity }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim= 180  add_war_support= 0.1
+		}
+	}
+
+	#Focus for Embrace Portuguese Identity
+	focus = {
+		id = GLC_embrace_portuguese_identity
+		icon = GFX_goal_generic_propaganda
+		x = 10
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_reunify_with_portugal }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_cosmetic_tag= POR  add_state_core= 180  add_state_core= 181  add_state_core= 795  add_state_core= 179  add_state_core= 112
+load_focus_tree = portuguese_focus
+		}
+	}
+
+	#Focus for Expand Military Industry
+	focus = {
+		id = GLC_expand_military_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 8
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_rewrite_the_constitution }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Conquer Cuba
+	focus = {
+		id = GLC_conquer_cuba
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_neo_colonialism }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 20000}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = CUB
+}
+		}
+	}
+
+	#Focus for Colonise Veneuela
+	focus = {
+		id = GLC_colonise_veneuela
+		icon = GFX_goal_generic_major_war
+		x = 6
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_conquer_cuba }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = VEN
+}
+		}
+	}
+
+	#Focus for Naval Effort
+	focus = {
+		id = GLC_naval_effort
+		icon = GFX_goal_generic_navy_battleship
+		x = 2
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			navy_experience= 20  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Naval Superiority
+	focus = {
+		id = GLC_naval_superiority
+		icon = GFX_goal_generic_navy_cruiser
+		x = 3
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_naval_effort }
+		mutually_exclusive = { focus = GLC_flexible_navy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = naval_superiority
+		}
+	}
+
+	#Focus for Flexible navy
+	focus = {
+		id = GLC_flexible_navy
+		icon = GFX_goal_generic_navy_anti_submarine
+		x = 1
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_naval_effort }
+		mutually_exclusive = { focus = GLC_naval_superiority }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+			    bonus = 1.0
+			    uses = 4
+			    category = ss_tech			   
+			}
+		}
+	}
+
+	#Focus for Dockyard Expansion
+	focus = {
+		id = GLC_dockyard_expansion
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = GLC_flexible_navy 
+			focus = GLC_naval_superiority 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = dockyard
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Estabilish Marines
+	focus = {
+		id = GLC_estabilish_marines
+		icon = GFX_goal_generic_amphibious_assault
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_naval_superiority }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+			    bonus = 1.0
+			    uses = 2
+			    category = dd_tech			   
+			}
+		}
+	}
+
+	#Focus for Submarine Dedicated Dockyards
+	focus = {
+		id = GLC_submarine_dedicated_dockyards
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 0
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_flexible_navy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Estabilish a Colonial Policy
+	focus = {
+		id = GLC_estabilish_a_colonial_policy
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 4
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = GLC_neo_colonialism 
+		}
+		prerequisite = { 
+			focus = GLC_estabilish_marines 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = effective_colonial_policy
+		}
+	}
+
+	#Focus for Ensure Constitutional Rights
+	focus = {
+		id = GLC_ensure_constitutional_rights
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 12
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_spanish_legacy }
+		mutually_exclusive = { focus = GLC_communist_transition }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  add_political_power= 150
+		}
+	}
+
+	#Focus for Embrace Liberal Economic Policy
+	focus = {
+		id = GLC_embrace_liberal_economic_policy
+		icon = GFX_goal_generic_consumer_goods
+		x = 12
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_ensure_constitutional_rights }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand Universities
+	focus = {
+		id = GLC_expand_universities
+		icon = GFX_focus_research2
+		x = 12
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_embrace_liberal_economic_policy }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Industrial Development
+	focus = {
+		id = GLC_industrial_development
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 12
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_expand_universities }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = industrial_complex
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Army Reform
+	focus = {
+		id = GLC_army_reform
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 14
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = GLC_ensure_constitutional_rights 
+			focus = GLC_communist_transition 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  army_experience= 10
+		}
+	}
+
+	#Focus for Military Industry Epansion
+	focus = {
+		id = GLC_military_industry_epansion
+		icon = GFX_focus_generic_license_production
+		x = 14
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_army_reform }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Build Steel Mills
+	focus = {
+		id = GLC_build_steel_mills
+		icon = GFX_focus_generic_steel
+		x = 14
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_military_industry_epansion }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = steel 
+amount = 10 
+state = 171 
+}
+		}
+	}
+
+	#Focus for Communist Transition
+	focus = {
+		id = GLC_communist_transition
+		icon = GFX_GLC_communist_transition-108488
+		x = 16
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_spanish_legacy }
+		mutually_exclusive = { focus = GLC_ensure_constitutional_rights }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.3 
+}
+  set_politics= {
+ ruling_party = communism 
+elections_allowed = no 
+}
+		}
+	}
+
+	#Focus for Support Republicans
+	focus = {
+		id = GLC_support_republicans
+		icon = GFX_focus_spr_war_of_independence
+		x = 16
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_communist_transition }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			SPR = {has_civil_war = no}
+date > 1937.1.1
+		}
+		available = {
+			has_army_manpower = {size > 10000}
+SPR = {has_civil_war = yes}
+		}
+		completion_reward = {
+			every_country={
+limit = {has_war_with = SPR}
+ROOT = {create_wargoal={ type = annex_everything target = PREV}
+}
+}
+		}
+	}
+
+	#Focus for Economic Mobilisation
+	focus = {
+		id = GLC_economic_mobilisation
+		icon = GFX_goal_generic_consumer_goods
+		x = 16
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_support_republicans }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_ideas = war_economy
+		}
+	}
+
+	#Focus for Aircraft Manufacturing Plants
+	focus = {
+		id = GLC_aircraft_manufacturing_plants
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 16
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_economic_mobilisation }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = arms_factory
+ level = 5
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Subjucate the Populus
+	focus = {
+		id = GLC_subjucate_the_populus
+		icon = GFX_goal_generic_demand_territory
+		x = 4
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = GLC_estabilish_a_colonial_policy }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			controls_state= 315
+		}
+		completion_reward = {
+			add_state_core= 315
+		}
+	}
+
+#End of focuses 
+ }

@@ -1,0 +1,2251 @@
+focus_tree = {
+	id = nigeria
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = NGA
+		}
+	}
+	continuous_focus_position = { x = 50 y = 1700 }
+	shared_focus = army_effort_dup
+	shared_focus = aviation_effort_dup
+	shared_focus = naval_effort_dup
+	#Focus for Invite Military Contractors
+	focus = {
+		id = NGA_invite_military_contractors
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 35
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_ask_germany }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for National Education Program
+	focus = {
+		id = NGA_national_education_program
+		icon = GFX_focus_research2
+		x = 12
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_fight_corruption }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+
+add_popularity= { 
+ideology = democratic 
+popularity = 0.1 
+}
+		}
+	}
+
+	#Focus for Nationalize Factories
+	focus = {
+		id = NGA_nationalize_factories
+		icon = GFX_goal_generic_forceful_treaty
+		x = 16
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_fight_corruption }
+		mutually_exclusive = { 
+			focus = NGA_ask_france 
+		}
+		mutually_exclusive = { 
+			focus = NGA_ask_the_empire 
+		}
+		mutually_exclusive = { 
+			focus = NGA_ask_germany 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Sieze Tribal Land
+	focus = {
+		id = NGA_sieze_tribal_land
+		icon = GFX_focus_prc_infiltration
+		x = 9
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_state_and_tribes }
+		mutually_exclusive = { focus = NGA_peaceful_cooperation_with_the_tribes }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+			add_extra_state_shared_building_slots = 5
+
+ }
+add_stability= -0.2
+		}
+	}
+
+	#Focus for Connect Towns
+	focus = {
+		id = NGA_connect_towns
+		icon = GFX_NGA_connect_towns-116412
+		x = 14
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_nigerian_5_year_plan 
+			focus = NGA_propaganda_of_progress 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+add_building_construction = {
+ type = infrastructure
+ level = 1
+ instant_build = yes
+ }
+}
+		}
+	}
+
+	#Focus for Ensure Political Freedoms
+	focus = {
+		id = NGA_ensure_political_freedoms
+		icon = GFX_focus_generic_self_management
+		x = 10
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_dismantle_the_dictatorship }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic
+popularity = 0.1 
+}
+  add_political_power= 150  add_stability= 0.05
+		}
+	}
+
+	#Focus for Nigerian Economic Miracle
+	focus = {
+		id = NGA_nigerian_economic_miracle
+		icon = GFX_goal_generic_consumer_goods
+		x = 10
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_ensure_political_freedoms }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = nga_economic_miracle
+		}
+	}
+
+	#Focus for Move Towards Democracy
+	focus = {
+		id = NGA_move_towards_democracy
+		icon = GFX_goal_support_democracy
+		x = 11
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_propaganda_of_progress }
+		mutually_exclusive = { focus = NGA_move_left }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic
+popularity = 0.2 
+}
+		}
+	}
+
+	#Focus for Coastal Railway
+	focus = {
+		id = NGA_coastal_railway
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 14
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_roads_and_bridges }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			build_railway = {
+  level = 2
+  build_only_on_allied = yes
+  fallback = yes
+  path = { 2050 4952 8034 10831 }
+  start_province = 2050
+  target_province = 10831
+}
+		}
+	}
+
+	#Focus for Interventionism
+	focus = {
+		id = NGA_interventionism
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 11
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_regional_defensive_leauge }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_rule = { can_send_volunteers = yes }
+add_ideas = defender_democracy
+		}
+	}
+
+	#Focus for Western Protection
+	focus = {
+		id = NGA_western_protection
+		icon = GFX_focus_chi_mission_to_the_us
+		x = 12
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_build_new_cities }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			USA={
+has_government=democratic
+}
+		}
+		completion_reward = {
+			USA={
+give_guarantee=NGA
+}
+		}
+	}
+
+	#Focus for Build New Cities
+	focus = {
+		id = NGA_build_new_cities
+		icon = GFX_goal_generic_construction2
+		x = 12
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_northern_economic_subsidies }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_state= {
+ add_extra_state_shared_building_slots = 5 
+}
+		}
+	}
+
+	#Focus for Regional Defensive Leauge
+	focus = {
+		id = NGA_regional_defensive_leauge
+		icon = GFX_goal_generic_defence
+		x = 11
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_nigerian_economic_miracle 
+			focus = NGA_western_protection 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_rule= { 
+can_create_factions = yes 
+}
+		}
+	}
+
+	#Focus for Civil Industrial Complex
+	focus = {
+		id = NGA_civil_industrial_complex
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 23
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_ask_the_empire 
+			focus = NGA_ask_france 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+		}
+	}
+} #This may not be in the right place. If your focus tree is having issues, check the above focus, as this closing brace was added to close the focus.
+
+	#Focus for Foreign Experts
+	focus = {
+		id = NGA_foreign_experts
+		icon = GFX_goal_generic_scientific_exchange
+		x = 27
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_ask_the_empire 
+			focus = NGA_ask_france 
+			focus = NGA_ask_germany 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Ask Germany
+	focus = {
+		id = NGA_ask_germany
+		icon = GFX_focus_chi_mission_to_germany
+		x = 32
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_seek_help_from_others }
+		mutually_exclusive = { 
+			focus = NGA_ask_the_empire 
+		}
+		mutually_exclusive = { 
+			focus = NGA_ask_france 
+		}
+		mutually_exclusive = {
+			focus = NGA_nationalize_factories
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = GER modifier = small_increase  }
+add_political_power= 50
+add_popularity= { 
+ideology = fascism 
+popularity = 0.1 
+}
+		}
+	}
+
+	#Focus for Expand Airports
+	focus = {
+		id = NGA_expand_airports
+		icon = GFX_focus_YUG_ikarus
+		x = 25
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_ask_the_empire 
+			focus = NGA_ask_france 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			558 = {
+add_building_construction = {
+ type = air_base
+ level = 3
+ instant_build = yes
+ }
+}
+		}
+	}
+
+	#Focus for Renault Factories
+	focus = {
+		id = NGA_renault_factories
+		icon = GFX_goal_generic_army_motorized
+		x = 21
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_ask_france }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+
+				}
+
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 2.5
+				uses = 1
+				technology = motorised_infantry
+			}
+		
+		}
+		
+	} #This may not be in the right place. If your focus tree is having issues, check the above focus, as this closing brace was added to close the focus.
+
+	#Focus for Construct Chromium Mines
+	focus = {
+		id = NGA_construct_chromium_mines
+		icon = GFX_NGA_construct_chromium_mines-119111
+		x = 18
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_expanded_steel_mills 
+			focus = NGA_contract_with_french_companies 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = steel 
+amount = 16 
+state = 558 
+}
+
+add_resource= { 
+type = chromium	 
+amount = 16 
+state = 558 
+}
+		}
+	}
+
+	#Focus for Ask the Empire
+	focus = {
+		id = NGA_ask_the_empire
+		icon = GFX_focus_chi_british_cooperation
+		x = 27
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_seek_help_from_others }
+		mutually_exclusive = { 
+			focus = NGA_ask_germany 
+		}
+		mutually_exclusive = { 
+			focus = NGA_ask_france 
+		}
+		mutually_exclusive = { 
+			focus = NGA_nationalize_factories 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = ENG modifier = small_increase  }
+add_political_power= 50
+add_popularity= { 
+ideology = democratic 
+popularity = 0.1
+}
+		}
+	}
+
+	#Focus for Acknowledge Our Problems
+	focus = {
+		id = NGA_acknowledge_our_problems
+		icon = GFX_goal_generic_demand_territory
+		x = 14
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 100
+add_stability= -0.2
+		}
+	}
+
+	#Focus for Ask France
+	focus = {
+		id = NGA_ask_france
+		icon = GFX_focus_chi_reach_out_to_france
+		x = 22
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_seek_help_from_others }
+		mutually_exclusive = { 
+			focus = NGA_ask_the_empire 
+		}
+		mutually_exclusive = { 
+			focus = NGA_ask_germany 
+		}
+		mutually_exclusive = { 
+			focus = NGA_nationalize_factories 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = FRA modifier = small_increase  }
+add_political_power= 50
+add_popularity= { 
+ideology = communism 
+popularity = 0.05
+}
+add_popularity= { 
+ideology = democratic 
+popularity = 0.05 
+}
+		}
+	}
+
+	#Focus for Military Research Teams
+	focus = {
+		id = NGA_military_research_teams
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 28
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_military_industrial_complex
+		}
+		prerequisite = { 
+			focus = NGA_foreign_experts 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+ name = infantry_artillery_bonus
+ bonus = 1.0
+ uses = 4
+ category = infantry_weapons
+ category = artillery
+}
+add_research_slot= 1
+		}
+	}
+
+	#Focus for Invite Armée de l'Air and RAF Experts
+	focus = {
+		id = NGA_invite_arme_de_lair_and_raf_experts
+		icon = GFX_focus_usa_escort_fighters
+		x = 26
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_foreign_experts 
+		}
+		prerequisite = { 
+			focus = NGA_expand_airports 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			air_experience= 50
+add_tech_bonus = {
+	name = light_air_bonus
+	bonus = 0.5
+        ahead_reduction = 1
+	uses = 2
+	category = light_air
+}
+558 = {
+add_building_construction = {
+ type = air_base
+ level = 1
+ instant_build = yes
+ }
+}
+		}
+	}
+
+	#Focus for Contract with French Companies
+	focus = {
+		id = NGA_contract_with_french_companies
+		icon = GFX_goal_generic_improve_relations
+		x = 19
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_ask_france }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Traditional Propaganda
+	focus = {
+		id = NGA_traditional_propaganda
+		icon = GFX_goal_generic_propaganda
+		x = 3
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_peaceful_cooperation_with_the_tribes }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+add_war_support
+= 0.15
+		}
+	}
+
+	#Focus for Seek Help from Others
+	focus = {
+		id = NGA_seek_help_from_others
+		icon = GFX_goal_generic_national_unity
+		x = 27
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_acknowledge_our_problems }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= -0.05  
+add_war_support= -0.1  
+add_political_power= 50
+		}
+	}
+
+	#Focus for State and Tribes
+	focus = {
+		id = NGA_state_and_tribes
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		x = 5
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_acknowledge_our_problems }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 100
+add_stability= -0.1
+		}
+	}
+
+	#Focus for Fight Corruption
+	focus = {
+		id = NGA_fight_corruption
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		x = 14
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_acknowledge_our_problems }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power = 50
+add_stability = -0.1
+		}
+	}
+
+	#Focus for Military Industrial Complex
+	focus = {
+		id = NGA_military_industrial_complex
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 29
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_ask_germany 
+			focus = NGA_ask_the_empire 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+		}
+	}
+} #This may not be in the right place. If your focus tree is having issues, check the above focus, as this closing brace was added to close the focus.
+
+	#Focus for Form Nigerian Merchant Fleet
+	focus = {
+		id = NGA_form_nigerian_merchant_fleet
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 31
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_ask_germany 
+			focus = NGA_ask_the_empire 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Estabilish Free Trade
+	focus = {
+		id = NGA_estabilish_free_trade
+		icon = GFX_NGA_estabilish_free_trade-137382
+		x = 27
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_towards_an_economic_union }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = free_trade
+			add_ideas = nga_economic_union
+every_country={
+limit={
+any_controlled_state={
+AND={
+is_on_continent = africa
+is_capital = yes
+}
+}
+OR={
+has_government = neutrality
+has_government = democratic
+}
+}
+add_ideas = nga_economic_union
+}
+		}
+	}
+
+	#Focus for Oil Refineries
+	focus = {
+		id = NGA_oil_refineries
+		icon = GFX_goal_generic_oil_refinery
+		x = 14
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_fight_corruption }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = oil 
+amount = 17 
+state = 558
+}
+		}
+	}
+
+	#Focus for Invite Kriegsmarine Experts
+	focus = {
+		id = NGA_invite_kriegsmarine_experts
+		icon = GFX_goal_generic_navy_submarine
+		x = 32
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_form_nigerian_merchant_fleet 
+		}
+		prerequisite = { 
+			focus = NGA_invite_german_officers_corps 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			navy_experience= 30
+add_tech_bonus = {
+ name = dd_bonus
+ bonus = 1.0
+ uses = 3
+ category = dd_tech
+}
+add_tech_bonus = {
+ name = ss_bonus
+ bonus = 1.5
+ uses = 4
+ category = ss_tech
+ category = ca_tech
+			}
+		}
+	}
+
+	#Focus for Invite German Officers Corps
+	focus = {
+		id = NGA_invite_german_officers_corps
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 33
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_ask_germany }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience= 25  
+
+add_tech_bonus = {
+ name = land_doc_bonus
+ bonus = 1.5
+ uses = 2
+ category = land_doctrine
+}
+add_opinion_modifier = { target = GER modifier = small_increase  }
+		}
+	}
+
+	#Focus for Lagos Harbour
+	focus = {
+		id = NGA_lagos_harbour
+		icon = GFX_focus_generic_africa_naval
+		x = 30
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_military_industrial_complex 
+		}
+		prerequisite = { 
+			focus = NGA_form_nigerian_merchant_fleet 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = dockyard
+ level = 1
+ instant_build = yes
+ }
+	add_building_construction = {
+		type = naval_base
+        	province = 2050
+		level = 4
+	}
+
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expanded Steel Mills
+	focus = {
+		id = NGA_expanded_steel_mills
+		icon = GFX_focus_generic_steel
+		x = 17
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_nationalize_factories }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = steel
+amount = 18 
+state = 558
+}
+		}
+	}
+
+	#Focus for Ask for New Rifles
+	focus = {
+		id = NGA_ask_for_new_rifles
+		icon = GFX_focus_focus_fra_maquis
+		x = 20
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_contract_with_french_companies 
+		}
+		prerequisite = { 
+			focus = NGA_renault_factories 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_equipment_to_stockpile= {
+ type = infantry_equipment_1 
+amount = 15000 
+producer = FRA 
+}
+		}
+	}
+
+	#Focus for Roads and Bridges
+	focus = {
+		id = NGA_roads_and_bridges
+		icon = GFX_goal_generic_construct_civilian
+		x = 14
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_connect_towns }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+add_building_construction = {
+ type = infrastructure
+ level = 2
+ instant_build = yes
+ }
+}
+		}
+	}
+
+	#Focus for Ask for Any Rifles
+	focus = {
+		id = NGA_ask_for_any_rifles
+		icon = GFX_goal_generic_small_arms
+		x = 34
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_invite_military_contractors 
+		}
+		prerequisite = { 
+			focus = NGA_invite_german_officers_corps 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_equipment_to_stockpile= {
+ type = infantry_equipment_0 
+amount = 30000
+producer = GER 
+}
+		}
+	}
+
+	#Focus for Create Nigerian Air Force
+	focus = {
+		id = NGA_create_nigerian_air_force
+		icon = GFX_goal_generic_air_fighter2
+		x = 24
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_expand_airports 
+		}
+		prerequisite = { 
+			focus = NGA_civil_industrial_complex 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			air_experience= 25
+add_tech_bonus = {
+ name = fighter_bonus
+ bonus = 1.0
+ uses = 3
+ technology = fighter1
+ technology = fighter2
+ technology = fighter3
+}
+558 = {
+add_building_construction = {
+ type = air_base
+ level = 2
+ instant_build = yes
+ }
+}
+		}
+	}
+
+	#Focus for Invite Industrial Experts
+	focus = {
+		id = NGA_invite_industrial_experts
+		icon = GFX_goal_generic_production
+		x = 22
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_renault_factories 
+		}
+		prerequisite = { 
+			focus = NGA_civil_industrial_complex 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+	name = industry_bonus
+	bonus = 1.0
+	uses = 3
+	category = industry
+}
+		}
+	}
+
+	#Focus for Move Left
+	focus = {
+		id = NGA_move_left
+		icon = GFX_goal_support_communism
+		x = 7
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_propaganda_of_progress }
+		mutually_exclusive = { focus = NGA_move_towards_democracy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.2 
+}
+		}
+	}
+
+	#Focus for March on Capital
+	focus = {
+		id = NGA_march_on_capital
+		icon = GFX_goal_support_fascism
+		x = 3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_traditional_propaganda }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+  set_politics= {
+ ruling_party = fascism 
+elections_allowed = no 
+}
+		}
+	}
+
+	#Focus for In the name of our Ancestors
+	focus = {
+		id = NGA_in_the_name_of_our_ancestors
+		icon = GFX_goal_generic_secret_weapon
+		x = 1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_tribe_conscription }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = nga_ancestors
+		}
+	}
+
+	#Focus for Nigerian 5 Year Plan
+	focus = {
+		id = NGA_nigerian_5_year_plan
+		icon = GFX_goal_generic_production
+		x = 15
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_nationalize_factories 
+		}
+		prerequisite = { 
+			focus = NGA_oil_refineries 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_timed_idea= { 
+idea = nga_five-year_plan
+days = 365 
+}
+		}
+	}
+
+	#Focus for State Capitalism
+	focus = {
+		id = NGA_state_capitalism
+		icon = GFX_goal_generic_position_armies
+		x = 16
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_nigerian_5_year_plan 
+		}
+		prerequisite = { 
+			focus = NGA_expanded_steel_mills 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Propaganda of Progress
+	focus = {
+		id = NGA_propaganda_of_progress
+		icon = GFX_NGA_propaganda_of_progress-108490
+		x = 9
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_sieze_tribal_land 
+		}
+		prerequisite = { 
+			focus = NGA_national_education_program 
+		}
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= -0.1  add_political_power= 150
+		}
+	}
+
+	#Focus for Peaceful Cooperation with the Tribes
+	focus = {
+		id = NGA_peaceful_cooperation_with_the_tribes
+		icon = GFX_goal_generic_major_alliance
+		x = 2
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_state_and_tribes }
+		mutually_exclusive = { focus = NGA_sieze_tribal_land }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  add_war_support= 0.05
+		}
+	}
+
+	#Focus for Tribe Conscription
+	focus = {
+		id = NGA_tribe_conscription
+		icon = GFX_focus_generic_manpower
+		x = 1
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_peaceful_cooperation_with_the_tribes }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = nga_tribe_cons
+		}
+	}
+
+	#Focus for Coal Liquification Experiments
+	focus = {
+		id = NGA_coal_liquification_experiments
+		icon = GFX_goal_generic_production2
+		x = 13
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_national_education_program 
+		}
+		prerequisite = { 
+			focus = NGA_oil_refineries 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_state={
+add_extra_state_shared_building_slots = 2 
+add_building_construction = {
+	type = synthetic_refinery 
+	level = 2
+	instant_build = yes
+}
+}
+		}
+	}
+
+	#Focus for Intervention in Egypt
+	focus = {
+		id = NGA_intervention_in_egypt
+		icon = GFX_goal_generic_military_deal
+		x = 2
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_find_fascist_allies 
+			focus = NGA_expand_rubber_plantations_in_cameroon 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			EGY={
+NOT={has_government=fascism}
+exists=yes
+}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = puppet_wargoal_focus
+target = EGY
+}
+		}
+	}
+
+	#Focus for Military Buildup
+	focus = {
+		id = NGA_military_buildup
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 4
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_anti_colonialist_rethoric 
+			focus = NGA_expand_our_coast 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Foreign Advisors
+	focus = {
+		id = NGA_foreign_advisors
+		icon = GFX_goal_generic_small_arms
+		x = 5
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_sieze_sao_tome 
+			focus = NGA_take_cameroon 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+army_experience = 5
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Find Fascist Allies
+	focus = {
+		id = NGA_find_fascist_allies
+		icon = GFX_focus_chi_mission_to_germany
+		x = 3
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_take_cameroon }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			OR={
+ITA={has_government=fascism}
+GER={has_government=fascism}
+SPA={has_government=fascism}
+}
+		}
+		completion_reward = {
+			if={
+limit={GER={has_government=fascism}}
+GER={
+add_opinion_modifier = { target = NGA modifier = large_increase }
+add_ai_strategy = { 
+   type = alliance
+   id = "NGA"			
+   value = 200
+}
+}
+}
+if={
+limit={ITA={has_government=fascism}}
+ITA={
+add_opinion_modifier = { target = NGA modifier = large_increase }
+add_ai_strategy = { 
+   type = alliance
+   id = "NGA"			
+   value = 200
+}
+}
+}
+if={
+limit={SPA={has_government=fascism}}
+SPA={
+add_opinion_modifier = { target = NGA modifier = large_increase }
+add_ai_strategy = { 
+   type = alliance
+   id = "NGA"			
+   value = 200
+}
+}
+}
+		}
+	}
+
+	#Focus for Expand Rubber Plantations in Cameroon
+	focus = {
+		id = NGA_expand_rubber_plantations_in_cameroon
+		icon = GFX_focus_generic_rubber
+		x = 1
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_take_cameroon }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			773={
+is_controlled_by= NGA 
+}
+		}
+		completion_reward = {
+			add_resource= { 
+type = rubber
+amount = 32 
+state = 773 
+}
+		}
+	}
+
+	#Focus for Take Cameroon
+	focus = {
+		id = NGA_take_cameroon
+		icon = GFX_goal_generic_major_war
+		x = 2
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_take_niger 
+		}
+		prerequisite = { 
+			focus = NGA_expand_our_coast 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = CMR
+}
+		}
+	}
+
+	#Focus for Deal with Religious Divide
+	focus = {
+		id = NGA_deal_with_religious_divide
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		x = 8
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_move_left }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas= {
+ remove_idea = nga_divide_def
+add_idea = nga_divide_com 
+}
+		}
+	}
+
+	#Focus for Southern Crackdown
+	focus = {
+		id = NGA_southern_crackdown
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		x = 2
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_march_on_capital 
+		}
+		prerequisite = { 
+			focus = NGA_in_the_name_of_our_ancestors 
+		}
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas= {
+ remove_idea = nga_divide_def 
+add_idea = nga_divide_fas
+}
+		}
+	}
+
+	#Focus for Northern Economic Subsidies
+	focus = {
+		id = NGA_northern_economic_subsidies
+		icon = GFX_goal_generic_trade
+		x = 12
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_move_towards_democracy 
+		}
+		prerequisite = { 
+			focus = NGA_connect_towns 
+		}
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas= {
+ remove_idea = nga_divide_def
+add_idea = nga_divide_eco 
+}
+		}
+	}
+
+	#Focus for Build Schools in Tribal Lands
+	focus = {
+		id = NGA_build_schools_in_tribal_lands
+		icon = GFX_focus_research2
+		x = 11
+		y = 3
+		cost = 15
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_sieze_tribal_land 
+		}
+		prerequisite = { 
+			focus = NGA_national_education_program 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			num_of_civilian_factories> 10
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Tribal Crackdown
+	focus = {
+		id = NGA_tribal_crackdown
+		icon = GFX_goal_generic_demand_territory
+		x = 7
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_sieze_tribal_land }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  add_war_support= 0.1
+		}
+	}
+
+	#Focus for Sieze the Means of Production
+	focus = {
+		id = NGA_sieze_the_means_of_production
+		icon = GFX_goal_generic_war_with_comintern
+		x = 6
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_move_left }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = communism 
+elections_allowed = no 
+}
+  add_popularity= { 
+ideology = communism
+popularity = 0.1 
+}
+		}
+	}
+
+	#Focus for Dismantle the Dictatorship
+	focus = {
+		id = NGA_dismantle_the_dictatorship
+		icon = GFX_focus_generic_treaty
+		x = 10
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_move_towards_democracy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = democratic
+elections_allowed = no 
+}
+  add_popularity= { 
+ideology = democratic 
+popularity = 0.3 
+}
+		}
+	}
+
+	#Focus for Anti Colonialist Rethoric
+	focus = {
+		id = NGA_anti_colonialist_rethoric
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		x = 6
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_sieze_the_means_of_production }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = nga_anti_colonialism
+		}
+	}
+
+	#Focus for Sieze Sao Tome
+	focus = {
+		id = NGA_sieze_sao_tome
+		icon = GFX_goal_generic_territory_or_war
+		x = 6
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_anti_colonialist_rethoric }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			705={
+is_controlled_by= POR
+}
+		}
+		completion_reward = {
+			set_state_owner = 705
+POR={
+country_event ={
+id = ftfrn.64
+}
+}
+		}
+	}
+
+	#Focus for African Relations
+	focus = {
+		id = NGA_african_relations
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 27
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			AND={
+OR={
+SOM={exists=yes}
+SUD={exists=yes}
+KEN={exists=yes}
+}
+OR={
+ANG={exists=yes}
+COG={exists=yes}
+TZN={exists=yes}
+}
+OR={
+MLI={exists=yes}
+SEN={exists=yes}
+CMR={exists=yes}
+}
+}
+		}
+		completion_reward = {
+			add_political_power= 100
+		}
+	}
+
+	#Focus for Somalian Relations
+	focus = {
+		id = NGA_somalian_relations
+		icon = GFX_NGA_somalian_relations-137378
+		x = 23
+		y = 6
+		cost = 3
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_african_relations }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_government = SOM
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = SOM modifier = medium_increase }
+SOM={
+add_opinion_modifier = { target = NGA modifier = medium_increase }
+}
+		}
+	}
+
+	#Focus for South African Relations
+	focus = {
+		id = NGA_south_african_relations
+		icon = GFX_NGA_south_african_relations-137379
+		x = 25
+		y = 6
+		cost = 3
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_african_relations }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_government = SAF
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = SAF modifier = medium_increase }
+SAF={
+add_opinion_modifier = { target = NGA modifier = medium_increase }
+}
+		}
+	}
+
+	#Focus for Congoloneese Relations
+	focus = {
+		id = NGA_congoloneese_relations
+		icon = GFX_NGA_congoloneese_relations-137380
+		x = 29
+		y = 6
+		cost = 3
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_african_relations }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_government = COG
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = COG modifier = medium_increase }
+COG={
+add_opinion_modifier = { target = NGA modifier = medium_increase }
+}
+		}
+	}
+
+	#Focus for Towards an Economic Union
+	focus = {
+		id = NGA_towards_an_economic_union
+		icon = GFX_goal_generic_major_alliance
+		x = 27
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_african_relations }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			threat < 0.25
+NOT={
+has_government = fascism
+}
+		}
+		completion_reward = {
+			add_political_power= 250
+add_threat = -10
+add_ideas = civilian_economy
+		}
+	}
+
+	#Focus for Morrocan Relations
+	focus = {
+		id = NGA_morrocan_relations
+		icon = GFX_NGA_morrocan_relations-137381
+		x = 31
+		y = 6
+		cost = 3
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_african_relations }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_government = MOR
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = MOR modifier = medium_increase }
+MOR={
+add_opinion_modifier = { target = NGA modifier = medium_increase }
+}
+		}
+	}
+
+	#Focus for Take Niger
+	focus = {
+		id = NGA_take_niger
+		icon = GFX_goal_generic_political_pressure
+		x = 1
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_southern_crackdown }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = NGR 
+}
+add_state_claim= 781 
+add_state_claim= 515
+		}
+	}
+
+	#Focus for Expand our Coast
+	focus = {
+		id = NGA_expand_our_coast
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 3
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_southern_crackdown }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = DAH
+}
+  add_state_claim= 776
+		}
+	}
+
+	#Focus for Lower Unemployment
+	focus = {
+		id = NGA_lower_unemployment
+		icon = GFX_NGA_lower_unemployment-107241
+		x = 8
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_deal_with_religious_divide }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand Forestry
+	focus = {
+		id = NGA_expand_forestry
+		icon = GFX_goal_generic_soviet_construction
+		x = 8
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_lower_unemployment }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Dream of the Western African Union
+	focus = {
+		id = NGA_dream_of_the_western_african_union
+		icon = GFX_goal_generic_propaganda
+		x = 7
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_sieze_sao_tome 
+		}
+		prerequisite = { 
+			focus = NGA_expand_forestry 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim= 776
+add_state_claim= 777
+add_state_claim= 274
+add_state_claim= 779
+add_state_claim= 776
+add_state_claim= 298
+add_state_claim= 780
+add_state_claim= 700
+		}
+	}
+
+	#Focus for Peaceful Move Towards Unity
+	focus = {
+		id = NGA_peaceful_move_towards_unity
+		icon = GFX_goal_anschluss
+		x = 6
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_dream_of_the_western_african_union }
+		mutually_exclusive = { focus = NGA_a_regional_revolution }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			unlock_decision_category_tooltip= NGA_com_union
+		}
+	}
+
+	#Focus for A Regional Revolution
+	focus = {
+		id = NGA_a_regional_revolution
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 8
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = NGA_dream_of_the_western_african_union }
+		mutually_exclusive = { focus = NGA_peaceful_move_towards_unity }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_cosmetic_tag = WAF
+add_state_core = 776
+add_state_core = 777
+add_state_core = 274
+add_state_core = 779
+add_state_core = 298
+add_state_core = 780
+add_state_core = 700
+		}
+	}
+
+	#Focus for Industrial Boom
+	focus = {
+		id = NGA_industrial_boom
+		icon = GFX_goal_generic_construct_civilian
+		x = 9
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = NGA_expand_forestry 
+			focus = NGA_nigerian_economic_miracle 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+#End of focuses 
+ }

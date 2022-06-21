@@ -1,0 +1,1906 @@
+focus_tree = {
+	id = cringe_racists
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = CSA
+		}
+	}
+	continuous_focus_position = { x = 50 y = 1200 }
+	#Focus for Take Haiti
+	focus = {
+		id = CSA_take_haiti
+		icon = GFX_goal_demand_sudetenland
+		x = 12
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_conquer_cuba
+		}
+		prerequisite = { 
+			focus = CSA_recovery 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = HAI
+}
+  create_wargoal= { 
+type = annex_everything 
+target = DOM
+}
+		}
+	}
+
+	#Focus for Prepare for Another Great War
+	focus = {
+		id = CSA_prepare_for_another_great_war
+		icon = GFX_goal_generic_production
+		x = 10
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_recovery 
+		}
+		prerequisite = { 
+			focus = CSA_fight_communism_in_north 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = war_economy
+		}
+	}
+
+	#Focus for Equal Economic Possibilities
+	focus = {
+		id = CSA_equal_economic_possibilities
+		icon = GFX_goal_generic_trade
+		x = 6
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_equal_treatment 
+		}
+		prerequisite = { 
+			focus = CSA_open_higher_education 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Appeal to Cities
+	focus = {
+		id = CSA_appeal_to_cities
+		icon = GFX_focus_spa_the_spanish_miracle
+		x = 3
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_liberal_candidate }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.1 
+}
+  add_stability= 0.05  add_political_power= 150
+		}
+	}
+
+	#Focus for Bring Neutrals into the Fold
+	focus = {
+		id = CSA_bring_neutrals_into_the_fold
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 2
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_joint_economic_investment 
+		}
+		prerequisite = { 
+			focus = CSA_peace_on_the_continent 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			USB={
+exists = yes
+NOT={has_government = democratic}
+}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = USB
+}
+remove_mission= csa_civil_war_mission
+		}
+	}
+
+	#Focus for Peace on the Continent
+	focus = {
+		id = CSA_peace_on_the_continent
+		icon = GFX_goal_generic_alliance
+		x = 3
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_reapproachment_with_the_north }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			USA={
+exists = yes
+NOT={
+has_war_with = CSA}
+}
+		}
+		completion_reward = {
+			IF={
+limit={USA={is_in_faction = yes}}
+USA={add_to_faction = CSA}
+else={
+create_faction = "American Alliance"
+add_to_faction = USA
+}
+}
+		}
+	}
+
+	#Focus for Equal Treatment
+	focus = {
+		id = CSA_equal_treatment
+		icon = GFX_goal_generic_national_unity
+		x = 7
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_development_programs 
+		}
+		prerequisite = { 
+			focus = CSA_civil_rights_act 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_state= {
+ add_extra_state_shared_building_slots = 2 
+}
+  add_stability= 0.05  add_political_power= 50
+		}
+	}
+
+	#Focus for Civil Rights Act
+	focus = {
+		id = CSA_civil_rights_act
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 6
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_steal_liberal_voters 
+			focus = CSA_fight_racism 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = ahead_of_time
+		}
+	}
+
+	#Focus for Emergency Election
+	focus = {
+		id = CSA_emergency_election
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 8
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			has_game_rule = {
+						rule = USA_fragmentation
+						option = DEFAULT
+					}
+		}
+		completion_reward = {
+			country_event= {
+days = 1 
+id = ftfrn.58 
+}
+		}
+	}
+
+	#Focus for Far Right Candidate
+	focus = {
+		id = CSA_far_right_candidate
+		icon = GFX_goal_support_fascism
+		x = 14
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_emergency_election }
+		mutually_exclusive = { 
+			focus = CSA_democratic_candidate 
+		}
+		mutually_exclusive = { 
+			focus = CSA_liberal_candidate 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Democratic Candidate
+	focus = {
+		id = CSA_democratic_candidate
+		icon = GFX_focus_generic_self_management
+		x = 8
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_emergency_election }
+		mutually_exclusive = { 
+			focus = CSA_far_right_candidate 
+		}
+		mutually_exclusive = { 
+			focus = CSA_liberal_candidate 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Liberal Candidate
+	focus = {
+		id = CSA_liberal_candidate
+		icon = GFX_goal_support_democracy
+		x = 2
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_emergency_election }
+		mutually_exclusive = { 
+			focus = CSA_democratic_candidate 
+		}
+		mutually_exclusive = { 
+			focus = CSA_far_right_candidate 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT={has_game_rule = {
+						rule = USA_fragmentation
+						option = DEFAULT
+					}}
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.15 
+}
+  add_stability= -0.05
+		}
+	}
+
+	#Focus for Confederate Revival
+	focus = {
+		id = CSA_confederate_revival
+		icon = GFX_focus_usa_honor_the_confederacy
+		x = 14
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_call_upon_right_wing_militias 
+		}
+		prerequisite = { 
+			focus = CSA_radicalise_the_populus
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 1 
+}
+  set_politics= {
+ ruling_party = fascism 
+elections_allowed = no 
+}
+		}
+	}
+
+	#Focus for Call Upon Right Wing Militias
+	focus = {
+		id = CSA_call_upon_right_wing_militias
+		icon = GFX_focus_generic_manpower
+		x = 15
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_far_right_candidate }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+		}
+	}
+
+	#Focus for Conservative Values
+	focus = {
+		id = CSA_conservative_values
+		icon = GFX_goal_generic_demand_territory
+		x = 11
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_far_right_candidate 
+			focus = CSA_democratic_candidate 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT={
+has_completed_focus= CSA_fight_racism}
+		}
+		completion_reward = {
+			swap_ideas= {
+ remove_idea = racist_legacy 
+add_idea = racist_escalation 
+}
+activate_mission = csa_civil_war_mission
+		}
+	}
+
+	#Focus for Radicalise the Populus
+	focus = {
+		id = CSA_radicalise_the_populus
+		icon = GFX_goal_generic_dangerous_deal
+		x = 13
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_far_right_candidate }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+				ideology = fascism 
+				popularity = 0.1 
+			}
+			add_stability= -0.05  
+			add_war_support= 0.05
+		}
+	}
+
+	#Focus for Fight Racism
+	focus = {
+		id = CSA_fight_racism
+		icon = GFX_goal_generic_major_alliance
+		x = 5
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_democratic_candidate 
+			focus = CSA_liberal_candidate 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT={
+has_completed_focus= CSA_conservative_values}
+		}
+		completion_reward = {
+			swap_ideas= {
+ remove_idea = racist_legacy 
+add_idea = fight_racism 
+}
+activate_mission = csa_civil_war_mission
+		}
+	}
+
+	#Focus for All Power to the Military
+	focus = {
+		id = CSA_all_power_to_the_military
+		icon = GFX_focus_generic_support_the_left_right
+		x = 16
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_prepare_for_conflict }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = military_government
+		}
+	}
+
+	#Focus for Appeal to Landlords
+	focus = {
+		id = CSA_appeal_to_landlords
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = 12
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_conservative_values 
+			focus = CSA_radicalise_the_populus 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  add_political_power= 75
+		}
+	}
+
+	#Focus for Conservative Support
+	focus = {
+		id = CSA_conservative_support
+		icon = GFX_goal_generic_national_unity
+		x = 9
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_democratic_candidate }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.1 
+}
+add_political_power = 75
+		}
+	}
+
+	#Focus for Development Programs
+	focus = {
+		id = CSA_development_programs
+		icon = GFX_goal_generic_consumer_goods
+		x = 8
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_conservative_support 
+		}
+		prerequisite = { 
+			focus = CSA_steal_liberal_voters 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  add_political_power= 75
+		}
+	}
+
+	#Focus for Steal Liberal Voters
+	focus = {
+		id = CSA_steal_liberal_voters
+		icon = GFX_goal_generic_propaganda
+		x = 7
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_democratic_candidate }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 75  add_popularity= { 
+ideology = democratic 
+popularity = -0.05 
+}
+		}
+	}
+
+	#Focus for Sieze Capital
+	focus = {
+		id = CSA_sieze_capital
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_conservative_support 
+			focus = CSA_conservative_values 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_days_mission_timeout = {
+				mission = csa_civil_war_mission
+				days = -50
+			}
+		}
+	}
+
+	#Focus for Patriotic Conscription
+	focus = {
+		id = CSA_patriotic_conscription
+		icon = GFX_focus_generic_military_mission
+		x = 11
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_sieze_capital 
+		}
+		prerequisite = { 
+			focus = CSA_appeal_to_landlords 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = local_militias
+		}
+	}
+
+	#Focus for Mobilise the Patriots
+	focus = {
+		id = CSA_mobilise_the_patriots
+		icon = GFX_focus_secret_rearmament
+		x = 16
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_call_upon_right_wing_militias }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 10000 
+add_equipment_to_stockpile = {
+    type = infantry_equipment
+    amount = 2000
+    producer = CSA
+}
+		}
+	}
+
+	#Focus for Remove Minimal Pay
+	focus = {
+		id = CSA_remove_minimal_pay
+		icon = GFX_focus_mex_privatisation
+		x = 13
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_appeal_to_landlords 
+		}
+		prerequisite = { 
+			focus = CSA_confederate_revival 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = minimal_pay_removed
+		}
+	}
+
+	#Focus for Prepare for Conflict
+	focus = {
+		id = CSA_prepare_for_conflict
+		icon = GFX_goal_generic_position_armies
+		x = 15
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_confederate_revival 
+		}
+		prerequisite = { 
+			focus = CSA_mobilise_the_patriots 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Bring Back Slavery
+	focus = {
+		id = CSA_bring_back_slavery
+		icon = GFX_goal_generic_secret_weapon
+		x = 12
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_patriotic_conscription 
+		}
+		prerequisite = { 
+			focus = CSA_remove_minimal_pay 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = slavery
+		}
+	}
+
+	#Focus for White Urbanisation Programs
+	focus = {
+		id = CSA_white_urbanisation_programs
+		icon = GFX_goal_generic_construction2
+		x = 9
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_sieze_capital 
+		}
+		prerequisite = { 
+			focus = CSA_development_programs 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_state= {
+ add_extra_state_shared_building_slots = 2 
+}
+random_owned_state= {
+ add_extra_state_shared_building_slots = 2 
+}
+		}
+	}
+
+	#Focus for To Arms in Dixie
+	focus = {
+		id = CSA_to_arms_in_dixie
+		icon = GFX_goal_generic_major_war
+		x = 14
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_take_mexico 
+		}
+		prerequisite = { 
+			focus = CSA_conquer_cuba 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = USA
+}
+		}
+	}
+
+	#Focus for Subsidise White Industry
+	focus = {
+		id = CSA_subsidise_white_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 10
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_white_urbanisation_programs 
+		}
+		prerequisite = { 
+			focus = CSA_patriotic_conscription 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Recovery
+	focus = {
+		id = CSA_recovery
+		icon = GFX_goal_generic_consumer_goods
+		x = 11
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_subsidise_white_industry 
+			focus = CSA_bring_back_slavery 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			remove_ideas = great_depression
+add_timed_idea = { idea = great_depression days = 200}
+		}
+	}
+
+	#Focus for Deal with the Railroad
+	focus = {
+		id = CSA_deal_with_the_railroad
+		icon = GFX_goal_generic_political_pressure
+		x = 16
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_take_mexico }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			remove_mission= csa_civil_war_mission
+		}
+	}
+
+	#Focus for Conquer Cuba
+	focus = {
+		id = CSA_conquer_cuba
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 13
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_southern_colonialism }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = CUB
+}
+		}
+	}
+
+	#Focus for Take Mexico
+	focus = {
+		id = CSA_take_mexico
+		icon = GFX_focus_mex_jefe_maximo
+		x = 15
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_southern_colonialism }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = MEX
+}
+		}
+	}
+
+	#Focus for Southern Colonialism
+	focus = {
+		id = CSA_southern_colonialism
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 14
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_remove_minimal_pay 
+		}
+		prerequisite = { 
+			focus = CSA_prepare_for_conflict 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = PAN
+}
+  create_wargoal= { 
+type = annex_everything 
+target = COS
+}
+		}
+	}
+
+	#Focus for Reapproachment with the North
+	focus = {
+		id = CSA_reapproachment_with_the_north
+		icon = GFX_goal_tripartite_pact
+		x = 2
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_equal_conscription 
+		}
+		prerequisite = { 
+			focus = CSA_encourage_union_activity 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			USA={
+exists= no}
+		}
+		completion_reward = {
+			every_owned_state={
+remove_claim_by = USA}
+add_opinion_modifier = { target = USA modifier = medium_increase }
+USA={
+add_opinion_modifier = { target = CSA modifier = medium_increase }}
+		}
+	}
+
+	#Focus for Joint Economic Investment
+	focus = {
+		id = CSA_joint_economic_investment
+		icon = GFX_goal_generic_construct_civilian
+		x = 1
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_reapproachment_with_the_north 
+		}
+		prerequisite = { 
+			focus = CSA_state_military_industry 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = economic_ties
+USA={add_ideas = economic_ties}
+}
+		
+	}
+
+	#Focus for Encourage Political Activity
+	focus = {
+		id = CSA_encourage_political_activity
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_fight_racism 
+			focus = CSA_appeal_to_cities 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 300
+		}
+	}
+
+	#Focus for Open Higher Education
+	focus = {
+		id = CSA_open_higher_education
+		icon = GFX_focus_research2
+		x = 5
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_civil_rights_act 
+		}
+		prerequisite = { 
+			focus = CSA_encourage_political_activity 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Realise Communist Threat
+	focus = {
+		id = CSA_realise_communist_threat
+		icon = GFX_goal_anti_comintern_pact
+		x = 8
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_equal_treatment 
+			focus = CSA_white_urbanisation_programs 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = anti_communism
+remove_mission= csa_civil_war_mission
+		}
+	}
+
+	#Focus for Fight Communism in North
+	focus = {
+		id = CSA_fight_communism_in_north
+		icon = GFX_focus_spa_the_war_of_vengeance
+		x = 9
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_realise_communist_threat }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			USA={
+has_government = communism}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = USA
+}
+		}
+	}
+
+	#Focus for Ensure Stability in West
+	focus = {
+		id = CSA_ensure_stability_in_west
+		icon = GFX_goal_generic_major_war
+		x = 7
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_realise_communist_threat }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			USC={exists = no}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = USC
+}
+		}
+	}
+
+	#Focus for Better Dead Than Red
+	focus = {
+		id = CSA_better_dead_than_red
+		icon = GFX_goal_generic_demand_territory
+		x = 8
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_ensure_stability_in_west 
+		}
+		prerequisite = { 
+			focus = CSA_fight_communism_in_north 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = better_dead_than_red
+		}
+	}
+
+	#Focus for Learn from the North
+	focus = {
+		id = CSA_learn_from_the_north
+		icon = GFX_focus_chi_mission_to_the_us
+		x = 1
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_liberal_candidate }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 200
+		}
+	}
+
+	#Focus for Push for Secularisation
+	focus = {
+		id = CSA_push_for_secularisation
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		x = 2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_appeal_to_cities 
+		}
+		prerequisite = { 
+			focus = CSA_learn_from_the_north 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = forceful_secularisation
+		}
+	}
+
+	#Focus for Encourage Union Activity
+	focus = {
+		id = CSA_encourage_union_activity
+		icon = GFX_focus_generic_military_academy
+		x = 3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_push_for_secularisation 
+		}
+		prerequisite = { 
+			focus = CSA_encourage_political_activity 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = strong_unions
+		}
+	}
+
+	#Focus for Destroy the Barons
+	focus = {
+		id = CSA_destroy_the_barons
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 4
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_encourage_union_activity 
+		}
+		prerequisite = { 
+			focus = CSA_open_higher_education 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 7
+ add_building_construction = {
+ type = industrial_complex
+ level = 5
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Equal Conscription
+	focus = {
+		id = CSA_equal_conscription
+		icon = GFX_focus_generic_little_entente
+		x = 1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_push_for_secularisation 
+		}
+		prerequisite = { 
+			focus = CSA_the_fascist_menace 
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 50000  add_political_power= 150
+		}
+	}
+
+	#Focus for Economic Reform
+	focus = {
+		id = CSA_economic_reform
+		icon = GFX_focus_generic_industry_3
+		x = 5
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_equal_economic_possibilities 
+			focus = CSA_destroy_the_barons 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			remove_ideas = great_depression
+		}
+	}
+
+	#Focus for Ensure Freedom in Canada
+	focus = {
+		id = CSA_ensure_freedom_in_canada
+		icon = GFX_focus_attack_canada
+		x = 6
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_ensure_stability_in_west 
+		}
+		prerequisite = { 
+			focus = CSA_economic_reform 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			CAN={
+has_government = communism
+}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = CAN
+}
+		}
+	}
+
+	#Focus for Stabilise the Mexican Border
+	focus = {
+		id = CSA_stabilise_the_mexican_border
+		icon = GFX_goal_generic_improve_relations
+		x = 4
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_economic_reform 
+		}
+		prerequisite = { 
+			focus = CSA_peace_on_the_continent 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			diplomatic_relation = { 
+	country = MEX 
+	relation = non_aggression_pact 
+}
+		}
+	}
+
+	#Focus for State Military Industry
+	focus = {
+		id = CSA_state_military_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 0
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_equal_conscription }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for The Fascist Menace
+	focus = {
+		id = CSA_the_fascist_menace
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		x = 0
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_learn_from_the_north }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = -0.1 
+}
+  add_war_support= 0.1  add_stability= 0.05
+		}
+	}
+
+	#Focus for The Confederate Army
+	focus = {
+		id = CSA_the_confederate_army
+		icon = GFX_focus_generic_military_mission
+		x = 22
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience= 20 
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Fund Equipment Research
+	focus = {
+		id = CSA_fund_equipment_research
+		icon = GFX_goal_generic_small_arms
+		x = 21
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_the_confederate_army }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 2
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	#Focus for Develop Strategic Thought
+	focus = {
+		id = CSA_develop_strategic_thought
+		icon = GFX_goal_generic_cavalry
+		x = 23
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_the_confederate_army }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Purchase Equipment
+	focus = {
+		id = CSA_purchase_equipment
+		icon = GFX_focus_generic_concessions
+		x = 22
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_fund_equipment_research 
+		}
+		prerequisite = { 
+			focus = CSA_develop_strategic_thought 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+
+        type = infantry_equipment_1
+
+        amount = 1000
+
+    } 
+add_equipment_to_stockpile = {
+
+        type = support_equipment_1
+
+        amount = 100
+
+    }
+add_political_power = -200
+		}
+	}
+
+	#Focus for Florida Fallback Line
+	focus = {
+		id = CSA_florida_fallback_line
+		icon = GFX_goal_generic_construct_military
+		x = 23
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_purchase_equipment }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Military Equipment Factories
+	focus = {
+		id = CSA_military_equipment_factories
+		icon = GFX_goal_generic_production
+		x = 21
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_purchase_equipment }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Decentralised Defense
+	focus = {
+		id = CSA_decentralised_defense
+		icon = GFX_goal_generic_fortify_city
+		x = 23
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_florida_fallback_line }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Hire Theorists
+	focus = {
+		id = CSA_hire_theorists
+		icon = GFX_goal_generic_air_doctrine
+		x = 21
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_military_equipment_factories }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+army_experience = 30
+		}
+	}
+
+	#Focus for The Confederate Navy
+	focus = {
+		id = CSA_the_confederate_navy
+		icon = GFX_CSA_the_confederate_navy-108497
+		x = 28
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			navy_experience= 15  
+add_tech_bonus = {
+				name = fleet_in_being_bonus
+				bonus = 1.0
+				uses = 2
+				category = fleet_in_being_tree
+			}
+		}
+	}
+
+	#Focus for Fund the Navy
+	focus = {
+		id = CSA_fund_the_navy
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 27
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_the_confederate_navy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Legacy of the First Sub
+	focus = {
+		id = CSA_legacy_of_the_first_sub
+		icon = GFX_goal_generic_navy_anti_submarine
+		x = 29
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_the_confederate_navy }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 2
+				category = ss_tech
+			}
+		}
+	}
+
+	#Focus for Heavy Ship Research
+	focus = {
+		id = CSA_heavy_ship_research
+		icon = GFX_goal_generic_navy_battleship
+		x = 27
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_fund_the_navy }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 4
+				category = bc_tech
+				category = bb_tech
+				category = cv_tech
+			}
+		}
+	}
+
+	#Focus for Medium Ship Research
+	focus = {
+		id = CSA_medium_ship_research
+		icon = GFX_CSA_medium_ship_research-116418
+		x = 29
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CSA_legacy_of_the_first_sub }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}
+		}
+	}
+
+	#Focus for More Dockyards
+	focus = {
+		id = CSA_more_dockyards
+		icon = GFX_goal_generic_navy_cruiser
+		x = 28
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CSA_heavy_ship_research 
+		}
+		prerequisite = { 
+			focus = CSA_medium_ship_research 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = dockyard
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+#End of focuses 
+ }

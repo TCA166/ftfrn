@@ -1,0 +1,1267 @@
+focus_tree = {
+	id = Somalia
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = SOM
+		}
+	}
+	shared_focus = army_effort_dup
+	shared_focus = aviation_effort_dup
+	shared_focus = naval_effort_dup
+	
+	#Focus for End Poverty
+	focus = {
+		id = SOM_end_poverty
+		icon = GFX_goal_generic_consumer_goods
+		x = 18
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_start_urbanisation }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			remove_ideas= extreme_poverty
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Start Urbanisation
+	focus = {
+		id = SOM_start_urbanisation
+		icon = GFX_goal_generic_construction2
+		x = 18
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_focus_on_agriculture }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			559= {
+ add_extra_state_shared_building_slots = 5 
+}
+		}
+	}
+
+	#Focus for Oligarchic Republic
+	focus = {
+		id = SOM_oligarchic_republic
+		icon = GFX_goal_generic_national_unity
+		x = 8
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SOM_disband_the_army 
+		}
+		prerequisite = { 
+			focus = SOM_connect_the_people 
+		}
+		mutually_exclusive = { focus = SOM_pirate_republic }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_party_name= { 
+ideology = neutrality 
+long_name = SOM_olig_long 
+name = SOM_olig_long 
+}
+  create_country_leader= {
+ name = "Aden Adde"
+desc = "" 
+picture = "gfx/leaders/Africa/Portrait_Africa_Generic_2.dds" 
+expire = "2007.1.1" 
+ideology = oligarchism
+traits = {
+}
+
+ }
+		}
+	}
+
+	#Focus for Approach the Clans
+	focus = {
+		id = SOM_approach_the_clans
+		icon = GFX_goal_tripartite_pact
+		x = 6
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = SOM_ignore_the_clans }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1
+		}
+	}
+
+	#Focus for Ignore the Clans
+	focus = {
+		id = SOM_ignore_the_clans
+		icon = GFX_goal_generic_demand_territory
+		x = 10
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = SOM_approach_the_clans }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.1
+		}
+	}
+
+	#Focus for Islamic Unification
+	focus = {
+		id = SOM_islamic_unification
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		x = 2
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_approach_the_clans }
+		mutually_exclusive = { focus = SOM_pass_the_clan_rights_bill }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  add_political_power= 150  add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+		}
+	}
+
+	#Focus for Pass the Clan Rights Bill
+	focus = {
+		id = SOM_pass_the_clan_rights_bill
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 6
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_approach_the_clans }
+		mutually_exclusive = { focus = SOM_islamic_unification }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = neutrality
+popularity = 0.2 
+}
+  add_stability= 0.2  add_political_power= 150
+		}
+	}
+
+	#Focus for Start Nation Building
+	focus = {
+		id = SOM_start_nation_building
+		icon = GFX_goal_generic_propaganda
+		x = 10
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_ignore_the_clans }
+		mutually_exclusive = { focus = SOM_accept_soviet_aid }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = neutrality
+popularity = -0.3 
+}
+  add_stability= 0.3
+		}
+	}
+
+	#Focus for Accept Soviet Aid
+	focus = {
+		id = SOM_accept_soviet_aid
+		icon = GFX_SOM_accept_soviet_aid-108486
+		x = 14
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_ignore_the_clans }
+		mutually_exclusive = { focus = SOM_start_nation_building }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  remove_ideas = extreme_poverty
+		}
+	}
+
+	#Focus for Write the New Constitution
+	focus = {
+		id = SOM_write_the_new_constitution
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 8
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SOM_pass_the_clan_rights_bill 
+			focus = SOM_start_nation_building 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 200
+		}
+	}
+
+	#Focus for Decentralise the Administration
+	focus = {
+		id = SOM_decentralise_the_administration
+		icon = GFX_focus_spr_crush_the_revolution
+		x = 6
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_pass_the_clan_rights_bill }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			remove_ideas= clan_system
+add_political_power= 150
+		}
+	}
+
+	#Focus for Western Advisors
+	focus = {
+		id = SOM_western_advisors
+		icon = GFX_goal_support_democracy
+		x = 10
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_start_nation_building }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.3 
+}
+		}
+	}
+
+	#Focus for Crack Down on Clan Zealotry
+	focus = {
+		id = SOM_crack_down_on_clan_zealotry
+		icon = GFX_goal_generic_territory_or_war
+		x = 12
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SOM_start_nation_building 
+			focus = SOM_accept_soviet_aid 
+		}
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.2  add_political_power= 150
+		}
+	}
+
+	#Focus for Move the Troublemakers into the Cities
+	focus = {
+		id = SOM_move_the_troublemakers_into_the_cities
+		icon = GFX_goal_generic_construction2
+		x = 12
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_crack_down_on_clan_zealotry }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			remove_ideas= clan_system 
+559= {
+ add_extra_state_shared_building_slots = 2 
+}
+		}
+	}
+
+	#Focus for Disband the Army
+	focus = {
+		id = SOM_disband_the_army
+		icon = GFX_focus_generic_manpower
+		x = 6
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_decentralise_the_administration }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = clan_militias
+add_ideas = disarmed_nation
+		}
+	}
+
+	#Focus for Pirate Republic
+	focus = {
+		id = SOM_pirate_republic
+		icon = GFX_goal_generic_navy_anti_submarine
+		x = 6
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_disband_the_army }
+		mutually_exclusive = { focus = SOM_oligarchic_republic }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_party_name= { 
+ideology = neutrality 
+long_name = SOM_pirate_long 
+name = SOM_pirate_long 
+}
+  create_country_leader= {
+ name = "Aden Adde"
+desc = "" 
+picture = "gfx/leaders/Africa/Portrait_Africa_Generic_2.dds" 
+expire = "2007.1.1" 
+ideology = oligarchism
+traits = {
+}
+
+ }
+add_ideas = pirate_republic
+set_cosmetic_tag = SOM_PIR_neutrality
+		}
+	}
+
+	#Focus for Connect the People
+	focus = {
+		id = SOM_connect_the_people
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 8
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SOM_decentralise_the_administration 
+			focus = SOM_western_advisors 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			559 = {
+    if = {
+        limit = { is_controlled_by = ROOT }
+        add_building_construction = {
+            type = infrastructure
+            level = 2
+            instant_build = yes
+        }
+    }
+
+}
+  269 = {
+    if = {
+        limit = { is_controlled_by = ROOT }
+        add_building_construction = {
+            type = infrastructure
+            level = 2
+            instant_build = yes
+        }
+    }
+
+}
+  559 = {
+ add_extra_state_shared_building_slots = 5 
+}
+		}
+	}
+
+	#Focus for Estabilish Free Elections
+	focus = {
+		id = SOM_estabilish_free_elections
+		icon = GFX_focus_generic_self_management
+		x = 10
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_western_advisors }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = democratic 
+elections_allowed = yes 
+}
+		}
+	}
+
+	#Focus for Liberalism
+	focus = {
+		id = SOM_liberalism
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		x = 10
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_estabilish_free_elections }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = liberalism_i
+		}
+	}
+
+	#Focus for Military Expansion
+	focus = {
+		id = SOM_military_expansion
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 4
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SOM_pass_the_clan_rights_bill 
+			focus = SOM_islamic_unification 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Socialist Transition
+	focus = {
+		id = SOM_socialist_transition
+		icon = GFX_focus_generic_soviet_politics
+		x = 14
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_accept_soviet_aid }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = communism
+elections_allowed = no 
+}
+  add_political_power= 150  add_stability= 0.1
+		}
+	}
+
+	#Focus for Build State Industry
+	focus = {
+		id = SOM_build_state_industry
+		icon = GFX_goal_generic_soviet_construction
+		x = 14
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_socialist_transition }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.2 
+}
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Peasant Education
+	focus = {
+		id = SOM_peasant_education
+		icon = GFX_focus_generic_socialist_science
+		x = 14
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_build_state_industry }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1  add_popularity= { 
+ideology = communism 
+popularity = 0.3 
+}
+		}
+	}
+
+	#Focus for Steel Mill In Every Backyard
+	focus = {
+		id = SOM_steel_mill_in_every_backyard
+		icon = GFX_focus_generic_steel
+		x = 12
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SOM_estabilish_free_elections 
+			focus = SOM_build_state_industry 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = steel 
+amount = 12 
+state = 559 
+}
+		}
+	}
+
+	#Focus for Careful Foreign Policy
+	focus = {
+		id = SOM_careful_foreign_policy
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 10
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SOM_oligarchic_republic 
+			focus = SOM_liberalism 
+			focus = SOM_peasant_education 
+		}
+		mutually_exclusive = { focus = SOM_jingoism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  add_political_power= 150
+		}
+	}
+
+	#Focus for Islamic Education
+	focus = {
+		id = SOM_islamic_education
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = 2
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_islamic_unification }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.3 
+}
+remove_ideas = clan_system
+		}
+	}
+
+	#Focus for Fundamentalist Revival
+	focus = {
+		id = SOM_fundamentalist_revival
+		icon = GFX_focus_TUR_turanist_ambition
+		x = 2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_islamic_education }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = fascism 
+elections_allowed = no 
+}
+  add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+  add_war_support= 0.3
+		}
+	}
+
+	#Focus for Greater Somalia
+	focus = {
+		id = SOM_greater_somalia
+		icon = GFX_goal_generic_major_war
+		x = 2
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_fundamentalist_revival }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 20000}
+		}
+		completion_reward = {
+			add_state_core= 271  create_wargoal= { 
+type = annex_everything 
+target = ETH
+}
+		}
+	}
+
+	#Focus for Jingoism
+	focus = {
+		id = SOM_jingoism
+		icon = GFX_goal_generic_forceful_treaty
+		x = 6
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SOM_greater_somalia 
+			focus = SOM_pirate_republic 
+			focus = SOM_oligarchic_republic 
+		}
+		mutually_exclusive = { focus = SOM_careful_foreign_policy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.2  add_stability= -0.1  add_manpower= 10000
+		}
+	}
+
+	#Focus for Educate the Clansmen
+	focus = {
+		id = SOM_educate_the_clansmen
+		icon = GFX_focus_research2
+		x = 8
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SOM_ignore_the_clans 
+			focus = SOM_approach_the_clans 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Use Prison Labour
+	focus = {
+		id = SOM_use_prison_labour
+		icon = GFX_goal_generic_construct_civilian
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SOM_decentralise_the_administration 
+			focus = SOM_islamic_education 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  559= {
+    if = {
+        limit = { is_controlled_by = ROOT }
+        add_building_construction = {
+            type = infrastructure
+            level = 4
+            instant_build = yes
+        }
+    }
+
+}
+		}
+	}
+
+	#Focus for Arrest Oposition
+	focus = {
+		id = SOM_arrest_oposition
+		icon = GFX_goal_generic_consumer_goods
+		x = 4
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_use_prison_labour }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Lay Claim do Djibouti
+	focus = {
+		id = SOM_lay_claim_do_djibouti
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 6
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_jingoism }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = DJI
+}
+  add_state_claim= 268
+		}
+	}
+
+	#Focus for Control Gulf of Aden
+	focus = {
+		id = SOM_control_gulf_of_aden
+		icon = GFX_goal_generic_political_pressure
+		x = 4
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_jingoism }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = YEM
+}
+		}
+	}
+
+	#Focus for Build Dockyards
+	focus = {
+		id = SOM_build_dockyards
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 8
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SOM_jingoism 
+			focus = SOM_careful_foreign_policy 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = dockyard
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Friendship with English
+	focus = {
+		id = SOM_friendship_with_english
+		icon = GFX_focus_chi_british_cooperation
+		x = 10
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_careful_foreign_policy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = ENG modifier = huge_increase }
+ENG = {add_opinion_modifier = { target = SOM modifier = huge_increase }}
+ENG= {
+add_ai_strategy = { 
+   type = alliance
+   id = "SOM"			
+   value = 200
+}
+}
+		}
+	}
+
+	#Focus for Approach the Soviets
+	focus = {
+		id = SOM_approach_the_soviets
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		x = 12
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_careful_foreign_policy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = SOV modifier = huge_increase }
+SOV = {
+add_opinion_modifier = { target = SOM modifier = huge_increase }}
+		}
+	}
+
+	#Focus for Economic Reevalutation
+	focus = {
+		id = SOM_economic_reevalutation
+		icon = GFX_goal_generic_position_armies
+		x = 19
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+	name = assembly_bonus
+	bonus = 0.5
+	uses = 2
+	technology = improved_machine_tools	
+	technology = advanced_machine_tools
+	technology = assembly_line_production
+	technology = flexible_line
+	technology = streamlined_line
+}
+		}
+	}
+
+	#Focus for Benefit from Trade
+	focus = {
+		id = SOM_benefit_from_trade
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 20
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_economic_reevalutation }
+		mutually_exclusive = { focus = SOM_focus_on_agriculture }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			559= {
+    if = {
+        limit = { is_controlled_by = ROOT }
+        add_building_construction = {
+            type = infrastructure
+            level = 2
+            instant_build = yes
+        }
+    }
+
+}
+  269= {
+    if = {
+        limit = { is_controlled_by = ROOT }
+        add_building_construction = {
+            type = infrastructure
+            level = 2
+            instant_build = yes
+        }
+    }
+
+}
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Focus on Agriculture
+	focus = {
+		id = SOM_focus_on_agriculture
+		icon = GFX_goal_generic_construct_civilian
+		x = 18
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_economic_reevalutation }
+		mutually_exclusive = { focus = SOM_benefit_from_trade }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Lower Unemployment
+	focus = {
+		id = SOM_lower_unemployment
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 18
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_end_poverty }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Estabilish Universities
+	focus = {
+		id = SOM_estabilish_universities
+		icon = GFX_focus_research2
+		x = 19
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SOM_lower_unemployment 
+			focus = SOM_request_more_aid 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Export Resources
+	focus = {
+		id = SOM_export_resources
+		icon = GFX_focus_generic_tungsten
+		x = 20
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_benefit_from_trade }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = tungsten
+amount = 14 
+state = 559 
+}
+		}
+	}
+
+	#Focus for Economic Reform
+	focus = {
+		id = SOM_economic_reform
+		icon = GFX_goal_generic_construct_civilian
+		x = 20
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_export_resources }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= war_economy
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 6
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Request More Aid
+	focus = {
+		id = SOM_request_more_aid
+		icon = GFX_goal_generic_production
+		x = 20
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SOM_economic_reform }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			remove_ideas= extreme_poverty  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+#End of focuses 
+ }

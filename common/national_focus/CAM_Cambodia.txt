@@ -1,0 +1,1631 @@
+focus_tree = {
+	id = Cambodia
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = CAM
+		}
+	}
+	shared_focus = army_effort_dup
+	shared_focus = aviation_effort_dup
+	shared_focus = naval_effort_dup
+	#Focus for Conquer Burma
+	focus = {
+		id = CAM_conquer_burma
+		icon = GFX_goal_generic_major_war
+		x = 0
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_strike_south }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = BRM
+}
+		}
+	}
+
+	#Focus for Incite Revolution
+	focus = {
+		id = CAM_incite_revolution
+		icon = GFX_goal_generic_war_with_comintern
+		x = 13
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_greater_indochinese_union }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			BRM = {
+				start_civil_war= {
+				ideology = communism 
+				size = 0.5 
+			}}
+			RAJ = {
+				start_civil_war= {
+				ideology = communism 
+				size = 0.5 
+				}}
+		}
+	}
+
+	#Focus for Prepare for Invasion
+	focus = {
+		id = CAM_prepare_for_invasion
+		icon = GFX_focus_generic_coastal_fort
+		x = 6
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_fortification_effort 
+		}
+		prerequisite = { 
+			focus = CAM_naval_expansion 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			741 = {
+	add_building_construction = {
+		type = coastal_bunker
+        	province = 4825
+		level = 5
+	}
+	add_building_construction = {
+		type = coastal_bunker
+        	province = 4826
+		level = 5
+	}
+}
+		}
+	}
+
+	#Focus for Invest in Airpower
+	focus = {
+		id = CAM_invest_in_airpower
+		icon = GFX_goal_generic_air_fighter2
+		x = 3
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_japanese_naval_advisors 
+			focus = CAM_administrator_system 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+		}
+	}
+
+	#Focus for Military Expansion
+	focus = {
+		id = CAM_military_expansion
+		icon = GFX_goal_generic_small_arms
+		x = 17
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_communist_urbanisation 
+		}
+		prerequisite = { 
+			focus = CAM_joint_development_plans 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Rebuild the Society
+	focus = {
+		id = CAM_rebuild_the_society
+		icon = GFX_goal_generic_position_armies
+		x = 11
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_focus_on_agriculture }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = rebuilt_society
+		}
+	}
+
+	#Focus for Communist Urbanisation
+	focus = {
+		id = CAM_communist_urbanisation
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 17
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_communist_development }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			741= {
+ add_extra_state_shared_building_slots = 5 
+}
+		}
+	}
+
+	#Focus for Japanese Naval Advisors
+	focus = {
+		id = CAM_japanese_naval_advisors
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 4
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_naval_expansion 
+		}
+		prerequisite = { 
+			focus = CAM_prospect_for_resources_of_war 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 2
+				category = cl_tech
+				category = ca_tech
+			}
+		}
+	}
+
+	#Focus for Administrator System
+	focus = {
+		id = CAM_administrator_system
+		icon = GFX_goal_generic_neutrality_focus
+		x = 2
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_strike_south 
+		}
+		prerequisite = { 
+			focus = CAM_prospect_for_resources_of_war 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = local_militias
+		}
+	}
+
+	#Focus for American Naval Theorists
+	focus = {
+		id = CAM_american_naval_theorists
+		icon = GFX_goal_generic_navy_battleship
+		x = 7
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_prepare_for_invasion 
+		}
+		prerequisite = { 
+			focus = CAM_preemtpive_strike_against_the_japanese 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = fleet_in_being_bonus
+				bonus = 1.0
+				uses = 5
+				category = fleet_in_being_tree
+			}
+		}
+		
+	}
+
+	#Focus for Expand Weapon Manufacturing
+	focus = {
+		id = CAM_expand_weapon_manufacturing
+		icon = GFX_goal_generic_production
+		x = 5
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_prepare_for_invasion 
+			focus = CAM_japanese_naval_advisors 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Glorious Gun Shacks
+	focus = {
+		id = CAM_glorious_gun_shacks
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 11
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_rebuild_the_society }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Protect Siam
+	focus = {
+		id = CAM_protect_siam
+		icon = GFX_goal_generic_major_war
+		x = 9
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_preemtpive_strike_against_the_japanese 
+			focus = CAM_rebuild_the_society 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = SIA
+}
+		}
+	}
+
+	#Focus for Road to Prosperity
+	focus = {
+		id = CAM_road_to_prosperity
+		icon = GFX_goal_generic_production
+		x = 15
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_joint_development_plans 
+		}
+		prerequisite = { 
+			focus = CAM_communist_urbanisation 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Focus on Agriculture
+	focus = {
+		id = CAM_focus_on_agriculture
+		icon = GFX_focus_prc_agrarian_socialism
+		x = 11
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_purge_the_intelectuals }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = focus_on_argiculture
+		}
+	}
+
+	#Focus for Accept Foreign Communism
+	focus = {
+		id = CAM_accept_foreign_communism
+		icon = GFX_focus_spr_anarchism_knows_no_borders
+		x = 13
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_communist_interpretation }
+		mutually_exclusive = { focus = CAM_focus_on_domestic_communism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  add_war_support= 0.1
+		}
+	}
+
+	#Focus for Strike South
+	focus = {
+		id = CAM_strike_south
+		icon = GFX_CAM_strike_south-108495
+		x = 1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_revive_the_tributary_system }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim= 336  add_state_claim= 672  add_state_claim= 333
+		}
+	}
+
+	#Focus for Greater Khmer Empire
+	focus = {
+		id = CAM_greater_khmer_empire
+		icon = GFX_goal_generic_major_war
+		x = 3
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_fascist_interpretation }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 10000}
+		}
+		completion_reward = {
+			set_politics = {
+	ruling_party = fascism
+	elections_allowed = no
+}
+add_state_core= 286
+add_state_core= 671
+create_wargoal= { 
+type = annex_everything 
+target = VIN
+}
+add_popularity = {ideology=fascism popularity = 0.2}
+set_cosmetic_tag = IND_CAM
+		}
+	}
+
+	#Focus for The Constructors of Angkor
+	focus = {
+		id = CAM_the_constructors_of_angkor
+		icon = GFX_CAM_the_constructors_of_angkor-107627
+		x = 7
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  add_political_power= 150
+		}
+	}
+
+	#Focus for Post-colonial Industrialisation
+	focus = {
+		id = CAM_postcolonial_industrialisation
+		icon = GFX_goal_generic_construction2
+		x = 22
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Continue Industrialisation
+	focus = {
+		id = CAM_continue_industrialisation
+		icon = GFX_CAM_continue_industrialisation-108490
+		x = 20
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_postcolonial_industrialisation }
+		mutually_exclusive = { focus = CAM_export_heavy_economy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Export Heavy Economy
+	focus = {
+		id = CAM_export_heavy_economy
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 24
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_postcolonial_industrialisation }
+		mutually_exclusive = { focus = CAM_continue_industrialisation }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_ideas = export_economy
+		}
+	}
+
+	#Focus for Build Public Schools
+	focus = {
+		id = CAM_build_public_schools
+		icon = GFX_goal_generic_scientific_exchange
+		x = 22
+		y = 2
+		cost = 15
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_export_heavy_economy 
+			focus = CAM_continue_industrialisation 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Expand Resource Production
+	focus = {
+		id = CAM_expand_resource_production
+		icon = GFX_goal_generic_construction2
+		x = 24
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_export_heavy_economy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = rubber 
+amount = 16 
+state = 741
+}
+		}
+	}
+
+	#Focus for Focus on Industry
+	focus = {
+		id = CAM_focus_on_industry
+		icon = GFX_goal_generic_construct_civilian
+		x = 20
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_continue_industrialisation }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Foreign Investment
+	focus = {
+		id = CAM_foreign_investment
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 26
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_export_heavy_economy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Build Infrastructure
+	focus = {
+		id = CAM_build_infrastructure
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 25
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_foreign_investment 
+		}
+		prerequisite = { 
+			focus = CAM_expand_resource_production 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			741 = {
+        add_building_construction = {
+            type = infrastructure
+            level = 4
+            instant_build = yes
+        }
+		}
+		}
+	}
+
+	#Focus for More Resource Gathering Operations
+	focus = {
+		id = CAM_more_resource_gathering_operations
+		icon = GFX_goal_generic_oil_refinery
+		x = 27
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_foreign_investment }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = oil 
+amount = 16 
+state = 741
+}
+		}
+	}
+
+	#Focus for Develop the Countryside
+	focus = {
+		id = CAM_develop_the_countryside
+		icon = GFX_focus_generic_industry_1
+		x = 18
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_continue_industrialisation }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Military Industry
+	focus = {
+		id = CAM_military_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 19
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_develop_the_countryside 
+		}
+		prerequisite = { 
+			focus = CAM_focus_on_industry 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand Research Teams
+	focus = {
+		id = CAM_expand_research_teams
+		icon = GFX_focus_research2
+		x = 22
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_focus_on_industry 
+			focus = CAM_expand_resource_production 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			num_of_civilian_factories> 15
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Guarantee Personal Freedom
+	focus = {
+		id = CAM_guarantee_personal_freedom
+		icon = GFX_focus_generic_self_management
+		x = 9
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_normal_interpretation }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = liberalism_i
+		}
+	}
+
+	#Focus for Fascist Interpretation
+	focus = {
+		id = CAM_fascist_interpretation
+		icon = GFX_goal_support_fascism
+		x = 3
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_the_constructors_of_angkor }
+		mutually_exclusive = { 
+			focus = CAM_communist_interpretation 
+		}
+		mutually_exclusive = { 
+			focus = CAM_normal_interpretation 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+add_ideas = angkor_fascism
+		}
+	}
+
+	#Focus for Communist Interpretation
+	focus = {
+		id = CAM_communist_interpretation
+		icon = GFX_CAM_communist_interpretation-108488
+		x = 11
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_the_constructors_of_angkor }
+		mutually_exclusive = { 
+			focus = CAM_fascist_interpretation 
+		}
+		mutually_exclusive = { 
+			focus = CAM_normal_interpretation 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.2 
+}
+add_ideas = angkor_communism
+		}
+	}
+
+	#Focus for Normal Interpretation
+	focus = {
+		id = CAM_normal_interpretation
+		icon = GFX_goal_support_democracy
+		x = 7
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_the_constructors_of_angkor }
+		mutually_exclusive = { 
+			focus = CAM_fascist_interpretation 
+		}
+		mutually_exclusive = { 
+			focus = CAM_communist_interpretation 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.2 
+}
+add_ideas = angkor_democracy
+		}
+	}
+
+	#Focus for Accept Soviet Aid
+	focus = {
+		id = CAM_accept_soviet_aid
+		icon = GFX_CAM_accept_soviet_aid-108486
+		x = 15
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_accept_foreign_communism }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_government = communism
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  add_popularity = {ideology = communism popularity = 0.1}
+		}
+	}
+
+	#Focus for Contact the CPC
+	focus = {
+		id = CAM_contact_the_cpc
+		icon = GFX_CAM_contact_the_cpc-108489
+		x = 13
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_accept_foreign_communism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.1 
+}
+add_opinion_modifier = { target = PRC modifier = medium_increase }
+PRC = {add_opinion_modifier = { target = CAM modifier = medium_increase }}
+		}
+	}
+
+	#Focus for Communist Development
+	focus = {
+		id = CAM_communist_development
+		icon = GFX_focus_generic_join_comintern
+		x = 17
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_develop_the_countryside 
+		}
+		prerequisite = { 
+			focus = CAM_accept_foreign_communism 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_popularity = {ideology=communism popularity = 0.2}
+		}
+	}
+
+	#Focus for Indochineese Revolution
+	focus = {
+		id = CAM_indochineese_revolution
+		icon = GFX_CAM_indochineese_revolution-108493
+		x = 13
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_contact_the_cpc 
+			focus = CAM_purge_the_intelectuals 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 10000}
+VIN = {has_civil_war = no}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = LAO
+}
+  create_wargoal= { 
+type = annex_everything 
+target = VIN
+}
+  add_state_claim= 286
+  add_state_claim= 671
+  add_state_claim= 670
+		}
+	}
+
+	#Focus for Joint Development Plans
+	focus = {
+		id = CAM_joint_development_plans
+		icon = GFX_focus_por_workers_of_iberia
+		x = 15
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_contact_the_cpc 
+		}
+		prerequisite = { 
+			focus = CAM_accept_soviet_aid 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  622={
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Greater Indochinese Union
+	focus = {
+		id = CAM_greater_indochinese_union
+		icon = GFX_CAM_greater_indochinese_union-108491
+		x = 13
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_indochineese_revolution }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_cosmetic_tag= IND_CAM  add_state_core= 286
+  add_state_core= 671
+  add_state_core= 670
+ add_state_core= 289
+  add_state_core= 724
+		}
+	}
+
+	#Focus for Indochineese Alliance
+	focus = {
+		id = CAM_indochineese_alliance
+		icon = GFX_CAM_indochineese_alliance-108492
+		x = 7
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_normal_interpretation }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			is_in_faction= yes
+		}
+		completion_reward = {
+			create_faction= "Indochinese Alliance" 
+LAO = {country_event = {id=ftfrn.15}}
+every_country = {
+limit = {original_tag=VIN has_government = ROOT}
+country_event = {id=ftfrn.15}
+}
+		}
+	}
+
+	#Focus for Seek American Protection
+	focus = {
+		id = CAM_seek_american_protection
+		icon = GFX_focus_chi_mission_to_the_us
+		x = 9
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_indochineese_alliance }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			USA = {has_government = democratic}
+		}
+		completion_reward = {
+			USA = {give_guarantee = CAM}
+		}
+	}
+
+	#Focus for Try to Prevent War
+	focus = {
+		id = CAM_try_to_prevent_war
+		icon = GFX_CAM_try_to_prevent_war-108496
+		x = 7
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_indochineese_alliance }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			has_war_with= JAP
+		}
+		completion_reward = {
+			JAP = {country_event = {id=ftfrn.16}}
+		}
+	}
+
+	#Focus for Fortification Effort
+	focus = {
+		id = CAM_fortification_effort
+		icon = GFX_goal_generic_construct_military
+		x = 7
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_try_to_prevent_war }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = deterrence
+		}
+	}
+
+	#Focus for American Military Industry
+	focus = {
+		id = CAM_american_military_industry
+		icon = GFX_CAM_american_military_industry-108487
+		x = 9
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_try_to_prevent_war 
+		}
+		prerequisite = { 
+			focus = CAM_seek_american_protection 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_government = democratic
+USA = {has_government = democratic}
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Escalate the Military Industrialisation
+	focus = {
+		id = CAM_escalate_the_military_industrialisation
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 5
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_fascist_interpretation 
+			focus = CAM_normal_interpretation 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Invest Into Military
+	focus = {
+		id = CAM_invest_into_military
+		icon = GFX_goal_generic_small_arms
+		x = 1
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_fascist_interpretation }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Join the Japanese Conquest
+	focus = {
+		id = CAM_join_the_japanese_conquest
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_greater_khmer_empire }
+		mutually_exclusive = { focus = CAM_revive_the_tributary_system }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			JAP = {
+country_event= {
+id = ftfrn.17 
+}}
+		}
+	}
+
+	#Focus for Revive the Tributary System
+	focus = {
+		id = CAM_revive_the_tributary_system
+		icon = GFX_CAM_revive_the_tributary_system-108494
+		x = 2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_greater_khmer_empire }
+		mutually_exclusive = { focus = CAM_join_the_japanese_conquest }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = puppet_wargoal_focus 
+target = SIA
+}
+  create_wargoal= { 
+type = puppet_wargoal_focus 
+target = LAO
+}
+		}
+	}
+
+	#Focus for Naval Expansion
+	focus = {
+		id = CAM_naval_expansion
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 5
+		y = 4
+		cost = 15
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_try_to_prevent_war 
+			focus = CAM_join_the_japanese_conquest 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = dockyard
+ level = 5
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Prospect for Resources of War
+	focus = {
+		id = CAM_prospect_for_resources_of_war
+		icon = GFX_goal_generic_construction2
+		x = 3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_revive_the_tributary_system 
+			focus = CAM_join_the_japanese_conquest 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = oil 
+amount = 8 
+state = 741 
+}
+		}
+	}
+
+	#Focus for Preemtpive Strike Against the Japanese
+	focus = {
+		id = CAM_preemtpive_strike_against_the_japanese
+		icon = GFX_focus_attack_japan
+		x = 8
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_fortification_effort 
+		}
+		prerequisite = { 
+			focus = CAM_american_military_industry 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = JAP
+}
+		}
+	}
+
+	#Focus for Focus on Domestic Communism
+	focus = {
+		id = CAM_focus_on_domestic_communism
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		x = 11
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_communist_interpretation }
+		mutually_exclusive = { focus = CAM_accept_foreign_communism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150
+		}
+	}
+
+	#Focus for Purge the Intelectuals
+	focus = {
+		id = CAM_purge_the_intelectuals
+		icon = GFX_goal_generic_secret_weapon
+		x = 11
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = CAM_focus_on_domestic_communism }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = research_purges
+		}
+	}
+
+	#Focus for Conquer India
+	focus = {
+		id = CAM_conquer_india
+		icon = GFX_focus_attack_india
+		x = 1
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = CAM_conquer_burma 
+		}
+		prerequisite = { 
+			focus = CAM_administrator_system 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = RAJ
+}
+		}
+	}
+
+#End of focuses 
+ }

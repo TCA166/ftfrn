@@ -1,0 +1,168 @@
+characters={
+	jozef_biniszkiewicz = { #starting
+		name = jozef_biniszkiewicz_name
+		portraits = {
+			civilian = {
+				large = "<gfx>"
+			}
+		}
+		country_leader = {
+			ideology = socialism
+			traits = {  }
+			expire = 1953.3.1
+		}
+	}
+	jozef_kozdon = { #silesian demo
+		name = jozef_kozdon_name
+		portraits = {
+			civilian = {
+				large = "<gfx>"
+			}
+		}
+		country_leader = {
+			ideology = socialism
+			traits = { true_silesian }
+			expire = 1949.3.1
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = jozef_kozdon
+			name = jozef_kozdon_name
+			cost = 150
+			allowed = {
+				tag = SIL
+			}
+			available = {
+				has_completed_focus = SIL_promote_silesian_unity
+			}
+			traits = {
+				cultural_unifier
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	ewald_latacz ={ #silesian fascist
+		name = ewald_latacz_name
+		portraits = {
+			civilian = {
+				large = "<gfx>"
+			}
+		}
+		country_leader = {
+			ideology = gen_nazism
+			traits = { }
+			expire = 1949.3.1
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = ewald_latacz
+			name = ewald_latacz_name
+			cost = 150
+			allowed = {
+				tag = SIL
+			}
+			traits = {
+				fascist_demagogue
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	jerzy_zietek = { #polish commie
+		name = jerzy_zietek_name
+		portraits = {
+			civilian = {
+				large = "<gfx>"
+			}
+		}
+		country_leader = {
+			ideology = marxism
+			traits = { uprising_veteran opportunist_pragmatist }
+			expire = 1985.3.1
+		}
+	}
+	wojciech_korfanty ={ #polish demo
+		name = wojciech_korfanty_name
+		portraits = {
+			civilian = {
+				large = "<gfx>"
+			}
+		}
+		country_leader = {
+			ideology = liberalism
+			traits = { }
+			expire = 1949.3.1
+		}
+	}
+	arka_bozek ={ #polish demo advisor
+		name = arka_bozek_name
+		portraits = {
+			civilian = {
+				large = "<gfx>"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = arka_bozek
+			name = arka_bozek_name
+			cost = 150
+			allowed = {
+				tag = SIL
+			}
+			traits = {
+				democratic_reformer
+			}
+			available = {
+				has_completed_focus = SIL_polish_collaboration
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	lothar_bolz ={ #ger commie
+		name = lothar_bolz_name
+		portraits = {
+			civilian = {
+				large = "<gfx>"
+			}
+		}
+		country_leader = {
+			ideology = stalinism
+			traits = { }
+			expire = 1986.3.1
+		}
+	}
+	hans_jurgen ={ #ger fashie
+		name = hans_jurgen_name
+		portraits = {
+			civilian = {
+				large = "<gfx>"
+			}
+		}
+		country_leader = {
+			ideology = fascism_ideology
+			traits = { former_general }
+			expire = 1986.3.1
+		}
+		field_marshal = {
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 1
+			visible = { has_completed_focus = SIL_german_collaboration }
+		}
+		corps_commander = {
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 1
+			visible = { has_completed_focus = SIL_german_collaboration }
+		}
+	}
+}

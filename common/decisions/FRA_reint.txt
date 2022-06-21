@@ -1,0 +1,114 @@
+FRA_reint = {
+	reassert_occ_claims = {
+		available = {
+            OR={has_government = fascism has_government = communism OCC={exists = no}}
+        }
+		cost = 200
+          complete_effect = {
+			every_state={
+			limit={is_core_of = OCC}
+			add_claim_by = FRA
+			}
+        }
+		fire_only_once = yes
+	}
+	reint_1 = {
+          available = {
+            controls_state = 19
+			has_decision = reassert_occ_claims
+          }
+          cost = 100
+          complete_effect = {
+			add_state_core = 19
+          }
+		  fire_only_once = yes
+    }
+	reint_2 = {
+          available = {
+            controls_state = 25
+			has_decision = reassert_occ_claims
+          }
+          cost = 100
+          complete_effect = {
+			add_state_core = 25
+          }
+		  fire_only_once = yes
+    }
+	reint_3 = {
+          available = {
+            controls_state = 26
+			has_decision = reassert_occ_claims
+          }
+          cost = 100
+          complete_effect = {
+			add_state_core = 26
+          }
+		  fire_only_once = yes
+    }
+	reint_4 = {
+          available = {
+            controls_state = 20
+			has_decision = reassert_occ_claims
+          }
+          cost = 100
+          complete_effect = {
+			add_state_core = 20
+          }
+		  fire_only_once = yes
+    }
+	reint_5 = {
+          available = {
+            controls_state = 31
+			has_decision = reassert_occ_claims
+          }
+          cost = 100
+          complete_effect = {
+			add_state_core = 31
+          }
+		  fire_only_once = yes
+    }
+	reint_6 = {
+          available = {
+            controls_state = 22
+			has_decision = reassert_occ_claims
+          }
+          cost = 100
+          complete_effect = {
+			add_state_core = 22
+          }
+		  fire_only_once = yes
+    }
+	reint_7 = {
+          available = {
+            controls_state = 32
+			has_decision = reassert_occ_claims
+          }
+          cost = 100
+          complete_effect = {
+			add_state_core = 32
+          }
+		  fire_only_once = yes
+    }
+	reint_8 = {
+          available = {
+            controls_state = 21
+			has_decision = reassert_occ_claims
+          }
+          cost = 100
+          complete_effect = {
+			add_state_core = 21
+          }
+		  fire_only_once = yes
+    }
+	reint_9 = {
+          available = {
+            controls_state = 735
+			has_decision = reassert_occ_claims
+          }
+          cost = 100
+          complete_effect = {
+			add_state_core = 735
+          }
+		  fire_only_once = yes
+    }
+}

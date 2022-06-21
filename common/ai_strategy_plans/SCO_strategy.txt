@@ -1,0 +1,186 @@
+SCO_democratic_plan = {
+    name = "Democratic with England"	# Name of the plan
+    desc = "Scotland will remain democratic and seek english alliance"       # Description of the plan
+    
+	allowed = {
+		original_tag = SCO
+	}
+	
+    # When this plan is enabled.
+    enable = {
+		OR = {
+			is_historical_focus_on = yes
+			has_game_rule = {
+				rule = SCO_ai_behavior
+				option = DEMOCRATIC
+			}
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+        NOT = {ENG = {has_government = democratic}}
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+        SCO_start_the_political_debate
+		SCO_stability_through_diplomacy
+		SCO_seek_the_continiuation_of_peace
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+SCO_democratic_alternate_plan = {
+    name = "Democratic with France"	# Name of the plan
+    desc = "Scotland will remain democratic and seek to create the Anti English Alliance"       # Description of the plan
+    
+	allowed = {
+		original_tag = SCO
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = SCO_ai_behavior
+			option = DEMOCRATIC_ALTERNATE
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+        SCO_start_the_political_debate
+		SCO_stability_through_diplomacy
+		SCO_anti_english_alliance 
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 2.0
+		modifier = {
+			factor = 2.0
+		}
+	}
+    
+}
+SCO_fascism_plan = {
+    name = "Fascist"	# Name of the plan
+    desc = "Scotland will go fascist and seek to create the Celtic Union"       # Description of the plan
+    
+	allowed = {
+		original_tag = SCO
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = SCO_ai_behavior
+			option = FASCIST
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+        NOT = {GER = {has_government = fascism}}
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		SCO_celebrate_independence
+		SCO_denounce_the_union_of_the_crowns
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+SCO_communism_plan = {
+    name = "Communist"	# Name of the plan
+    desc = "Scotland will go communist and seek to create the Celtic Union"       # Description of the plan
+    
+	allowed = {
+		original_tag = SCO
+	}
+	
+    # When this plan is enabled.
+    enable = {
+        has_game_rule = {
+			rule = SCO_ai_behavior
+			option = COMMUNIST
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+		
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		SCO_celebrate_independence
+		SCO_denounce_the_union_of_the_crowns
+		SCO_peace_through_communism
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+		SCO_communist_guy = 10
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}

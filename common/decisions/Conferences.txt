@@ -1,0 +1,116 @@
+ITA_fragment_conference = {
+	palermo_conference={
+		available = {
+			is_subject = no
+			ITA={surrender_progress > 0.8}
+			controls_state = 115
+		}
+		complete_effect = {
+			NAP={
+				add_state_core = 115
+				add_state_core = 156
+				add_state_core = 117
+			}
+			PAP={
+				add_state_core = 2
+				add_state_core = 157
+			}
+			TUS={
+				add_state_core = 162
+			}
+			VNC={
+				add_state_core = 160
+				add_state_core = 163
+				add_state_core = 736
+				add_state_core = 39
+			}
+			MIL={
+				add_state_core = 159
+				add_state_core = 161
+			}
+			set_global_flag = palermo_conference
+		}
+		visible={
+		AND={
+			NOT={has_global_flag = palermo_conference_happened}
+			OR={
+			AND={
+				ITA = {has_government = fascism}
+				has_war_with = ITA
+			}
+			has_defensive_war_with = ITA
+			
+			}
+		}
+		}
+		
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+USA_fragment_conference={
+	washington_conference={
+		available = {
+			is_subject = no
+			USA={surrender_progress > 0.8}
+			controls_state = 361
+		}
+		complete_effect = {
+			CSA={
+				add_state_core = 375
+				add_state_core = 371
+				add_state_core = 370
+				add_state_core = 374
+				add_state_core = 372
+				add_state_core = 366
+				add_state_core = 367
+				add_state_core = 365
+				add_state_core = 364
+				add_state_core = 363
+				add_state_core = 368
+				add_state_core = 362
+			}
+			USB={
+				add_state_core = 393
+				add_state_core = 396
+				add_state_core = 394
+				add_state_core = 392
+				add_state_core = 395
+				add_state_core = 391
+				add_state_core = 373
+				add_state_core = 369
+			}
+			USC={
+				add_state_core = 383
+				add_state_core = 384
+				add_state_core = 390
+				add_state_core = 389
+				add_state_core = 376
+				add_state_core = 382
+				add_state_core = 381
+				add_state_core = 388
+				add_state_core = 377
+				add_state_core = 380
+				add_state_core = 387
+				add_state_core = 386
+				add_state_core = 385
+				add_state_core = 378
+				add_state_core = 379
+			}
+			set_global_flag = washington_conference_happened
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

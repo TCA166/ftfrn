@@ -1,0 +1,8 @@
+SAX_destroy_prussia_dec = {
+	allowed = {
+		original_tag = SAX
+	}
+	visible = {
+		has_completed_focus = SAX_destroy_prussia
+	}
+}

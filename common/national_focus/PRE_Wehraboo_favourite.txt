@@ -1,0 +1,2734 @@
+focus_tree = {
+	id = Wehraboo_favourite
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = PRE
+		}
+	}
+	#Focus for Strenghten the Military Junta
+	focus = {
+		id = PRE_strenghten_the_military_junta
+		icon = GFX_PRE_strenghten_the_military_junta-126833
+		x = 15
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = PRE_start_the_democratic_transition }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			is_puppet_of= FRA
+		}
+		completion_reward = {
+			add_stability= 0.1
+		}
+	}
+
+	#Focus for Start the Democratic Transition
+	focus = {
+		id = PRE_start_the_democratic_transition
+		icon = GFX_goal_support_democracy
+		x = 4
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = PRE_strenghten_the_military_junta }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  add_popularity= { 
+ideology = neutrality 
+popularity = -0.2 
+}
+		}
+	}
+
+	#Focus for Admit Military Supremacy
+	focus = {
+		id = PRE_admit_military_supremacy
+		icon = GFX_goal_rhineland
+		x = 18
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_strenghten_the_military_junta }
+		mutually_exclusive = { focus = PRE_reinvigorate_monarchist_sentiment }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = pre_crazy_army
+			custom_effect_tooltip = tt_block_ger_tree
+		}
+	}
+
+	#Focus for Bring Back the Kaiser
+	focus = {
+		id = PRE_bring_back_the_kaiser
+		icon = GFX_focus_ger_return_of_the_kaiser
+		x = 12
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_reinvigorate_monarchist_sentiment }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_party_name = { 
+			ideology = neutrality
+			long_name = PRE_royal
+			name = PRE_royal
+			}
+			create_country_leader = {
+	name = "Wilhelm II"
+	desc = ""
+	picture ="GFX_portrait_ger_wilhelm_ii"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+		
+	}
+}
+add_stability= 0.1
+		}
+	}
+
+	#Focus for The Soldatenkönig
+	focus = {
+		id = PRE_the_soldatenknig
+		icon = GFX_focus_generic_monarchy_2
+		x = 11
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_bring_back_the_kaiser }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.1  
+add_ideas = soldier_king
+add_stability= 0.1
+		}
+	}
+
+	#Focus for Mission to London
+	focus = {
+		id = PRE_mission_to_london
+		icon = GFX_focus_eng_the_sun_never_sets
+		x = 13
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_bring_back_the_kaiser }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			ENG={
+has_government=fascism
+has_government=communism
+}
+		}
+		available = {
+			NOT={
+has_war_with= ENG
+}
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = ENG modifier = huge_increase }
+ENG={
+add_ai_strategy = { 
+   type = alliance
+   id = "PRE"			
+   value = 200
+}
+}
+diplomatic_relation = { 
+	country = ENG 
+	relation = non_aggression_pact 
+}
+		}
+	}
+
+	#Focus for Legacy of the Junkers
+	focus = {
+		id = PRE_legacy_of_the_junkers
+		icon = GFX_focus_generic_military_mission
+		x = 15
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_reinvigorate_monarchist_sentiment 
+			focus = PRE_admit_military_supremacy 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = noble_officers
+		}
+	}
+
+	#Focus for Revive the Livonian Order
+	focus = {
+		id = PRE_revive_the_livonian_order
+		icon = GFX_goal_generic_demand_territory
+		x = 7
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_corridor_question 
+		}
+		prerequisite = { 
+			focus = PRE_civilize_lithuania 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim= 190  add_state_claim= 12  add_state_claim= 809  add_state_claim= 808  add_state_claim= 810  create_wargoal= { 
+type = annex_everything 
+target = LAT
+}
+		}
+	}
+
+	#Focus for East Prussian Military Base
+	focus = {
+		id = PRE_east_prussian_military_base
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 6
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_peoples_government }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			763={
+add_building_construction = {
+type = infrastructure 
+	level = 2
+	instant_build = yes
+}
+add_building_construction = {
+	type = air_base 
+	level = 5
+	instant_build = yes
+}
+add_building_construction = {
+	type = radar_station 
+	level = 1
+	instant_build = yes
+}
+add_building_construction = {
+		type = naval_base 
+        	province = 6332
+		level = 5
+	}
+}
+		}
+	}
+
+	#Focus for Pernament Mobilisation
+	focus = {
+		id = PRE_pernament_mobilisation
+		icon = GFX_goal_generic_consumer_goods
+		x = 18
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_admit_military_supremacy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = extra_mobilisation
+		}
+	}
+
+	#Focus for Military Investment
+	focus = {
+		id = PRE_military_investment
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 17
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_pernament_mobilisation }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for German Military Expertise
+	focus = {
+		id = PRE_german_military_expertise
+		icon = GFX_goal_generic_cavalry
+		x = 17
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_military_investment }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience= 200
+		}
+	}
+
+	#Focus for Berlin Military Academy
+	focus = {
+		id = PRE_berlin_military_academy
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 19
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_militaristic_diplomacy }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = berlin_school
+		}
+	}
+
+	#Focus for Militaristic Development
+	focus = {
+		id = PRE_militaristic_development
+		icon = GFX_goal_generic_small_arms
+		x = 18
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_german_military_expertise 
+			focus = PRE_berlin_military_academy 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = arms_factory
+ level = 5
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Embrace Nationalist Populism
+	focus = {
+		id = PRE_embrace_nationalist_populism
+		icon = GFX_goal_support_fascism
+		x = 7
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_start_the_democratic_transition }
+		mutually_exclusive = { focus = PRE_prussian_democracy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+  add_political_power= 150
+		}
+	}
+
+	#Focus for Reestabilish Noble Rights
+	focus = {
+		id = PRE_reestabilish_noble_rights
+		icon = GFX_focus_generic_monarchy_1
+		x = 15
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_legacy_of_the_junkers }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  add_stability= 0.1  army_experience= 20  add_war_support= 0.1
+		}
+	}
+
+	#Focus for People's Government
+	focus = {
+		id = PRE_peoples_government
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = 7
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_embrace_nationalist_populism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.3 
+}
+  set_politics= {
+ ruling_party = fascism 
+elections_allowed = no 
+}
+		}
+	}
+
+	#Focus for Legacy of the Teutons
+	focus = {
+		id = PRE_legacy_of_the_teutons
+		icon = GFX_PRE_legacy_of_the_teutons-126221
+		x = 8
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_peoples_government }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = teutonic_legacy
+		}
+	}
+
+	#Focus for Civilize Lithuania
+	focus = {
+		id = PRE_civilize_lithuania
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 8
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_legacy_of_the_teutons }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = LIT
+}
+  add_state_claim= 188  add_state_claim= 189  add_state_claim= 815  add_state_claim= 11
+		}
+	}
+
+	#Focus for Corridor Question
+	focus = {
+		id = PRE_corridor_question
+		icon = GFX_goal_generic_position_armies
+		x = 6
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_east_prussian_military_base }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			owns_state = 807
+		}
+		completion_reward = {
+			every_country={
+limit={owns_state = 807}
+diplomatic_relation = {
+	country = PRE
+	relation = military_access
+	active = yes
+}
+}
+		}
+	}
+
+	#Focus for Prussian Democracy
+	focus = {
+		id = PRE_prussian_democracy
+		icon = GFX_focus_generic_treaty
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_start_the_democratic_transition }
+		mutually_exclusive = { focus = PRE_embrace_nationalist_populism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.3 
+}
+  set_politics= {
+ ruling_party = democratic 
+elections_allowed = yes 
+}
+		}
+	}
+
+	#Focus for Strengthen the Landtag
+	focus = {
+		id = PRE_strengthen_the_landtag
+		icon = GFX_focus_generic_self_management
+		x = 1
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_prussian_democracy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.3  add_political_power= 300
+		}
+	}
+
+	#Focus for Anti Communist Stance
+	focus = {
+		id = PRE_anti_communist_stance
+		icon = GFX_goal_anti_comintern_pact
+		x = 0
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_strengthen_the_landtag }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = stand_communism
+		}
+	}
+
+	#Focus for Protect Poland
+	focus = {
+		id = PRE_protect_poland
+		icon = GFX_focus_generic_polish_deal
+		x = 0
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_anti_communist_stance }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT={POL={has_government=communism}}
+		}
+		completion_reward = {
+			give_guarantee= POL
+POL={give_guarantee=PRE}
+		}
+	}
+
+	#Focus for Secure our Borders
+	focus = {
+		id = PRE_secure_our_borders
+		icon = GFX_goal_generic_defence
+		x = 2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_strengthen_the_landtag }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			give_guarantee= SHL  give_guarantee= LIT  give_guarantee= CZE
+		}
+	}
+
+	#Focus for French Reapproachment
+	focus = {
+		id = PRE_french_reapproachment
+		icon = GFX_focus_chi_reach_out_to_france
+		x = 2
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_secure_our_borders }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			FRA={has_government=communism}
+		}
+		completion_reward = {
+			diplomatic_relation = { 
+	country = FRA 
+	relation = non_aggression_pact 
+}
+		}
+	}
+
+	#Focus for Tackle the Communists
+	focus = {
+		id = PRE_tackle_the_communists
+		icon = GFX_goal_generic_war_with_comintern
+		x = 1
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_french_reapproachment 
+			focus = PRE_protect_poland 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			any_neighbor_country={
+has_government=communism
+}
+		}
+		completion_reward = {
+			every_neighbor_country={
+limit={has_government=communism}
+PRE={
+create_wargoal={type=topple_government target=PREV}
+}
+}
+		}
+	}
+
+	#Focus for New Industrial Core
+	focus = {
+		id = PRE_new_industrial_core
+		icon = GFX_PRE_new_industrial_core-108490
+		x = 39
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_automobile_subsidies }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Veterans Instead of Nobles
+	focus = {
+		id = PRE_veterans_instead_of_nobles
+		icon = GFX_focus_generic_military_academy
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_professional_volounteers }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = elite_veterans
+		}
+	}
+
+	#Focus for War Preparations
+	focus = {
+		id = PRE_war_preparations
+		icon = GFX_PRE_war_preparations-107564
+		x = 24
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_german_imperialism }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Northern Conquest
+	focus = {
+		id = PRE_northern_conquest
+		icon = GFX_goal_generic_major_war
+		x = 25
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_war_preparations 
+		}
+		prerequisite = { 
+			focus = PRE_justified_conquest 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower ={ size > 100000}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = SHL
+}
+  create_wargoal= { 
+type = annex_everything 
+target = MEK
+}
+		}
+	}
+
+	#Focus for Plan South
+	focus = {
+		id = PRE_plan_south
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 27
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_northern_conquest }
+		mutually_exclusive = { focus = PRE_plan_north }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_timed_idea= { 
+idea = plan_south 
+days = 270 
+}
+		}
+	}
+
+	#Focus for Invade the North
+	focus = {
+		id = PRE_invade_the_north
+		icon = GFX_goal_generic_major_war
+		x = 24
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_plan_north 
+			focus = PRE_plan_south 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			HAN={
+exists=no
+}
+SAX={
+exists=no
+}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = HAN
+}
+create_wargoal= { 
+type = annex_everything 
+target = SAX
+}
+		}
+	}
+
+	#Focus for Integrate the Bavarian Crown
+	focus = {
+		id = PRE_integrate_the_bavarian_crown
+		icon = GFX_focus_generic_monarchy_2
+		x = 27
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_invade_the_south 
+		}
+		prerequisite = { 
+			focus = PRE_bavarian_mines 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_state={
+limit={is_core_of=BAY}
+add_core_of=PRE
+}
+add_popularity= { 
+ideology = neutrality
+popularity = 0.05 
+}
+		}
+	}
+
+	#Focus for Dockyards in Hanover
+	focus = {
+		id = PRE_dockyards_in_hanover
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 22
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_plan_north }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			59={
+is_owned_by=PRE
+}
+		}
+		completion_reward = {
+			59={
+ 
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = dockyard
+ level = 3
+ instant_build = yes
+ }
+ }
+		}
+	}
+
+	#Focus for Bavarian Mines
+	focus = {
+		id = PRE_bavarian_mines
+		icon = GFX_focus_generic_steel
+		x = 28
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_plan_south }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			53={
+is_owned_by = PRE
+}
+		}
+		completion_reward = {
+			add_resource= { 
+type = steel 
+amount = 10 
+state = 53 
+}
+		}
+	}
+
+	#Focus for Integrate Northern Administration
+	focus = {
+		id = PRE_integrate_northern_administration
+		icon = GFX_goal_generic_neutrality_focus
+		x = 23
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_dockyards_in_hanover 
+		}
+		prerequisite = { 
+			focus = PRE_invade_the_north 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_state={
+limit={is_core_of = HAN}
+add_core_of = PRE
+}
+add_stability = 0.05
+		}
+	}
+
+	#Focus for Proclaim Germany
+	focus = {
+		id = PRE_proclaim_germany
+		icon = GFX_focus_ger_revive_kaiserreich
+		x = 25
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_integrate_northern_administration 
+			focus = PRE_integrate_the_bavarian_crown 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_core= 59  add_state_core= 57  add_state_core= 56  add_state_core= 58  add_state_core= 61  add_state_core= 50  add_state_core= 54  add_state_core= 52  add_state_core= 53
+add_state_core= 65
+set_cosmetic_tag = GER
+		}
+	}
+
+	#Focus for A House of Cards
+	focus = {
+		id = PRE_a_house_of_cards
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 33
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = PRE_german_imperialism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150
+		}
+	}
+
+	#Focus for Approach Saxony
+	focus = {
+		id = PRE_approach_saxony
+		icon = GFX_PRE_approach_saxony-127080
+		x = 35
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_a_house_of_cards }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = SAX modifier = large_increase }
+SAX={
+add_opinion_modifier = { target = PRE modifier = large_increase }
+}
+		}
+	}
+
+	#Focus for Approach Northern States
+	focus = {
+		id = PRE_approach_northern_states
+		icon = GFX_goal_tripartite_pact
+		x = 33
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_a_house_of_cards }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = MEK modifier = large_increase }
+MEK={
+add_opinion_modifier = { target = PRE modifier = large_increase }
+add_ai_strategy = { 
+   type = alliance
+   id = "PRE"			
+   value = 200
+}
+}
+add_opinion_modifier = { target = SHL modifier = large_increase }
+SHL={
+add_opinion_modifier = { target = PRE modifier = large_increase }
+}
+		}
+	}
+
+	#Focus for Northern Political Unity
+	focus = {
+		id = PRE_northern_political_unity
+		icon = GFX_goal_generic_defence
+		x = 33
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_approach_saxony 
+		}
+		prerequisite = { 
+			focus = PRE_approach_northern_states 
+		}
+		prerequisite = { 
+			focus = PRE_approach_hanover 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			give_guarantee= HAN  
+give_guarantee= SAX
+give_guarantee= MEK
+give_guarantee= SHL
+SAX={
+give_guarantee= PRE
+}
+HAN={
+give_guarantee= PRE
+}
+MEK={
+give_guarantee= PRE
+}
+SHL={
+give_guarantee= PRE
+}
+		}
+	}
+
+	#Focus for German Railways
+	focus = {
+		id = PRE_german_railways
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 36
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_economic_integration 
+		}
+		prerequisite = { 
+			focus = PRE_lessons_of_industrial_revolution 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			64={
+build_railway={
+level = 3
+start_state = THIS
+target_state = 56
+}
+build_railway={
+level = 3
+start_state = THIS
+target_state = 42
+}
+build_railway={
+level = 3
+start_state = THIS
+target_state = 65
+}
+}
+		}
+	}
+
+	#Focus for German Canals
+	focus = {
+		id = PRE_german_canals
+		icon = GFX_PRE_german_canals-116418
+		x = 34
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_economic_integration }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			64 = {
+	add_building_construction = {
+	type = infrastructure
+	level = 2
+	instant_build = yes
+}
+} 
+59 = {
+	add_building_construction = {
+	type = infrastructure
+	level = 2
+	instant_build = yes
+}
+} 
+60 = {
+	add_building_construction = {
+	type = infrastructure
+	level = 2
+	instant_build = yes
+}
+}
+		}
+	}
+
+	#Focus for Approach Wurtemburg
+	focus = {
+		id = PRE_approach_wurtemburg
+		icon = GFX_PRE_approach_wurtemburg-127078
+		x = 30
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_a_german_military_alliance }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = WUR modifier = large_increase }
+WUR={
+add_opinion_modifier = { target = PRE modifier = large_increase }
+add_ai_strategy = { 
+   type = alliance
+   id = "PRE"			
+   value = 200
+}
+}
+		}
+	}
+
+	#Focus for Industrial Effort
+	focus = {
+		id = PRE_industrial_effort
+		icon = GFX_goal_generic_production
+		x = 40
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	#Focus for Lessons of '29
+	focus = {
+		id = PRE_lessons_of_29
+		icon = GFX_goal_generic_production2
+		x = 37
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_develop_ruhr_coal_mines }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+		}
+	}
+
+	#Focus for Develop Brandenburg Industry
+	focus = {
+		id = PRE_develop_brandenburg_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 41
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_industrial_effort }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			64={
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ }
+		}
+	}
+
+	#Focus for Automobile Subsidies
+	focus = {
+		id = PRE_automobile_subsidies
+		icon = GFX_PRE_automobile_subsidies-107241
+		x = 39
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_develop_ruhr_coal_mines }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for The Conquest of Air
+	focus = {
+		id = PRE_the_conquest_of_air
+		icon = GFX_goal_generic_air_fighter2
+		x = 51
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+		}
+	}
+
+	#Focus for Elite Troops
+	focus = {
+		id = PRE_elite_troops
+		icon = GFX_goal_generic_special_forces
+		x = 44
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_infantry_equipment_effort
+		}
+		prerequisite = { 
+			focus = PRE_doctrine_focus 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = special_forces
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 1.0
+				uses = 2
+				technology = tech_mountaineers
+				technology = tech_mountaineers2
+
+technology = tech_mountaineers3
+			}
+		}
+	}
+
+	#Focus for Prepare for the Breakout
+	focus = {
+		id = PRE_prepare_for_the_breakout
+		icon = GFX_focus_generic_navy_battleship2
+		x = 58
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_revive_the_baltic_navy }
+		mutually_exclusive = { focus = PRE_smaller_ships }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}
+navy_experience = 25
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = bc_tech
+				category = bb_tech
+				category = cv_tech
+			}
+		}
+	}
+
+	#Focus for Steel Giants
+	focus = {
+		id = PRE_steel_giants
+		icon = GFX_goal_generic_navy_battleship
+		x = 59
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_prepare_for_the_breakout }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = fleet_in_being_bonus
+				bonus = 1.0
+				uses = 2
+				category = fleet_in_being_tree
+			}
+add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = bc_tech
+				category = bb_tech
+				category = cv_tech
+			}
+		}
+	}
+
+	#Focus for Military Innovation Focus
+	focus = {
+		id = PRE_military_innovation_focus
+		icon = GFX_focus_research2
+		x = 47
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_prussian_shocktroops }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Paratrooper Experiments
+	focus = {
+		id = PRE_paratrooper_experiments
+		icon = GFX_focus_generic_paratrooper
+		x = 49
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_light_vehicles_experiments }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus= {
+ bonus = 1 
+uses = 2 
+ahead_reduction = 1
+category = para_tech
+}
+		}
+	}
+
+	#Focus for Light Vehicles Experiments
+	focus = {
+		id = PRE_light_vehicles_experiments
+		icon = GFX_goal_generic_cavalry
+		x = 49
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_combined_arms_warfare }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus= {
+				bonus = 1 
+				uses = 2 
+				technology=armored_car1
+				technology=armored_car2
+				technology=armored_car3
+				technology=armored_car_at_upgrade
+			}
+		}
+	}
+
+	#Focus for School Reform
+	focus = {
+		id = PRE_school_reform
+		icon = GFX_focus_research2
+		x = 38
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_new_industrial_core 
+		}
+		prerequisite = { 
+			focus = PRE_lessons_of_industrial_revolution 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Prussian Shocktroops
+	focus = {
+		id = PRE_prussian_shocktroops
+		icon = GFX_goal_demand_sudetenland
+		x = 47
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_steel_troops }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = pre_shock_troops
+		}
+	}
+
+	#Focus for Doctrine Focus
+	focus = {
+		id = PRE_doctrine_focus
+		icon = GFX_goal_generic_air_doctrine
+		x = 45
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_prussian_discipline }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience = 20
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Artillery Focus
+	focus = {
+		id = PRE_artillery_focus
+		icon = GFX_goal_generic_army_artillery2
+		x = 42
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_krupp_investment 
+		}
+		prerequisite = { 
+			focus = PRE_infantry_equipment_effort
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				ahead_reduction = 2
+				uses = 3
+				category = artillery
+			}
+		}
+	}
+
+	#Focus for Prussian Discipline
+	focus = {
+		id = PRE_prussian_discipline
+		icon = GFX_focus_ger_oppose_hitler
+		x = 45
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_the_ways_of_old }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = modern_goosestep
+		}
+	}
+
+	#Focus for Better than Artillery
+	focus = {
+		id = PRE_better_than_artillery
+		icon = GFX_goal_generic_air_bomber
+		x = 51
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_ground_focus 
+			focus = PRE_air_domination 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1.0
+				uses = 2
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+				technology = strategic_bomber3
+				category = tactical_bomber
+			}
+		}
+	}
+
+	#Focus for Air Domination
+	focus = {
+		id = PRE_air_domination
+		icon = GFX_goal_generic_air_fighter2
+		x = 52
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_the_conquest_of_air }
+		mutually_exclusive = { focus = PRE_ground_focus }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+		}
+	}
+
+	#Focus for Ground Focus
+	focus = {
+		id = PRE_ground_focus
+		icon = GFX_goal_generic_CAS
+		x = 50
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_the_conquest_of_air }
+		mutually_exclusive = { focus = PRE_air_domination }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = CAS_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 2
+				category = cas_bomber
+			}
+		}
+	}
+
+	#Focus for Combined Arms Warfare
+	focus = {
+		id = PRE_combined_arms_warfare
+		icon = GFX_focus_generic_combined_arms
+		x = 49
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_embrace_the_new 
+		}
+		prerequisite = { 
+			focus = PRE_ground_focus 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 1.0
+				uses = 2
+				category = armor
+			}
+army_experience = 15
+add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+		}
+	}
+
+	#Focus for Embrace the New
+	focus = {
+		id = PRE_embrace_the_new
+		icon = GFX_goal_generic_army_tanks
+		x = 47
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_the_prussian_army }
+		mutually_exclusive = { focus = PRE_the_ways_of_old }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 3.0
+uses = 2			technology = motorised_infantry
+category = armor
+			}
+		}
+	}
+
+	#Focus for The Ways of Old
+	focus = {
+		id = PRE_the_ways_of_old
+		icon = GFX_goal_generic_small_arms
+		x = 45
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_the_prussian_army }
+		mutually_exclusive = { focus = PRE_embrace_the_new }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 3
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	#Focus for The Prussian Army
+	focus = {
+		id = PRE_the_prussian_army
+		icon = GFX_focus_ger_return_of_the_kaiser
+		x = 46
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience = 30
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Italian Relations
+	focus = {
+		id = PRE_italian_relations
+		icon = GFX_focus_befriend_italy
+		x = 13
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_mission_to_london }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			NOT={ITA={has_idea=victor_emmanuel}}
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = ITA modifier = huge_increase }
+ITA={
+add_ai_strategy = { 
+   type = alliance
+   id = "PRE"			
+   value = 200
+}
+}
+diplomatic_relation = { 
+	country = ITA 
+	relation = non_aggression_pact 
+}
+		}
+	}
+
+	#Focus for Enforce De Jure Claims of Prussia
+	focus = {
+		id = PRE_enforce_de_jure_claims_of_prussia
+		icon = GFX_goal_generic_territory_or_war
+		x = 11
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_the_soldatenknig }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim= 807  add_state_claim= 85  add_state_claim= 188  add_state_claim= 86
+		}
+	}
+
+	#Focus for Royal Development
+	focus = {
+		id = PRE_royal_development
+		icon = GFX_goal_generic_production
+		x = 12
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_enforce_de_jure_claims_of_prussia 
+			focus = PRE_italian_relations 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Reinvigorate Monarchist Sentiment
+	focus = {
+		id = PRE_reinvigorate_monarchist_sentiment
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		x = 12
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_strenghten_the_military_junta }
+		mutually_exclusive = { focus = PRE_admit_military_supremacy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT={is_puppet_of= FRA}
+		}
+		completion_reward = {
+			add_ideas = reinvigorate_monarchism
+add_stability= 0.1
+		}
+	}
+
+	#Focus for Militaristic Diplomacy
+	focus = {
+		id = PRE_militaristic_diplomacy
+		icon = GFX_goal_generic_major_war
+		x = 19
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_pernament_mobilisation }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = militaristic_foreign
+		}
+	}
+
+	#Focus for Professional Volounteers
+	focus = {
+		id = PRE_professional_volounteers
+		icon = GFX_focus_generic_manpower
+		x = 4
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_embrace_nationalist_populism 
+			focus = PRE_prussian_democracy 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = elite_volounteers
+		}
+	}
+
+	#Focus for German Imperialism
+	focus = {
+		id = PRE_german_imperialism
+		icon = GFX_focus_generic_support_the_left_right
+		x = 25
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = PRE_a_house_of_cards }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim= 61  add_state_claim= 58
+		}
+	}
+
+	#Focus for Justified Conquest
+	focus = {
+		id = PRE_justified_conquest
+		icon = GFX_goal_generic_propaganda
+		x = 26
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_german_imperialism }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = german_unification
+		}
+	}
+
+	#Focus for Plan North
+	focus = {
+		id = PRE_plan_north
+		icon = GFX_PRE_plan_north-123415
+		x = 23
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_northern_conquest }
+		mutually_exclusive = { focus = PRE_plan_south }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_timed_idea= { 
+idea = plan_north 
+days = 270 
+}
+		}
+	}
+
+	#Focus for Invade the South
+	focus = {
+		id = PRE_invade_the_south
+		icon = GFX_goal_generic_major_war
+		x = 26
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_plan_south 
+			focus = PRE_plan_north 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			AND={
+WUR={exists=no}
+BAY={exists=no}
+}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = BAY
+}
+  create_wargoal= { 
+type = annex_everything 
+target = WUR
+}
+		}
+	}
+
+	#Focus for Approach Hanover
+	focus = {
+		id = PRE_approach_hanover
+		icon = GFX_PRE_approach_hanover-127079
+		x = 31
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_a_house_of_cards }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = HAN modifier = large_increase }
+HAN={
+add_opinion_modifier = { target = PRE modifier = large_increase }
+}
+		}
+	}
+
+	#Focus for Economic Integration
+	focus = {
+		id = PRE_economic_integration
+		icon = GFX_goal_generic_construct_civilian
+		x = 35
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_northern_political_unity }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+HAN={
+
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+}
+  SAX={
+
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+}
+		}
+	}
+
+	#Focus for German Industry
+	focus = {
+		id = PRE_german_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 35
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_german_canals 
+		}
+		prerequisite = { 
+			focus = PRE_german_railways 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for A German Military Alliance
+	focus = {
+		id = PRE_a_german_military_alliance
+		icon = GFX_goal_anschluss
+		x = 31
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_northern_political_unity }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_rule= { 
+can_create_factions = yes 
+}
+		}
+	}
+
+	#Focus for Approach Bavaria
+	focus = {
+		id = PRE_approach_bavaria
+		icon = GFX_PRE_approach_bavaria-127077
+		x = 32
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_a_german_military_alliance }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = BAY modifier = large_increase }
+BAY={
+add_opinion_modifier = { target = PRE modifier = large_increase }
+}
+		}
+	}
+
+	#Focus for Develop Ruhr Coal Mines
+	focus = {
+		id = PRE_develop_ruhr_coal_mines
+		icon = GFX_focus_generic_steel
+		x = 39
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_industrial_effort }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = steel 
+amount = 8 
+state = 42
+}
+add_resource= { 
+type = steel 
+amount = 8 
+state = 51
+}
+		}
+	}
+
+	#Focus for Develop Mauser Factories
+	focus = {
+		id = PRE_develop_mauser_factories
+		icon = GFX_goal_generic_build_tank
+		x = 41
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_develop_brandenburg_industry }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Krupp Investment
+	focus = {
+		id = PRE_krupp_investment
+		icon = GFX_goal_generic_army_artillery2
+		x = 41
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_develop_mauser_factories }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Lessons of Industrial Revolution
+	focus = {
+		id = PRE_lessons_of_industrial_revolution
+		icon = GFX_PRE_lessons_of_industrial_revolution-116412
+		x = 37
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_lessons_of_29 }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = industriepolitik
+		}
+	}
+
+	#Focus for Infantry Equipment Effort
+	focus = {
+		id = PRE_infantry_equipment_effort
+		icon = GFX_focus_secret_rearmament
+		x = 43
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_prussian_discipline 
+		}
+		prerequisite = { 
+			focus = PRE_develop_mauser_factories 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				ahead_reduction = 2
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+
+	#Focus for Steel Troops
+	focus = {
+		id = PRE_steel_troops
+		icon = GFX_goal_generic_army_motorized
+		x = 47
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_embrace_the_new }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				ahead_reduction = 2
+				uses = 2
+				category = motorized_equipment
+			}
+		}
+	}
+
+	#Focus for Sea Airspace Domination
+	focus = {
+		id = PRE_sea_airspace_domination
+		icon = GFX_focus_generic_cryptologic_bomb
+		x = 53
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_air_domination 
+		}
+		prerequisite = { 
+			focus = PRE_smaller_ships 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = nav_bomber_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = naval_bomber
+			}
+		}
+	}
+
+	#Focus for Naval Part Development
+	focus = {
+		id = PRE_naval_part_development
+		icon = GFX_goal_generic_occupy_states_coastal
+		x = 57
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_prepare_for_the_breakout 
+			focus = PRE_smaller_ships 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus= {
+ bonus = 0.5 
+uses = 2 
+category = naval_equipment 
+}
+navy_experience = 40
+		}
+	}
+
+	#Focus for Develop an Air Doctrine
+	focus = {
+		id = PRE_develop_an_air_doctrine
+		icon = GFX_goal_generic_air_doctrine
+		x = 51
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_better_than_artillery }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 3
+				category = air_doctrine
+			}
+		}
+	}
+
+	#Focus for Revive the Baltic Navy
+	focus = {
+		id = PRE_revive_the_baltic_navy
+		icon = GFX_goal_generic_navy_cruiser
+		x = 57
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+navy_experience = 50
+		}
+	}
+
+	#Focus for Sieze the Kiel Canal
+	focus = {
+		id = PRE_sieze_the_kiel_canal
+		icon = GFX_goal_generic_political_pressure
+		x = 31
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PRE_approach_wurtemburg 
+		}
+		prerequisite = { 
+			focus = PRE_approach_bavaria 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_in_faction_with= SHL
+has_completed_focus = PRE_revive_the_baltic_navy
+		}
+		completion_reward = {
+			transfer_state= 58
+		}
+	}
+
+	#Focus for Smaller Ships
+	focus = {
+		id = PRE_smaller_ships
+		icon = GFX_focus_generic_cruiser2
+		x = 56
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_revive_the_baltic_navy }
+		mutually_exclusive = { focus = PRE_prepare_for_the_breakout }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 2
+				category = dd_tech
+			}
+add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 2
+				category = ss_tech
+			}
+		}
+	}
+
+	#Focus for Speed Above All
+	focus = {
+		id = PRE_speed_above_all
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 55
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_smaller_ships }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = fast_small_navy
+		}
+	}
+
+	#Focus for Dockyard Effort
+	focus = {
+		id = PRE_dockyard_effort
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 57
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_naval_part_development }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = dockyard
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for bring back prussian traditions
+	focus = {
+		id = PRE_prussian_traditions
+		icon = GFX_focus_generic_little_entente
+		x = 43
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = PRE_the_ways_of_old }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = {
+				best_of_the_best_spirit
+				proper_heritage_spirit
+				flexible_organization_spirit
+			}
+		}
+	}
+
+#End of focuses 
+ }

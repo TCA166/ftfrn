@@ -1,0 +1,1250 @@
+focus_tree = {
+	id = Pakistan
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = PAK
+		}
+	}
+	shared_focus = army_effort_dup
+	shared_focus = aviation_effort_dup
+	shared_focus = naval_effort_dup
+	#Focus for Submarine Effort
+	focus = {
+		id = PAK_submarine_effort
+		icon = GFX_goal_generic_navy_anti_submarine
+		x = 24
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_found_the_navy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_technology= { 
+early_submarine = 1 
+}
+  set_technology= { 
+basic_torpedo = 1 
+}
+		}
+	}
+
+	#Focus for Strike on the Soviets
+	focus = {
+		id = PAK_strike_on_the_soviets
+		icon = GFX_focus_eng_expose_the_belly_of_the_bear
+		x = 10
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_secure_north }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = SOV
+}
+		}
+	}
+
+	#Focus for Dominate the Region
+	focus = {
+		id = PAK_dominate_the_region
+		icon = GFX_goal_generic_demand_territory
+		x = 4
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_demand_afghanistan }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = mughal_spirit
+		}
+	}
+
+	#Focus for Research Focus
+	focus = {
+		id = PAK_research_focus
+		icon = GFX_focus_research2
+		x = 6
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_civilian_industry_focus }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Demand Afghanistan
+	focus = {
+		id = PAK_demand_afghanistan
+		icon = GFX_goal_generic_forceful_treaty
+		x = 4
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_push_for_reunification }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			AFG = {country_event = {id=ftfrn.25}}
+		}
+	}
+
+	#Focus for Push for Reunification
+	focus = {
+		id = PAK_push_for_reunification
+		icon = GFX_PAK_push_for_reunification-108501
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_contact_local_princes }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_state = {
+limit = { is_core_of = RAJ}
+add_core_of = PAK
+}
+set_cosmetic_tag = PAK_MUG
+create_wargoal= { 
+type = annex_everything 
+target = RAJ
+}
+		}
+	}
+
+	#Focus for Move West
+	focus = {
+		id = PAK_move_west
+		icon = GFX_goal_generic_major_war
+		x = 8
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_state_military_industry }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = PER
+}
+		}
+	}
+
+	#Focus for Strength Through Diversity
+	focus = {
+		id = PAK_strength_through_diversity
+		icon = GFX_goal_generic_national_unity
+		x = 6
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_revive_the_idea_of_the_mughal_empire }
+		mutually_exclusive = { focus = PAK_implement_shariah_law }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  add_political_power= 150
+		}
+	}
+
+	#Focus for State Military Industry
+	focus = {
+		id = PAK_state_military_industry
+		icon = GFX_goal_generic_build_tank
+		x = 8
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_implement_shariah_law }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Secure North
+	focus = {
+		id = PAK_secure_north
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PAK_destabilize_afghanistan 
+			focus = PAK_state_military_industry 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size = 100000}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = AFG
+}
+		}
+	}
+
+	#Focus for Implement Shariah Law
+	focus = {
+		id = PAK_implement_shariah_law
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 8
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PAK_religious_unity 
+			focus = PAK_revive_the_idea_of_the_mughal_empire 
+		}
+		mutually_exclusive = { focus = PAK_strength_through_diversity }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+  add_stability= 0.1  add_war_support= 0.1
+		}
+	}
+
+	#Focus for Expand Citizen Industry
+	focus = {
+		id = PAK_expand_citizen_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 12
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PAK_primitive_refugee_housing 
+		}
+		prerequisite = { 
+			focus = PAK_focus_on_citizens 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Fund Extremists
+	focus = {
+		id = PAK_fund_extremists
+		icon = GFX_goal_generic_secret_weapon
+		x = 12
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_religious_unity }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			RAJ = {add_stability= -0.5}  add_war_support=0.2
+		}
+	}
+
+	#Focus for Disband the Idea of Secularism
+	focus = {
+		id = PAK_disband_the_idea_of_secularism
+		icon = GFX_PAK_disband_the_idea_of_secularism-108503
+		x = 10
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_religious_unity }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+  set_politics= {
+ ruling_party = fascism 
+elections_allowed = no 
+}
+		}
+	}
+
+	#Focus for Reeducation Programs
+	focus = {
+		id = PAK_reeducation_programs
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		x = 14
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_resource_extraction_jobs }
+		search_filters = { FOCUS_FILTER_FRA_POLITICAL_VIOLENCE } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas= {
+ remove_idea = refugee_crisis 
+add_idea = refugee_crisis_force  
+}
+		}
+	}
+
+	#Focus for Move Towards Integration
+	focus = {
+		id = PAK_move_towards_integration
+		icon = GFX_focus_RAJ_all_india_forward_bloc
+		x = 20
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_mimic_the_americans }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			BAN = {add_opinion_modifier = { target = PAK modifier = medium_increase }}
+RAJ = {add_opinion_modifier = { target = PAK modifier = medium_increase }}
+		}
+	}
+
+	#Focus for Research Funding
+	focus = {
+		id = PAK_research_funding
+		icon = GFX_focus_research2
+		x = 16
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PAK_workplaces_for_refugees 
+			focus = PAK_focus_on_citizens 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Prepare for Defense
+	focus = {
+		id = PAK_prepare_for_defense
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 22
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_gateway_to_india }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for State Built Industries
+	focus = {
+		id = PAK_state_built_industries
+		icon = GFX_goal_generic_construction2
+		x = 18
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_workplaces_for_refugees }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand Aid Programs
+	focus = {
+		id = PAK_expand_aid_programs
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 18
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_state_built_industries }
+		search_filters = { FOCUS_FILTER_FRA_POLITICAL_VIOLENCE } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_timed_idea= { 
+idea = refugee_crisis_fixing 
+days = 200 
+}
+  remove_ideas= refugee_crisis
+		}
+	}
+
+	#Focus for Open the Borders
+	focus = {
+		id = PAK_open_the_borders
+		icon = GFX_goal_generic_improve_relations
+		x = 22
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PAK_prepare_for_defense 
+			focus = PAK_mimic_the_americans 
+		}
+		search_filters = { FOCUS_FILTER_FRA_POLITICAL_VIOLENCE } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			remove_ideas= refugee_crisis_fixing  remove_ideas= refugee_crisis
+		}
+	}
+
+	#Focus for Gateway to India
+	focus = {
+		id = PAK_gateway_to_india
+		icon = GFX_focus_secret_rearmament
+		x = 22
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_improve_relations_with_india }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			RAJ = {give_guarantee = PAK}
+give_guarantee = RAJ
+		}
+	}
+
+	#Focus for Mimic the Americans
+	focus = {
+		id = PAK_mimic_the_americans
+		icon = GFX_focus_chi_mission_to_the_us
+		x = 20
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PAK_estabilish_public_schools 
+		}
+		prerequisite = { 
+			focus = PAK_workplaces_for_refugees 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Estabilish Local Governments
+	focus = {
+		id = PAK_estabilish_local_governments
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 20
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_english_democracy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.05  add_political_power= 150  add_popularity= { 
+ideology = democratic 
+popularity = 0.2 
+}
+		}
+	}
+
+	#Focus for Resource Extraction Jobs
+	focus = {
+		id = PAK_resource_extraction_jobs
+		icon = GFX_goal_generic_construction2
+		x = 14
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_focus_on_citizens }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  add_resource= { 
+type = oil 
+amount = 16 
+state = 445 
+}
+		}
+	}
+
+	#Focus for Improve Relations with India
+	focus = {
+		id = PAK_improve_relations_with_india
+		icon = GFX_goal_tripartite_pact
+		x = 22
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_english_democracy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = RAJ modifier = medium_increase }
+RAJ = {add_opinion_modifier = { target = PAK modifier = medium_increase }}
+		}
+	}
+
+	#Focus for Focus on Citizens
+	focus = {
+		id = PAK_focus_on_citizens
+		icon = GFX_goal_generic_consumer_goods
+		x = 14
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_aggresive_stance }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = industrial_complex
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Destabilize Afghanistan
+	focus = {
+		id = PAK_destabilize_afghanistan
+		icon = GFX_goal_generic_propaganda
+		x = 10
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_disband_the_idea_of_secularism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			AFG = {add_stability= -0.5  add_war_support= -0.5 }
+		}
+	}
+
+	#Focus for Industrial Grants for Citizens
+	focus = {
+		id = PAK_industrial_grants_for_citizens
+		icon = GFX_focus_mex_privatisation
+		x = 12
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_expand_citizen_industry }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Bastion of Stability
+	focus = {
+		id = PAK_bastion_of_stability
+		icon = GFX_goal_generic_neutrality_focus
+		x = 24
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_deal_with_radicals }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_stability= 1  add_popularity= { 
+ideology = democratic 
+popularity = 1 
+}
+		}
+	}
+
+	#Focus for Primitive Refugee Housing
+	focus = {
+		id = PAK_primitive_refugee_housing
+		icon = GFX_goal_generic_dangerous_deal
+		x = 12
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PAK_aggresive_stance 
+		}
+		prerequisite = { 
+			focus = PAK_disband_the_idea_of_secularism 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+     add_extra_state_shared_building_slots = 4 }
+		}
+	}
+
+	#Focus for Islamic Heritage
+	focus = {
+		id = PAK_islamic_heritage
+		icon = GFX_focus_TUR_turanist_ambition
+		x = 7
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = PAK_move_towards_secularisation }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  add_stability= 0.1
+		}
+	}
+
+	#Focus for Assist the Refugees
+	focus = {
+		id = PAK_assist_the_refugees
+		icon = GFX_goal_generic_national_unity
+		x = 18
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_adress_the_refugee_crisis }
+		mutually_exclusive = { focus = PAK_aggresive_stance }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1
+		}
+	}
+
+	#Focus for Adress the Refugee Crisis
+	focus = {
+		id = PAK_adress_the_refugee_crisis
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 16
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.05  add_political_power= 150
+		}
+	}
+
+	#Focus for Aggresive Stance
+	focus = {
+		id = PAK_aggresive_stance
+		icon = GFX_goal_generic_demand_territory
+		x = 14
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_adress_the_refugee_crisis }
+		mutually_exclusive = { focus = PAK_assist_the_refugees }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= -0.1  add_war_support= 0.1
+		}
+	}
+
+	#Focus for Move towards Secularisation
+	focus = {
+		id = PAK_move_towards_secularisation
+		icon = GFX_PAK_move_towards_secularisation-107389
+		x = 22
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = PAK_islamic_heritage }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = -0.1 
+}
+  add_popularity= { 
+ideology = neutrality 
+popularity = -0.1 
+}
+		}
+	}
+
+	#Focus for Religious Unity
+	focus = {
+		id = PAK_religious_unity
+		icon = GFX_goal_support_fascism
+		x = 10
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_islamic_heritage }
+		mutually_exclusive = { focus = PAK_revive_the_idea_of_the_mughal_empire }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.3 
+}
+  add_stability= 0.15
+		}
+	}
+
+	#Focus for Revive the Idea of the Mughal Empire
+	focus = {
+		id = PAK_revive_the_idea_of_the_mughal_empire
+		icon = GFX_PAK_revive_the_idea_of_the_mughal_empire-108500
+		x = 4
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_islamic_heritage }
+		mutually_exclusive = { focus = PAK_religious_unity }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = neutrality 
+popularity = 0.4 
+}
+  add_political_power= 150
+		}
+	}
+
+	#Focus for Workplaces for Refugees
+	focus = {
+		id = PAK_workplaces_for_refugees
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 18
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_assist_the_refugees }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand Research Teams
+	focus = {
+		id = PAK_expand_research_teams
+		icon = GFX_focus_research2
+		x = 16
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PAK_aggresive_stance 
+			focus = PAK_assist_the_refugees 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Estabilish Public Schools
+	focus = {
+		id = PAK_estabilish_public_schools
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 20
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PAK_assist_the_refugees 
+		}
+		prerequisite = { 
+			focus = PAK_estabilish_local_governments 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for English Democracy
+	focus = {
+		id = PAK_english_democracy
+		icon = GFX_goal_support_democracy
+		x = 22
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_move_towards_secularisation }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.3 
+}
+		}
+	}
+
+	#Focus for Contact Local Princes
+	focus = {
+		id = PAK_contact_local_princes
+		icon = GFX_PAK_contact_local_princes-108502
+		x = 4
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_revive_the_idea_of_the_mughal_empire }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = neutrality 
+popularity = 0.3 
+}
+  set_politics= {
+ ruling_party = neutrality 
+elections_allowed = no 
+}
+		}
+	}
+
+	#Focus for Civilian Industry Focus
+	focus = {
+		id = PAK_civilian_industry_focus
+		icon = GFX_goal_generic_construct_civilian
+		x = 6
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_strength_through_diversity }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = industrial_complex
+ level = 5
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Found the Navy
+	focus = {
+		id = PAK_found_the_navy
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 24
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = PAK_english_democracy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = dockyard
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Local Militias
+	focus = {
+		id = PAK_local_militias
+		icon = GFX_goal_generic_small_arms
+		x = 6
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PAK_research_focus 
+		}
+		prerequisite = { 
+			focus = PAK_demand_afghanistan 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = local_militias
+		}
+	}
+
+	#Focus for End Diversity
+	focus = {
+		id = PAK_end_diversity
+		icon = GFX_focus_RAJ_seek_help_from_germany
+		x = 8
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PAK_move_west 
+		}
+		prerequisite = { 
+			focus = PAK_secure_north 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = RAJ
+}
+		}
+	}
+
+	#Focus for Adress the Housing Situation
+	focus = {
+		id = PAK_adress_the_housing_situation
+		icon = GFX_goal_generic_construct_civilian
+		x = 16
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PAK_resource_extraction_jobs 
+			focus = PAK_state_built_industries 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_state= {
+ add_extra_state_shared_building_slots = 2 
+}
+  random_owned_state= {
+ add_extra_state_shared_building_slots = 2 
+}
+		}
+	}
+
+	#Focus for Deal with Radicals
+	focus = {
+		id = PAK_deal_with_radicals
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		x = 24
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = PAK_submarine_effort 
+		}
+		prerequisite = { 
+			focus = PAK_gateway_to_india 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = puppet_wargoal_focus 
+target = AFG
+}
+  create_wargoal= { 
+type = puppet_wargoal_focus 
+target = PER
+}
+		}
+	}
+
+#End of focuses 
+ }

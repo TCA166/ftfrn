@@ -1,0 +1,8 @@
+BAY_hesse_plan = {
+	allowed = {
+		original_tag = BAY
+	}
+	visible = {
+		has_completed_focus = BAY_the_hesse_plan
+	}
+}

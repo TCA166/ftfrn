@@ -1,0 +1,6 @@
+NGA_com_union={
+	allowed = {
+		original_tag = NGA
+		has_completed_focus = NGA_peaceful_move_towards_unity
+	}
+}

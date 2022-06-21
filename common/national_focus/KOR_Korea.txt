@@ -1,0 +1,1054 @@
+focus_tree = {
+	id = Korea
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = KOR
+		}
+	}
+	
+	shared_focus = army_effort_dup
+	shared_focus = aviation_effort_dup
+	shared_focus = naval_effort_dup
+	
+	#Focus for Create a Navy
+	focus = {
+		id = KOR_create_a_navy
+		icon = GFX_goal_generic_navy_battleship
+		x = 15
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_lower_taxes_on_entrepenours 
+		}
+		prerequisite = { 
+			focus = KOR_military_investment 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = dockyard
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  navy_experience= 30
+		}
+	}
+
+	#Focus for Start Urbanisation Programs
+	focus = {
+		id = KOR_start_urbanisation_programs
+		icon = GFX_goal_generic_construct_civilian
+		x = 13
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_build_public_schools	
+		}
+		prerequisite = { 
+			focus = KOR_lower_taxes_on_entrepenours 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_state= {
+ add_extra_state_shared_building_slots = 5 
+}
+random_owned_state= {
+ add_extra_state_shared_building_slots = 5 
+}
+		}
+	}
+
+	#Focus for Shine a Light on Warcrimes
+	focus = {
+		id = KOR_shine_a_light_on_warcrimes
+		icon = GFX_goal_generic_neutrality_focus
+		x = 17
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KOR_start_the_democratic_transition }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.2  add_war_support= 0.1  add_political_power= 150
+		}
+	}
+
+	#Focus for Focus on Exports
+	focus = {
+		id = KOR_focus_on_exports
+		icon = GFX_goal_generic_trade
+		x = 15
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KOR_start_the_democratic_transition }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Dream of Prosperity
+	focus = {
+		id = KOR_dream_of_prosperity
+		icon = GFX_KOR_dream_of_prosperity-108498
+		x = 11
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_build_universities 
+		}
+		prerequisite = { 
+			focus = KOR_build_public_schools
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Spread the Revolution!
+	focus = {
+		id = KOR_spread_the_revolution
+		icon = GFX_goal_generic_war_with_comintern
+		x = 10
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KOR_korean_communism }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_neighbor_country = {
+limit={NOT = {has_government=communism}}
+KOR={
+create_wargoal={type=annex_everything target = PREV}}}
+		}
+	}
+
+	#Focus for Build Universities
+	focus = {
+		id = KOR_build_universities
+		icon = GFX_focus_research2
+		x = 10
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_embrace_industrialisation 
+			focus = KOR_reduce_poverty 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Public Projects
+	focus = {
+		id = KOR_public_projects
+		icon = GFX_goal_generic_construction2
+		x = 13
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_institute_communist_reforms 
+			focus = KOR_start_the_democratic_transition 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Build Public Schools
+	focus = {
+		id = KOR_build_public_schools
+		icon = GFX_focus_research2
+		x = 12
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_reduce_poverty 
+			focus = KOR_public_projects 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Fund Dockyards
+	focus = {
+		id = KOR_fund_dockyards
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 7
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_escalate_the_fear_mongering 
+		}
+		prerequisite = { 
+			focus = KOR_expand_military_industry
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = dockyard
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+navy_experience = 20
+		}
+	}
+
+	#Focus for Preserve the Status Quo
+	focus = {
+		id = KOR_preserve_the_status_quo
+		icon = GFX_focus_generic_self_management
+		x = 8
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_economic_mobilisation 
+		}
+		prerequisite = { 
+			focus = KOR_fund_dockyards 
+		}
+		mutually_exclusive = { focus = KOR_nationalist_transition }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  set_political_party= { 
+ideology = neutrality 
+popularity = 1 
+}
+		}
+	}
+
+	#Focus for Preemtpive Strike Against the Japanese
+	focus = {
+		id = KOR_preemtpive_strike_against_the_japanese
+		icon = GFX_focus_attack_japan
+		x = 8
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_preserve_the_status_quo 
+			focus = KOR_korean_communism 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = JAP
+}
+		}
+	}
+
+	#Focus for Strike at China
+	focus = {
+		id = KOR_strike_at_china
+		icon = GFX_focus_attack_china
+		x = 5
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KOR_nationalist_transition }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 50000}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = CHI
+}
+  create_wargoal= { 
+type = annex_everything 
+target = MAN
+}
+  create_wargoal= { 
+type = annex_everything 
+target = MEN
+}
+		}
+	}
+
+	#Focus for Nationalist Transition
+	focus = {
+		id = KOR_nationalist_transition
+		icon = GFX_goal_support_fascism
+		x = 5
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KOR_claims_on_manchuria }
+		mutually_exclusive = { focus = KOR_preserve_the_status_quo }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.3 
+}
+  set_politics= {
+ ruling_party = fascism 
+elections_allowed = no 
+}
+  add_war_support= 0.2
+		}
+	}
+
+	#Focus for Escalate the Fear Mongering
+	focus = {
+		id = KOR_escalate_the_fear_mongering
+		icon = GFX_goal_generic_propaganda
+		x = 6
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_identify_foreign_threats 
+		}
+		prerequisite = { 
+			focus = KOR_prepare_the_people 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = neutrality 
+popularity = 0.2 
+}
+  add_stability= 0.1
+		}
+	}
+
+	#Focus for Expand Military Industry
+	focus = {
+		id = KOR_expand_military_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 8
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_prepare_the_people 
+		}
+		prerequisite = { 
+			focus = KOR_embrace_industrialisation 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Claims on Manchuria
+	focus = {
+		id = KOR_claims_on_manchuria
+		icon = GFX_goal_generic_position_armies
+		x = 5
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KOR_escalate_the_fear_mongering }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim= 745  add_state_claim= 716  add_state_claim= 328  add_state_claim= 717
+		}
+	}
+
+	#Focus for Identify Foreign Threats
+	focus = {
+		id = KOR_identify_foreign_threats
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 5
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KOR_strenghten_autocratic_government }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.2  add_political_power= 150  
+add_ideas = extensive_conscription
+		}
+	}
+
+	#Focus for Prepare the People
+	focus = {
+		id = KOR_prepare_the_people
+		icon = GFX_goal_generic_military_sphere
+		x = 7
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KOR_strenghten_autocratic_government }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  add_ideas = partial_economic_mobilisation
+		}
+	}
+
+	#Focus for Start the Democratic Transition
+	focus = {
+		id = KOR_start_the_democratic_transition
+		icon = GFX_goal_support_democracy
+		x = 16
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KOR_estabiliish_a_provisional_government }
+		mutually_exclusive = { 
+			focus = KOR_institute_communist_reforms 
+		}
+		mutually_exclusive = { 
+			focus = KOR_strenghten_autocratic_government 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.2 
+}
+  set_politics= {
+ ruling_party = democratic 
+elections_allowed = no 
+}
+		}
+	}
+
+	#Focus for Institute Communist Reforms
+	focus = {
+		id = KOR_institute_communist_reforms
+		icon = GFX_focus_generic_join_comintern
+		x = 11
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KOR_estabiliish_a_provisional_government }
+		mutually_exclusive = { 
+			focus = KOR_strenghten_autocratic_government 
+		}
+		mutually_exclusive = { 
+			focus = KOR_start_the_democratic_transition 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.2 
+}
+  set_politics= {
+ ruling_party = communism 
+elections_allowed = no 
+}
+		}
+	}
+
+	#Focus for Estabiliish a Provisional Government
+	focus = {
+		id = KOR_estabiliish_a_provisional_government
+		icon = GFX_goal_generic_demand_territory
+		x = 11
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  add_stability= 0.1
+		}
+	}
+
+	#Focus for Economic Mobilisation
+	focus = {
+		id = KOR_economic_mobilisation
+		icon = GFX_goal_generic_production
+		x = 9
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_expand_military_industry 
+			focus = KOR_build_universities 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Military Investment
+	focus = {
+		id = KOR_military_investment
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 16
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_focus_on_exports 
+		}
+		prerequisite = { 
+			focus = KOR_shine_a_light_on_warcrimes 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = arms_factory
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Korean Communism
+	focus = {
+		id = KOR_korean_communism
+		icon = GFX_KOR_korean_communism-108488
+		x = 10
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_economic_mobilisation 
+		}
+		prerequisite = { 
+			focus = KOR_dream_of_prosperity 
+		}
+		mutually_exclusive = { focus = KOR_join_the_soviets }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.2  add_war_support= 0.2
+		}
+	}
+
+	#Focus for Join the Soviets
+	focus = {
+		id = KOR_join_the_soviets
+		icon = GFX_goal_support_communism
+		x = 12
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KOR_dream_of_prosperity }
+		mutually_exclusive = { focus = KOR_korean_communism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			SOV = {has_government = communism}
+		}
+		completion_reward = {
+			SOV = {add_to_faction = ROOT}
+		}
+	}
+
+	#Focus for Join the USA
+	focus = {
+		id = KOR_join_the_usa
+		icon = GFX_goal_support_democracy
+		x = 14
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_start_urbanisation_programs 
+		}
+		prerequisite = { 
+			focus = KOR_create_a_navy 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			USA = {is_in_faction = yes}
+USA = {has_government = democratic}
+		}
+		completion_reward = {
+			USA = {add_to_faction = KOR}
+		}
+	}
+
+	#Focus for Strenghten Autocratic Government
+	focus = {
+		id = KOR_strenghten_autocratic_government
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KOR_estabiliish_a_provisional_government }
+		mutually_exclusive = { 
+			focus = KOR_institute_communist_reforms 
+		}
+		mutually_exclusive = { 
+			focus = KOR_start_the_democratic_transition 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = neutrality
+popularity = 0.2 
+}
+  add_political_power= 150
+		}
+	}
+
+	#Focus for Embrace Industrialisation
+	focus = {
+		id = KOR_embrace_industrialisation
+		icon = GFX_goal_generic_production2
+		x = 9
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_strenghten_autocratic_government 
+			focus = KOR_institute_communist_reforms 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+		}
+	}
+
+	#Focus for Reduce Poverty
+	focus = {
+		id = KOR_reduce_poverty
+		icon = GFX_goal_generic_consumer_goods
+		x = 11
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KOR_institute_communist_reforms }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  add_popularity= { 
+ideology = communism 
+popularity = 0.1 
+}
+		}
+	}
+
+	#Focus for Accept Soviet Aid
+	focus = {
+		id = KOR_accept_soviet_aid
+		icon = GFX_KOR_accept_soviet_aid-108486
+		x = 12
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KOR_join_the_soviets }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Lower Taxes on Entrepenours
+	focus = {
+		id = KOR_lower_taxes_on_entrepenours
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 14
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KOR_public_projects 
+		}
+		prerequisite = { 
+			focus = KOR_focus_on_exports 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Accept American Military Industry
+	focus = {
+		id = KOR_accept_american_military_industry
+		icon = GFX_KOR_accept_american_military_industry-108487
+		x = 14
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KOR_join_the_usa }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = arms_factory
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+#End of focuses 
+ }

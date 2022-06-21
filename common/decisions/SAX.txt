@@ -1,0 +1,76 @@
+SAX_destroy_prussia_dec = {
+    destroy_pre = {
+		  available = {
+               PRE={exists = no}
+          }
+          complete_effect = {
+				60={
+				remove_core_of = PRE
+				add_core_of = SAX
+				}
+				55={
+				remove_core_of = PRE
+				add_core_of = SAX
+				}
+				51={
+				remove_core_of = PRE
+				add_core_of = SAX
+				}
+				42={
+				remove_core_of = PRE
+				add_core_of = SAX
+				}
+				release_puppet = PRE
+				PRE={
+					set_cosmetic_tag = PRE_DES 
+				}
+				set_country_flag = PRE_bitch
+          }
+		  fire_only_once = yes
+    }
+	integrate_pre = {
+		  available = {
+               has_cosmetic_tag = HRE_UNIFIED
+			   PRE={is_puppet_of = SAX}
+			   has_country_flag = PRE_bitch
+          }
+          complete_effect = {
+				every_state = {
+				limit={
+				is_core_of = PRE
+				}
+				remove_core_of = PRE
+				add_core_of = SAX
+				}
+				annex_country = {
+					target = PRE
+					transfer_troops = yes
+				}
+				add_ideas = prussian_legacy
+          }
+		  fire_only_once = yes
+    }
+	integrate_north = {
+		  available = {
+               has_cosmetic_tag = HRE_UNIFIED
+			   has_country_flag = PRE_bitch
+          }
+          complete_effect = {
+				every_state = {
+				limit={
+				is_core_of = MEK
+				}
+				remove_core_of = MEK
+				add_core_of = SAX
+				}
+				every_state = {
+				limit={
+				is_core_of = SHL
+				}
+				remove_core_of = SHL
+				add_core_of = SAX
+				}
+          }
+		  fire_only_once = yes
+    }
+}

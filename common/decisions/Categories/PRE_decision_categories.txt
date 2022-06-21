@@ -1,0 +1,16 @@
+PRE_livonia = {
+	allowed = {
+		original_tag = PRE
+	}
+	visible = {
+		has_completed_focus = PRE_revive_the_livonian_order
+	}
+}
+PRE_bring_german_tree={
+	allowed = {
+		original_tag = PRE
+	}
+	visible = {
+		has_completed_focus = PRE_proclaim_germany
+	}
+}

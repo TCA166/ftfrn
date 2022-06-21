@@ -1,0 +1,12 @@
+CSA_racial_tenstions = {
+
+	allowed = {
+		original_tag = CSA
+	}
+	visible = {
+		OR={
+			has_completed_focus = CSA_conservative_values
+			has_completed_focus = CSA_fight_racism
+		}
+	}
+}

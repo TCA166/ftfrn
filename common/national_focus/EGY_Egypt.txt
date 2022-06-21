@@ -1,0 +1,1744 @@
+focus_tree = {
+	id = Egypt
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = EGY
+		}
+	}
+	continuous_focus_position = { x = 50 y = 1500 }
+	shared_focus = army_effort_dup
+	shared_focus = aviation_effort_dup
+	shared_focus = naval_effort_dup
+	#Focus for Control the Entire Red Sea
+	focus = {
+		id = EGY_control_the_entire_red_sea
+		icon = GFX_goal_generic_amphibious_assault
+		x = 20
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_control_the_trade 
+		}
+		prerequisite = { 
+			focus = EGY_expand_suez_infrastructure 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 100000}
+		}
+		completion_reward = {
+			add_state_claim= 551
+add_state_claim= 550
+  add_state_claim= 268
+  create_wargoal= { 
+type = annex_everything 
+target = SUD
+}
+		}
+	}
+
+	#Focus for In the Footsteps of Alexander
+	focus = {
+		id = EGY_in_the_footsteps_of_alexander
+		icon = GFX_focus_GRE_reviving_the_spartan_warrior_spirit
+		x = 18
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_conquer_iran }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = RAJ
+}
+  create_wargoal= { 
+type = annex_everything 
+target = PAK
+}
+		}
+	}
+
+	#Focus for Conquer Ethiopia
+	focus = {
+		id = EGY_conquer_ethiopia
+		icon = GFX_goal_generic_political_pressure
+		x = 14
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_conquer_turkey }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = ETH
+}
+		}
+	}
+
+	#Focus for Strike at the Soviets
+	focus = {
+		id = EGY_strike_at_the_soviets
+		icon = GFX_focus_eng_expose_the_belly_of_the_bear
+		x = 16
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_conquer_turkey 
+		}
+		prerequisite = { 
+			focus = EGY_conquer_iran 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = SOV
+}
+		}
+	}
+
+	#Focus for Conquer Iran
+	focus = {
+		id = EGY_conquer_iran
+		icon = GFX_goal_generic_major_war
+		x = 17
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_deal_with_the_tribes 
+		}
+		prerequisite = { 
+			focus = EGY_develop_conquered_lands 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = PER
+}
+		}
+	}
+
+	#Focus for Conquer Turkey
+	focus = {
+		id = EGY_conquer_turkey
+		icon = GFX_focus_generic_attack_turkey
+		x = 15
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_continue_research_expansion 
+		}
+		prerequisite = { 
+			focus = EGY_deal_with_the_tribes 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = TUR
+}
+		}
+	}
+
+	#Focus for Revenge for Occupation
+	focus = {
+		id = EGY_revenge_for_occupation
+		icon = GFX_focus_eng_decolonization
+		x = 4
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_navy_out_of_nothing 
+		}
+		prerequisite = { 
+			focus = EGY_anti_colonialism 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = ENG
+}
+		}
+	}
+
+	#Focus for A Show of Force
+	focus = {
+		id = EGY_a_show_of_force
+		icon = GFX_focus_attack_france
+		x = 6
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_anti_colonialism }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = FRA
+}
+		}
+	}
+
+	#Focus for Anti Colonialism
+	focus = {
+		id = EGY_anti_colonialism
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		x = 6
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_deal_with_the_mediterean_threat 
+		}
+		prerequisite = { 
+			focus = EGY_faction_research_teams
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = against_europe
+		}
+	}
+
+	#Focus for Ensure Economic Stability
+	focus = {
+		id = EGY_ensure_economic_stability
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 10
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_prepare_for_intervention 
+			focus = EGY_african_noninvolvment_league 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Deal with the Tribes
+	focus = {
+		id = EGY_deal_with_the_tribes
+		icon = GFX_EGY_deal_with_the_tribes-107619
+		x = 16
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_deal_with_saudi_arabia 
+		}
+		prerequisite = { 
+			focus = EGY_expand_into_north_africa 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			KUW = {country_event={id=ftfrn.10}}
+QAT = {country_event={id=ftfrn.10}}
+UAE = {country_event={id=ftfrn.10}}
+OMA = {country_event={id=ftfrn.10}}
+YEM = {country_event={id=ftfrn.10}}
+		}
+	}
+
+	#Focus for Protect Our Neighbors
+	focus = {
+		id = EGY_protect_our_neighbors
+		icon = GFX_goal_generic_territory_or_war
+		x = 17
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_german_industrial_support }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 100000}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = PAL
+}
+  create_wargoal= { 
+type = annex_everything 
+target = LBA
+}
+add_state_claim = 451
+add_state_claim = 454
+		}
+	}
+
+	#Focus for Rivarly with the Turkish
+	focus = {
+		id = EGY_rivarly_with_the_turkish
+		icon = GFX_focus_generic_attack_turkey
+		x = 18
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_protect_our_neighbors 
+		}
+		prerequisite = { 
+			focus = EGY_control_the_trade 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim= 553
+  add_state_claim= 554
+  add_state_claim= 680
+  add_state_claim= 677
+add_state_claim= 799
+create_wargoal = {type = annex_everything target=LEB}
+create_wargoal = {type = annex_everything target=SYR}
+add_opinion_modifier = { target = TUR modifier = large_decrease }
+		}
+	}
+
+	#Focus for Protect the Suez Canal
+	focus = {
+		id = EGY_protect_the_suez_canal
+		icon = GFX_goal_generic_construct_military
+		x = 21
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			EGY = {controls_state= 446}
+		}
+		completion_reward = {
+			446 = {
+	add_building_construction = {
+		type = bunker
+        	province = 4073
+		level = 5
+	}
+} 
+446 = {
+	add_building_construction = {
+		type = bunker
+        	province = 12049
+		level = 5
+	}
+}
+add_ideas = suez_free_trade
+		}
+	}
+
+	#Focus for Political Effort
+	focus = {
+		id = EGY_political_effort
+		icon = GFX_goal_generic_demand_territory
+		x = 11
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  add_war_support= 0.1
+		}
+	}
+
+	#Focus for Tax the Trade
+	focus = {
+		id = EGY_tax_the_trade
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = 20
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_protect_the_suez_canal }
+		mutually_exclusive = { focus = EGY_encourage_foreign_investments }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Encourage Foreign Investments
+	focus = {
+		id = EGY_encourage_foreign_investments
+		icon = GFX_EGY_encourage_foreign_investments-107562
+		x = 22
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_protect_the_suez_canal }
+		mutually_exclusive = { focus = EGY_tax_the_trade }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  add_political_power= 100
+		}
+	}
+
+	#Focus for Expand Suez Infrastructure
+	focus = {
+		id = EGY_expand_suez_infrastructure
+		icon = GFX_EGY_expand_suez_infrastructure-107621
+		x = 21
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_encourage_foreign_investments 
+			focus = EGY_tax_the_trade 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			446= {
+set_building_level = {
+    type = infrastructure
+    level = 8
+    instant_build = yes
+}
+
+}
+		}
+	}
+
+	#Focus for Control the Trade
+	focus = {
+		id = EGY_control_the_trade
+		icon = GFX_EGY_control_the_trade-107617
+		x = 19
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_tax_the_trade }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+swap_ideas = { 
+remove_idea = suez_free_trade
+add_idea = suez_controlled
+}
+		}
+	}
+
+	#Focus for Trade Must Flow!
+	focus = {
+		id = EGY_trade_must_flow
+		icon = GFX_EGY_trade_must_flow-107563
+		x = 23
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_encourage_foreign_investments }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+ swap_ideas = {
+remove_idea = suez_free_trade
+add_idea = suez_free_trade_continue
+}
+		}
+	}
+
+	#Focus for Maintain the Status Quo
+	focus = {
+		id = EGY_maintain_the_status_quo
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		x = 11
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_political_effort }
+		mutually_exclusive = { 
+			focus = EGY_german_industrial_support 
+		}
+		mutually_exclusive = { 
+			focus = EGY_accept_socialist_aid 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_government = neutrality
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = -0.1 
+}
+  add_popularity= { 
+ideology = communism 
+popularity = -0.1 
+}
+		}
+	}
+
+	#Focus for German Industrial Support
+	focus = {
+		id = EGY_german_industrial_support
+		icon = GFX_EGY_german_industrial_support-107625
+		x = 15
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_political_effort }
+		mutually_exclusive = { 
+			focus = EGY_maintain_the_status_quo 
+		}
+		mutually_exclusive = { 
+			focus = EGY_accept_socialist_aid 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_ideas = deal_with_germany
+		}
+	}
+
+	#Focus for Join the Axis
+	focus = {
+		id = EGY_join_the_axis
+		icon = GFX_focus_chi_mission_to_germany
+		x = 15
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_german_industrial_support }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			NOT = {GER = {has_government = fascism}}
+		}
+		available = {
+			GER = {has_government = fascism}
+		}
+		completion_reward = {
+			GER = {country_event={id=ftfrn.9}}
+add_popularity = {ideology = fascism popularity=0.2}
+		}
+	}
+
+	#Focus for Move on Iraq
+	focus = {
+		id = EGY_move_on_iraq
+		icon = GFX_EGY_move_on_iraq-107623
+		x = 16
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_protect_our_neighbors 
+		}
+		prerequisite = { 
+			focus = EGY_join_the_axis 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = IRQ
+}
+  create_wargoal= { 
+type = annex_everything 
+target = JOR
+}
+		}
+	}
+
+	#Focus for Deal with Saudi Arabia
+	focus = {
+		id = EGY_deal_with_saudi_arabia
+		icon = GFX_EGY_deal_with_saudi_arabia-107618
+		x = 18
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_rivarly_with_the_turkish 
+		}
+		prerequisite = { 
+			focus = EGY_move_on_iraq 
+		}
+		prerequisite = { 
+			focus = EGY_control_the_entire_red_sea 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = SAU
+}
+		}
+	}
+
+	#Focus for Expand Into North Africa
+	focus = {
+		id = EGY_expand_into_north_africa
+		icon = GFX_EGY_expand_into_north_africa-107622
+		x = 16
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_move_on_iraq }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = TUN
+}
+  create_wargoal= { 
+type = annex_everything 
+target = ALG
+}
+  create_wargoal= { 
+type = annex_everything 
+target = MOR
+}
+		}
+	}
+
+	#Focus for Ask for Guarantees
+	focus = {
+		id = EGY_ask_for_guarantees
+		icon = GFX_goal_tripartite_pact
+		x = 22
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_trade_must_flow 
+		}
+		prerequisite = { 
+			focus = EGY_expand_suez_infrastructure 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			ENG = {country_event={id=ftfrn.11}}
+USA = {country_event={id=ftfrn.11}}
+SOV = {country_event={id=ftfrn.11}}
+JAP = {country_event={id=ftfrn.11}}
+FRA = {country_event={id=ftfrn.11}}
+		}
+	}
+
+	#Focus for African Non-Involvment League
+	focus = {
+		id = EGY_african_noninvolvment_league
+		icon = GFX_goal_generic_alliance
+		x = 11
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_maintain_neutrality }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			GER = {has_war=no}
+		}
+		completion_reward = {
+			create_faction= "African non-involment league"
+LBA = {country_event={id=ftfrn.13}}
+SUD = {country_event={id=ftfrn.13}}
+TUN = {country_event={id=ftfrn.13}}
+ALG = {country_event={id=ftfrn.13}}
+MOR = {country_event={id=ftfrn.13}}
+		}
+	}
+
+	#Focus for Ask for Gibraltar
+	focus = {
+		id = EGY_ask_for_gibraltar
+		icon = GFX_EGY_ask_for_gibraltar-107616
+		x = 21
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_ask_for_guarantees 
+			focus = EGY_control_the_entire_red_sea 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_country={
+limit = {has_full_control_of_state = 118}
+country_event={id=ftfrn.12}
+}
+		}
+	}
+
+	#Focus for Trade Benefits
+	focus = {
+		id = EGY_trade_benefits
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 23
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_ask_for_guarantees }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Industrial Development
+	focus = {
+		id = EGY_industrial_development
+		icon = GFX_goal_generic_construct_civilian
+		x = 13
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_german_industrial_support 
+			focus = EGY_maintain_the_status_quo 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Military Developement
+	focus = {
+		id = EGY_military_developement
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 13
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_join_the_axis 
+			focus = EGY_peace_through_neutrality 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Peace Through Neutrality
+	focus = {
+		id = EGY_peace_through_neutrality
+		icon = GFX_goal_generic_neutrality_focus
+		x = 11
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_maintain_the_status_quo }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			447 = {
+	add_building_construction = {
+		type = bunker
+        	province = 1071
+		level = 5
+	}
+}
+		}
+	}
+
+	#Focus for Continue Fortification Program
+	focus = {
+		id = EGY_continue_fortification_program
+		icon = GFX_goal_generic_fortify_city
+		x = 11
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_peace_through_neutrality }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			456 = {
+	add_building_construction = {
+		type = bunker
+        	province = 12044
+		level = 2
+	}
+}
+456 = {
+	add_building_construction = {
+		type = bunker
+        	province = 1151
+		level = 2
+	}
+}
+457 = {
+	add_building_construction = {
+		type = bunker
+        	province = 12002
+		level = 2
+	}
+}
+		}
+	}
+
+	#Focus for Pivot to Democracy
+	focus = {
+		id = EGY_pivot_to_democracy
+		icon = GFX_goal_support_democracy
+		x = 9
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_continue_fortification_program }
+		mutually_exclusive = { focus = EGY_maintain_neutrality }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = pivot_to_democracy
+add_popularity = {ideology = democratic popularity = 0.15}
+USA = {add_ai_strategy = { 
+   type = alliance
+   id = "EGY"			
+   value = 200
+}}
+		}
+	}
+
+	#Focus for Maintain Neutrality
+	focus = {
+		id = EGY_maintain_neutrality
+		icon = GFX_goal_generic_major_alliance
+		x = 11
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_continue_fortification_program }
+		mutually_exclusive = { focus = EGY_pivot_to_democracy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = neutrality 
+popularity = 0.1 
+}
+add_political_power = 150
+		}
+	}
+
+	#Focus for Expand Universities
+	focus = {
+		id = EGY_expand_universities
+		icon = GFX_focus_research2
+		x = 13
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_continue_fortification_program 
+			focus = EGY_move_on_iraq 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Continue Research Expansion
+	focus = {
+		id = EGY_continue_research_expansion
+		icon = GFX_focus_research2
+		x = 13
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_expand_universities }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Prepare for Intervention
+	focus = {
+		id = EGY_prepare_for_intervention
+		icon = GFX_focus_generic_little_entente
+		x = 9
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_pivot_to_democracy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = foreign_expeditions_focus
+set_rule = { can_send_volunteers = yes }
+		}
+	}
+
+	#Focus for Deal with the Mediterean Threat
+	focus = {
+		id = EGY_deal_with_the_mediterean_threat
+		icon = GFX_focus_attack_italy
+		x = 7
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_pivot_to_democracy 
+			focus = EGY_ensure_access_to_the_black_sea 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			ITA = {has_government = fascism}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = ITA
+}
+		}
+	}
+
+	#Focus for Develop Conquered Lands
+	focus = {
+		id = EGY_develop_conquered_lands
+		icon = GFX_EGY_develop_conquered_lands-107620
+		x = 18
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_deal_with_saudi_arabia }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ NOT = {is_core_of = EGY}
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Accept Socialist Aid
+	focus = {
+		id = EGY_accept_socialist_aid
+		icon = GFX_goal_generic_soviet_construction
+		x = 7
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_political_effort }
+		mutually_exclusive = { 
+			focus = EGY_maintain_the_status_quo 
+		}
+		mutually_exclusive = { 
+			focus = EGY_german_industrial_support 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			SOV = {has_government = communism}
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.2 
+}
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Use the Leftist Doctrine
+	focus = {
+		id = EGY_use_the_leftist_doctrine
+		icon = GFX_focus_generic_soviet_politics
+		x = 7
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_accept_socialist_aid }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.2 
+}
+  add_political_power= 150  
+add_ideas = socialism_i
+set_politics = {ruling_party = communism elections_allowed = yes}
+		}
+	}
+
+	#Focus for Make the Red Sea Actually Red
+	focus = {
+		id = EGY_make_the_red_sea_actually_red
+		icon = GFX_focus_YUG_pan_slavic_congress
+		x = 7
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_use_the_leftist_doctrine }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 100000}
+		}
+		completion_reward = {
+			add_state_claim= 551  add_state_claim= 550  add_state_claim= 268  add_state_claim= 293  add_state_claim= 679
+		}
+	}
+
+	#Focus for Ensure Access to the Black Sea
+	focus = {
+		id = EGY_ensure_access_to_the_black_sea
+		icon = GFX_focus_generic_black_sea_focus
+		x = 7
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_make_the_red_sea_actually_red }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			SOV = {has_war = no}
+		}
+		completion_reward = {
+			SOV = {country_event = {id=ftfrn.14}}
+		}
+	}
+
+	#Focus for Socialist Housing
+	focus = {
+		id = EGY_socialist_housing
+		icon = GFX_EGY_socialist_housing-108498
+		x = 9
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_accept_socialist_aid 
+			focus = EGY_maintain_the_status_quo 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Strenghten Industry
+	focus = {
+		id = EGY_strenghten_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 9
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_peace_through_neutrality 
+			focus = EGY_use_the_leftist_doctrine 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Faction Research Teams
+	focus = {
+		id = EGY_faction_research_teams
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 5
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_ensure_access_to_the_black_sea 
+			focus = EGY_pivot_to_democracy 
+			focus = EGY_navy_out_of_nothing 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_in_faction= yes
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Socialist Navy
+	focus = {
+		id = EGY_socialist_navy
+		icon = GFX_EGY_socialist_navy-108499
+		x = 5
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_accept_socialist_aid }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = dockyard
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+navy_experience = 20
+		}
+	}
+
+	#Focus for Naval Research Institute
+	focus = {
+		id = EGY_naval_research_institute
+		icon = GFX_EGY_naval_research_institute-107624
+		x = 3
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = EGY_socialist_navy }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Continue Naval Development
+	focus = {
+		id = EGY_continue_naval_development
+		icon = GFX_EGY_continue_naval_development-108497
+		x = 5
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_socialist_navy 
+		}
+		prerequisite = { 
+			focus = EGY_use_the_leftist_doctrine 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = dockyard
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Navy Out of Nothing
+	focus = {
+		id = EGY_navy_out_of_nothing
+		icon = GFX_EGY_navy_out_of_nothing-107561
+		x = 4
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_continue_naval_development 
+		}
+		prerequisite = { 
+			focus = EGY_naval_research_institute 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = dockyard
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Open Up for Foreign Military Investment
+	focus = {
+		id = EGY_open_up_for_foreign_military_investment
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 8
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_prepare_for_intervention 
+			focus = EGY_deal_with_the_mediterean_threat 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Connect the Economies
+	focus = {
+		id = EGY_connect_the_economies
+		icon = GFX_goal_generic_production
+		x = 12
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_african_noninvolvment_league 
+		}
+		prerequisite = { 
+			focus = EGY_continue_research_expansion 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_country={
+limit={is_in_faction_with = ROOT}
+add_offsite_building = { type = industrial_complex level = 2 }
+}
+		}
+	}
+
+	#Focus for African Colonialism
+	focus = {
+		id = EGY_african_colonialism
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		x = 9
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_open_up_for_foreign_military_investment 
+		}
+		prerequisite = { 
+			focus = EGY_ensure_economic_stability 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = SUD
+}
+  create_wargoal= { 
+type = annex_everything 
+target = LIB
+}
+		}
+	}
+
+	#Focus for Economic Boom
+	focus = {
+		id = EGY_economic_boom
+		icon = GFX_goal_generic_construct_civilian
+		x = 11
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = EGY_ensure_economic_stability 
+		}
+		prerequisite = { 
+			focus = EGY_connect_the_economies 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+#End of focuses 
+ }

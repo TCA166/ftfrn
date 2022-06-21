@@ -1,0 +1,1723 @@
+focus_tree = {
+	id = Kaszubia
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = KSH
+		}
+	}
+	continuous_focus_position = { x = 50 y = 1700 }
+	#Focus for Conduct the National Census
+	focus = {
+		id = KSH_conduct_the_national_census
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 12
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 75  add_stability= 0.05
+		}
+	}
+
+	#Focus for Create a Government
+	focus = {
+		id = KSH_create_a_government
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 6
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150
+		}
+	}
+
+	#Focus for Create a Pairlament
+	focus = {
+		id = KSH_create_a_pairlament
+		icon = GFX_focus_generic_self_management
+		x = 7
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_create_a_government }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.1 
+}
+  add_political_power= 50
+		}
+	}
+
+	#Focus for Sign the Constitution
+	focus = {
+		id = KSH_sign_the_constitution
+		icon = GFX_focus_generic_treaty
+		x = 5
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_create_a_government }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.05  set_politics= {
+ ruling_party = democratic 
+elections_allowed = yes 
+}
+		}
+	}
+
+	#Focus for The First Election
+	focus = {
+		id = KSH_the_first_election
+		icon = GFX_goal_generic_demand_territory
+		x = 9
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_estabilish_diplomatic_relations 
+			focus = KSH_free_schools 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			country_event= {
+days = 1 
+id = ftfrn.62 
+}
+		}
+	}
+
+	#Focus for Kaszëbe United
+	focus = {
+		id = KSH_kaszbe_united
+		icon = GFX_goal_anschluss
+		x = 9
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_the_first_election }
+		mutually_exclusive = { 
+			focus = KSH_anti_german_stance 
+		}
+		mutually_exclusive = { 
+			focus = KSH_anti_polish_stance 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 50  add_popularity= { 
+ideology = democratic 
+popularity = 0.05 
+}
+		}
+	}
+
+	#Focus for Improve Local Infrastructure
+	focus = {
+		id = KSH_improve_local_infrastructure
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 11
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_conduct_the_national_census }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state= {
+add_building_construction = {type = infrastructure level = 2
+instant_build = yes}
+
+}
+  random_owned_controlled_state= {
+add_building_construction = {type = infrastructure level = 1
+instant_build = yes}
+
+}
+		}
+	}
+
+	#Focus for Defarm the Land
+	focus = {
+		id = KSH_defarm_the_land
+		icon = GFX_goal_generic_construct_civilian
+		x = 13
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_conduct_the_national_census 
+		}
+		prerequisite = { 
+			focus = KSH_subsidise_local_industry 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_state= {
+ add_extra_state_shared_building_slots = 5 
+}
+random_owned_state= {
+ add_extra_state_shared_building_slots = 2 
+}
+		}
+	}
+
+	#Focus for Free Schools
+	focus = {
+		id = KSH_free_schools
+		icon = GFX_focus_research2
+		x = 12
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_defarm_the_land 
+		}
+		prerequisite = { 
+			focus = KSH_improve_local_infrastructure 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Promote Kashubian Patriotism
+	focus = {
+		id = KSH_promote_kashubian_patriotism
+		icon = GFX_focus_generic_military_mission
+		x = 8
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_kaszbe_united }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1
+		}
+	}
+
+	#Focus for Anti German Stance
+	focus = {
+		id = KSH_anti_german_stance
+		icon = GFX_focus_generic_polish_deal
+		x = 15
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_the_first_election }
+		mutually_exclusive = { focus = KSH_kaszbe_united }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag= KSH_germs_bad
+		}
+		completion_reward = {
+			add_political_power= 75  add_stability= 0.05
+		}
+	}
+
+	#Focus for Anti Polish Stance
+	focus = {
+		id = KSH_anti_polish_stance
+		icon = GFX_focus_generic_support_the_left_right
+		x = 3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_the_first_election }
+		mutually_exclusive = { focus = KSH_kaszbe_united }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_country_flag= KSH_pol_bad
+		}
+		completion_reward = {
+			add_war_support= 0.05
+		}
+	}
+
+	#Focus for Strenghten German Cultural Ties
+	focus = {
+		id = KSH_strenghten_german_cultural_ties
+		icon = GFX_goal_generic_improve_relations
+		x = 4
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_anti_polish_stance }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  
+add_opinion_modifier = { target = GER modifier = medium_increase }
+		}
+	}
+
+	#Focus for Legacy of the Occupation
+	focus = {
+		id = KSH_legacy_of_the_occupation
+		icon = GFX_goal_generic_small_arms
+		x = 10
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_kaszbe_united }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.1
+		}
+	}
+
+	#Focus for Persecute the Polish
+	focus = {
+		id = KSH_persecute_the_polish
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_anti_polish_stance }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150
+		}
+	}
+
+	#Focus for Enshrine Cultural Differences
+	focus = {
+		id = KSH_enshrine_cultural_differences
+		icon = GFX_goal_generic_dangerous_deal
+		x = 9
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_promote_kashubian_patriotism 
+		}
+		prerequisite = { 
+			focus = KSH_legacy_of_the_occupation 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1
+remove_ideas = weak_ethnicity
+add_opinion_modifier = { target = GER modifier = large_decrease  }
+add_opinion_modifier = { target = POL modifier = large_decrease  }
+every_owned_state={
+limit={is_core_of = KSH}
+remove_core_of = POL}
+		}
+	}
+
+	#Focus for A Land of Tolerance
+	focus = {
+		id = KSH_a_land_of_tolerance
+		icon = GFX_goal_generic_national_unity
+		x = 11
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_enshrine_cultural_differences }
+		mutually_exclusive = { focus = KSH_continue_down_the_path_of_nationalism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  add_political_power= 150
+		}
+	}
+
+	#Focus for Continue Down the Path of Nationalism
+	focus = {
+		id = KSH_continue_down_the_path_of_nationalism
+		icon = GFX_goal_generic_propaganda
+		x = 7
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_enshrine_cultural_differences }
+		mutually_exclusive = { focus = KSH_a_land_of_tolerance }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.1  add_popularity= { 
+ideology = fascism 
+popularity = 0.1 
+}
+		}
+	}
+
+	#Focus for German Coup
+	focus = {
+		id = KSH_german_coup
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 3
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_strenghten_german_cultural_ties 
+		}
+		prerequisite = { 
+			focus = KSH_persecute_the_polish 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.4 
+}
+  set_politics= {
+ ruling_party = fascism 
+elections_allowed = no 
+}
+set_party_name= { 
+ideology = fascism
+long_name = KSH_germangov
+name = KSH_germangov
+}
+		}
+	}
+
+	#Focus for Close Nazi Cooperation
+	focus = {
+		id = KSH_close_nazi_cooperation
+		icon = GFX_focus_chi_mission_to_germany
+		x = 1
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_german_coup }
+		mutually_exclusive = { focus = KSH_independent_fascism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			GER={
+has_government = fascism
+is_subject = no}
+		}
+		completion_reward = {
+			GER={
+add_to_faction= KSH}
+		}
+	}
+
+	#Focus for Independent Fascism
+	focus = {
+		id = KSH_independent_fascism
+		icon = GFX_goal_support_fascism
+		x = 5
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_german_coup }
+		mutually_exclusive = { focus = KSH_close_nazi_cooperation }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+  add_stability= 0.05
+		}
+	}
+
+	#Focus for Military Buildup
+	focus = {
+		id = KSH_military_buildup
+		icon = GFX_focus_generic_little_entente
+		x = 6
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_promote_kashubian_patriotism 
+			focus = KSH_strenghten_german_cultural_ties 
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 8000  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Nazi Advisors
+	focus = {
+		id = KSH_nazi_advisors
+		icon = GFX_goal_generic_dangerous_deal
+		x = 1
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_close_nazi_cooperation }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = ger_advisors
+		}
+	}
+
+	#Focus for A Homogenous Country
+	focus = {
+		id = KSH_a_homogenous_country
+		icon = GFX_goal_generic_secret_weapon
+		x = 3
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_independent_fascism 
+			focus = KSH_close_nazi_cooperation 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			remove_ideas = weak_ethnicity
+		}
+	}
+
+	#Focus for Nationalist Coup
+	focus = {
+		id = KSH_nationalist_coup
+		icon = GFX_goal_generic_political_pressure
+		x = 7
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_continue_down_the_path_of_nationalism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism
+popularity = 0.5 
+}
+  set_politics= {
+ ruling_party = fascism
+elections_allowed = yes 
+}
+		}
+	}
+
+	#Focus for Wendish Unity
+	focus = {
+		id = KSH_wendish_unity
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 7
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_nationalist_coup }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_core= 63  add_state_core= 68  add_state_core= 64  add_state_core= 62  add_state_core= 61  add_state_core= 66
+set_cosmetic_tag = WEN
+		}
+	}
+
+	#Focus for Sieze German Lands
+	focus = {
+		id = KSH_sieze_german_lands
+		icon = GFX_focus_attack_germany
+		x = 7
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_wendish_unity }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			IF={
+limit={GER={exists =yes}}
+create_wargoal= { 
+type = annex_everything 
+target = GER
+}
+}
+IF={
+limit={PRE={exists =yes}}
+create_wargoal= { 
+type = annex_everything 
+target = PRE
+}
+}
+		}
+	}
+
+	#Focus for Prussian Legacy
+	focus = {
+		id = KSH_prussian_legacy
+		icon = GFX_focus_BUL_prussia_of_the_balkans
+		x = 5
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_independent_fascism }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			PRE={
+exists = no
+}
+		}
+		completion_reward = {
+			set_cosmetic_tag= PRE  add_state_core= 5  add_state_core= 763
+		}
+	}
+
+	#Focus for Bring Back Prussian Militarism
+	focus = {
+		id = KSH_bring_back_prussian_militarism
+		icon = GFX_focus_generic_manpower
+		x = 5
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_prussian_legacy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = prussian_legacy
+add_war_support = 0.2
+		}
+	}
+
+	#Focus for In the Footsteps of Teutons
+	focus = {
+		id = KSH_in_the_footsteps_of_teutons
+		icon = GFX_goal_generic_major_war
+		x = 5
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_bring_back_prussian_militarism }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_core= 188  create_wargoal= { 
+type = annex_everything 
+target = LIT
+}
+		}
+	}
+
+	#Focus for Invite German Industry
+	focus = {
+		id = KSH_invite_german_industry
+		icon = GFX_KSH_invite_german_industry-107625
+		x = 1
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_nazi_advisors }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for German Technology
+	focus = {
+		id = KSH_german_technology
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 1
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_invite_german_industry }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Attack Poland
+	focus = {
+		id = KSH_attack_poland
+		icon = GFX_goal_generic_political_pressure
+		x = 3
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_bring_back_prussian_militarism 
+			focus = KSH_invite_german_industry 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = POL
+}
+		}
+	}
+
+	#Focus for Blitzkrieg Experiments
+	focus = {
+		id = KSH_blitzkrieg_experiments
+		icon = GFX_goal_generic_army_tanks
+		x = 3
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_prussian_legacy 
+			focus = KSH_nazi_advisors 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience= 100 
+add_tech_bonus = {
+				name = armor_bonus
+				bonus = 1.0
+				uses = 2
+				category = armor
+			}
+		}
+	}
+
+	#Focus for Attract Immigrants
+	focus = {
+		id = KSH_attract_immigrants
+		icon = GFX_goal_generic_propaganda
+		x = 11
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_a_land_of_tolerance }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 20000 
+add_ideas = diverse_country
+		}
+	}
+
+	#Focus for Civilian Investment
+	focus = {
+		id = KSH_civilian_investment
+		icon = GFX_goal_generic_consumer_goods
+		x = 11
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_attract_immigrants }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = industrial_complex
+ level = 5
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Neutral Foreign Policy
+	focus = {
+		id = KSH_neutral_foreign_policy
+		icon = GFX_goal_generic_defence
+		x = 11
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_civilian_investment }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = GER modifier = large_increase }
+add_opinion_modifier = { target = POL modifier = large_increase }
+diplomatic_relation = { 
+	country = GER
+	relation = non_aggression_pact 
+}
+		}
+	}
+
+	#Focus for Find Allies
+	focus = {
+		id = KSH_find_allies
+		icon = GFX_goal_generic_alliance
+		x = 9
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_civilian_investment 
+			focus = KSH_wendish_unity 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_rule= { 
+can_create_factions = yes 
+}
+		}
+	}
+
+	#Focus for Fortfication Effort
+	focus = {
+		id = KSH_fortfication_effort
+		icon = GFX_goal_generic_fortify_city
+		x = 9
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_nationalist_coup 
+			focus = KSH_attract_immigrants 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = deterrence
+		}
+	}
+
+	#Focus for Airforce Effort
+	focus = {
+		id = KSH_airforce_effort
+		icon = GFX_goal_generic_air_fighter2
+		x = 9
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_continue_down_the_path_of_nationalism 
+			focus = KSH_a_land_of_tolerance 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+		}
+	}
+
+	#Focus for Ensure Peaceful Coexistance
+	focus = {
+		id = KSH_ensure_peaceful_coexistance
+		icon = GFX_goal_generic_major_alliance
+		x = 14
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_anti_german_stance }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.05
+		}
+	}
+
+	#Focus for United Against the German Threat
+	focus = {
+		id = KSH_united_against_the_german_threat
+		icon = GFX_goal_demand_sudetenland
+		x = 16
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_anti_german_stance }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= united_against_ger
+add_opinion_modifier = { target = POL modifier = medium_increase  }
+		}
+	}
+
+	#Focus for Polish-Kashubian Government
+	focus = {
+		id = KSH_polishkashubian_government
+		icon = GFX_goal_tripartite_pact
+		x = 13
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_two_language_solution }
+		mutually_exclusive = { focus = KSH_military_cooperation_with_poland }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_party_name= { 
+ideology = democratic 
+long_name = KSH_joint 
+name = KSH_joint  
+}
+add_ideas = joint_gov
+set_cosmetic_tag = KPOL
+		}
+	}
+
+	#Focus for Two Language Solution
+	focus = {
+		id = KSH_two_language_solution
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 15
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_ensure_peaceful_coexistance 
+		}
+		prerequisite = { 
+			focus = KSH_united_against_the_german_threat 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			remove_ideas = weak_ethnicity
+		}
+	}
+
+	#Focus for Civilian Buildup
+	focus = {
+		id = KSH_civilian_buildup
+		icon = GFX_goal_generic_production
+		x = 12
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_legacy_of_the_occupation 
+			focus = KSH_ensure_peaceful_coexistance 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Military Cooperation with Poland
+	focus = {
+		id = KSH_military_cooperation_with_poland
+		icon = GFX_focus_secret_rearmament
+		x = 17
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_two_language_solution }
+		mutually_exclusive = { focus = KSH_polishkashubian_government }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for The Mutual Guarantee Pact
+	focus = {
+		id = KSH_the_mutual_guarantee_pact
+		icon = GFX_goal_generic_small_arms
+		x = 17
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_military_cooperation_with_poland }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			give_guarantee= POL 
+POL={
+give_guarantee=KSH
+}
+		}
+	}
+
+	#Focus for Joint Military Excercise
+	focus = {
+		id = KSH_joint_military_excercise
+		icon = GFX_goal_generic_air_doctrine
+		x = 15
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_polishkashubian_government 
+			focus = KSH_military_cooperation_with_poland 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT={
+has_war_with = POL
+}
+		}
+		completion_reward = {
+			army_experience= 50
+POL={
+army_experience= 50
+}
+		}
+	}
+
+	#Focus for Polish Unity
+	focus = {
+		id = KSH_polish_unity
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 13
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_polishkashubian_government }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			every_state={
+limit={is_core_of = POL}
+add_core_of = KSH
+}
+		}
+	}
+
+	#Focus for Deal with Poland
+	focus = {
+		id = KSH_deal_with_poland
+		icon = GFX_KSH_deal_with_poland-111258
+		x = 13
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_polish_unity }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = POL
+}
+		}
+	}
+
+	#Focus for Government Reform
+	focus = {
+		id = KSH_government_reform
+		icon = GFX_goal_generic_major_alliance
+		x = 13
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_deal_with_poland }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_cosmetic_tag = POL
+load_focus_tree = polish_focus
+		}
+	}
+
+	#Focus for Estabilish Diplomatic Relations
+	focus = {
+		id = KSH_estabilish_diplomatic_relations
+		icon = GFX_goal_generic_propaganda
+		x = 6
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_sign_the_constitution 
+		}
+		prerequisite = { 
+			focus = KSH_create_a_pairlament 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150
+		}
+	}
+
+	#Focus for Polish Economic Integration Effort
+	focus = {
+		id = KSH_polish_economic_integration_effort
+		icon = GFX_KSH_polish_economic_integration_effort-107564
+		x = 17
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_the_mutual_guarantee_pact }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+POL={
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+}
+		}
+	}
+
+	#Focus for Eastern Entente
+	focus = {
+		id = KSH_eastern_entente
+		icon = GFX_goal_generic_attack_allies
+		x = 17
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_polish_economic_integration_effort }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			POL={is_in_faction = no}
+		}
+		completion_reward = {
+			create_faction= "Eastern Entente"
+add_to_faction = POL
+		}
+	}
+
+	#Focus for Create a Kashubian Army
+	focus = {
+		id = KSH_create_a_kashubian_army
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 18
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  army_experience= 10
+		}
+	}
+
+	#Focus for Subsidise Local Industry
+	focus = {
+		id = KSH_subsidise_local_industry
+		icon = GFX_focus_mex_privatisation
+		x = 15
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Industrial Effort
+	focus = {
+		id = KSH_industrial_effort
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 15
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_subsidise_local_industry }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Explore New Construction Technologies
+	focus = {
+		id = KSH_explore_new_construction_technologies
+		icon = GFX_goal_generic_construction2
+		x = 14
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_free_schools 
+		}
+		prerequisite = { 
+			focus = KSH_continue_industrialisation
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+		}
+	}
+
+	#Focus for Military Industrial Effort
+	focus = {
+		id = KSH_military_industrial_effort
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 17
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_subsidise_local_industry 
+		}
+		prerequisite = { 
+			focus = KSH_create_a_kashubian_army 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Continue Industrial Development
+	focus = {
+		id = KSH_continue_industrial_development
+		icon = GFX_KSH_continue_industrial_development-116412
+		x = 16
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_continue_industrialisation
+		}
+		prerequisite = { 
+			focus = KSH_expand_the_manufacturing_complexes 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Doctrine Effort
+	focus = {
+		id = KSH_doctrine_effort
+		icon = GFX_goal_generic_army_doctrines
+		x = 19
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_create_a_kashubian_army }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Equipment Effort
+	focus = {
+		id = KSH_equipment_effort
+		icon = GFX_focus_focus_fra_maquis
+		x = 19
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_military_industrial_effort 
+		}
+		prerequisite = { 
+			focus = KSH_doctrine_effort 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	#Focus for Continue Industrialisation
+	focus = {
+		id = KSH_continue_industrialisation
+		icon = GFX_goal_generic_production2
+		x = 15
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_industrial_effort }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand the Manufacturing Complexes
+	focus = {
+		id = KSH_expand_the_manufacturing_complexes
+		icon = GFX_goal_generic_production
+		x = 17
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KSH_military_industrial_effort }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Tank Experiments
+	focus = {
+		id = KSH_tank_experiments
+		icon = GFX_goal_generic_army_tanks
+		x = 18
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KSH_equipment_effort 
+		}
+		prerequisite = { 
+			focus = KSH_expand_the_manufacturing_complexes 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 1.0
+				uses = 2
+				category = armor
+			}
+		}
+	}
+
+#End of focuses 
+ }

@@ -1,0 +1,153 @@
+leader_traits = {
+	rurik = {
+		random = no
+		war_support_factor = 0.05
+		stability_factor = 0.05
+		neutrality_drift = 0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	russian_friend = {
+		random = no
+		targeted_modifier = {
+			tag = SOV
+			trade_cost_for_target_factor = -0.25
+			generate_wargoal_tension_against = 0.75
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	OUN_veteran = {
+		random = no
+		targeted_modifier = {
+			tag = POL
+			attack_bonus_against = 0.05
+			army_core_attack_factor = 0.1
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	corn_enjoyer = {
+		random = no
+		consumer_goods_factor = -0.01
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	political_leader = {
+		random = no
+		political_power_factor = 0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	nuke_company = {
+		random = no
+
+		nuclear_production_factor = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	sov_diplomat = {
+		random = no
+		communism_drift = 0.05
+		political_power_factor = 0.15
+		stability_factor = 0.02
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	holy_father = {
+		random = no
+		political_power_factor = 0.15
+		stability_factor = 0.05
+		war_support_factor = 0.05
+		research_speed_factor = -0.05
+		democratic_drift = -0.01
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	metal_holy_father = {
+		random = no
+		political_power_factor = 0.3
+		stability_factor = 0.1
+		war_support_factor = 0.1
+		research_speed_factor = -0.1
+		democratic_drift = -0.1
+		fascism_drift = 0.05
+		neutrality_drift = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	worker_backround = {
+		random = no
+		communism_drift = 0.01
+		political_power_factor = 0.15
+		production_factory_efficiency_gain_factor = -0.05 
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	pacifist_experience	= {
+		random = no
+		war_support_factor = -0.05
+		stability_factor = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	intolerant_son_of_a_bitch = {
+		random = no
+		stability_factor = -0.05
+		political_power_factor = -0.1
+		war_support_factor = 0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	uprising_veteran = {
+		random = no
+		war_support_factor = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	opportunist_pragmatist= {
+		random = no
+		political_power_gain = 0.05
+		stability_factor = -0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	true_silesian= {
+		random = no
+		stability_factor = 0.05
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cultural_unifier= {
+		random = no
+		stability_factor = 0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	former_general = {
+		random = no
+		max_command_power_mult = 0.1
+		army_org = 2
+		military_leader_cost_factor = -0.1
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

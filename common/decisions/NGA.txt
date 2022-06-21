@@ -1,0 +1,239 @@
+NGA_com_union={
+	do_council = {
+		cost = 150
+		complete_effect={
+			DAH={
+				add_opinion_modifier = { target = NGA modifier = large_increase }
+			}
+			TOG={
+				add_opinion_modifier = { target = NGA modifier = large_increase }
+			}
+			GHA={
+				add_opinion_modifier = { target = NGA modifier = large_increase }
+			}
+			IVO={
+				add_opinion_modifier = { target = NGA modifier = large_increase }
+			}
+			LIB={
+				add_opinion_modifier = { target = NGA modifier = large_increase }
+			}
+			GNA={
+				add_opinion_modifier = { target = NGA modifier = large_increase }
+			}
+			SIE={
+				add_opinion_modifier = { target = NGA modifier = large_increase }
+			}
+		}
+	}
+	inf_DAH = {
+		available={
+			DAH={
+				has_opinion = {
+					target = NGA
+					value > 24
+				}
+			}
+		}
+        cost = 100
+        complete_effect = {
+			random_list = {
+				75 = { 
+					annex_country = {
+						target = DAH
+						transfer_troops = yes
+					}
+					add_state_core = 776
+				}
+				25 = { 
+					DAH={
+						add_opinion_modifier = { target = NGA modifier = small_decrease  }
+					}
+				}
+			}
+        }
+		fire_only_once = yes
+    }
+	inf_TOG = {
+		available={
+			TOG={
+				has_opinion = {
+					target = NGA
+					value > 24
+				}
+			}
+		}
+        cost = 100
+        complete_effect = {
+			random_list = {
+				75 = { 
+					annex_country = {
+						target = TOG
+						transfer_troops = yes
+					}
+					add_state_core = 777
+				}
+				25 = { 
+					TOG={
+						add_opinion_modifier = { target = NGA modifier = small_decrease  }
+					}
+				}
+			}
+        }
+		fire_only_once = yes
+    }
+	inf_GHA = {
+		available={
+			GHA={
+				has_opinion = {
+					target = NGA
+					value > 24
+				}
+			}
+		}
+        cost = 100
+        complete_effect = {
+			random_list = {
+				75 = { 
+					annex_country = {
+						target = GHA
+						transfer_troops = yes
+					}
+					add_state_core = 274
+				}
+				25 = { 
+					GHA={
+						add_opinion_modifier = { target = NGA modifier = small_decrease  }
+					}
+				}
+			}
+        }
+		fire_only_once = yes
+    }
+	inf_IVO = {
+		available={
+			IVO={
+				has_opinion = {
+					target = NGA
+					value > 24
+				}
+			}
+		}
+        cost = 100
+        complete_effect = {
+			random_list = {
+				75 = { 
+					annex_country = {
+						target = IVO
+						transfer_troops = yes
+					} 
+					add_state_core = 779
+				}
+				25 = { 
+					IVO={
+						add_opinion_modifier = { target = NGA modifier = small_decrease  }
+					}
+				}
+			}
+        }
+		fire_only_once = yes
+    }
+	inf_LIB = {
+		available={
+			LIB={
+				has_opinion = {
+					target = NGA
+					value > 24
+				}
+			}
+		}
+        cost = 100
+        complete_effect = {
+			random_list = {
+				75 = { 
+					annex_country = {
+						target = LIB
+						transfer_troops = yes
+					}
+					add_state_core = 298
+				}
+				25 = { 
+					LIB={
+						add_opinion_modifier = { target = NGA modifier = small_decrease  }
+					}
+				}
+			}
+        }
+		fire_only_once = yes
+    }
+	inf_GNA = {
+		available={
+			GNA={
+				has_opinion = {
+					target = NGA
+					value > 24
+				}
+			}
+		}
+        cost = 100
+        complete_effect = {
+			random_list = {
+				75 = { 
+					annex_country = {
+						target = GNA
+						transfer_troops = yes
+					}
+					add_state_core = 780
+				}
+				25 = { 
+					GNA={
+						add_opinion_modifier = { target = NGA modifier = small_decrease  }
+					}
+				}
+			}
+        }
+		fire_only_once = yes
+    }
+	inf_SIE = {
+		available={
+			SIE={
+				has_opinion = {
+					target = NGA
+					value > 24
+				}
+			}
+		}
+        cost = 100
+        complete_effect = {
+			random_list = {
+				75 = { 
+					annex_country = {
+						target = SIE
+						transfer_troops = yes
+					}
+					add_state_core = 700
+				}
+				25 = { 
+					SIE={
+						add_opinion_modifier = { target = NGA modifier = small_decrease  }
+					}
+				}
+			}
+        }
+		fire_only_once = yes
+    }
+	NGA_unify = {
+		available={
+			controls_state = 776
+			controls_state = 777
+			controls_state = 274
+			controls_state = 779
+			controls_state = 298
+			controls_state = 780
+			controls_state = 700
+		}
+		complete_effect = {
+			set_cosmetic_tag = WAF
+        }
+		fire_only_once = yes
+	}
+}

@@ -1,0 +1,1838 @@
+focus_tree = {
+	id = Wales
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = WLS
+		}
+	}
+	#Focus for Strengthen Domestic Military Industry
+	focus = {
+		id = WLS_strengthen_domestic_military_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 18
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_revive_the_welsh_spirit }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Proclaim Greater Wales
+	focus = {
+		id = WLS_proclaim_greater_wales
+		icon = GFX_goal_generic_special_forces
+		x = 13
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = WLS_revolution_starts 
+			focus = WLS_fate_of_england 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			123 ={is_owned_by= WLS} 
+338 ={is_owned_by= WLS}  
+128 ={is_owned_by= WLS}  
+132 ={is_owned_by= WLS}
+		}
+		completion_reward = {
+			add_state_core= 123
+add_state_core= 338
+add_state_core= 128
+add_state_core= 132 
+set_cosmetic_tag = GRT_WLS
+ENG = {
+remove_state_core= 123
+remove_state_core= 338
+remove_state_core= 128
+remove_state_core= 132 
+}
+		}
+	}
+
+	#Focus for Prepare a Volounteer Core
+	focus = {
+		id = WLS_prepare_a_volounteer_core
+		icon = GFX_goal_generic_small_arms
+		x = 28
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = WLS_technology_sharing_deal 
+		}
+		prerequisite = { 
+			focus = WLS_industrial_development 
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_rule = { can_send_volunteers = yes }
+add_manpower = 100000
+		}
+	}
+
+	#Focus for Technology Sharing Deal
+	focus = {
+		id = WLS_technology_sharing_deal
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 28
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = WLS_become_an_autonomus_region 
+			focus = WLS_continue_peaceful_coexistance 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_in_faction_with= ENG
+		}
+		completion_reward = {
+			add_research_slot= 2
+		}
+	}
+
+	#Focus for Military Research Teams
+	focus = {
+		id = WLS_military_research_teams
+		icon = GFX_focus_research2
+		x = 20
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_united_against_threats }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Prepare Against Fascist Threats
+	focus = {
+		id = WLS_prepare_against_fascist_threats
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 24
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = WLS_fortification_effort 
+		}
+		prerequisite = { 
+			focus = WLS_industrial_development 
+		}
+		prerequisite = { 
+			focus = WLS_us_industrial_investment 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Military Expansion
+	focus = {
+		id = WLS_military_expansion
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 22
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = WLS_ask_the_facists 
+		}
+		prerequisite = { 
+			focus = WLS_united_against_threats 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = arms_factory
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Become the empire's dockyard
+	focus = {
+		id = WLS_become_the_empires_dockyard
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 26
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_industrial_development }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = dockyard
+ level = 4
+ instant_build = yes
+ }
+	add_building_construction = {
+		type = naval_base
+        	province = 377
+		level = 2
+	}
+	add_building_construction = {
+		type = naval_base
+        	province = 3274
+		level = 3
+	}
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Continue Peaceful Coexistance
+	focus = {
+		id = WLS_continue_peaceful_coexistance
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		x = 26
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_seek_help_from_the_english }
+		mutually_exclusive = { focus = WLS_become_an_autonomus_region }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_war= no
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = ENG modifier = small_increase }
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+ENG = { country_event = { id = ftfrn.2 } }
+		}
+	}
+
+	#Focus for Militarize Farmers
+	focus = {
+		id = WLS_militarize_farmers
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		x = 10
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_utilize_internal_strength }
+		mutually_exclusive = { focus = WLS_support_farmers }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 100000
+add_stability= -0.2
+add_popularity = {ideology = communism popularity = 0.2}
+		}
+	}
+
+	#Focus for Industrial Development
+	focus = {
+		id = WLS_industrial_development
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 26
+		y = 3
+		cost = 15
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = WLS_continue_peaceful_coexistance 
+			focus = WLS_become_an_autonomus_region 
+			focus = WLS_ask_the_us 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Secure Farmlands
+	focus = {
+		id = WLS_secure_farmlands
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 10
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_militarize_farmers }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+			add_extra_state_shared_building_slots = 7
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+ }
+		}
+	}
+
+	#Focus for Become an Autonomus Region
+	focus = {
+		id = WLS_become_an_autonomus_region
+		icon = GFX_focus_CZE_german_puppet
+		x = 28
+		y = 2
+		cost = 15
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_seek_help_from_the_english }
+		mutually_exclusive = { focus = WLS_continue_peaceful_coexistance }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_subject= no
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+ENG = { puppet = WLS }
+add_opinion_modifier = { target = ENG modifier = medium_increase }
+		}
+	}
+
+	#Focus for Secure the Lowlands
+	focus = {
+		id = WLS_secure_the_lowlands
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 14
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_secure_industry }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim= 132
+add_state_claim= 128
+add_state_claim= 338
+add_state_claim= 123
+		}
+	}
+
+	#Focus for Army Reform
+	focus = {
+		id = WLS_army_reform
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 20
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_military_research_teams }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience= 25  
+			add_manpower= 10000
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			add_opinion_modifier = { target = GER modifier = small_increase  }
+		}
+	}
+
+	#Focus for Prepare for War
+	focus = {
+		id = WLS_prepare_for_war
+		icon = GFX_goal_generic_position_armies
+		x = 16
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_the_future_of_wales }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.15
+add_popularity= { 
+ideology = fascism 
+popularity = 0.05
+}
+		}
+	}
+
+	#Focus for Fate of England
+	focus = {
+		id = WLS_fate_of_england
+		icon = GFX_focus_attack_britain
+		x = 14
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = WLS_prepare_for_war 
+		}
+		prerequisite = { 
+			focus = WLS_secure_the_lowlands 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 100000}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = ENG
+}
+		}
+	}
+
+	#Focus for Revolution Starts
+	focus = {
+		id = WLS_revolution_starts
+		icon = GFX_focus_prc_agrarian_socialism
+		x = 12
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = WLS_workers_of_britain 
+		}
+		prerequisite = { 
+			focus = WLS_secure_farmlands 
+		}
+		prerequisite = { 
+			focus = WLS_secure_the_lowlands 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 100000}
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = communism 
+elections_allowed = no 
+}
+add_war_support= 0.2
+create_wargoal= { 
+ type = puppet_wargoal_focus
+ target = ENG
+}
+		}
+	}
+
+	#Focus for Secure Industry
+	focus = {
+		id = WLS_secure_industry
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		x = 14
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = WLS_utilize_internal_strength 
+			focus = WLS_welsh_heritage 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Fortified Border
+	focus = {
+		id = WLS_fortified_border
+		icon = GFX_goal_generic_construct_military
+		x = 12
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_utilize_internal_strength }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			122 = {
+	add_building_construction = {
+		type = bunker
+        	province = 377
+		level = 2
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 253
+		level = 2
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 311
+		level = 2
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 9364
+		level = 2
+	}
+}
+		}
+	}
+
+	#Focus for The future of Wales
+	focus = {
+		id = WLS_the_future_of_wales
+		icon = GFX_focus_generic_monarchy_2
+		x = 16
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_welsh_heritage }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_government = fascism
+		}
+		completion_reward = {
+			add_war_support= 0.05  
+add_popularity= { 
+ideology = fascism 
+popularity = 0.1 
+}
+		}
+	}
+
+	#Focus for Buy Farmlands
+	focus = {
+		id = WLS_buy_farmlands
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 8
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_support_farmers }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+add_extra_state_shared_building_slots = 3
+}
+		}
+	}
+
+	#Focus for Ask the US
+	focus = {
+		id = WLS_ask_the_us
+		icon = GFX_goal_support_democracy
+		x = 24
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_seek_help_from_others }
+		mutually_exclusive = { focus = WLS_ask_the_facists }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.2 
+}
+USA = {give_guarantee = WLS}
+		}
+	}
+
+	#Focus for Foreign Inspiration
+	focus = {
+		id = WLS_foreign_inspiration
+		icon = GFX_goal_generic_army_artillery2
+		x = 0
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_improve_relations_with_empire }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+ name = infantry_artillery_bonus
+ bonus = 0.25
+ uses = 4
+ category = infantry_weapons
+ category = artillery
+}
+		}
+	}
+
+	#Focus for Ask the Facists
+	focus = {
+		id = WLS_ask_the_facists
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = 20
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_seek_help_from_others }
+		mutually_exclusive = { focus = WLS_ask_the_us }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.1 
+}
+GER = {give_guarantee = WLS}
+		}
+	}
+
+	#Focus for Independence Secured
+	focus = {
+		id = WLS_independence_secured
+		icon = GFX_goal_generic_demand_territory
+		x = 20
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150
+add_stability= 0.1
+		}
+	}
+
+	#Focus for Seek Help from the English
+	focus = {
+		id = WLS_seek_help_from_the_english
+		icon = GFX_goal_generic_improve_relations
+		x = 27
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_independence_secured }
+		mutually_exclusive = { 
+			focus = WLS_independence_at_any_costs 
+		}
+		mutually_exclusive = { 
+			focus = WLS_seek_help_from_others 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.1 
+}
+add_popularity= { 
+ideology = neutrality 
+popularity = 0.1 
+}
+		}
+	}
+
+	#Focus for Seek Help from Others
+	focus = {
+		id = WLS_seek_help_from_others
+		icon = GFX_goal_generic_demand_territory
+		x = 22
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_independence_secured }
+		mutually_exclusive = { 
+			focus = WLS_independence_at_any_costs 
+		}
+		mutually_exclusive = { 
+			focus = WLS_seek_help_from_the_english 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= -100  add_stability= 0.05 
+add_popularity= { 
+ideology = democratic
+popularity = -0.1 
+}
+add_ideas = equipment_sharing_programs
+		}
+	}
+
+	#Focus for Independence at any Costs
+	focus = {
+		id = WLS_independence_at_any_costs
+		icon = GFX_focus_attack_britain
+		x = 15
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_independence_secured }
+		mutually_exclusive = { 
+			focus = WLS_seek_help_from_the_english 
+		}
+		mutually_exclusive = { 
+			focus = WLS_seek_help_from_others 
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_subject= no
+		}
+		completion_reward = {
+			add_war_support= 0.15
+add_stability= 0.1
+add_opinion_modifier = { target = ENG modifier = medium_decrease  }
+		}
+	}
+
+	#Focus for Welsh Heritage
+	focus = {
+		id = WLS_welsh_heritage
+		icon = GFX_focus_GRE_a_land_of_mountains
+		x = 18
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_independence_at_any_costs }
+		mutually_exclusive = { focus = WLS_utilize_internal_strength }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_subject= no
+		}
+		completion_reward = {
+			add_war_support= 0.05
+add_popularity= { 
+ideology = fascism 
+popularity = 0.05 
+}
+army_experience= 30
+		}
+	}
+
+	#Focus for Utilize Internal Strength
+	focus = {
+		id = WLS_utilize_internal_strength
+		icon = GFX_focus_BUL_destroy_the_zveno
+		x = 12
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_independence_at_any_costs }
+		mutually_exclusive = { focus = WLS_welsh_heritage }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_subject= no
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.2
+}
+add_ideas = economic_miracle
+		}
+	}
+
+	#Focus for Fortification Effort
+	focus = {
+		id = WLS_fortification_effort
+		icon = GFX_goal_generic_fortify_city
+		x = 22
+		y = 3
+		cost = 15
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = WLS_ask_the_us 
+			focus = WLS_ask_the_facists 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			122 = {
+	add_building_construction = {
+		type = bunker
+        	province = 377
+		level = 5
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 253
+		level = 2
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 311
+		level = 2
+	}
+	add_building_construction = {
+		type = bunker
+        	province = 9364
+		level = 2
+	}
+}
+		}
+	}
+
+	#Focus for United Against Threats
+	focus = {
+		id = WLS_united_against_threats
+		icon = GFX_goal_support_fascism
+		x = 20
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = WLS_ask_the_facists 
+			focus = WLS_welsh_heritage 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			fascism > 0.3
+		}
+		completion_reward = {
+			set_politics = {
+	ruling_party = fascism
+	elections_allowed = no
+}
+add_popularity = {ideology = fascism popularity = 0.2}
+		}
+	}
+
+	#Focus for Workers of Britain
+	focus = {
+		id = WLS_workers_of_britain
+		icon = GFX_focus_focus_fra_revolution_utmost
+		x = 12
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_fortified_border }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 20000
+add_stability= -0.1
+add_war_support= 0.2
+add_popularity= { 
+ideology = communism 
+popularity = 0.15
+}
+		}
+	}
+
+	#Focus for Revive the Welsh Spirit
+	focus = {
+		id = WLS_revive_the_welsh_spirit
+		icon = GFX_goal_generic_propaganda
+		x = 18
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_welsh_heritage }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = revive_welsh_spirit
+		}
+	}
+
+	#Focus for Sun sets on British Empire!
+	focus = {
+		id = WLS_sun_sets_on_british_empire
+		icon = GFX_focus_eng_decolonization
+		x = 13
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_proclaim_greater_wales }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			CAN = {exists = no}
+CAN = {is_puppet_of= WLS}
+		}
+		completion_reward = {
+			create_wargoal= { 
+ type = puppet_wargoal_focus
+ target = CAN
+}
+		}
+	}
+
+	#Focus for Deal with RAF
+	focus = {
+		id = WLS_deal_with_raf
+		icon = GFX_focus_fra_regiment_normandie
+		x = 30
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_technology_sharing_deal }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			air_experience= 25
+add_tech_bonus = {
+ name = fighter_bonus
+ bonus = 1.0
+ uses = 1
+ technology = fighter1
+ technology = fighter2
+ technology = fighter3
+}
+122 = {
+add_building_construction = {
+ type = air_base
+ level = 2
+ instant_build = yes
+ }
+}
+		}
+	}
+
+	#Focus for Warning Systems
+	focus = {
+		id = WLS_warning_systems
+		icon = GFX_goal_generic_radar
+		x = 30
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_deal_with_raf }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+ name = radar_tech_bonus
+ bonus = 1.0
+ uses = 2
+ category = radar_tech
+}
+		}
+	}
+
+	#Focus for Expand Welsh Navy
+	focus = {
+		id = WLS_expand_welsh_navy
+		icon = GFX_goal_generic_navy_battleship
+		x = 26
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_become_the_empires_dockyard }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+ name = dd_bonus
+ bonus = 1.0
+ uses = 2
+ category = dd_tech
+}
+add_tech_bonus = {
+ name = cr_bonus
+ bonus = 1.0
+ uses = 1
+ category = cl_tech
+ category = ca_tech
+			}
+		}
+	}
+
+	#Focus for Fortress of Britain
+	focus = {
+		id = WLS_fortress_of_britain
+		icon = GFX_focus_generic_coastal_fort
+		x = 27
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = WLS_expand_welsh_navy 
+		}
+		prerequisite = { 
+			focus = WLS_antiair_defence 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			122 = {
+	add_building_construction = {
+		type = coastal_bunker
+        	province = 377
+		level = 3
+	}
+	add_building_construction = {
+		type = coastal_bunker
+        	province = 407
+		level = 2
+	}
+	add_building_construction = {
+		type = coastal_bunker
+        	province = 11361
+		level = 2
+	}
+	add_building_construction = {
+		type = coastal_bunker
+        	province = 3274
+		level = 2
+	}
+	add_building_construction = {
+		type = coastal_bunker
+        	province = 6363
+		level = 2
+	}
+	add_building_construction = {
+		type = coastal_bunker
+        	province = 9364
+		level = 2
+	}
+	add_building_construction = {
+		type = naval_base
+        	province = 377
+		level = 3
+	}
+}
+		}
+	}
+
+	#Focus for Anti-air Defence
+	focus = {
+		id = WLS_antiair_defence
+		icon = GFX_goal_generic_fortify_city
+		x = 28
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_deal_with_raf }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+add_building_construction = {
+ type = air_base
+ level = 1
+ instant_build = yes
+ }
+add_building_construction = {
+ type = anti_air_building
+ level = 2
+ instant_build = yes
+ }
+}
+		}
+	}
+
+	#Focus for Nationalize Coal Industry
+	focus = {
+		id = WLS_nationalize_coal_industry
+		icon = GFX_goal_generic_construction2
+		x = 4
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.05
+random_owned_controlled_state={
+add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+}
+		}
+	}
+
+	#Focus for Improve Railroad System
+	focus = {
+		id = WLS_improve_railroad_system
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 7
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_nationalize_coal_industry }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+add_building_construction = {
+ type = infrastructure
+ level = 1
+ instant_build = yes
+ }
+}
+		}
+	}
+
+	#Focus for Repeal 1536 Act of Union
+	focus = {
+		id = WLS_repeal_1536_act_of_union
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_nationalize_coal_industry }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			WLS = {
+country_event = { id = wales.1 }
+}
+add_opinion_modifier = { target = ENG modifier = small_decrease  }
+		}
+	}
+
+	#Focus for Motorization Effort
+	focus = {
+		id = WLS_motorization_effort
+		icon = GFX_goal_generic_army_motorized
+		x = 4
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_nationalize_coal_industry }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+ name = motorized_bonus
+ bonus = 2.0
+ uses = 1
+ technology = motorised_infantry
+}
+		}
+	}
+
+	#Focus for Improve Work Conditions
+	focus = {
+		id = WLS_improve_work_conditions
+		icon = GFX_goal_generic_consumer_goods
+		x = 7
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_improve_railroad_system }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+ name = industrial_bonus
+ bonus = 1.0
+ uses = 2
+ category = industry
+}
+		}
+	}
+
+	#Focus for Support Farmers
+	focus = {
+		id = WLS_support_farmers
+		icon = GFX_focus_generic_military_academy
+		x = 8
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_improve_work_conditions }
+		mutually_exclusive = { focus = WLS_militarize_farmers }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.05
+random_owned_controlled_state={
+add_building_construction = {
+ type = infrastructure
+ level = 1
+ instant_build = yes
+ }
+}
+		}
+	}
+
+	#Focus for Improve Relations with Empire
+	focus = {
+		id = WLS_improve_relations_with_empire
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		x = 0
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_repeal_1536_act_of_union }
+		mutually_exclusive = { focus = WLS_antagonize_empire }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_opinion_modifier = { target = ENG modifier = small_increase  }
+add_opinion_modifier = { target = CAN modifier = small_increase  }
+add_opinion_modifier = { target = AST modifier = small_increase  }
+add_opinion_modifier = { target = NZL modifier = small_increase  }
+add_opinion_modifier = { target = RAJ modifier = small_increase  }
+add_opinion_modifier = { target = SAF modifier = small_increase  }
+add_stability= -0.05
+add_war_support= -0.05
+		}
+	}
+
+	#Focus for Antagonize Empire
+	focus = {
+		id = WLS_antagonize_empire
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		x = 2
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_repeal_1536_act_of_union }
+		mutually_exclusive = { focus = WLS_improve_relations_with_empire }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		complete_tooltip = {
+			add_opinion_modifier = { target = ENG modifier = small_decrease  }
+add_opinion_modifier = { target = CAN modifier = small_decrease  }
+add_opinion_modifier = { target = AST modifier = small_decrease  }
+add_opinion_modifier = { target = NZL modifier = small_decrease  }
+add_opinion_modifier = { target = RAJ modifier = small_decrease  }
+add_opinion_modifier = { target = SAF modifier = small_decrease  }
+add_stability= 0.05
+add_war_support= 0.05
+		}
+	}
+
+	#Focus for Revise Military Strategy
+	focus = {
+		id = WLS_revise_military_strategy
+		icon = GFX_goal_generic_air_doctrine
+		x = 4
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_motorization_effort }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience = 25
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for New Equipment
+	focus = {
+		id = WLS_new_equipment
+		icon = GFX_goal_generic_small_arms
+		x = 6
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_improve_work_conditions }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+ name = infantry_artillery_bonus
+ bonus = 1.0
+ uses = 1
+ category = infantry_weapons
+ category = artillery
+}
+		}
+	}
+
+	#Focus for Anti-British War Plan
+	focus = {
+		id = WLS_antibritish_war_plan
+		icon = GFX_focus_generic_combined_arms
+		x = 3
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = WLS_antagonize_empire 
+		}
+		prerequisite = { 
+			focus = WLS_revise_military_strategy 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience = 10
+				add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for US Industrial Investment
+	focus = {
+		id = WLS_us_industrial_investment
+		icon = GFX_WLS_us_industrial_investment-108361
+		x = 24
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_ask_the_us }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Bring Back Welsh Americans
+	focus = {
+		id = WLS_bring_back_welsh_americans
+		icon = GFX_goal_generic_propaganda
+		x = 24
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_prepare_against_fascist_threats }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 20000
+		}
+	}
+
+	#Focus for Welsh Mountaineers
+	focus = {
+		id = WLS_welsh_mountaineers
+		icon = GFX_focus_eng_special_air_service
+		x = 6
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_new_equipment }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_technology = { 
+	tech_mountaineers = 1
+        tech_mountaineers2 = 1
+        tech_mountaineers3 = 1
+}
+add_ideas = welsh_mountaineers
+		}
+	}
+
+	#Focus for Remobilise the 53rd
+	focus = {
+		id = WLS_remobilise_the_53rd
+		icon = GFX_focus_generic_little_entente
+		x = 5
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_welsh_mountaineers }
+		mutually_exclusive = { focus = WLS_bring_back_welsh_guards }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			load_oob= WLS_53rd
+		}
+	}
+
+	#Focus for War Bonds
+	focus = {
+		id = WLS_war_bonds
+		icon = GFX_goal_generic_construct_civilian
+		x = 7
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = WLS_welsh_mountaineers 
+		}
+		prerequisite = { 
+			focus = WLS_buy_farmlands 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_war= yes
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Educate the Peasants
+	focus = {
+		id = WLS_educate_the_peasants
+		icon = GFX_focus_research2
+		x = 9
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = WLS_buy_farmlands 
+			focus = WLS_secure_farmlands 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			OR={
+communism > 0.15
+NOT={
+has_government = fascism
+}
+}
+		}
+		completion_reward = {
+			add_ideas = educated_peasants
+		}
+	}
+
+	#Focus for Create the Welsh Military Academy
+	focus = {
+		id = WLS_create_the_welsh_military_academy
+		icon = GFX_goal_generic_position_armies
+		x = 3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_antibritish_war_plan }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience= 100
+		}
+	}
+
+	#Focus for Invite Murray Threipland
+	focus = {
+		id = WLS_invite_murray_threipland
+		icon = GFX_focus_generic_military_mission
+		x = 0
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_foreign_inspiration }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_corps_commander = {
+	name = "William Murray Threipland"
+	picture = "Portrait_Europe_Generic_land_3.dds"
+	traits = { trickster brilliant_strategist }
+	skill = 4
+	attack_skill = 4
+	defense_skill = 2
+	planning_skill = 4
+	logistics_skill = 3
+}
+		}
+	}
+
+	#Focus for Bring Back Welsh Guards
+	focus = {
+		id = WLS_bring_back_welsh_guards
+		icon = GFX_focus_secret_rearmament
+		x = 0
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = WLS_invite_murray_threipland }
+		mutually_exclusive = { focus = WLS_remobilise_the_53rd }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			load_oob= WLS_guards
+		}
+	}
+
+#End of focuses 
+ }

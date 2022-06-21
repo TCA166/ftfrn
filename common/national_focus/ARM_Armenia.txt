@@ -1,0 +1,1123 @@
+focus_tree = {
+	id = Armenia
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = ARM
+		}
+	}
+	
+	shared_focus = army_effort_dup
+	shared_focus = aviation_effort_dup
+	shared_focus = naval_effort_dup
+	
+	#Focus for Renegotiate Trade With Neighbors
+	focus = {
+		id = ARM_renegotiate_trade_with_neighbors
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 20
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_reevalute_armenian_economy }
+		mutually_exclusive = { focus = ARM_focus_on_agriculture }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = free_trade
+TUR = {add_opinion_modifier = { target = ARM modifier = medium_increase }}
+		}
+	}
+
+	#Focus for Martyrdom for the 1.8 m
+	focus = {
+		id = ARM_martyrdom_for_the_18_m
+		icon = GFX_goal_generic_demand_territory
+		x = 10
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = ARM_primacy_of_foreign_policy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.2  add_war_support= 0.3
+		}
+	}
+
+	#Focus for Primacy of Foreign Policy
+	focus = {
+		id = ARM_primacy_of_foreign_policy
+		icon = GFX_goal_generic_major_alliance
+		x = 12
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = ARM_martyrdom_for_the_18_m }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 300
+		}
+	}
+
+	#Focus for Communist Legacy
+	focus = {
+		id = ARM_communist_legacy
+		icon = GFX_focus_generic_soviet_politics
+		x = 11
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARM_primacy_of_foreign_policy 
+			focus = ARM_martyrdom_for_the_18_m 
+		}
+		mutually_exclusive = { 
+			focus = ARM_stabilise_the_country 
+		}
+		mutually_exclusive = { 
+			focus = ARM_the_first_christians 
+		}
+		mutually_exclusive = { 
+			focus = ARM_fuel_revanchism 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism
+popularity = 0.3 
+}
+		}
+	}
+
+	#Focus for Fuel Revanchism
+	focus = {
+		id = ARM_fuel_revanchism
+		icon = GFX_goal_generic_political_pressure
+		x = 7
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_martyrdom_for_the_18_m }
+		mutually_exclusive = { 
+			focus = ARM_communist_legacy 
+		}
+		mutually_exclusive = { 
+			focus = ARM_the_first_christians 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.3 
+}
+  add_war_support= 0.2
+add_ideas = revanchism
+		}
+	}
+
+	#Focus for Stabilise the Country
+	focus = {
+		id = ARM_stabilise_the_country
+		icon = GFX_goal_generic_neutrality_focus
+		x = 16
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_primacy_of_foreign_policy }
+		mutually_exclusive = { focus = ARM_communist_legacy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.3 
+}
+  add_stability= 0.2
+		}
+	}
+
+	#Focus for Enact Nationalist Policies
+	focus = {
+		id = ARM_enact_nationalist_policies
+		icon = GFX_goal_support_fascism
+		x = 6
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARM_fuel_revanchism 
+			focus = ARM_the_first_christians 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = fascism 
+elections_allowed = no 
+}
+  add_popularity= { 
+ideology = fascism 
+popularity = 0.3 
+}
+		}
+	}
+
+	#Focus for Military Expansion
+	focus = {
+		id = ARM_military_expansion
+		icon = GFX_goal_rhineland
+		x = 8
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_fuel_revanchism }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 50000  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = arms_factory
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Contact the Kurds
+	focus = {
+		id = ARM_contact_the_kurds
+		icon = GFX_goal_tripartite_pact
+		x = 7
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARM_military_expansion 
+		}
+		prerequisite = { 
+			focus = ARM_enact_nationalist_policies 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150
+KUR = {add_opinion_modifier = { target = ARM modifier = large_increase }}
+		}
+	}
+
+	#Focus for Mobilise the Economy
+	focus = {
+		id = ARM_mobilise_the_economy
+		icon = GFX_goal_generic_consumer_goods
+		x = 5
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARM_enact_nationalist_policies 
+			focus = ARM_spirit_of_crusades 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_war_support = 0.5
+add_ideas = tot_economic_mobilisation
+		}
+	}
+
+	#Focus for Expand Steel Production
+	focus = {
+		id = ARM_expand_steel_production
+		icon = GFX_focus_generic_steel
+		x = 9
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARM_military_expansion 
+			focus = ARM_socialist_development
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = steel
+amount = 32 
+state = 230 
+}
+		}
+	}
+
+	#Focus for Take Down the Turkish Menace
+	focus = {
+		id = ARM_take_down_the_turkish_menace
+		icon = GFX_focus_generic_attack_turkey
+		x = 7
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_contact_the_kurds }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_army_manpower = {size > 50000}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = TUR
+}
+create_faction = "Armenian-Kurdish Alliance"
+add_to_faction = KUR
+KUR = {
+add_equipment_to_stockpile = {type = infantry_equipment_0 amount = 200000 producer = TUR}
+}
+add_state_core = 354
+add_state_core = 800
+TUR = {
+release = KUR
+create_wargoal= { 
+type = annex_everything 
+target = KUR
+}}
+		}
+	}
+
+	#Focus for Industrial Expansion
+	focus = {
+		id = ARM_industrial_expansion
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 5
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_mobilise_the_economy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand Universities
+	focus = {
+		id = ARM_expand_universities
+		icon = GFX_focus_research2
+		x = 9
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_expand_steel_production }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Socialist Development
+	focus = {
+		id = ARM_socialist_development
+		icon = GFX_goal_generic_soviet_construction
+		x = 10
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_communist_legacy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 5
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Communist Takeover
+	focus = {
+		id = ARM_communist_takeover
+		icon = GFX_goal_support_communism
+		x = 12
+		y = 2
+		cost = 15
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_communist_legacy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = communism 
+popularity = 0.3 
+}
+  set_politics= {
+ ruling_party = communism 
+elections_allowed = no 
+}
+		}
+	}
+
+	#Focus for Pan-Caucasian Unity
+	focus = {
+		id = ARM_pancaucasian_unity
+		icon = GFX_goal_generic_national_unity
+		x = 11
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARM_socialist_development 
+		}
+		prerequisite = { 
+			focus = ARM_communist_takeover 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_core= 229  add_state_core= 231  add_state_core= 233  add_state_core= 232
+set_cosmetic_tag = ARM_CAU
+		}
+	}
+
+	#Focus for Unify Our People
+	focus = {
+		id = ARM_unify_our_people
+		icon = GFX_goal_generic_major_war
+		x = 11
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_pancaucasian_unity }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		complete_tooltip = {
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = GEO
+}
+  create_wargoal= { 
+type = annex_everything 
+target = AZR
+}
+		}
+	}
+
+	#Focus for The First Christians
+	focus = {
+		id = ARM_the_first_christians
+		icon = GFX_ARM_the_first_christians-108018
+		x = 5
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_martyrdom_for_the_18_m }
+		mutually_exclusive = { 
+			focus = ARM_fuel_revanchism 
+		}
+		mutually_exclusive = { 
+			focus = ARM_communist_legacy 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.3 
+}
+  add_stability= 0.2  add_political_power= 150
+		}
+	}
+
+	#Focus for Spirit of Crusades
+	focus = {
+		id = ARM_spirit_of_crusades
+		icon = GFX_focus_mex_restore_the_army_of_christ
+		x = 4
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_the_first_christians }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = crusades
+		}
+	}
+
+	#Focus for Strike at Iran
+	focus = {
+		id = ARM_strike_at_iran
+		icon = GFX_goal_generic_territory_or_war
+		x = 3
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_spirit_of_crusades }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = PER
+}
+		}
+	}
+
+	#Focus for Strike at Iraq
+	focus = {
+		id = ARM_strike_at_iraq
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 3
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_strike_at_iran }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = IRQ
+}
+		}
+	}
+
+	#Focus for Reevalute Armenian Economy
+	focus = {
+		id = ARM_reevalute_armenian_economy
+		icon = GFX_goal_generic_position_armies
+		x = 21
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  
+230 = {
+    if = {
+        limit = { is_controlled_by = ROOT }
+        add_building_construction = {
+            type = infrastructure
+            level = 2
+            instant_build = yes
+        }
+    }
+}
+		}
+	}
+
+	#Focus for Focus on Agriculture
+	focus = {
+		id = ARM_focus_on_agriculture
+		icon = GFX_ARM_focus_on_agriculture-107564
+		x = 22
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_reevalute_armenian_economy }
+		mutually_exclusive = { focus = ARM_renegotiate_trade_with_neighbors }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  
+230 = {
+    if = {
+        limit = { is_controlled_by = ROOT }
+        add_building_construction = {
+            type = infrastructure
+            level = 5
+            instant_build = yes
+        }
+    }
+}
+		}
+	}
+
+	#Focus for Expand Manufacturing
+	focus = {
+		id = ARM_expand_manufacturing
+		icon = GFX_goal_generic_production
+		x = 22
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_focus_on_agriculture }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Weapon Manufacturing Complex
+	focus = {
+		id = ARM_weapon_manufacturing_complex
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 22
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_expand_manufacturing }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Issue Military Contracts
+	focus = {
+		id = ARM_issue_military_contracts
+		icon = GFX_focus_generic_tank_production
+		x = 22
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_weapon_manufacturing_complex }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = arms_factory
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Conversion Programs
+	focus = {
+		id = ARM_conversion_programs
+		icon = GFX_focus_por_concordat
+		x = 1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_strike_at_iran }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = conversion_programs
+		}
+	}
+
+	#Focus for Write the New Constitution
+	focus = {
+		id = ARM_write_the_new_constitution
+		icon = GFX_focus_generic_treaty
+		x = 16
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_stabilise_the_country }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic
+popularity = 0.3
+}
+  add_political_power= 150
+		}
+	}
+
+	#Focus for Non-Agression with neighbors
+	focus = {
+		id = ARM_nonagression_with_neighbors
+		icon = GFX_goal_tripartite_pact
+		x = 16
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_write_the_new_constitution }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_war= no
+		}
+		completion_reward = {
+			diplomatic_relation = { 
+	country = TUR
+	relation = non_aggression_pact 
+}
+diplomatic_relation = { 
+	country = GEO 
+	relation = non_aggression_pact 
+}
+		}
+	}
+
+	#Focus for Expand the Middle Class
+	focus = {
+		id = ARM_expand_the_middle_class
+		icon = GFX_goal_generic_consumer_goods
+		x = 14
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARM_stabilise_the_country 
+			focus = ARM_communist_legacy 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Rework the Education System
+	focus = {
+		id = ARM_rework_the_education_system
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 14
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARM_communist_takeover 
+			focus = ARM_write_the_new_constitution 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Western Investment
+	focus = {
+		id = ARM_western_investment
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 16
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_nonagression_with_neighbors }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Form the Militia
+	focus = {
+		id = ARM_form_the_militia
+		icon = GFX_goal_generic_military_sphere
+		x = 14
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARM_nonagression_with_neighbors 
+			focus = ARM_pancaucasian_unity 
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower=10000  
+add_ideas = local_militias
+		}
+	}
+
+	#Focus for Secure Oil Trade from the Middle East
+	focus = {
+		id = ARM_secure_oil_trade_from_the_middle_east
+		icon = GFX_goal_generic_oil_refinery
+		x = 20
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_renegotiate_trade_with_neighbors }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = oil 
+amount = 36 
+state = 230 
+}
+		}
+	}
+
+	#Focus for Purchase Oil From the Caucasus
+	focus = {
+		id = ARM_purchase_oil_from_the_caucasus
+		icon = GFX_goal_generic_major_alliance
+		x = 20
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_secure_oil_trade_from_the_middle_east }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = oil 
+amount = 36 
+state = 230 
+}
+		}
+	}
+
+	#Focus for Invest Profits
+	focus = {
+		id = ARM_invest_profits
+		icon = GFX_focus_generic_industry_3
+		x = 20
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = ARM_purchase_oil_from_the_caucasus }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Secure Western Markets
+	focus = {
+		id = ARM_secure_western_markets
+		icon = GFX_focus_mex_privatisation
+		x = 18
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARM_renegotiate_trade_with_neighbors 
+		}
+		prerequisite = { 
+			focus = ARM_stabilise_the_country 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand Mines
+	focus = {
+		id = ARM_expand_mines
+		icon = GFX_focus_generic_steel
+		x = 18
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARM_nonagression_with_neighbors 
+			focus = ARM_purchase_oil_from_the_caucasus 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_resource= { 
+type = steel 
+amount = 16 
+state = 230 
+}
+		}
+	}
+
+	#Focus for End Homelesness
+	focus = {
+		id = ARM_end_homelesness
+		icon = GFX_goal_generic_construction2
+		x = 18
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = ARM_write_the_new_constitution 
+		}
+		prerequisite = { 
+			focus = ARM_secure_oil_trade_from_the_middle_east 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			230= {
+ add_extra_state_shared_building_slots = 5 
+}
+		}
+	}
+
+#End of focuses 
+ }

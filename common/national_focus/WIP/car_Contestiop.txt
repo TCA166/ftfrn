@@ -1,0 +1,938 @@
+focus_tree = {
+	id = car
+	continuous_focus_position = { x = 0 y = 1000 } 
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = CAR
+		}
+	}
+	#King of Africa
+	focus = {
+		id = CAR_king_of_africa
+		icon = GFX_focus_generic_home_defense
+		x = 20
+		y = 4
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CAR_creatingthedelegationequatoriale  } prerequisite = { focus = CAR_royal_factories  }
+		completion_reward = {
+			country_event = {
+			days = 1 
+			id = CAR_events.2 
+			}
+			
+			
+		}
+	}
+
+	#Chanson volante
+	focus = {
+		id = CAR_chanson_volante
+		icon = GFX_CAR_chanson_volante-347
+		x = 14
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CAR_national_modernisation  }
+		completion_reward = {
+			set_technology = {
+			    fighter_plane = 2
+			}
+		}
+	}
+
+	#Home rule in the Equatorial
+	focus = {
+		id = CAR_home_rule_in_the_equatorial
+		icon = GFX_focus_hol_united_netherlands
+		x = 23
+		y = 0
+		cost = 6
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.05
+			
+		}
+	}
+
+	#Monarque
+	focus = {
+		id = CAR_monarque
+		icon = GFX_focus_hol_continue_the_war_in_batavia
+		x = 20
+		y = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CAR_home_rule_in_the_equatorial  }
+		mutually_exclusive = { focus = CAR_ouvrier focus = CAR_president }
+		completion_reward = {
+			add_popularity = { 
+			ideology = neutrality 
+			popularity = 0.1
+			}
+			
+			
+		}
+		select_effect = {
+add_popularity = { 
+ideology = neutrality 
+popularity = 0.1 
+}
+
+}
+	}
+
+	#Ouvrier
+	focus = {
+		id = CAR_ouvrier
+		icon = GFX_CAR_ouvrier-88
+		x = 26
+		y = 1
+		cost = 8
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CAR_home_rule_in_the_equatorial  }
+		mutually_exclusive = { focus = CAR_monarque focus = CAR_president }
+		completion_reward = {
+			add_popularity = { 
+			ideology = communism 
+			popularity = 0.1
+			}
+		}
+		select_effect = {
+add_popularity = { 
+ideology = communism 
+popularity = 0.1
+}
+}
+	}
+
+	#National Modernisation
+	focus = {
+		id = CAR_national_modernisation
+		icon = GFX_goal_generic_military_sphere
+		x = 12
+		y = 3
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CAR_lessons_from_the_colonial_era  } prerequisite = { focus = CAR_adebayo_plan  }
+		
+		completion_reward = {
+			add_tech_bonus = {
+			    bonus = 0.5
+			    uses = 1
+			    category = infantry_tech
+			}
+		}
+	}
+
+	#Chanson de Marche
+	focus = {
+		id = CAR_chanson_de_marche
+		icon = GFX_focus_chi_army_reform
+		x = 12
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CAR_national_modernisation  }
+		completion_reward = {
+			set_technology = {
+			    infantry_equipment = 2
+			}
+		}
+	}
+
+	#Black Arrows
+	focus = {
+		id = CAR_black_arrows
+		icon = GFX_goal_generic_air_bomber
+		x = 14
+		y = 5
+		cost = 8
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CAR_chanson_volante  }
+		completion_reward = {
+			add_ideas = CAR_black_arrows
+			
+			
+		}
+	}
+
+	#Président
+	focus = {
+		id = CAR_president
+		icon = GFX_CAR_president-427
+		x = 30
+		y = 1
+		cost = 8
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CAR_home_rule_in_the_equatorial  }
+		mutually_exclusive = { focus = CAR_monarque  focus = CAR_ouvrier }
+		completion_reward = {
+			add_popularity = { 
+			ideology = democratic 
+			popularity = 0.1
+			}
+			
+		}
+		select_effect = {
+add_popularity = { 
+ideology = democratic 
+popularity = 0.1
+}
+}
+	}
+
+	#Guardians of the Equatorial
+	focus = {
+		id = CAR_guardians_of_the_equatorial
+		icon = GFX_focus_generic_manpower
+		x = 12
+		y = 0
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		completion_reward = {
+			add_political_power = 150
+			
+			
+			add_war_support = 0.05
+			
+		}
+	}
+
+	#Rally the Brigades
+	focus = {
+		id = CAR_rally_the_brigades
+		icon = GFX_focus_generic_little_entente
+		x = 12
+		y = 1
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = CAR_guardians_of_the_equatorial  }
+		completion_reward = {
+			add_manpower = 8000
+			
+			add_stability = 0.05
+			
+		}
+	}
+
+	#Lessons from the Colonial Era
+	focus = {
+		id = CAR_lessons_from_the_colonial_era
+		icon = GFX_focus_por_luso_tropicalism
+		x = 11
+		y = 2
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CAR_rally_the_brigades  }
+		mutually_exclusive = { focus = CAR_adebayo_plan  }
+		completion_reward = {
+			add_research_slot = 1
+			
+			add_manpower = 2000
+			
+		}
+	}
+
+	#Adebayo Plan
+	focus = {
+		id = CAR_adebayo_plan
+		icon = GFX_goal_generic_small_arms
+		x = 13
+		y = 2
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CAR_rally_the_brigades  }
+		mutually_exclusive = { focus = CAR_lessons_from_the_colonial_era  }
+		available = {
+			has_government = democratic
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	#March on Libreville
+	focus = {
+		id = CAR_march_on_libreville
+		icon = GFX_CAR_march_on_libreville-341
+		x = 28
+		y = 8
+		cost = 4
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CAR_a_union_of_our_own  }
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = GAB
+			}
+			
+		}
+	}
+
+	#Chanson de Char
+	focus = {
+		id = CAR_chanson_de_char
+		icon = GFX_goal_generic_army_tanks 
+		x = 10
+		y = 4
+		cost = 10
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CAR_national_modernisation  }
+		completion_reward = {
+			set_technology = {
+			    medium_tank = 1
+			}
+		}
+	}
+
+	#Garde nationale équatoriale
+	focus = {
+		id = CAR_gardenationaleequatoriale
+		icon = GFX_CAR_gardenationaleequatoriale-149
+		x = 12
+		y = 5
+		cost = 8
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = CAR_chanson_de_marche  }
+		completion_reward = {
+			add_war_support = 20
+			
+			add_political_power = 200
+			
+			add_manpower = 8000
+			
+			add_ideas = CAR_equatorial_guard
+		}
+	}
+
+	#Prussia of Africa
+	focus = {
+		id = CAR_prussia_of_africa
+		icon = GFX_CAR_prussia_of_africa-445
+		x = 12
+		y = 6
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = CAR_gardenationaleequatoriale  } prerequisite = { focus = CAR_steel_panthers  } prerequisite = { focus = CAR_black_arrows  }
+		completion_reward = {
+			add_war_support = 0.1
+			
+		}
+	}
+
+	#Steel Panthers
+	focus = {
+		id = CAR_steel_panthers
+		icon = GFX_focus_usa_tank_destroyer_doctrine
+		x = 10
+		y = 5
+		cost = 8
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = CAR_chanson_de_char  }
+		completion_reward = {
+			add_ideas = CAR_steel_panthers
+		}
+	}
+
+	#The Royalist Coup d'état
+	focus = {
+		id = CAR_theroyalistcoupdetat
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		x = 20
+		y = 2
+		cost = 7
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CAR_monarque  }
+		bypass = {
+			has_government = neutrality
+			
+		}
+		completion_reward = {
+			state_event = car_events.1
+			
+		}
+	}
+
+	#Royal Factories
+	focus = {
+		id = CAR_royal_factories
+		icon = GFX_focus_generic_africa_factory
+		x = 21
+		y = 3
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = CAR_theroyalistcoupdetat  }
+		completion_reward = {
+			random_owned_state = {
+			add_building_construction = {
+			    type = arms_factory
+			    level = 5
+			    instant_build = yes
+			}
+			}
+		}
+	}
+
+	#Creating the Délégation équatoriale
+	focus = {
+		id = CAR_creatingthedelegationequatoriale
+		icon = GFX_focus_generic_monarchy_1
+		x = 19
+		y = 3
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CAR_theroyalistcoupdetat  }
+		completion_reward = {
+			add_popularity = { 
+			ideology = neutrality 
+			popularity = 0.60 
+			}
+			
+		}
+	}
+
+	#'Protect' Chad
+	focus = {
+		id = CAR_protectchad
+		icon = GFX_focus_eng_expose_the_belly_of_the_bear
+		x = 22
+		y = 5
+		cost = 7
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CAR_king_of_africa  }
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = CHA
+			}
+			
+		}
+	}
+
+	#'Liberate' Cameroon
+	focus = {
+		id = CAR_liberatecameroon
+		icon = GFX_focus_generic_manpower
+		x = 18
+		y = 5
+		cost = 7
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CAR_king_of_africa  }
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = CMR
+			}
+			
+		}
+	}
+
+	#'Free' Gabon
+	focus = {
+		id = CAR_freegabon
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 24
+		y = 5
+		cost = 8
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CAR_king_of_africa  }
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = GAB
+			}
+			
+		}
+	}
+
+	#'assist' the Kongo
+	focus = {
+		id = CAR_assistthekongo
+		icon = GFX_focus_generic_coastal_fort
+		x = 20
+		y = 5
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CAR_king_of_africa  }
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = RCG
+			}
+			
+		}
+	}
+
+	#The African Napoleon
+	focus = {
+		id = CAR_the_african_napoleon
+		icon = GFX_CAR_the_african_napoleon-93642
+		x = 20
+		y = 6
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CAR_protectchad  } prerequisite = { focus = CAR_liberatecameroon  } prerequisite = { focus = CAR_freegabon  } prerequisite = { focus = CAR_assistthekongo  }
+		completion_reward = {
+			set_cosmetic_tag = african_empire
+			
+		}
+	}
+
+	#Butchering the Rooster
+	focus = {
+		id = CAR_butchering_the_rooster
+		icon = GFX_focus_fra_le_deluge
+		x = 17
+		y = 8
+		cost = 7
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CAR_the_african_napoleon  }
+		completion_reward = {
+			create_wargoal = { 
+			type = puppet_wargoal_focus 
+			target = FRA
+			}
+			
+		}
+	}
+
+	#Culling the Bull
+	focus = {
+		id = CAR_culling_the_bull
+		icon = GFX_CAR_culling_the_bull-82
+		x = 19
+		y = 8
+		cost = 7
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CAR_the_african_napoleon  }
+		completion_reward = {
+			create_wargoal = { 
+			type = puppet_wargoal_focus 
+			target = SPR
+			}
+			
+		}
+	}
+
+	#Skinning the Lion
+	focus = {
+		id = CAR_skinning_the_lion
+		icon = GFX_CAR_skinning_the_lion-70
+		x = 21
+		y = 8
+		cost = 7
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CAR_the_african_napoleon  }
+		completion_reward = {
+			create_wargoal = { 
+			type = puppet_wargoal_focus 
+			target = ENG
+			}
+			
+		}
+	}
+
+	#Hunting the Wolf
+	focus = {
+		id = CAR_hunting_the_wolf
+		icon = GFX_goal_generic_wolf_pack
+		x = 23
+		y = 8
+		cost = 7
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CAR_the_african_napoleon  }
+		completion_reward = {
+			create_wargoal = { 
+			type = puppet_wargoal_focus 
+			target = TUR
+			}
+			
+		}
+	}
+
+	#Shooting the Eagle
+	focus = {
+		id = CAR_shooting_the_eagle
+		icon = GFX_focus_hol_war_on_pacifism
+		x = 20
+		y = 9
+		cost = 7
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CAR_butchering_the_rooster  } prerequisite = { focus = CAR_culling_the_bull  } prerequisite = { focus = CAR_skinning_the_lion  } prerequisite = { focus = CAR_hunting_the_wolf  }
+		completion_reward = {
+			create_wargoal = { 
+			type = puppet_wargoal_focus  
+			target = USA
+			}
+			
+		}
+	}
+
+	#Establish the Sénat national de l'équateur
+	focus = {
+		id = CAR_establishthesenatnationaldelequateur
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		x = 31
+		y = 2
+		cost = 6
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = CAR_president  }
+		available = {
+			has_government = democratic
+			
+		}
+		completion_reward = {
+			add_stability = 0.05
+			
+			add_popularity = { 
+			ideology = democratic 
+			popularity = 0.30
+			}
+			
+		}
+	}
+
+	#Doube Plan
+	focus = {
+		id = CAR_doube_plan
+		icon = GFX_focus_generic_africa_infrastructure
+		x = 31
+		y = 5
+		cost = 6
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = CAR_corporate_schemes  }
+	}
+
+	#Mission to the United States
+	focus = {
+		id = CAR_mission_to_the_united_states
+		icon = GFX_focus_chi_mission_to_the_us
+		x = 31
+		y = 3
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+	
+		prerequisite = { focus = CAR_establishthesenatnationaldelequateur  }
+		completion_reward = {
+			add_opinion_modifier = { target = USA modifier = huge_increase }
+			give_guarantee = USA
+			
+		}
+	}
+
+	#Corporate Schemes
+	focus = {
+		id = CAR_corporate_schemes
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 31
+		y = 4
+		cost = 4
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = CAR_mission_to_the_united_states  }
+		completion_reward = {
+		random_owned_state={
+			add_building_construction = {
+			    type = industrial_complex
+			    level = 5
+			    instant_build = yes
+			}
+		}}
+	}
+
+	#Equatorial Entente
+	focus = {
+		id = CAR_equatorial_entente
+		icon = GFX_focus_usa_union_representation_act
+		x = 31
+		y = 6
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CAR_doube_plan  }
+		completion_reward = {
+			create_faction = 'equatorial_entente_alliance'
+			
+		}
+	}
+
+	#United States of Central Africa
+	focus = {
+		id = CAR_united_states_of_central_africa
+		icon = GFX_focus_generic_treaty
+		x = 31
+		y = 7
+		cost = 6
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CAR_equatorial_entente  }
+		completion_reward = {
+			set_cosmetic_tag = CAR_united_states
+			
+		}
+	}
+
+	#Do You Hear The People Sing?
+	focus = {
+		id = CAR_doyouhearthepeoplesing
+		icon = GFX_focus_focus_fra_maquis
+		x = 26
+		y = 2
+		cost = 7
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CAR_ouvrier  }
+		bypass = {
+			has_government = communism
+			
+		}
+		completion_reward = {
+			country_event = {
+			days = 1 
+			id = car_events.3
+			}
+			
+		}
+	}
+
+	#Purge the Imperialists
+	focus = {
+		id = CAR_purge_the_imperialists
+		icon = GFX_focus_BUL_support_macedonian_organizations
+		x = 25
+		y = 3
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CAR_doyouhearthepeoplesing  }
+		completion_reward = {
+			add_popularity = { 
+			ideology = communism 
+			popularity = 0.30 
+			}
+			
+			add_stability = 0.1
+			
+		}
+	}
+
+	#Gardening Roses
+	focus = {
+		id = CAR_gardening_roses
+		icon = GFX_focus_por_workers_of_iberia
+		x = 28
+		y = 3
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = CAR_doyouhearthepeoplesing  }
+		completion_reward = {
+		random_owned_state={
+			add_building_construction = {
+			    type = arms_factory
+			    level = 5
+			    instant_build = yes
+			}
+		}}
+	}
+
+	#Stalinist Policies
+	focus = {
+		id = CAR_stalinist_policies
+		icon = GFX_CAR_stalinist_policies-94
+		x = 28
+		y = 4
+		cost = 4
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = CAR_gardening_roses  }
+		completion_reward = {
+			add_political_power = 50
+			
+			add_stability = 0.05
+			
+			add_war_support = 5
+			
+		}
+	}
+
+	#The Red Shadow
+	focus = {
+		id = CAR_the_red_shadow
+		icon = GFX_focus_ger_great_red_menace
+		x = 28
+		y = 5
+		cost = 4
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CAR_stalinist_policies  }
+		completion_reward = {
+			add_opinion_modifier = { target = SOV modifier = huge_increase }
+			
+		}
+	}
+
+	#A Union of our own
+	focus = {
+		id = CAR_a_union_of_our_own
+		icon = GFX_focus_focus_fra_liberte_egalite_solidarite
+		x = 28
+		y = 7
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = CAR_the_red_shadow  }
+		completion_reward = {
+			add_war_support = 50
+			
+			set_cosmetic_tag = CAR_socialist_union
+			
+		}
+	}
+
+	#March on N'Djamena
+	focus = {
+		id = CAR_marchonndjamena
+		icon = GFX_focus_secret_rearmament
+		x = 27
+		y = 9
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CAR_a_union_of_our_own  }
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = CHA
+			}
+			
+		}
+	}
+
+	#To Brazzaville!
+	focus = {
+		id = CAR_tobrazzaville
+		icon = GFX_CAR_tobrazzaville-254
+		x = 28
+		y = 10
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CAR_marchonndjamena  } prerequisite = { focus = CAR_marchonyaounde  } prerequisite = { focus = CAR_march_on_libreville  }
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = RCG
+			}
+			create_wargoal = { 
+			type = annex_everything 
+			target = RCG
+			}
+			
+		}
+	}
+
+	#March on Yaoundé
+	focus = {
+		id = CAR_marchonyaounde
+		icon = GFX_focus_generic_little_entente
+		x = 29
+		y = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = CAR_a_union_of_our_own  }
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = CMR
+			}
+			
+		}
+	}
+
+}

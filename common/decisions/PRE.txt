@@ -1,0 +1,132 @@
+PRE_livonia = {
+    revive_livonia = {
+        visible = {
+            
+        }
+		available={
+			owns_state = 188
+			owns_state = 189
+			owns_state = 815
+			owns_state = 814
+			owns_state = 11
+			
+			owns_state = 190
+			owns_state = 809
+			owns_state = 808
+			owns_state = 12
+			owns_state = 810
+		}
+        complete_effect = {
+			LIV={
+				add_political_power = 100
+				
+				transfer_state = 188
+				transfer_state = 189
+				transfer_state = 815
+				transfer_state = 814
+				transfer_state = 11
+			
+				transfer_state = 190
+				transfer_state = 809
+				transfer_state = 808
+				transfer_state = 12
+				transfer_state = 810
+				
+				add_state_core = 188
+				add_state_core = 189
+				add_state_core = 815
+				add_state_core = 814
+				add_state_core = 11
+			
+				add_state_core = 190
+				add_state_core = 809
+				add_state_core = 808
+				add_state_core = 12
+				add_state_core = 810
+				PRE={
+					puppet = LIV
+				}
+				add_ideas = prussian_government
+			}
+        }
+		fire_only_once = yes
+    }
+}
+PRE_bring_german_tree={
+	load_ger_tree_fas={
+		visible = {
+			has_completed_focus = PRE_revive_the_livonian_order
+        }
+		available = {
+			has_political_power > 150
+			has_completed_focus = PRE_revive_the_livonian_order
+		}
+		cost = 150
+		complete_effect = {
+			load_focus_tree = german_focus
+			custom_effect_tooltip = tt_load_ger_tip1
+			custom_effect_tooltip = tt_load_ger_tip2
+			unlock_national_focus = GER_rhineland
+			IF={
+				limit={
+					has_completed_focus = PRE_royal_development
+				}
+				unlock_national_focus = GER_oppose_hitler
+				unlock_national_focus = GER_secure_the_new_state
+				unlock_national_focus = GER_revive_the_kaiserreich
+				unlock_national_focus = GER_return_of_the_kaiser
+			}
+			IF={
+				limit={
+					has_completed_focus = PRE_tackle_the_communists
+				}
+				unlock_national_focus = GER_oppose_hitler
+				unlock_national_focus = GER_secure_the_new_state
+				unlock_national_focus = GER_reestabilish_free_elections
+			}
+        }
+		fire_only_once = yes
+	}
+	load_ger_tree_dem={
+		visible = {
+			has_completed_focus = PRE_tackle_the_communists
+        }
+		available = {
+			has_political_power > 150
+			has_completed_focus = PRE_tackle_the_communists
+			
+		}
+		cost = 150
+		complete_effect = {
+			load_focus_tree = german_focus
+			custom_effect_tooltip = tt_load_ger_tip1
+			custom_effect_tooltip = tt_load_ger_tip2
+			unlock_national_focus = GER_oppose_hitler
+			unlock_national_focus = GER_secure_the_new_state
+			unlock_national_focus = GER_reestabilish_free_elections
+        }
+		fire_only_once = yes
+	}
+	load_ger_tree_neu={
+		visible = {
+            has_completed_focus = PRE_royal_development
+        }
+		available = {
+			has_political_power > 150
+			has_completed_focus = PRE_royal_development
+			
+			
+		}
+		cost = 150
+		complete_effect = {
+			load_focus_tree = german_focus
+			custom_effect_tooltip = tt_load_ger_tip1
+			custom_effect_tooltip = tt_load_ger_tip2
+			unlock_national_focus = GER_oppose_hitler
+			unlock_national_focus = GER_secure_the_new_state
+			unlock_national_focus = GER_revive_the_kaiserreich
+			unlock_national_focus = GER_return_of_the_kaiser
+        }
+		fire_only_once = yes
+	}
+}

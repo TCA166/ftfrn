@@ -1,0 +1,11 @@
+ideas = {
+	country = {
+
+		CAR_king_of_africa = {
+			picture = CAR_king_of_africa-1142
+			traits = {
+				 headstrong conservative_nationalist constitutional_monarch
+			}
+		}
+	}
+}

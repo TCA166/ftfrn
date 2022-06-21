@@ -1,0 +1,244 @@
+UKR_communist_plan = {
+    name = "Communist with soviet union"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = UKR
+	}
+	
+    # When this plan is enabled.
+    enable = {
+		OR = {
+			is_historical_focus_on = yes
+			has_game_rule = {
+				rule = UKR_ai_behavior
+				option = COMMUNIST
+			}
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+        NOT = {SOV = {has_government = communism}}
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		UKR_our_land_our_farms
+		UKR_reform_the_collective_farms
+		UKR_reevalute_the_soviet_rule
+		UKR_reestabilish_relations_with_the_soviets
+		UKR_deny_the_tragedy
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+UKR_communist_reformed_plan = {
+    name = "Communist without soviet union"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = UKR
+	}
+	
+    # When this plan is enabled.
+    enable = {
+		OR = {
+			has_game_rule = {
+				rule = UKR_ai_behavior
+				option = COMMUNIST_REFORMED
+			}
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		UKR_our_land_our_farms
+		UKR_reform_the_collective_farms
+		UKR_reevalute_the_soviet_rule
+		UKR_reestabilish_relations_with_the_soviets
+		UKR_learn_from_mistakes_of_the_past
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+UKR_democratic_plan = {
+    name = "Democratic"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = UKR
+	}
+	
+    # When this plan is enabled.
+    enable = {
+		OR = {
+			has_game_rule = {
+				rule = UKR_ai_behavior
+				option = DEMOCRATIC
+			}
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		UKR_reevalute_the_soviet_rule
+		UKR_honor_the_casualties_of_holodomor
+		UKR_embrace_democracy 
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+UKR_monarchist_plan = {
+    name = "Monarchist"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = UKR
+	}
+	
+    # When this plan is enabled.
+    enable = {
+		has_game_rule = {
+			rule = UKR_ai_behavior
+			option = MONARCHIST
+		}
+		
+    }
+    
+    # When this plan is aborted.
+    abort = {
+
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		UKR_reevalute_the_soviet_rule
+		UKR_honor_the_casualties_of_holodomor
+		UKR_great_kingdom_of_tolerance
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}
+UKR_fascist_plan = {
+    name = "Fascist"	# Name of the plan
+    desc = ""       # Description of the plan
+    
+	allowed = {
+		original_tag = UKR
+	}
+	
+    # When this plan is enabled.
+    enable = {
+		OR = {
+			has_game_rule = {
+				rule = UKR_ai_behavior
+				option = FASCIST
+			}
+		}
+    }
+    
+    # When this plan is aborted.
+    abort = {
+
+    }
+    
+    # Defines which national focuses the AI picks first during this plan.
+    ai_national_focuses = {
+		UKR_reevalute_the_soviet_rule
+		UKR_honor_the_casualties_of_holodomor
+		UKR_accept_ukrainian_nationalism
+    }
+	
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+    
+}

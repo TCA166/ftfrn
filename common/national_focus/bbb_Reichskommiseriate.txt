@@ -1,0 +1,1278 @@
+focus_tree = {
+	id = reichskommissariat
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = bbb
+		}
+	}
+	continuous_focus_position = { x = 50 y = 1500 }
+	#Focus for Hide Resources
+	focus = {
+		id = bbb_hide_resources
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 1
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_focus_on_domestic_trade 
+			focus = bbb_ties_with_german_economic_zone 
+		}
+		mutually_exclusive={focus = bbb_sell_industry_to_the_germans}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = hidden_resources
+		}
+	}
+
+	#Focus for Solidify Power
+	focus = {
+		id = bbb_solidify_power
+		icon = GFX_goal_generic_secret_weapon
+		x = 10
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  add_war_support= 0.05
+		}
+	}
+
+	#Focus for German Aid
+	focus = {
+		id = bbb_german_aid
+		icon = GFX_focus_chi_mission_to_germany
+		x = 9
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_solidify_power }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Collaborant Support
+	focus = {
+		id = bbb_collaborant_support
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = 11
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_solidify_power }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  add_political_power= 150
+		}
+	}
+
+	#Focus for German Settlers
+	focus = {
+		id = bbb_german_settlers
+		icon = GFX_focus_generic_military_academy
+		x = 8
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_german_aid }
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.05  add_war_support= 5  random_owned_state= {
+ add_extra_state_shared_building_slots = 2 
+}
+		}
+	}
+
+	#Focus for German Military Industry
+	focus = {
+		id = bbb_german_military_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 10
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_german_aid 
+		}
+		prerequisite = { 
+			focus = bbb_collaborant_support 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Contribute to German Economy
+	focus = {
+		id = bbb_contribute_to_german_economy
+		icon = GFX_goal_generic_production
+		x = 2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_german_settlers }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Embrace German Currency
+	focus = {
+		id = bbb_embrace_german_currency
+		icon = GFX_focus_mex_privatisation
+		x = 3
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_contribute_to_german_economy }
+		mutually_exclusive = { focus = bbb_domestic_currency }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = german_currency
+		}
+	}
+
+	#Focus for Domestic Currency
+	focus = {
+		id = bbb_domestic_currency
+		icon = GFX_focus_generic_treaty
+		x = 1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_contribute_to_german_economy }
+		mutually_exclusive = { focus = bbb_embrace_german_currency }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_autonomy_ratio = {
+    value = 0.2
+    localization = DOMESTIC_CURRENCY
+}
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for German Military Expertise
+	focus = {
+		id = bbb_german_military_expertise
+		icon = GFX_goal_rhineland
+		x = 12
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_collaborant_support }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience= 50
+		}
+	}
+
+	#Focus for Ties with German Economic Zone
+	focus = {
+		id = bbb_ties_with_german_economic_zone
+		icon = GFX_goal_generic_trade
+		x = 3
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_domestic_currency 
+			focus = bbb_embrace_german_currency 
+		}
+		mutually_exclusive = { focus = bbb_focus_on_domestic_trade }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_autonomy_ratio = {
+    value = -0.2
+    localization = ECONOMIC_ZONE
+}
+
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Focus on Domestic Trade
+	focus = {
+		id = bbb_focus_on_domestic_trade
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 1
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_domestic_currency 
+			focus = bbb_embrace_german_currency 
+		}
+		mutually_exclusive = { focus = bbb_ties_with_german_economic_zone }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = economic_autonomy
+		}
+	}
+
+	#Focus for Sell Industry to the Germans
+	focus = {
+		id = bbb_sell_industry_to_the_germans
+		icon = GFX_goal_generic_construct_civilian
+		x = 3
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_focus_on_domestic_trade 
+			focus = bbb_ties_with_german_economic_zone 
+		}
+		mutually_exclusive = {focus = bbb_hide_resources}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_autonomy_ratio = {
+    value = -0.2
+    localization = INDUSTRY_SOLD
+}
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Renegotiate Occupation
+	focus = {
+		id = bbb_renegotiate_occupation
+		icon = GFX_goal_tripartite_pact
+		x = 2
+		y = 7
+		cost = 15
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_sell_industry_to_the_germans 
+			focus = bbb_hide_resources 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			remove_ideas = occupation_costs_2
+		}
+	}
+
+	#Focus for Estabilish a Government
+	focus = {
+		id = bbb_estabilish_a_government
+		icon = GFX_goal_generic_demand_territory
+		x = 11
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_german_military_industry 
+		}
+		prerequisite = { 
+			focus = bbb_german_military_expertise 
+		}
+		mutually_exclusive = { focus = bbb_just_a_occupier }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = -0.1 
+}
+  add_political_power= 150  add_stability= 0.05  add_war_support= -0.05
+		}
+	}
+
+	#Focus for Just a Occupier
+	focus = {
+		id = bbb_just_a_occupier
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		x = 9
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_german_settlers 
+		}
+		prerequisite = { 
+			focus = bbb_german_military_industry 
+		}
+		mutually_exclusive = { focus = bbb_estabilish_a_government }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = occupation_focus
+		}
+	}
+
+	#Focus for Invite German Industry
+	focus = {
+		id = bbb_invite_german_industry
+		icon = GFX_bbb_invite_german_industry-111262
+		x = 8
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_just_a_occupier }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Combat the Underground
+	focus = {
+		id = bbb_combat_the_underground
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_just_a_occupier 
+			focus = bbb_estabilish_a_government 
+		}
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  add_political_power= 150
+		}
+	}
+
+	#Focus for Fascist Political Party
+	focus = {
+		id = bbb_fascist_political_party
+		icon = GFX_goal_support_fascism
+		x = 12
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_estabilish_a_government }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_party_name= { 
+ideology = fascism 
+long_name = fascist_collab_long
+name = fascist_collab
+}
+add_autonomy_ratio = {
+    value = 0.2
+    localization = POLITICAL_LEEWAY
+}
+		}
+	}
+
+	#Focus for German Economic Investment
+	focus = {
+		id = bbb_german_economic_investment
+		icon = GFX_goal_generic_consumer_goods
+		x = 5
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_invite_german_industry 
+		}
+		prerequisite = { 
+			focus = bbb_embrace_german_currency 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for German Research Expertise
+	focus = {
+		id = bbb_german_research_expertise
+		icon = GFX_focus_research2
+		x = 9
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_invite_german_industry 
+		}
+		prerequisite = { 
+			focus = bbb_combat_the_underground 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Exploit the People
+	focus = {
+		id = bbb_exploit_the_people
+		icon = GFX_focus_generic_manpower
+		x = 7
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_invite_german_industry 
+		}
+		prerequisite = { 
+			focus = bbb_purge_administration 
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = extensive_conscription
+add_ideas = very_extensive_conscription
+		}
+	}
+
+	#Focus for German Regions
+	focus = {
+		id = bbb_german_regions
+		icon = GFX_goal_generic_forceful_treaty
+		x = 8
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_german_research_expertise 
+		}
+		prerequisite = { 
+			focus = bbb_exploit_the_people 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_state= {
+ add_extra_state_shared_building_slots = 2 
+}
+random_owned_state= {
+ add_extra_state_shared_building_slots = 2 
+}
+		}
+	}
+
+	#Focus for Purge Administration
+	focus = {
+		id = bbb_purge_administration
+		icon = GFX_goal_generic_dangerous_deal
+		x = 6
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_just_a_occupier }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 1 
+}
+  add_stability= 0.05  add_war_support= 0.05  add_political_power= 150
+		}
+	}
+
+	#Focus for SS Supremacy
+	focus = {
+		id = bbb_ss_supremacy
+		icon = GFX_goal_generic_secret_weapon
+		x = 6
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_exploit_the_people 
+			focus = bbb_german_economic_investment 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = local_militias
+		}
+	}
+
+	#Focus for Ban the Gestapo
+	focus = {
+		id = bbb_ban_the_gestapo
+		icon = GFX_bbb_ban_the_gestapo-108496
+		x = 11
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_fascist_political_party 
+		}
+		prerequisite = { 
+			focus = bbb_combat_the_underground 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_autonomy_ratio = {
+    value = 0.2
+    localization = GESTAPO_BANNED
+}
+		}
+	}
+
+	#Focus for Strenghten German Supply Lines
+	focus = {
+		id = bbb_strenghten_german_supply_lines
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 4
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_sell_industry_to_the_germans 
+		}
+		prerequisite = { 
+			focus = bbb_ss_supremacy 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state= {
+        add_building_construction = {
+            type = infrastructure
+            level = 5
+            instant_build = yes
+        }
+
+}
+  random_owned_controlled_state= {
+        add_building_construction = {
+            type = infrastructure
+            level = 5
+            instant_build = yes
+        }
+
+}
+		}
+	}
+
+	#Focus for Servants of the Germans
+	focus = {
+		id = bbb_servants_of_the_germans
+		icon = GFX_focus_CZE_german_puppet
+		x = 6
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_ss_supremacy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = compliant_subject
+		}
+	}
+
+	#Focus for Turn a Blind Eye
+	focus = {
+		id = bbb_turn_a_blind_eye
+		icon = GFX_focus_ger_reichskommisariats
+		x = 8
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_german_regions }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  add_war_support= 0.2  add_stability = -0.2
+		}
+	}
+
+	#Focus for Expand the War
+	focus = {
+		id = bbb_expand_the_war
+		icon = GFX_goal_generic_major_war
+		x = 10
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_german_research_expertise 
+			focus = bbb_ban_the_gestapo 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			any_neighbor_country={
+NOT={has_government = fascism}
+}
+		}
+		completion_reward = {
+			random_neighbor_country ={
+limit = {NOT={has_government=fascism is_subject_of = GER}}
+ROOT = {
+create_wargoal= { 
+type = annex_everything 
+target = PREV
+}}}
+		}
+	}
+
+	#Focus for Join the League of Nations
+	focus = {
+		id = bbb_join_the_league_of_nations
+		icon = GFX_goal_generic_propaganda
+		x = 14
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_estabilish_a_government }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  add_stability= 0.1
+		}
+	}
+
+	#Focus for A German Ally
+	focus = {
+		id = bbb_a_german_ally
+		icon = GFX_goal_generic_attack_allies
+		x = 13
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_fascist_political_party 
+		}
+		prerequisite = { 
+			focus = bbb_join_the_league_of_nations 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_autonomy_ratio= {
+value = 0.2 
+localization = POLITICAL_LEEWAY 
+}
+		}
+	}
+
+	#Focus for Create an Army
+	focus = {
+		id = bbb_create_an_army
+		icon = GFX_focus_generic_combined_arms
+		x = 18
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_german_military_expertise }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience = 5
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Officer Academy
+	focus = {
+		id = bbb_officer_academy
+		icon = GFX_focus_generic_military_mission
+		x = 17
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_create_an_army }
+		mutually_exclusive = { focus = bbb_incorporate_german_officers }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_autonomy_ratio= {
+value = 0.1 
+localization = OFFICER_INDEPENDENT 
+}
+		}
+	}
+
+	#Focus for Incorporate German Officers
+	focus = {
+		id = bbb_incorporate_german_officers
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 19
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_create_an_army }
+		mutually_exclusive = { focus = bbb_officer_academy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = german_officers
+		}
+	}
+
+	#Focus for Unique Doctrine
+	focus = {
+		id = bbb_unique_doctrine
+		icon = GFX_goal_generic_cavalry
+		x = 17
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_officer_academy 
+			focus = bbb_incorporate_german_officers 
+		}
+		mutually_exclusive = { focus = bbb_blitzkrieg }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Blitzkrieg
+	focus = {
+		id = bbb_blitzkrieg
+		icon = GFX_goal_generic_army_tanks
+		x = 19
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_incorporate_german_officers 
+			focus = bbb_officer_academy 
+		}
+		mutually_exclusive = { focus = bbb_unique_doctrine }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus= {
+ bonus = 1 
+uses = 4 
+category = radar_tech 
+}
+		}
+	}
+
+	#Focus for German Equipment
+	focus = {
+		id = bbb_german_equipment
+		icon = GFX_goal_generic_build_tank
+		x = 19
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_blitzkrieg 
+			focus = bbb_unique_doctrine 
+		}
+		mutually_exclusive = { focus = bbb_original_weapon_industry }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 3
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	#Focus for Original Weapon Industry
+	focus = {
+		id = bbb_original_weapon_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 17
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_unique_doctrine 
+			focus = bbb_blitzkrieg 
+		}
+		mutually_exclusive = { focus = bbb_german_equipment }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for New Division Designs
+	focus = {
+		id = bbb_new_division_designs
+		icon = GFX_goal_generic_position_armies
+		x = 18
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_original_weapon_industry 
+			focus = bbb_german_equipment 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience= 60
+		}
+	}
+
+	#Focus for Spanish Advisors
+	focus = {
+		id = bbb_spanish_advisors
+		icon = GFX_focus_intervention_spain_nationalists
+		x = 15
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_join_the_league_of_nations 
+		}
+		prerequisite = { 
+			focus = bbb_officer_academy 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Mobilisation
+	focus = {
+		id = bbb_mobilisation
+		icon = GFX_goal_generic_consumer_goods
+		x = 12
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_ban_the_gestapo 
+		}
+		prerequisite = { 
+			focus = bbb_a_german_ally 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_ideas = war_economy
+		}
+	}
+
+	#Focus for No Holding Back
+	focus = {
+		id = bbb_no_holding_back
+		icon = GFX_bbb_no_holding_back-107620
+		x = 14
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_a_german_ally 
+			focus = bbb_spanish_advisors 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Fanaticism
+	focus = {
+		id = bbb_fanaticism
+		icon = GFX_goal_generic_secret_weapon
+		x = 13
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_mobilisation 
+		}
+		prerequisite = { 
+			focus = bbb_no_holding_back 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = fanaticism
+		}
+	}
+
+	#Focus for Focus on Domestic Production
+	focus = {
+		id = bbb_focus_on_domestic_production
+		icon = GFX_goal_generic_production
+		x = 16
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = bbb_no_holding_back 
+		}
+		prerequisite = { 
+			focus = bbb_original_weapon_industry 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for War Production Specialisation
+	focus = {
+		id = bbb_war_production_specialisation
+		icon = GFX_goal_generic_production2
+		x = 10
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = bbb_expand_the_war }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = war_production_specialisation
+		}
+	}
+
+#End of focuses 
+ }

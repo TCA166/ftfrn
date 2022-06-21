@@ -1,0 +1,47 @@
+ITA_fragment_conference = {
+	allowed = {
+		AND={
+			NOT = {
+				original_tag = ITA
+			}
+		}
+	}
+	visible={
+		AND={
+			NOT={has_global_flag = palermo_conference_happened}
+			NOT={
+				PAP={exists = yes}
+			}
+			
+			OR={
+			AND={
+				ITA = {has_government = fascism}
+				has_war_with = ITA
+			}
+			has_defensive_war_with = ITA
+			
+			}
+		}
+	}
+} 
+USA_fragment_conference = {
+	allowed = {
+		AND={
+			NOT = {
+				original_tag = USA
+				original_tag = ENG
+			}
+		}
+	}
+	visible={
+		AND={
+			OR={
+				has_government = fascism
+				has_government = communism
+				USA = {has_government = fascism}
+			}
+			has_war_with = USA
+			NOT={has_global_flag = washington_conference}
+		}
+	}
+} 

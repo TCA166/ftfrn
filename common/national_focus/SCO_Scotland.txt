@@ -1,0 +1,2408 @@
+focus_tree = {
+	id = Scotland
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = SCO
+		}
+	}
+	continuous_focus_position = { x = 50 y = 1200 }
+	#Focus for Learn from the Great War
+	focus = {
+		id = SCO_learn_from_the_great_war
+		icon = GFX_goal_generic_small_arms
+		x = 18
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_seek_the_continiuation_of_peace }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience = 10
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 1
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Economic Boom
+	focus = {
+		id = SCO_economic_boom
+		icon = GFX_goal_generic_production2
+		x = 16
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_protect_the_economy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Protect the Economy
+	focus = {
+		id = SCO_protect_the_economy
+		icon = GFX_SCO_protect_the_economy-116416
+		x = 16
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_start_urbanization_programs 
+			focus = SCO_sieze_the_means_of_production 
+		}
+		mutually_exclusive = { focus = SCO_fortress_scotland }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Research Expansion
+	focus = {
+		id = SCO_research_expansion
+		icon = GFX_focus_research2
+		x = 12
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_expand_the_peoples_army 
+		}
+		prerequisite = { 
+			focus = SCO_workers_of_england_rise 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Expand the People's Army
+	focus = {
+		id = SCO_expand_the_peoples_army
+		icon = GFX_focus_generic_little_entente
+		x = 12
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_soviet_industrial_assistance }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  add_manpower= 20000
+		}
+	}
+
+	#Focus for Join the Comintern
+	focus = {
+		id = SCO_join_the_comintern
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		x = 12
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_peace_through_communism }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			NOT={has_government=communism}
+		}
+		available = {
+			SOV={has_government=communism}
+		}
+		completion_reward = {
+			SOV={add_to_faction=SCO}
+		}
+	}
+
+	#Focus for Control the Canal
+	focus = {
+		id = SCO_control_the_canal
+		icon = GFX_focus_ger_break_anglo_french_colonial_hegemony
+		x = 8
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_the__isles_have_been_unified }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_government = fascism
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = FRA
+}
+		}
+	}
+
+	#Focus for Strike at Italy
+	focus = {
+		id = SCO_strike_at_italy
+		icon = GFX_focus_attack_italy
+		x = 22
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_spread_democracy }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			ITA={has_government = fascism}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = ITA
+}
+		}
+	}
+
+	#Focus for Kill the American Dream
+	focus = {
+		id = SCO_kill_the_american_dream
+		icon = GFX_focus_eng_crush_the_dream
+		x = 12
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_the__isles_have_been_unified }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_government = communism
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = USA
+}
+		}
+	}
+
+	#Focus for Strike at the Heart
+	focus = {
+		id = SCO_strike_at_the_heart
+		icon = GFX_focus_attack_soviet
+		x = 6
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_the__isles_have_been_unified 
+		}
+		prerequisite = { 
+			focus = SCO_persecute_the_english 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = SOV
+}
+		}
+	}
+
+	#Focus for Deal with the Continental Threat
+	focus = {
+		id = SCO_deal_with_the_continental_threat
+		icon = GFX_focus_attack_germany
+		x = 14
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_the__isles_have_been_unified 
+		}
+		prerequisite = { 
+			focus = SCO_reeducate_the_english 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT={GER={has_government=ROOT}}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = GER
+}
+		}
+	}
+
+	#Focus for A United Kingdom
+	focus = {
+		id = SCO_a_united_kingdom
+		icon = GFX_goal_generic_national_unity
+		x = 18
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_push_for_centralization_of_the_alliance }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			AND={
+IRE={OR={exists=no is_subject_of=ROOT}}
+NIR={OR={exists=no is_subject_of=ROOT}}
+ENG={OR={exists=no is_subject_of=ROOT}}
+WLS={OR={exists=no is_subject_of=ROOT}}
+}
+		}
+		completion_reward = {
+			annex_country = {target = NIR transfer_troops = yes } annex_country = {target = IRE transfer_troops = yes } annex_country = {target = ENG transfer_troops = yes } annex_country = {target = WLS transfer_troops = yes }
+		}
+	}
+
+	#Focus for Repeat the Bannockburn
+	focus = {
+		id = SCO_repeat_the_bannockburn
+		icon = GFX_focus_eng_decolonization
+		x = 24
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_prepare_for_war 
+		}
+		prerequisite = { 
+			focus = SCO_invite_the_lowlands 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT={ENG={is_in_faction_with = SCO has_government=democratic}}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = ENG
+}
+		}
+	}
+
+	#Focus for Subjucate Weak Neighbours
+	focus = {
+		id = SCO_subjucate_weak_neighbours
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 10
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_military_coup 
+			focus = SCO_sieze_the_means_of_production 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			126 = { is_controlled_by = SCO }
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = NIR
+}
+  create_wargoal= { 
+type = annex_everything 
+target = WLS 
+}
+		}
+	}
+
+	#Focus for Peace Through Communism
+	focus = {
+		id = SCO_peace_through_communism
+		icon = GFX_goal_support_communism
+		x = 14
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_stability_through_diplomacy 
+			focus = SCO_denounce_the_union_of_the_crowns 
+		}
+		mutually_exclusive = { 
+			focus = SCO_strenghten_the_armed_forces 
+		}
+		mutually_exclusive = { 
+			focus = SCO_seek_the_continiuation_of_peace 
+		}
+		mutually_exclusive = { 
+			focus = SCO_anti_english_alliance 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			has_government = communism
+		}
+		available = {
+			communism > 0.2
+is_subject= no
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = communism 
+elections_allowed = no 
+}
+  add_popularity= { 
+ideology = communism 
+popularity = 0.3 
+}
+		}
+	}
+
+	#Focus for Celebrate Independence
+	focus = {
+		id = SCO_celebrate_independence
+		icon = GFX_goal_generic_demand_territory
+		x = 10
+		y = 0
+		cost = 4
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1
+add_political_power=150
+		}
+	}
+
+	#Focus for Strenghten the Armed Forces
+	focus = {
+		id = SCO_strenghten_the_armed_forces
+		icon = GFX_goal_generic_small_arms
+		x = 6
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_denounce_the_union_of_the_crowns }
+		mutually_exclusive = { focus = SCO_peace_through_communism }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 2
+		}
+		bypass = {
+			has_government = fascism
+		}
+		available = {
+			is_subject= no
+		}
+		completion_reward = {
+			add_war_support= 0.05  add_popularity= { 
+ideology = fascism 
+popularity = 0.05 
+}
+  army_experience= 30
+		}
+	}
+
+	#Focus for Start the Political Debate
+	focus = {
+		id = SCO_start_the_political_debate
+		icon = GFX_goal_tripartite_pact
+		x = 18
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150
+		}
+	}
+
+	#Focus for Stability Through Diplomacy
+	focus = {
+		id = SCO_stability_through_diplomacy
+		icon = GFX_goal_support_democracy
+		x = 18
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_start_the_political_debate }
+		mutually_exclusive = { focus = SCO_denounce_the_union_of_the_crowns }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_offensive_war= no
+		}
+		completion_reward = {
+			add_political_power= 150  add_popularity= { 
+ideology = democratic 
+popularity = 0.1 
+}
+  add_popularity= { 
+ideology = communism 
+popularity = 0.1 
+}
+		}
+	}
+
+	#Focus for Further Concessions to the Military
+	focus = {
+		id = SCO_further_concessions_to_the_military
+		icon = GFX_goal_rhineland
+		x = 6
+		y = 3
+		cost = 13
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_strenghten_the_armed_forces }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  add_war_support= 0.1  add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+		}
+	}
+
+	#Focus for Seek the Continiuation of Peace
+	focus = {
+		id = SCO_seek_the_continiuation_of_peace
+		icon = GFX_focus_chi_british_cooperation
+		x = 18
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_stability_through_diplomacy }
+		mutually_exclusive = { 
+			focus = SCO_peace_through_communism 
+		}
+		mutually_exclusive = { 
+			focus = SCO_anti_english_alliance 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			is_in_faction_with= ENG
+		}
+		available = {
+			ENG = {has_government = democratic}
+		}
+		completion_reward = {
+			create_faction= "British isles alliance"
+ENG = { country_event = { id = ftfrn.3 } }
+		}
+	}
+
+	#Focus for Military Coup
+	focus = {
+		id = SCO_military_coup
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 6
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_further_concessions_to_the_military }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			democratic < 0.5
+has_army_manpower = {size > 100000}
+is_subject= no
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = ENG
+}
+set_politics = {
+	ruling_party = fascism
+	elections_allowed = no
+}
+		}
+	}
+
+	#Focus for Proclaim Victory
+	focus = {
+		id = SCO_proclaim_victory
+		icon = GFX_goal_generic_propaganda
+		x = 6
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_military_coup }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			131 = {is_controlled_by= SCO}  
+119 = {is_controlled_by= SCO}
+		}
+		completion_reward = {
+			add_state_core= 131  add_state_core= 119  add_state_claim= 130  add_state_claim= 132
+		}
+	}
+
+	#Focus for Finish the Unification
+	focus = {
+		id = SCO_finish_the_unification
+		icon = GFX_goal_generic_attack_allies
+		x = 10
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_subjucate_weak_neighbours }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = IRE
+}
+		}
+	}
+
+	#Focus for Sieze the Means of Production
+	focus = {
+		id = SCO_sieze_the_means_of_production
+		icon = GFX_goal_generic_soviet_construction
+		x = 14
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_lower_poverty_rates }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Improve the Living Standards
+	focus = {
+		id = SCO_improve_the_living_standards
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 16
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_seek_the_continiuation_of_peace 
+			focus = SCO_peace_through_communism 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Workers of England Rise!
+	focus = {
+		id = SCO_workers_of_england_rise
+		icon = GFX_goal_tfv_burn_the_royal_portraits
+		x = 14
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_sieze_the_means_of_production }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = ENG
+}
+		}
+	}
+
+	#Focus for Reeducate the English
+	focus = {
+		id = SCO_reeducate_the_english
+		icon = GFX_goal_generic_war_with_comintern
+		x = 14
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_workers_of_england_rise }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_core= 131
+add_state_core= 132
+add_state_core= 130
+add_stability= -0.7
+add_ideas = reeducation_programs
+		}
+	}
+
+	#Focus for Protect the Small Nations
+	focus = {
+		id = SCO_protect_the_small_nations
+		icon = GFX_goal_generic_improve_relations
+		x = 20
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_seek_the_continiuation_of_peace 
+			focus = SCO_anti_english_alliance 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_subject= no
+		}
+		completion_reward = {
+			WLS = { country_event = { id = ftfrn.3 } }
+NIR = { country_event = { id = ftfrn.3 } }
+IRE = { country_event = { id = ftfrn.3 } }
+		}
+	}
+
+	#Focus for Maintain the Status Quo
+	focus = {
+		id = SCO_maintain_the_status_quo
+		icon = GFX_goal_generic_national_unity
+		x = 20
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_protect_the_small_nations }
+		mutually_exclusive = { focus = SCO_prepare_for_war }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Prepare for War
+	focus = {
+		id = SCO_prepare_for_war
+		icon = GFX_goal_generic_position_armies
+		x = 22
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_mobilise_the_economy 
+			focus = SCO_revive_the_auld_alliance 
+		}
+		mutually_exclusive = { focus = SCO_maintain_the_status_quo }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			USA = { country_event = { id = ftfrn.3 } }  
+set_rule = { can_send_volunteers = yes }
+set_rule = { can_guarantee_other_ideologies = yes }
+		}
+	}
+
+	#Focus for Fortress Scotland
+	focus = {
+		id = SCO_fortress_scotland
+		icon = GFX_goal_generic_fortify_city
+		x = 18
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_maintain_the_status_quo 
+		}
+		prerequisite = { 
+			focus = SCO_start_urbanization_programs 
+		}
+		mutually_exclusive = { focus = SCO_protect_the_economy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			133 = {
+	add_building_construction = {
+		type = bunker
+        	province = 11218
+		level = 5
+	}
+} 
+121 = {
+	add_building_construction = {
+		type = bunker
+        	province = 9314
+		level = 5
+	}
+} 
+121 = {
+	add_building_construction = {
+		type = bunker
+        	province = 11378
+		level = 5
+	}
+} 
+121 = {
+	add_building_construction = {
+		type = coastal_bunker 
+        	province = 9392
+		level = 5
+	}
+} 
+121 = {
+	add_building_construction = {
+		type = coastal_bunker 
+        	province = 6300
+		level = 5
+	}
+}
+		}
+	}
+
+	#Focus for Start Urbanization Programs
+	focus = {
+		id = SCO_start_urbanization_programs
+		icon = GFX_goal_generic_construction2
+		x = 16
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_improve_the_living_standards }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+     add_extra_state_shared_building_slots = 3 }
+random_owned_controlled_state = {
+     add_extra_state_shared_building_slots = 2 }
+		}
+	}
+
+	#Focus for War Plan Black
+	focus = {
+		id = SCO_war_plan_black
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		x = 22
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_prepare_for_war }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			GER = {fascism > 0.5}
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = GER
+}
+		}
+	}
+
+	#Focus for Start Research Colaboration Programs
+	focus = {
+		id = SCO_start_research_colaboration_programs
+		icon = GFX_focus_research2
+		x = 20
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_maintain_the_status_quo 
+			focus = SCO_prepare_for_war 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for The  Isles have been Unified!
+	focus = {
+		id = SCO_the__isles_have_been_unified
+		icon = GFX_goal_generic_special_forces
+		x = 10
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_reeducate_the_english 
+			focus = SCO_persecute_the_english 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			126 = {is_owned_by= SCO}  
+122 = {is_owned_by= SCO}
+113 = {is_owned_by= SCO}
+		}
+		completion_reward = {
+			add_stability= 0.1  
+add_war_support= 0.1
+set_cosmetic_tag = GRT_SCO
+add_state_core= 119
+add_state_core= 134
+add_state_core= 113
+add_state_core= 135
+add_state_core= 122
+		}
+	}
+
+	#Focus for Spread Democracy
+	focus = {
+		id = SCO_spread_democracy
+		icon = GFX_goal_generic_political_pressure
+		x = 22
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_war_plan_black }
+		mutually_exclusive = { focus = SCO_push_for_centralization_of_the_alliance }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			# first we scope to a random nation
+    every_neighbor_country = {
+        limit = { # some sanity checks
+            has_government = fascism
+            not = {
+                is_guaranteed_by = ROOT # not guaranteed by us
+                is_in_faction_with = ROOT # not in faction with us
+                has_non_aggression_pact_with = ROOT #  # no non aggression by us
+                is_subject_of = ROOT # not our puppet or subject
+            }
+        }
+        ROOT = { # we scope back to our own country
+            declare_war_on = { # declare war on
+                target = PREV # previous scope (random neighbor)
+                type = annex_everything # standard wargoal
+            }
+        }
+    }
+set_rule = { can_force_government = yes }
+		}
+	}
+
+	#Focus for Push for Centralization of the Alliance
+	focus = {
+		id = SCO_push_for_centralization_of_the_alliance
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = 18
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_war_plan_black 
+			focus = SCO_fortress_scotland 
+		}
+		mutually_exclusive = { focus = SCO_spread_democracy }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_war= no 
+is_in_faction_with= ENG
+		}
+		completion_reward = {
+			ENG = { country_event = { id = ftfrn.1 } }
+WLS = { country_event = { id = ftfrn.1 } }
+NIR = { country_event = { id = ftfrn.1 } }
+IRE = { country_event = { id = ftfrn.1 } }
+		}
+	}
+
+	#Focus for Anti English Alliance
+	focus = {
+		id = SCO_anti_english_alliance
+		icon = GFX_goal_generic_alliance
+		x = 24
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_stability_through_diplomacy }
+		mutually_exclusive = { 
+			focus = SCO_seek_the_continiuation_of_peace 
+		}
+		mutually_exclusive = { 
+			focus = SCO_peace_through_communism 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			ENG = {democratic <0.5}
+		}
+		completion_reward = {
+			create_faction= "Anti English Alliance"
+		}
+	}
+
+	#Focus for Revive the auld alliance
+	focus = {
+		id = SCO_revive_the_auld_alliance
+		icon = GFX_focus_chi_reach_out_to_france
+		x = 24
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_anti_english_alliance }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			is_subject= no
+		}
+		completion_reward = {
+			FRA = {country_event = {id=ftfrn.3}}
+		}
+	}
+
+	#Focus for Seek German Protection
+	focus = {
+		id = SCO_seek_german_protection
+		icon = GFX_focus_chi_mission_to_germany
+		x = 4
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_military_coup 
+		}
+		prerequisite = { 
+			focus = SCO_reignite_the_scottish_spirit 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			GER = {has_government = fascism}
+		}
+		completion_reward = {
+			GER = {give_guarantee = SCO}
+		}
+	}
+
+	#Focus for Denounce the Union of the Crowns
+	focus = {
+		id = SCO_denounce_the_union_of_the_crowns
+		icon = GFX_goal_generic_forceful_treaty
+		x = 10
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_celebrate_independence 
+			focus = SCO_start_the_political_debate 
+		}
+		mutually_exclusive = { focus = SCO_stability_through_diplomacy }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.1  add_war_support= 0.2
+		}
+	}
+
+	#Focus for Honor the Jacobites
+	focus = {
+		id = SCO_honor_the_jacobites
+		icon = GFX_focus_generic_support_the_left_right
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_strenghten_the_armed_forces }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+  add_political_power= 150
+		}
+	}
+
+	#Focus for Reignite the Scottish Spirit
+	focus = {
+		id = SCO_reignite_the_scottish_spirit
+		icon = GFX_SCO_reignite_the_scottish_spirit-107521
+		x = 4
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_honor_the_jacobites }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= scottish_spirit
+		}
+	}
+
+	#Focus for Lower Poverty Rates
+	focus = {
+		id = SCO_lower_poverty_rates
+		icon = GFX_goal_generic_consumer_goods
+		x = 14
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_peace_through_communism }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Create the Secret Police
+	focus = {
+		id = SCO_create_the_secret_police
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		x = 10
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_further_concessions_to_the_military 
+			focus = SCO_lower_poverty_rates 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150  add_stability= 0.1
+		}
+	}
+
+	#Focus for Mobilise the Economy
+	focus = {
+		id = SCO_mobilise_the_economy
+		icon = GFX_goal_generic_production
+		x = 22
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_anti_english_alliance 
+			focus = SCO_seek_the_continiuation_of_peace 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = war_economy
+		}
+	}
+
+	#Focus for Invite the Lowlands
+	focus = {
+		id = SCO_invite_the_lowlands
+		icon = GFX_goal_generic_defence
+		x = 24
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_revive_the_auld_alliance }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			BEL = { country_event = { id = ftfrn.3 } }
+LUX = { country_event = { id = ftfrn.3 } }
+HOL = { country_event = { id = ftfrn.3 } }
+		}
+	}
+
+	#Focus for Doctrine Effort
+	focus = {
+		id = SCO_doctrine_effort
+		icon = GFX_goal_generic_army_doctrines
+		x = 8
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_expand_officer_corps 
+		}
+		prerequisite = { 
+			focus = SCO_further_concessions_to_the_military 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 3
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Finish the Army Reform
+	focus = {
+		id = SCO_finish_the_army_reform
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 8
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_doctrine_effort 
+		}
+		prerequisite = { 
+			focus = SCO_military_coup 
+		}
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  army_experience= 20
+		}
+	}
+
+	#Focus for Expand Officer Corps
+	focus = {
+		id = SCO_expand_officer_corps
+		icon = GFX_focus_generic_military_mission
+		x = 8
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_strenghten_the_armed_forces }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.1  army_experience= 10
+		}
+	}
+
+	#Focus for Military Manufacturing Expansion
+	focus = {
+		id = SCO_military_manufacturing_expansion
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 8
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_finish_the_army_reform }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Persecute the English
+	focus = {
+		id = SCO_persecute_the_english
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		x = 6
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_proclaim_victory }
+		search_filters = { FOCUS_FILTER_STABILITY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = local_militias
+		}
+	}
+
+	#Focus for Invite German Aviation Industry
+	focus = {
+		id = SCO_invite_german_aviation_industry
+		icon = GFX_SCO_invite_german_aviation_industry-111262
+		x = 4
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_seek_german_protection }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Soviet Industrial Assistance
+	focus = {
+		id = SCO_soviet_industrial_assistance
+		icon = GFX_SCO_soviet_industrial_assistance-108486
+		x = 12
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_join_the_comintern 
+		}
+		prerequisite = { 
+			focus = SCO_lower_poverty_rates 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Develop an Airforce
+	focus = {
+		id = SCO_develop_an_airforce
+		icon = GFX_goal_generic_air_fighter2
+		x = 18
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_learn_from_the_great_war }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 1.0
+				uses = 1
+				category = air_doctrine
+			}
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+				technology = fighter3
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+		}
+	}
+
+	#Focus for Conquer Brittany
+	focus = {
+		id = SCO_conquer_brittany
+		icon = GFX_SCO_conquer_brittany-116414
+		x = 10
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_the__isles_have_been_unified }
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = BRI
+}
+		}
+	}
+
+	#Focus for Start the Rocketry Program
+	focus = {
+		id = SCO_start_the_rocketry_program
+		icon = GFX_focus_rocketry
+		x = 16
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_economic_boom }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = security_through_technology
+		}
+	}
+
+	#Focus for The Scottish Army
+	focus = {
+		id = SCO_the_scottish_army
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 30
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower= 20000  army_experience= 30
+		}
+	}
+
+	#Focus for Conduct Naval Excercises
+	focus = {
+		id = SCO_conduct_naval_excercises
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 38
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_reinvigorate_scottish_shipbuilding }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			navy_experience = 75
+		}
+	}
+
+	#Focus for Strategic Effort
+	focus = {
+		id = SCO_strategic_effort
+		icon = GFX_goal_generic_air_doctrine
+		x = 31
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_the_scottish_army }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience = 50
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Equipment Effort
+	focus = {
+		id = SCO_equipment_effort
+		icon = GFX_goal_generic_build_tank
+		x = 29
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_the_scottish_army }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				ahead_reduction = 2
+				uses = 2
+				category = infantry_weapons
+				
+			}
+		}
+	}
+
+	#Focus for Artillery Focus
+	focus = {
+		id = SCO_artillery_focus
+		icon = GFX_goal_generic_army_artillery2
+		x = 29
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_equipment_effort }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				ahead_reduction = 2
+				uses = 3
+				
+				category = artillery
+			}
+		}
+	}
+
+	#Focus for Learn from the Past
+	focus = {
+		id = SCO_learn_from_the_past
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		x = 31
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_strategic_effort }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			army_experience = 100
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Mountaineer Effort
+	focus = {
+		id = SCO_mountaineer_effort
+		icon = GFX_focus_generic_manpower
+		x = 28
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_artillery_focus }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = special_forces
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 1.0
+				uses = 2
+				technology = tech_mountaineers
+				technology = tech_mountaineers2
+			}
+		}
+	}
+
+	#Focus for Fast Divisions Effort
+	focus = {
+		id = SCO_fast_divisions_effort
+		icon = GFX_goal_generic_army_motorized
+		x = 30
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_learn_from_the_past 
+		}
+		prerequisite = { 
+			focus = SCO_artillery_focus 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus= {
+ bonus = 1 
+uses = 2 
+category = cat_mechanized_equipment
+}
+add_equipment_to_stockpile = {
+
+        type = mechanized_equipment_1
+
+        amount = 300
+
+    }
+		}
+	}
+
+	#Focus for Glasgow Military School
+	focus = {
+		id = SCO_glasgow_military_school
+		icon = GFX_focus_generic_military_mission
+		x = 32
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_learn_from_the_past }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = glasgow_school
+		}
+	}
+
+	#Focus for Armor Experiments
+	focus = {
+		id = SCO_armor_experiments
+		icon = GFX_goal_generic_army_tanks
+		x = 30
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_fast_divisions_effort }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 1.0
+				uses = 2
+				category = armor
+			}
+		}
+	}
+
+	#Focus for Elite Mountaineers
+	focus = {
+		id = SCO_elite_mountaineers
+		icon = GFX_focus_chi_army_reform
+		x = 28
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_mountaineer_effort }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = mountaineer_focus
+		}
+	}
+
+	#Focus for Implement Theories
+	focus = {
+		id = SCO_implement_theories
+		icon = GFX_goal_generic_cavalry
+		x = 32
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_glasgow_military_school }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Reinvigorate Scottish Shipbuilding
+	focus = {
+		id = SCO_reinvigorate_scottish_shipbuilding
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 37
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = dockyard
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Continue Dockyard Development
+	focus = {
+		id = SCO_continue_dockyard_development
+		icon = GFX_SCO_continue_dockyard_development-108490
+		x = 36
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_reinvigorate_scottish_shipbuilding }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Modernise Dockyards
+	focus = {
+		id = SCO_modernise_dockyards
+		icon = GFX_goal_generic_production2
+		x = 36
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_continue_dockyard_development }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Naval Design Effort
+	focus = {
+		id = SCO_naval_design_effort
+		icon = GFX_focus_generic_cruiser2
+		x = 38
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_conduct_naval_excercises }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			IF={
+limit={has_dlc = "Man the Guns"}
+add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 0.5
+				uses = 3
+				category = ship_modules_tech
+			}
+else={
+add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}
+}
+}
+		}
+	}
+
+	#Focus for Surface Fleet Effort
+	focus = {
+		id = SCO_surface_fleet_effort
+		icon = GFX_goal_generic_navy_battleship
+		x = 39
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_modernise_dockyards 
+		}
+		prerequisite = { 
+			focus = SCO_naval_design_effort 
+		}
+		mutually_exclusive = { focus = SCO_submarine_effort }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}
+add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = bc_tech
+				category = bb_tech
+				category = cv_tech
+			}
+		}
+	}
+
+	#Focus for Submarine Effort
+	focus = {
+		id = SCO_submarine_effort
+		icon = GFX_goal_generic_navy_anti_submarine
+		x = 35
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_modernise_dockyards 
+		}
+		prerequisite = { 
+			focus = SCO_naval_design_effort 
+		}
+		mutually_exclusive = { focus = SCO_surface_fleet_effort }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 2
+				category = ss_tech
+			}
+		}
+	}
+
+	#Focus for Continue Sumbarine Development
+	focus = {
+		id = SCO_continue_sumbarine_development
+		icon = GFX_goal_generic_navy_submarine
+		x = 35
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_submarine_effort }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = sub_op_bonus
+				bonus = 1.0
+				uses = 3
+				technology = convoy_interdiction_ti
+				technology = unrestricted_submarine_warfare
+				technology = wolfpacks
+				technology = advanced_submarine_warfare
+				technology = combined_operations_raiding
+			}
+		}
+	}
+
+	#Focus for Destroyer Effort
+	focus = {
+		id = SCO_destroyer_effort
+		icon = GFX_focus_generic_destroyer
+		x = 37
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_submarine_effort 
+			focus = SCO_surface_fleet_effort 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 3
+				category = dd_tech
+			}
+		}
+	}
+
+	#Focus for Superheavy Experiments
+	focus = {
+		id = SCO_superheavy_experiments
+		icon = GFX_SCO_superheavy_experiments-108497
+		x = 39
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_surface_fleet_effort }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			navy_experience = 25
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 2.0
+				ahead_reduction = 2
+				uses = 1
+				category = shbb_tech
+			}
+add_ideas = superheavy_effort
+		}
+	}
+
+	#Focus for Scottish Aviation Industry
+	focus = {
+		id = SCO_scottish_aviation_industry
+		icon = GFX_goal_generic_build_airforce
+		x = 44
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Fighter Effort
+	focus = {
+		id = SCO_fighter_effort
+		icon = GFX_goal_generic_air_fighter2
+		x = 43
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_scottish_aviation_industry }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+				technology = early_fighter
+				technology = fighter1
+				technology = fighter2
+			
+			}
+		}
+	}
+
+	#Focus for Bomber Effort
+	focus = {
+		id = SCO_bomber_effort
+		icon = GFX_goal_generic_air_bomber
+		x = 45
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_scottish_aviation_industry }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1.0
+				uses = 2
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+				technology = strategic_bomber3
+				category = tactical_bomber
+			}
+		}
+	}
+
+	#Focus for Heavy Fighter Focus
+	focus = {
+		id = SCO_heavy_fighter_focus
+		icon = GFX_goal_generic_air_fighter2
+		x = 43
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_fighter_effort }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 1.0
+				uses = 2
+			
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+				technology = heavy_fighter3
+			}
+		}
+	}
+
+	#Focus for Strategic Bomber Effort
+	focus = {
+		id = SCO_strategic_bomber_effort
+		icon = GFX_goal_generic_air_naval_bomber
+		x = 45
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = SCO_bomber_effort }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 1.0
+				uses = 2
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+				technology = strategic_bomber3
+			
+			}
+		}
+	}
+
+	#Focus for Experimental Air Effort
+	focus = {
+		id = SCO_experimental_air_effort
+		icon = GFX_focus_rocketry
+		x = 44
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = SCO_heavy_fighter_focus 
+		}
+		prerequisite = { 
+			focus = SCO_strategic_bomber_effort 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			date > 1943.5.1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = jet_rocket_bonus
+				ahead_reduction = 2
+				uses = 3
+				category = rocketry
+				category = jet_technology
+			}
+add_tech_bonus = {
+				name = jet_rocket_bonus
+				ahead_reduction = 2
+				uses = 2
+technology = jet_fighter1
+technology = jet_fighter2
+
+			}
+		}
+	}
+
+#End of focuses 
+ }

@@ -1,0 +1,83 @@
+CSA_racial_tenstions = {
+	csa_civil_war_mission = {                           
+        allowed = { tag = CSA }  
+		activation = {
+			OR={
+			has_completed_focus = CSA_conservative_values
+			has_completed_focus = CSA_fight_racism
+			}
+		}
+		available={
+			OR={
+			has_completed_focus = CSA_deal_with_the_railroad
+			has_completed_focus = CSA_realise_communist_threat
+			has_completed_focus = CSA_bring_neutrals_into_the_fold
+			}
+		}
+        is_good = no                                        
+        days_mission_timeout = 270             
+        timeout_effect = {                      
+            IF={
+			limit={has_completed_focus = CSA_conservative_values}
+				#slave uprising
+				
+				NAF={
+				add_state_core = 370
+				add_state_core = 367
+				add_state_core = 365
+				add_state_core = 364
+				}
+				CSA={
+				release = NAF
+				declare_war_on = {
+				target = NAF
+				type = annex_everything
+				}
+				add_civil_war_target = NAF
+				}
+				NAF={
+				load_oob = NAF_uprising
+				}
+				transfer_units_fraction= {
+				target = NAF
+				size = 0.5
+				stockpile_ratio = 0.5
+				army_ratio = 0.3
+				
+	
+				}
+				
+			}	
+			IF={
+			limit={has_completed_focus = CSA_fight_racism}
+				#fascist uprising
+				start_civil_war = {
+				ideology = fascism
+				size = 0.5
+				keep_political_leader = yes
+				}
+				every_country={
+				limit={original_tag = CSA has_government=fascism}
+				load_focus_tree = Cringe_Racists
+				complete_national_focus = CSA_emergency_election
+				complete_national_focus = CSA_far_right_candidate
+				}
+			}
+        }
+    }
+    delay_war = {
+		visible = {
+            has_active_mission = csa_civil_war_mission
+        }
+		available={
+			has_political_power > 75
+		}
+		cost=50
+        complete_effect = {
+            add_days_mission_timeout = {
+				mission = csa_civil_war_mission
+				days = 80
+			}
+        }
+    }
+}

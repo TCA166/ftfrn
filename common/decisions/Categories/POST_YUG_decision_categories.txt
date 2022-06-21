@@ -1,0 +1,10 @@
+YUG_propaganda = {
+	allowed = {
+		original_tag = CRO
+		original_tag = BOS
+		original_tag = SLV
+	}
+	visible = {
+		has_completed_focus = UKR_education_reform
+	}
+}

@@ -1,0 +1,10 @@
+WGR_reunification = {
+	
+	allowed = {
+		original_tag = WGR
+	}
+
+	visible = {
+		has_completed_focus = WGR_outlast_them
+	}
+}

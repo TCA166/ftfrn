@@ -1,0 +1,1021 @@
+focus_tree = {
+	id = Hawaii
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = HAW
+		}
+	}
+	#Focus for Focus on Army
+	focus = {
+		id = HAW_focus_on_army
+		icon = GFX_goal_rhineland
+		x = 2
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = HAW_focus_on_navy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for American Industry
+	focus = {
+		id = HAW_american_industry
+		icon = GFX_HAW_american_industry-108361
+		x = 20
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = HAW_accept_american_naval_advisors 
+		}
+		prerequisite = { 
+			focus = HAW_accept_american_naval_investment 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Naval Research Institute
+	focus = {
+		id = HAW_naval_research_institute
+		icon = GFX_HAW_naval_research_institute-107624
+		x = 18
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = HAW_expand_public_education 
+		}
+		prerequisite = { 
+			focus = HAW_accept_american_naval_advisors 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Accept American Naval Advisors
+	focus = {
+		id = HAW_accept_american_naval_advisors
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 19
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = HAW_friendship_with_americans 
+		}
+		prerequisite = { 
+			focus = HAW_accept_american_naval_investment 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			navy_experience= 50  air_experience= 10  army_experience= 10
+		}
+	}
+
+	#Focus for Expand Public Education
+	focus = {
+		id = HAW_expand_public_education
+		icon = GFX_focus_research2
+		x = 17
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = HAW_invest_into_people 
+		}
+		prerequisite = { 
+			focus = HAW_friendship_with_americans 
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Friendship with Americans
+	focus = {
+		id = HAW_friendship_with_americans
+		icon = GFX_focus_chi_mission_to_the_us
+		x = 18
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = HAW_american_democracy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			USA = {add_opinion_modifier={target = HAW modifier = huge_increase}}
+add_opinion_modifier={target = USA modifier = huge_increase}
+		}
+	}
+
+	#Focus for Stand Against the Europeans
+	focus = {
+		id = HAW_stand_against_the_europeans
+		icon = GFX_focus_usa_focus_on_europe
+		x = 12
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = HAW_elite_marines 
+			focus = HAW_absolute_monarchy 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = against_europe
+		}
+	}
+
+	#Focus for Return of the King
+	focus = {
+		id = HAW_return_of_the_king
+		icon = GFX_focus_generic_monarchy_2
+		x = 14
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = HAW_royal_legacy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = neutrality 
+elections_allowed = no 
+}
+  add_stability= 0.2
+		}
+	}
+
+	#Focus for Absolute Monarchy
+	focus = {
+		id = HAW_absolute_monarchy
+		icon = GFX_focus_rom_royal_dictatorship
+		x = 13
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = HAW_return_of_the_king }
+		mutually_exclusive = { focus = HAW_modern_monarchy }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = absolute_monarchy_i
+		}
+	}
+
+	#Focus for Prepare for Conquest
+	focus = {
+		id = HAW_prepare_for_conquest
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 10
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = HAW_nationalist_idea }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Embrace Fascist Policies
+	focus = {
+		id = HAW_embrace_fascist_policies
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = 8
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = HAW_nationalist_idea }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = fascism 
+elections_allowed = no 
+}
+  add_political_power= 150
+		}
+	}
+
+	#Focus for Claim the Islands
+	focus = {
+		id = HAW_claim_the_islands
+		icon = GFX_goal_generic_propaganda
+		x = 9
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = HAW_embrace_fascist_policies 
+		}
+		prerequisite = { 
+			focus = HAW_prepare_for_conquest 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_claim= 270  add_state_claim= 641  add_state_claim= 642  add_state_claim= 727  add_state_claim= 726  add_state_claim= 631  add_state_claim= 630
+		}
+	}
+
+	#Focus for Stabilise the Flow of Trade
+	focus = {
+		id = HAW_stabilise_the_flow_of_trade
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 16
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = HAW_modern_monarchy 
+			focus = HAW_expand_public_education 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = industrial_complex
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Invest into People
+	focus = {
+		id = HAW_invest_into_people
+		icon = GFX_goal_generic_production
+		x = 16
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = HAW_royal_legacy 
+			focus = HAW_american_democracy 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = industrial_complex
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Dockyard Expansion
+	focus = {
+		id = HAW_dockyard_expansion
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 8
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = HAW_embrace_fascist_policies 
+		}
+		prerequisite = { 
+			focus = HAW_claim_the_islands 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = dockyard
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Modern Monarchy
+	focus = {
+		id = HAW_modern_monarchy
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		x = 15
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = HAW_return_of_the_king }
+		mutually_exclusive = { focus = HAW_absolute_monarchy }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = neutrality
+elections_allowed = yes 
+}
+add_ideas = const_monarchy_i
+		}
+	}
+
+	#Focus for Elite Marines
+	focus = {
+		id = HAW_elite_marines
+		icon = GFX_goal_generic_amphibious_assault
+		x = 11
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = HAW_prepare_for_conquest 
+		}
+		prerequisite = { 
+			focus = HAW_industrial_effort 
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = elite_marines
+		}
+	}
+
+	#Focus for Industrial Effort
+	focus = {
+		id = HAW_industrial_effort
+		icon = GFX_goal_generic_production2
+		x = 12
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = HAW_nationalist_idea 
+			focus = HAW_royal_legacy 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Accept American Naval Investment
+	focus = {
+		id = HAW_accept_american_naval_investment
+		icon = GFX_HAW_accept_american_naval_investment-108497
+		x = 20
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = HAW_american_democracy }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 4
+ add_building_construction = {
+ type = dockyard
+ level = 4
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Royal Legacy
+	focus = {
+		id = HAW_royal_legacy
+		icon = GFX_goal_generic_propaganda
+		x = 14
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = HAW_start_the_political_debate }
+		mutually_exclusive = { 
+			focus = HAW_american_democracy 
+		}
+		mutually_exclusive = { 
+			focus = HAW_nationalist_idea 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = neutrality
+popularity = 0.2 
+}
+  add_stability= 0.1
+		}
+	}
+
+	#Focus for Nationalist Idea
+	focus = {
+		id = HAW_nationalist_idea
+		icon = GFX_goal_support_fascism
+		x = 9
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = HAW_start_the_political_debate }
+		mutually_exclusive = { 
+			focus = HAW_royal_legacy 
+		}
+		mutually_exclusive = { 
+			focus = HAW_american_democracy 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			NOT = {has_cosmetic_tag = united_polynesia}
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.2 
+}
+		}
+	}
+
+	#Focus for Start the Political Debate
+	focus = {
+		id = HAW_start_the_political_debate
+		icon = GFX_goal_generic_demand_territory
+		x = 14
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150
+		}
+	}
+
+	#Focus for American Democracy
+	focus = {
+		id = HAW_american_democracy
+		icon = GFX_goal_support_democracy
+		x = 19
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = HAW_start_the_political_debate }
+		mutually_exclusive = { 
+			focus = HAW_royal_legacy 
+		}
+		mutually_exclusive = { 
+			focus = HAW_nationalist_idea 
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratic 
+popularity = 0.2 
+}
+		}
+	}
+
+	#Focus for War Against Colonies
+	focus = {
+		id = HAW_war_against_colonies
+		icon = GFX_goal_generic_territory_or_war
+		x = 10
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = HAW_elite_marines 
+		}
+		prerequisite = { 
+			focus = HAW_claim_the_islands 
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = NZL
+}
+  create_wargoal= { 
+type = annex_everything 
+target = AST
+}
+		}
+	}
+
+	#Focus for Detterence
+	focus = {
+		id = HAW_detterence
+		icon = GFX_goal_generic_fortify_city
+		x = 14
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = HAW_absolute_monarchy 
+			focus = HAW_modern_monarchy 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = deterrence
+		}
+	}
+
+	#Focus for Focus on Navy
+	focus = {
+		id = HAW_focus_on_navy
+		icon = GFX_goal_generic_navy_battleship
+		x = 4
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		mutually_exclusive = { focus = HAW_focus_on_army }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Naval Doctrine Focus
+	focus = {
+		id = HAW_naval_doctrine_focus
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 5
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = HAW_focus_on_navy }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = FRA_naval_doctrine
+				bonus = 1.0
+				uses = 3
+				category = naval_doctrine
+			}
+		}
+	}
+
+	#Focus for Land Doctrine Focus
+	focus = {
+		id = HAW_land_doctrine_focus
+		icon = GFX_goal_generic_army_doctrines
+		x = 1
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = HAW_focus_on_army }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 3
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Focus for Civilian Expansion
+	focus = {
+		id = HAW_civilian_expansion
+		icon = GFX_goal_generic_production
+		x = 3
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = HAW_focus_on_navy 
+			focus = HAW_focus_on_army 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Naval Research Focus
+	focus = {
+		id = HAW_naval_research_focus
+		icon = GFX_goal_generic_navy_cruiser
+		x = 5
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = HAW_naval_doctrine_focus }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+add_tech_bonus = {
+				name = FRA_naval_doctrine
+				bonus = 1.0
+				uses = 3
+				category = bc_tech
+				category = bb_tech
+				category = cv_tech
+			}
+		}
+	}
+
+	#Focus for Industrial Expansion
+	focus = {
+		id = HAW_industrial_expansion
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 3
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = HAW_civilian_expansion }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Army Equipment Focus
+	focus = {
+		id = HAW_army_equipment_focus
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 1
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = HAW_land_doctrine_focus }
+		search_filters = { FOCUS_FILTER_RESEARCH } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = infantry_weapons
+			}
+add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = armor
+			}
+		}
+	}
+
+	#Focus for Dockyard Investment
+	focus = {
+		id = HAW_dockyard_investment
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 4
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = HAW_naval_research_focus 
+		}
+		prerequisite = { 
+			focus = HAW_industrial_expansion 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = dockyard
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Military Industry Expansion
+	focus = {
+		id = HAW_military_industry_expansion
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 2
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = HAW_industrial_expansion 
+		}
+		prerequisite = { 
+			focus = HAW_army_equipment_focus 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = arms_factory
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+#End of focuses 
+ }
