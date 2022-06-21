@@ -1,0 +1,246 @@
+﻿###########################
+# Morocco Events
+###########################
+
+add_namespace = morocco
+
+# Morrocco start
+country_event = {
+	id = morocco.1
+	title = morocco.1.t
+	desc = morocco.1.d
+	picture = GFX_report_event_mor_independence
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = morocco.1.a
+		ai_chance = { factor = 100 }
+		add_stability= 0.05
+		add_war_support= 0.02
+		add_political_power= 50
+		hidden_effect = {
+			country_event = { id = morocco.2 days = 51 }				
+		}
+	}
+
+
+}
+
+# Colonial Garrisons
+country_event = {
+	id = morocco.2
+	title = morocco.2.t
+	desc = morocco.2.d
+	picture = GFX_report_event_french_oficer
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = morocco.2.a
+		ai_chance = { factor = 25 }
+		add_stability= -0.05
+		add_war_support= -0.02
+		add_political_power= -50
+		hidden_effect = {
+			country_event = { id = morocco.3 days = 71 }				
+		}
+	}
+
+	option = {
+		name = morocco.2.b
+		ai_chance = { factor = 50 }
+		add_stability= -0.02
+		add_war_support= 0.02
+		add_opinion_modifier = { target = FRA modifier = small_decrease }
+		add_equipment_to_stockpile= {
+			type = infantry_equipment_1 
+			amount = 5000 
+			producer = FRA 
+		}
+		hidden_effect = {
+			country_event = { id = morocco.4 days = 5 }				
+		}
+	}
+
+	option = {
+		name = morocco.2.c
+		ai_chance = { factor = 25 }
+		add_war_support= 0.05
+		add_political_power= 50
+		add_opinion_modifier = { target = FRA modifier = medium_decrease }
+		add_equipment_to_stockpile= {
+			type = infantry_equipment_1 
+			amount = 5000 
+			producer = FRA 
+		}
+		hidden_effect = {
+			country_event = { id = morocco.5 days = 5 }
+			news_event = { id = popenews.1 days = 6 }				
+		}
+	}
+}
+
+# Garrisons op1
+country_event = {
+	id = morocco.3
+	title = morocco.3.t
+	desc = morocco.3.d
+	picture = GFX_report_event_french_evacuation1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = morocco.3.a
+		ai_chance = { factor = 90 }
+		add_opinion_modifier = { target = FRA modifier = small_increase }
+		add_political_power= 50
+		add_equipment_to_stockpile= {
+			type = infantry_equipment_1 
+			amount = 3000 
+			producer = FRA 
+		}
+	}
+
+	option = {
+		name = morocco.3.b
+		ai_chance = { factor = 10}
+		add_war_support= 0.05
+		add_opinion_modifier = { target = FRA modifier = small_decrease }
+		add_political_power= 100
+		add_equipment_to_stockpile= {
+			type = infantry_equipment_1 
+			amount = 5000 
+			producer = FRA 
+		}
+		hidden_effect = {
+			country_event = { id = morocco.4 days = 5 }				
+		}
+	}
+}
+
+# Garrisons op2
+country_event = {
+	id = morocco.4
+	title = morocco.4.t
+	desc = morocco.4.d
+	picture = GFX_report_event_french_surender_mor
+	
+	is_triggered_only = yes
+
+	option = {
+		name = morocco.4.a
+		ai_chance = { factor = 20 }
+		add_opinion_modifier = { target = FRA modifier = small_increase }
+		add_political_power= -50
+		add_stability= -0.05
+		add_equipment_to_stockpile= {
+			type = infantry_equipment_1 
+			amount = -5000 
+			producer = FRA 
+		}
+	}
+
+	option = {
+		name = morocco.4.b
+		ai_chance = { factor = 30 }
+		add_stability= -0.05
+		add_political_power= -25
+		add_equipment_to_stockpile= {
+			type = infantry_equipment_1 
+			amount = -3000 
+			producer = FRA 
+		}
+	}
+
+	option = {
+		name = morocco.4.c
+		ai_chance = { factor = 30 }
+		add_stability= 0.05
+		add_war_support= 0.05
+		add_opinion_modifier = { target = FRA modifier = small_decrease }
+		add_political_power= 50
+	}
+
+	option = {
+		name = morocco.4.e
+		ai_chance = { factor = 20 }
+		add_stability= 0.05
+		add_war_support= 0.05
+		add_political_power= 50
+		add_opinion_modifier = { target = FRA modifier = medium_decrease }
+		hidden_effect = {
+			country_event = { id = morocco.5 days = 5 }
+			news_event = { id = popenews.1 days = 6 }				
+		}
+	}
+}
+
+# Garrisons op3
+country_event = {
+	id = morocco.5
+	title = morocco.5.t
+	desc = morocco.5.d
+	picture = GFX_report_event_mor_warcrimes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = morocco.5.a
+		ai_chance = { factor = 25 }
+		add_opinion_modifier = { target = FRA modifier = medium_decrease }
+		add_stability= 0.05
+		add_war_support= 0.1
+		add_political_power= -150
+		FRA = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = MOR
+				}
+			}
+		
+	}
+	option = {
+		name = morocco.5.b
+		ai_chance = { factor = 50 }
+		add_opinion_modifier = { target = FRA modifier = medium_decrease }
+		add_stability= -0.05
+		add_war_support= -0.02
+		add_political_power= -100
+		add_equipment_to_stockpile= {
+			type = infantry_equipment_1 
+			amount = -3000 
+			producer = FRA 
+		}
+	}
+
+	option = {
+		name = morocco.5.c
+		ai_chance = { factor = 15 }
+		add_opinion_modifier = { target = FRA modifier = small_decrease }
+		add_stability= -0.05
+		add_war_support= -0.07
+		add_political_power= -50
+		add_equipment_to_stockpile= {
+			type = infantry_equipment_1 
+			amount = -5000 
+			producer = FRA 
+		}
+	}
+
+	option = {
+		name = morocco.5.e
+		ai_chance = { factor = 10 }
+		add_stability= -0.1
+		add_war_support= -0.1
+		add_political_power= 50
+		FRA = { puppet = MOR }
+		add_equipment_to_stockpile= {
+			type = infantry_equipment_1 
+			amount = -5000 
+			producer = FRA 
+		}
+	}
+}
+
+

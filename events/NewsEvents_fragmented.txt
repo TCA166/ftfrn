@@ -1,0 +1,31 @@
+﻿###########################
+# News Events
+###########################
+
+add_namespace = popenews
+
+# Morroco when doom music kicks in
+news_event = {
+	id = popenews.1
+	title = popenews.1.t
+	desc = popenews.1.d
+	picture = GFX_news_event_marwarcrimes
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = popenews.1.a
+		trigger = {
+			NOT = {
+				TAG = MOR
+			}
+		}
+	}
+	option = {
+		name = popenews.1.b
+		trigger = { TAG = MOR }
+	}
+
+}

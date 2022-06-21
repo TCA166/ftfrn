@@ -1,0 +1,270 @@
+﻿###########################
+# Belarusian Events
+###########################
+
+add_namespace = belarus
+
+country_event = {
+	id = belarus.1
+	title = "Belarus wants to be our Puppet!"
+	desc = "Belarusian goverment spoke to us that they want to be our puppet."
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Witamy Towarzysze!"
+		ai_chance = { factor = 100 }
+		POL = {puppet = BLR}
+	}
+	option = {
+		name = "We have enough problems already"
+		ai_chance = { factor = 0 }}
+		}
+country_event = {
+	id = belarus.2
+	title = "Belarus wants to be our Puppet!"
+	desc = "Belarusian goverment spoke to us that they want to be our puppet"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Welcome to the Union Comrades!"
+		ai_chance = { factor = 100 }
+		SOV = {puppet = BLR}
+	}
+	option = {
+		name = "We have enough obligations to honor"
+		ai_chance = { factor = 0 }
+	}
+}
+country_event = {
+	id = belarus.3
+	title = "Belarus Wants to join our alliance"
+	desc = "Belarusian government wants to join our alliance"
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Stronger Together!"
+		ai_chance = { factor = 70 }
+		ENG = { add_to_faction = BLR }
+	}
+	option = {
+		name = "We have enough allies to protect"
+		ai_chance = { factor = 30 }
+	}
+}
+country_event = {
+	id = belarus.4
+	title = "Belarus Wants to join our alliance"
+	desc = "Belarusian government wants to join our alliance"
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "We shall protect them from the communist threat!"
+		ai_chance = { factor = 70 }
+		GER = { add_to_faction = BLR }
+	}
+	option = {
+		name = "A risky move, too risky"
+		ai_chance = { factor = 30 }
+	}
+}
+country_event = {
+	id = belarus.5
+	title = "Belarus Wants to join our alliance"
+	desc = "Belarusian government wants to join our alliance"
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "We shall welcome our comrades!"
+		ai_chance = { factor = 70 }
+		SOV = { add_to_faction = BLR }
+	}
+	option = {
+		name = "We don't need any allies!"
+		ai_chance = { factor = 30 } 
+	}
+}
+country_event = {
+	id = belarus.6
+	title = "Belarus demands their terrains!"
+	desc = "Belarus demands we return Lithuanian and their lands to their rightful owners"
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Dishonor before death"
+		ai_chance = { factor = 10 }
+		LIT = {transfer_state = 784}
+		BLR = {transfer_state = 94
+		transfer_state = 95
+		transfer_state = 96
+		}
+	}
+	option = {
+		name = "Poland will never surrender!"
+		ai_chance = { factor = 90 }
+		BLR = {create_wargoal = { type = annex_everything target = POL }}
+		LIT = {create_wargoal = { type = annex_everything target = POL }}
+	}
+}
+country_event = {
+	id = belarus.7
+	title = "Belarus wants to buy Madagascar!"
+	desc = "Today, Belarus offered to buy Madagascar."
+
+	is_triggered_only = yes
+
+	option = {
+		name = "We might as well sell them that useless island"
+		ai_chance = { factor = 20 }
+		BLR = {transfer_state = 543}
+		add_political_power = 150
+	}
+	option = {
+		name = "Why would we do that"
+		ai_chance = { factor = 80 }
+	}
+}
+country_event = {
+	id = belarus.8
+	title = "Belarus invites us to MESA!"
+	desc = "Today, Belarus inted us to MESA."
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Hurra"
+		ai_chance = { factor = 75 }
+		BLR = {add_to_faction = UKR}
+	}
+	option = {
+		name = "No"
+		ai_chance = { factor = 25 }
+	}
+}
+country_event = {
+	id = belarus.9
+	title = "Belarus invites us to MESA!"
+	desc = "Today, Belarus inted us to MESA."
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Hurra"
+		ai_chance = { factor = 25 }
+		BLR = {add_to_faction = LIT}
+	}
+	option = {
+		name = "No"
+		ai_chance = { factor = 75 }
+	}
+}
+country_event = {
+	id = belarus.10
+	title = "Belarus invites us to MESA!"
+	desc = "Today, Belarus inted us to MESA."
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Hurra"
+		ai_chance = { factor = 25 }
+		BLR = {add_to_faction = LAT}
+	}
+	option = {
+		name = "No"
+		ai_chance = { factor = 75 }
+	}
+}
+country_event = {
+	id = belarus.11
+	title = "Belarus invites us to MESA!"
+	desc = "Today, Belarus inted us to MESA."
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Hurra"
+		ai_chance = { factor = 25 }
+		BLR = {add_to_faction = EST}
+	}
+	option = {
+		name = "No"
+		ai_chance = { factor = 75 }
+	}}
+country_event = {
+	id = belarus.12
+	title = "Belarus Wants to annex us (Ukraine)"
+	desc = "Today, Belarus wants to annex us."
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Ok"
+		ai_chance = { factor = 5
+		}
+		BLR = {annex_country = { target = UKR transfer_troops = yes }}
+	}
+	option = {
+		name = "No"
+		ai_chance = { factor = 95 }
+		BLR = {create_wargoal = { type = annex_everything target = UKR }}
+	}}
+country_event = {
+	id = belarus.13
+	title = "Belarus Wants to annex us (Lithuania)"
+	desc = "Today, Belarus wants to annex us."
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Ok"
+		ai_chance = { factor = 5 }
+		BLR = {annex_country = { target = LIT transfer_troops = yes }}
+	}
+	option = {
+		name = "No"
+		ai_chance = { factor = 95 }
+		BLR = {create_wargoal = { type = annex_everything target = LIT }}
+	}
+}
+country_event = {
+	id = belarus.14
+	title = "Belarus Wants to annex us (Latvia)"
+	desc = "Today, Belarus wants to annex us."
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Ok"
+		ai_chance = { factor = 5 }
+		BLR = {annex_country = { target = LAT transfer_troops = yes }}
+	}
+	option = {
+		name = "No"
+		ai_chance = { factor = 95 }
+		BLR = {create_wargoal = { type = annex_everything target = LAT }}
+	}
+}
+country_event = {
+	id = belarus.15
+	title = "Belarus Wants to annex us (Estonia)"
+	desc = "Today, Belarus wants to annex us."
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Ok"
+		ai_chance = { factor = 5 }
+		BLR = {annex_country = { target = EST transfer_troops = yes }}
+	}
+	option = {
+		name = "No"
+		ai_chance = { factor = 95}
+		BLR = {create_wargoal = { type = annex_everything target = EST }}
+	}
+}
