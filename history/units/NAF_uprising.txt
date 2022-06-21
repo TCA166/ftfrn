@@ -1,0 +1,163 @@
+division_template = {
+	name = "Rebels"
+
+	division_names_group = USA_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+	}
+}
+units = {
+division = {
+		name = "Rebels"
+		location = 12384  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 12384  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 12384  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 12384  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 12384  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 12384  # 
+		division_template = "Rebels"
+	}
+	
+	division = {
+		name = "Rebels"
+		location = 11975  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 11975  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 11975  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 11975  # 
+		division_template = "Rebels"
+	}
+	
+	division = {
+		name = "Rebels"
+		location = 7480  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 7480  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 7480  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 7480  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 7480  # 
+		division_template = "Rebels"
+	}
+	
+	division = {
+		name = "Rebels"
+		location = 4464  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 4464  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 4464  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 4464  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 4464  # 
+		division_template = "Rebels"
+	}
+	
+	division = {
+		name = "Rebels"
+		location = 12735  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 12735  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 12735  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 12735  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 12735  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 12735  # 
+		division_template = "Rebels"
+	}
+	
+	division = {
+		name = "Rebels"
+		location = 12501  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 12501  # 
+		division_template = "Rebels"
+	}
+	division = {
+		name = "Rebels"
+		location = 7138  # 
+		division_template = "Rebels"
+	}
+}

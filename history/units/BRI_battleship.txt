@@ -1,0 +1,32 @@
+units = {
+    fleet = {
+        name = "Breton Armada"
+        naval_base = 3552
+        task_force = {
+            name = "Breton Armada"
+            location = 3552
+            ship = {
+                name = "BDM Armorique"
+                definition = battleship
+                equipment = {
+                    battleship_0 = {
+                        amount = 1
+                        owner = BRI
+                        version_name = "Breizh Class"
+                    }
+                }
+            }
+			ship = {
+                name = "BDM Surcouff"
+                definition = battleship
+                equipment = {
+                    battleship_0 = {
+                        amount = 1
+                        owner = BRI
+                        version_name = "Breizh Class"
+                    }
+                }
+            }
+        }
+    }
+}

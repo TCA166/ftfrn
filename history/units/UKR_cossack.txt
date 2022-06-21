@@ -1,0 +1,36 @@
+division_template = {
+	name = "Cossacks"			
+	is_locked = no
+	division_names_group = UKR_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 0 y = 3 }
+		cavalry = { x = 0 y = 4 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+		cavalry = { x = 1 y = 3 }
+		cavalry = { x = 1 y = 4 }
+	}
+	support = {
+        recon = { x = 0 y = 0 }
+    }
+}
+units = {
+	division = {
+		name = "Cossack Division"
+		location = 11530 
+		division_template = "Cossacks"
+		start_experience_factor = 1
+        start_equipment_factor = 1
+	}
+		division = {
+		name = "Cossack Division"
+		location = 11530 
+		division_template = "Cossacks"
+		start_experience_factor = 1
+        start_equipment_factor = 1
+	}
+}

@@ -1,0 +1,29 @@
+division_template = {
+    name = "Guards"
+    divisions_name_group = ENG_INF_01
+
+    regiments = {
+        mountaineers = { x = 0 y = 0 }
+        mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 0 y = 3 }
+		mountaineers = { x = 0 y = 4 }
+    }
+
+    support = {
+        engineer = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+		recon = { x = 0 y = 2 }
+		anti_tank = { x = 0 y = 4 }
+    }
+}
+
+units = {
+    division = {
+		name = "Welsh Guards"
+		location = 377
+		division_template = "Guards"
+		start_experience_factor = 1.0
+        start_equipment_factor = 1.0
+	}
+}
