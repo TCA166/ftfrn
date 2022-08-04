@@ -1,0 +1,70 @@
+add_namespace = tea_empire
+
+#Test
+country_event = {
+	id = tea_empire.1
+	title = tea_empire.1.t
+	desc = tea_empire.1.d
+	picture = test-504
+	
+	fire_only_once = yes
+
+	fire_for_sender = yes
+	
+	trigger = {
+		tag = TAJ
+		742 = {
+			has_resources_amount = {
+			resource = oil
+			amount > 10
+			}
+		}
+	}
+		
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "Let's see what the new goverment is up to"
+		ai_chance = {
+		factor = 100
+		}
+		ENG = {
+			puppet = TAJ
+		}
+	}
+}
+
+#Test
+country_event = {
+	id = tea_empire.2
+	title = tea_empire.2.t
+	desc = tea_empire.2.d
+	picture = test-504
+	
+	fire_only_once = yes
+
+	fire_for_sender = yes
+	
+	trigger = {
+		tag = TAJ
+		742 = {
+			has_resources_amount = {
+			resource = oil
+			amount > 6
+			}
+		}
+	}
+		
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "We will keep a close eye on them"
+		ai_chance = {
+		factor = 100
+		}
+	}
+}

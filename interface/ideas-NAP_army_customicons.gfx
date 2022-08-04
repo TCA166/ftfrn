@@ -1,0 +1,33 @@
+spriteTypes = { 
+	##Icon For: Perfect Fighter Force
+	SpriteType = { 
+		name = "GFX_idea_NAP_perfect_fighter_force-1044"
+		texturefile = "gfx/interface/ideas/army-ideas/NAP_perfect_fighter_force-1044.dds"
+	}
+
+	##Icon For: A Royal Army
+	SpriteType = { 
+		name = "GFX_idea_NAP_a_royal_army-1063"
+		texturefile = "gfx/interface/ideas/army-ideas/NAP_a_royal_army-1063.dds"
+	}
+
+	##Icon For: Army Of The Eagle
+	SpriteType = { 
+		name = "GFX_idea_NAP_army_of_the_eagle-1128"
+		texturefile = "gfx/interface/ideas/army-ideas/NAP_army_of_the_eagle-1128.dds"
+	}
+
+	##Icon For: Night Army
+	SpriteType = { 
+		name = "GFX_idea_NAP_night_army-1224"
+		texturefile = "gfx/interface/ideas/army-ideas/NAP_night_army-1224.dds"
+	}
+
+	##Icon For: A Military Academy
+	SpriteType = { 
+		name = "GFX_idea_NAP_a_military_academy-1671"
+		texturefile = "gfx/interface/ideas/army-ideas/NAP_a_military_academy-1671.dds"
+	}
+
+ 
+ }

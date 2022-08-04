@@ -1,0 +1,193 @@
+add_namespace = event_chain
+
+#The Question of our Politics
+country_event = {
+	id = event_chain.1
+	title = event_chain.1.t
+	desc = event_chain.1.d
+
+	picture = the_question_of_our_politics-750
+	fire_only_once = yes
+	is_triggered_only = yes
+	fire_for_sender = yes
+	option = {
+		name = event_chain.1.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			country_event = {
+days = 5 
+id = event_chain.2 
+}
+
+		}
+	}
+}
+
+#A strange king
+country_event = {
+	id = event_chain.2
+	title = event_chain.2.t
+	desc = event_chain.2.d
+
+	picture = a_strange_king-793
+	fire_only_once = yes
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 2 }
+	fire_for_sender = yes
+	option = {
+		name = event_chain.2.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			country_event = {
+days = 5 
+id = event_chain.4 
+}
+
+		}
+	}
+	option = {
+		name = event_chain.2.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			country_event = {
+			days = 5 
+			id = event_chain.3 
+			}
+
+		}
+	}
+}
+
+#Democracy prevails!
+country_event = {
+	id = event_chain.3
+	title = event_chain.3.t
+	desc = event_chain.3.d
+
+	picture = democracy_prevails-750
+	fire_only_once = yes
+	is_triggered_only = yes
+	fire_for_sender = yes
+	option = {
+		name = event_chain.3.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		set_politics = {
+ ruling_party = democratic 
+elections_allowed = yes 
+}
+
+add_popularity = { 
+ideology = democratic 
+popularity = 0.15 
+}
+add_political_power = 80
+add_stability = 0.05
+
+		hidden_effect = {
+			
+		}
+	}
+}
+
+#The Tour
+country_event = {
+	id = event_chain.4
+	title = event_chain.4.t
+	desc = event_chain.4.d
+
+	picture = the_tour-770
+	fire_only_once = yes
+	is_triggered_only = yes
+	fire_for_sender = yes
+	option = {
+		name = event_chain.4.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			country_event = {
+days = 5 
+id = event_chain.5 
+}
+
+		}
+	}
+	option = {
+		name = event_chain.4.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			country_event = {
+days = 5 
+id = event_chain.3 
+}
+
+		}
+	}
+}
+
+#The Disaster
+country_event = {
+	id = event_chain.5
+	title = event_chain.5.t
+	desc = event_chain.5.d
+
+	picture = the_disaster-962
+	fire_only_once = yes
+	is_triggered_only = yes
+	fire_for_sender = yes
+	option = {
+		name = event_chain.5.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		set_politics = {
+			ruling_party = fascism 
+			elections_allowed = no 
+		}
+		add_popularity = { 
+			ideology = fascism 
+			popularity = 0.1 
+		}
+		add_stability = -0.09
+
+		hidden_effect = {
+			
+		}
+	}
+	option = {
+		name = event_chain.5.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			country_event = {
+			days = 5 
+			id = event_chain.3 
+		}
+		}
+	}
+}

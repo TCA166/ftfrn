@@ -1,0 +1,33 @@
+spriteTypes = { 
+	##Icon For: Law
+	SpriteType = { 
+		name = "GFX_idea_NAP_law-2093"
+		texturefile = "gfx/interface/ideas/goverment-ideas/NAP_law-2093.dds"
+	}
+
+	##Icon For: Order
+	SpriteType = { 
+		name = "GFX_idea_NAP_order-1695"
+		texturefile = "gfx/interface/ideas/goverment-ideas/NAP_order-1695.dds"
+	}
+
+	##Icon For: The Kings Rule
+	SpriteType = { 
+		name = "GFX_idea_NAP_the_kings_rule-1083"
+		texturefile = "gfx/interface/ideas/goverment-ideas/NAP_the_kings_rule-1083.dds"
+	}
+
+	##Icon For: A Constitution
+	SpriteType = { 
+		name = "GFX_idea_NAP_a_constitution-1440"
+		texturefile = "gfx/interface/ideas/goverment-ideas/NAP_a_constitution-1440.dds"
+	}
+
+	##Icon For: The Vision
+	SpriteType = { 
+		name = "GFX_idea_NAP_the_vision-1067"
+		texturefile = "gfx/interface/ideas/goverment-ideas/NAP_the_vision-1067.dds"
+	}
+
+ 
+ }

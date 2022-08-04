@@ -1,0 +1,109 @@
+ideas = {
+	country = {
+
+		NAP_perfect_fighter_force = {
+			picture = NAP_perfect_fighter_force-1044
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				air_accidents_factor = -0.5
+air_ace_generation_chance_factor = 0.2
+air_agility_factor = 0.2
+air_attack_factor = 0.2
+air_defence_factor = 0.2
+air_maximum_speed_factor = 0.2
+air_night_penalty = -0.2
+army_bonus_air_superiority_factor = 0.3
+ground_attack_factor = 0.3
+air_training_xp_gain_factor = 0.2
+			}
+		}
+
+		NAP_a_royal_army = {
+			picture = NAP_a_royal_army-1063
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				army_leader_start_attack_level = 1
+army_leader_start_defense_level = 1
+army_attack_factor = 0.2
+army_defence_factor = 0.2
+army_morale_factor = 0.2
+army_org_regain = 0.2
+			}
+		}
+
+		NAP_army_of_the_eagle = {
+			picture = NAP_army_of_the_eagle-1128
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				army_core_attack_factor = 0.2
+army_defence_factor = 0.2
+army_speed_factor = 0.3
+army_morale_factor = 0.1
+			}
+		}
+
+		NAP_night_army = {
+			picture = NAP_night_army-1224
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				land_night_attack = 0.5
+training_time_factor = -0.3
+supply_consumption_factor = -0.25
+planning_speed = 0.2
+			}
+		}
+
+		NAP_a_military_academy = {
+			picture = NAP_a_military_academy-1671
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				command_power_gain_mult = 0.2				experience_gain_army_factor = 0.2
+experience_gain_navy_factor = 0.2
+experience_gain_air_factor = 0.2			army_leader_start_logistics_level = 1		army_leader_start_planning_level = 1
+military_leader_cost_factor = -0.2
+planning_speed = 0.2
+max_planning_factor = 0.2
+			}
+		}
+	}
+}

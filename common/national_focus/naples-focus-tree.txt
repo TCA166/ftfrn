@@ -1,0 +1,2750 @@
+focus_tree = {
+	id = naples-focus-tree
+	continuous_focus_position = { x = 0 y = 1900 } 
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = NAP
+		}
+	}
+	#End the German Threat
+	focus = {
+		id = NAP_end_the_german_threat
+		icon = GFX_focus_attack_germany
+		x = 8
+		y = 12
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_together_for_victory  }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = GER
+				}
+				create_wargoal = {
+					type = puppet_wargoal_focus 
+					target = GER
+				}
+				else = {
+					create_wargoal = {
+						type = puppet_wargoal_focus 
+						target = WUR
+					}
+					create_wargoal = { 
+						type = puppet_wargoal_focus 
+						target = BAY
+					}
+					create_wargoal = { 
+						type = puppet_wargoal_focus 
+						target = SAX
+					}
+					create_wargoal = { 
+						type = puppet_wargoal_focus 
+						target = PRE
+					}
+					create_wargoal = { 
+						type = puppet_wargoal_focus 
+						target = HAN
+					}
+					create_wargoal = { 
+						type = puppet_wargoal_focus 
+						target = MEK
+					}
+					create_wargoal = { 
+						type = puppet_wargoal_focus 
+						target = SHL
+					}
+				}
+			}
+		}
+	}
+
+	#Empower The Mafia
+	focus = {
+		id = NAP_empower_the_mafia
+		icon = GFX_NAP_empower_the_mafia-59
+		x = 2
+		y = 0
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		mutually_exclusive = { focus = NAP_fight_the_mafia  }
+		completion_reward = {
+			add_ideas = NAP_embrace_the_mafia
+			
+		}
+	}
+
+	#Fight The Mafia
+	focus = {
+		id = NAP_fight_the_mafia
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		x = 10
+		y = 0
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		mutually_exclusive = { focus = NAP_empower_the_mafia  }
+		completion_reward = {
+			remove_ideas = NAP_mafia_unrest
+			add_timed_idea = { 
+			idea = NAP_fighting_the_mafia 
+			days = 180 
+			}
+			
+			add_stability = 0.05
+			
+			country_event = {
+			days = 1 
+			id = event_chain.1 
+			}
+			
+		}
+	}
+
+	#Revive The Monarchy
+	focus = {
+		id = NAP_revive_the_monarchy
+		icon = GFX_focus_generic_monarchy_2
+		x = 4
+		y = 1
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_empower_the_mafia  }
+		mutually_exclusive = { focus = NAP_appoint_mafia_officials  }
+		available = {
+			NOT= {
+			has_completed_focus = NAP_open_up_polling_hubs
+			}
+			NOT = {
+			has_completed_focus = NAP_legacy_of_the_emirate
+			}
+		}
+		completion_reward = {
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "Ferdinando Pio"
+				desc = ""
+				picture = "Portrait_Prince_Ferdinando_Pio.dds"
+				expire = "1965.1.1"
+				ideology = oligarchism
+				traits = {
+					staunch_monarchist
+					the_legitimist
+					war_industrialist
+				}
+			}
+					
+			set_politics = {
+			 ruling_party = neutrality 
+			elections_allowed = no 
+			}
+			add_popularity = { 
+			ideology = neutrality 
+			popularity = 0.1 
+			}
+			remove_ideas = NAP_embrace_the_mafia
+			set_party_name = { 
+				ideology = neutrality 
+				long_name = NAP_MONARCHY_PARTY_LONG
+				name = NAP_MONARCHY_PARTY_SHORT
+			}
+			
+		}
+	}
+
+	#Appoint Mafia Officials
+	focus = {
+		id = NAP_appoint_mafia_officials
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 0
+		y = 1
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_empower_the_mafia  }
+		mutually_exclusive = { focus = NAP_revive_the_monarchy  }
+		available = {
+			NOT= {
+			has_completed_focus = NAP_open_up_polling_hubs
+			}
+			NOT = {
+			has_completed_focus = NAP_legacy_of_the_emirate
+			}
+		}
+		completion_reward = {
+			add_popularity = { 
+				ideology = neutrality 
+				popularity = 0.1 
+			}
+			add_stability = 0.1
+			add_political_power = 50
+			NAP = {set_cosmetic_tag = MFN}
+			kill_country_leader = yes
+			create_country_leader = {
+				name = "Clan Boss" 
+				desc = ""
+				picture = "Portrait_NAP_Clan_Boss.dds" 
+				expire = "1965.1.1" 
+				ideology = despotism 
+				traits = {					dealbroker
+					mastermind_code_cracker
+				}
+			}
+			set_party_name = { 
+				ideology = neutrality 
+				long_name = NAP_CLAN_PARTY_LONG
+				name = NAP_CLAN_PARTY_SHORT
+			}
+		}
+	}
+
+	#Open Up Polling Hubs
+	focus = {
+		id = NAP_open_up_polling_hubs
+		icon = GFX_NAP_open_up_polling_hubs-427
+		x = 8
+		y = 1
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_fight_the_mafia  }
+		mutually_exclusive = { focus = NAP_legacy_of_the_emirate  }
+		available = {
+			NOT = {
+			has_completed_focus = NAP_revive_the_monarchy
+			}
+			NOT = {
+			has_completed_focus = NAP_appoint_mafia_officials
+			}
+			has_government = democratic
+			
+		}
+		completion_reward = {
+			add_political_power = 50
+			set_party_name = { 
+				ideology = democratic 
+				long_name = NAP_DEMOCRATIC_PARTY_LONG
+				name = NAP_DEMOCRATIC_PARTY_SHORT
+			}
+			add_popularity = { 
+				ideology = democratic 
+				popularity = 0.2 
+			}
+		}
+	}
+
+	#Legacy Of The Emirate
+	focus = {
+		id = NAP_legacy_of_the_emirate
+		icon = GFX_NAP_legacy_of_the_emirate-152576
+		x = 12
+		y = 1
+		cost = 5
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_fight_the_mafia  }
+		mutually_exclusive = { focus = NAP_open_up_polling_hubs  }
+		available = {
+			NOT = {
+			has_completed_focus = NAP_revive_the_monarchy
+			}
+			NOT = {
+			has_completed_focus = NAP_appoint_mafia_officials
+			}
+			has_government = fascism
+			
+		}
+		completion_reward = {
+			add_political_power = 50
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "Mehmed Abdulaziz Efendi"
+				desc = ""
+				picture = "Portrait_NAP_Mehmed_Abdulaziz_Efendi.dds"
+				expire = "1965.1.1"
+				ideology = fascism_ideology
+				traits = {
+					fascist_sympathies
+					nationalist_symbol
+					warmonger
+				}
+			}
+			set_party_name = { 
+				ideology = fascism 
+				long_name = NAP_EMIRATE_PARTY_LONG
+				name = NAP_EMIRATE_PARTY_SHORT
+			}
+		}
+	}
+
+	#Prepare For War
+	focus = {
+		id = NAP_prepare_for_war
+		icon = GFX_goal_generic_military_sphere
+		x = 0
+		y = 5
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = NAP_spy_on_our_neighbours  }
+		completion_reward = {
+			add_ideas = war_economy
+			add_ideas = extensive_conscription
+			army_experience = 20
+			add_command_power = 50
+			
+		}
+	}
+
+	#The Mafia rules the nation.
+	focus = {
+		id = NAP_the_mafia_rules_the_nation
+		icon = GFX_goal_generic_demand_territory
+		x = 0
+		y = 2
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_appoint_mafia_officials  }
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 50
+			add_popularity = { 
+			ideology = neutrality 
+			popularity = 0.1 
+			}
+			add_war_support = 0.1
+			
+		}
+	}
+
+	#Expand the Buisness
+	focus = {
+		id = NAP_expand_the_buisness
+		icon = GFX_NAP_expand_the_buisness-150522
+		x = 0
+		y = 3
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_the_mafia_rules_the_nation  }
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state = {
+			add_building_construction = {						type = infrastructure		level = 3
+			instant_build = yes					}
+			}
+			
+		}
+	}
+
+	#Spy on our Neighbours
+	focus = {
+		id = NAP_spy_on_our_neighbours
+		icon = GFX_NAP_spy_on_our_neighbours-150523
+		x = 0
+		y = 4
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_expand_the_buisness  }
+		completion_reward = {
+			create_intelligence_agency = yes
+			upgrade_intelligence_agency = upgrade_invisible_ink
+			upgrade_intelligence_agency = upgrade_portable_radios
+		}
+	}
+
+	#Special Training
+	focus = {
+		id = NAP_special_training
+		icon = GFX_focus_chi_army_reform
+		x = 0
+		y = 6
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = NAP_prepare_for_war  }
+		completion_reward = {
+				if = {
+					limit = {
+						has_dlc = "No Step Back"
+					}
+						add_doctrine_cost_reduction = {
+						name = NAP_special_training
+						cost_reduction = 0.5
+						uses = 2
+						category = land_doctrine
+						}
+					else = {
+						add_tech_bonus = {
+						bonus = 1 
+						uses = 2 
+						category = land_doctrine 
+						}
+					}
+				}
+			add_war_support = 0.1
+			add_ideas = NAP_night_army
+			add_manpower = 100000
+			
+		}
+	}
+
+	#All Power To The King
+	focus = {
+		id = NAP_all_power_to_the_king
+		icon = GFX_focus_generic_monarchy_1
+		x = 4
+		y = 2
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_revive_the_monarchy  }
+		completion_reward = {
+			add_popularity = { 
+			ideology = neutrality 
+			popularity = 0.1 
+			}
+			add_stability = 0.10
+			add_war_support = 0.05
+			add_ideas = NAP_the_kings_rule
+			
+		}
+	}
+
+	#End the Papacy
+	focus = {
+		id = NAP_end_the_papacy
+		icon = GFX_NAP_end_the_papacy-152524
+		x = 0
+		y = 7
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_special_training  }
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = PAP
+			}
+			
+		}
+	}
+
+	#Take Over Tuscany
+	focus = {
+		id = NAP_take_over_tuscany
+		icon = GFX_NAP_take_over_tuscany-152558
+		x = 0
+		y = 8
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_end_the_papacy  }
+		mutually_exclusive = { focus = NAP_mafia_cooperation }
+		available = {
+			NOT = {
+			country_exists = PAP
+			}
+		}
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = TUS
+			}
+			
+		}
+	}
+	
+	#Cooperate With The Mafia In Tuscany
+	focus = {
+		id = NAP_mafia_cooperation
+		icon = GFX_goal_generic_major_alliance
+		x = 2
+		y = 8
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_end_the_papacy  }
+		mutually_exclusive = { focus = NAP_take_over_tuscany }
+		available = {
+			AND = {
+				TUS = {
+					has_completed_focus = TUS_strike_a_deal_with_the_mafia
+				}
+				NOT = {
+					country_exists = PAP
+				}
+			}
+		}
+		completion_reward = {
+			diplomatic_relation = {
+				country = TUS
+				relation = non_aggression_pact
+				active = yes
+			}
+			add_opinion_modifier = {
+				target = TUS
+				modifier = large_increase
+			}
+			TUS = {
+				add_opinion_modifier = {
+					target = NAP
+					modifier = large_increase
+				}
+			}
+		}
+	}
+
+	#Invade Milan
+	focus = {
+		id = NAP_invade_milan
+		icon = GFX_NAP_invade_milan-150525
+		x = 0
+		y = 9
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_take_over_tuscany focus = NAP_mafia_cooperation }
+		available = {
+			NOT = {
+			country_exists = TUS
+			}
+		}
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = MIL
+			}
+			
+		}
+	}
+
+	#Strike at Piedmont-Sardinia
+	focus = {
+		id = NAP_strike_at_piedmontsardinia
+		icon = GFX_NAP_strike_at_piedmontsardinia-152562
+		x = 0
+		y = 10
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_invade_milan  }
+		available = {
+			NOT = {
+			country_exists = MIL
+			}
+		}
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = ITA
+			}
+			
+		}
+	}
+
+	#Attack Venice
+	focus = {
+		id = NAP_attack_venice
+		icon = GFX_NAP_attack_venice-152563
+		x = 0
+		y = 11
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_strike_at_piedmontsardinia  }
+		available = {
+			NOT = {
+			country_exists = ITA
+			}
+		}
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = VNC
+			}
+			
+		}
+	}
+
+	#The Buisness of Italy
+	focus = {
+		id = NAP_the_buisness_of_italy
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = 0
+		y = 12
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_attack_venice  }
+		available = {
+			NOT = {
+			country_exists = VNC
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = dockyard
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = dockyard
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = dockyard
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = dockyard
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = dockyard
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = dockyard
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state = {
+			add_building_construction = {						type = infrastructure						level = 3
+			instant_build = yes					}
+			}random_owned_controlled_state = {
+			add_building_construction = {						type = infrastructure						level = 3
+			instant_build = yes					}
+			}
+			
+		}
+	}
+
+	#A Criminal Empire
+	focus = {
+		id = NAP_a_criminal_empire
+		icon = GFX_focus_spa_strengthen_the_supreme_reality_of_spain
+		x = 0
+		y = 13
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_the_buisness_of_italy  }
+		completion_reward = {
+			every_owned_state = { add_core_of = NAP}
+			NAP = {set_cosmetic_tag = CIE
+			}
+			add_stability = 0.15
+			
+		}
+	}
+
+	#Subjegate the Rest of Iberia
+	focus = {
+		id = NAP_subjegate_the_rest_of_iberia
+		icon = GFX_focus_generic_attack_portugal
+		x = 4
+		y = 12
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_take_over_the_rest_of_spain  }
+		available = {
+			NAV = {
+			is_subject_of = NAP
+			}
+			SPR = {
+			is_subject_of = NAP
+			}
+			ADU = {
+			is_subject_of = NAP
+			}
+		}
+		completion_reward = {
+			create_wargoal = { 
+			type = puppet_wargoal_focus 
+			target = GLC
+			}
+			create_wargoal = { 
+			type = puppet_wargoal_focus 
+			target = POR
+			}
+		}
+	}
+
+	#Royal Railways
+	focus = {
+		id = NAP_royal_railways
+		icon = GFX_goal_generic_production2
+		x = 4
+		y = 3
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_all_power_to_the_king  }
+		completion_reward = {
+			build_railway = {
+			path = {10074 3857 1156 4159 9990 3901 10027 9856 11837 9784 6843 883 11803 819 242 851 3968 10027}
+			}
+		}
+	}
+
+	#Expand The Supply Line
+	focus = {
+		id = NAP_expand_the_supply_line
+		icon = GFX_goal_generic_production
+		x = 4
+		y = 4
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_royal_railways  }
+		completion_reward = {
+			156 = {
+			add_building_construction = {
+			type = supply_node
+			level = 1
+			province = 10027
+			instant_build = yes
+			}
+			}
+			156 = {
+			add_building_construction = {
+			type = supply_node
+			level = 1
+			province = 6979
+			instant_build = yes
+			}
+			}
+			115 = {
+			add_building_construction = {
+			type = supply_node
+			level = 1
+			province = 12047
+			instant_build = yes
+			}
+			}
+			
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#Imprision The Opposition
+	focus = {
+		id = NAP_imprision_the_opposition
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		x = 4
+		y = 5
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_expand_the_supply_line  }
+		completion_reward = {
+			add_popularity = { 
+			ideology = neutrality 
+			popularity = 0.1 
+			}
+			add_popularity = { 
+			ideology = fascism 
+			popularity = -0.1 
+			}
+			add_popularity = { 
+			ideology = democratic 
+			popularity = -0.1 
+			}
+			add_popularity = { 
+			ideology = communism 
+			popularity = -0.1 
+			}
+			add_stability = 0.05
+			
+		}
+	}
+
+	#A Royal Army
+	focus = {
+		id = NAP_a_royal_army
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 4
+		y = 6
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = NAP_imprision_the_opposition  }
+		completion_reward = {
+			add_manpower = 12000
+			army_experience = 20
+			add_war_support = 0.2
+			add_ideas = NAP_a_royal_army
+			
+		}
+	}
+
+	#Mobilise The Country
+	focus = {
+		id = NAP_mobilise_the_country
+		icon = GFX_focus_generic_manpower
+		x = 4
+		y = 7
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = NAP_a_royal_army  }
+		completion_reward = {
+			add_manpower = 12000
+			add_command_power = 50
+			army_experience = 20
+			add_war_support = 0.2
+			if = {
+					limit = {
+						has_dlc = "No Step Back"
+					}
+						add_doctrine_cost_reduction = {
+						name = NAP_mobilise_the_country
+						cost_reduction = 0.5
+						uses = 1
+						category = land_doctrine
+						}
+					else = {
+						add_tech_bonus = {
+						bonus = 1 
+						uses = 2 
+						category = land_doctrine 
+						}
+					}
+				}
+			add_tech_bonus = {
+			bonus = 1.0 
+			uses = 2
+			category = infantry_weapons
+			}
+		}
+	}
+
+	#Our Identity
+	focus = {
+		id = NAP_our_identity
+		icon = GFX_focus_generic_home_defense
+		x = 4
+		y = 8
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_mobilise_the_country  }
+		completion_reward = {
+			country_event = {
+			days = 5 
+			id = sicilies.1 
+			}
+			
+		}
+	}
+
+	#Cross the Sea
+	focus = {
+		id = NAP_cross_the_sea
+		icon = GFX_focus_generic_navy_battleship2
+		x = 4
+		y = 9
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = NAP_our_identity  }
+		completion_reward = {
+			add_tech_bonus = {
+			bonus = 1.0 
+			uses = 2
+			category = tp_tech
+			} 
+			add_tech_bonus = {
+			bonus = 1.0 
+			uses = 1
+			category = marine_tech
+			}
+			add_tech_bonus = {
+			bonus = 1.0 
+			uses = 1
+			category = dd_tech
+			}
+		}
+	}
+
+	#Revenge for 1442
+	focus = {
+		id = NAP_revenge_for_1442
+		icon = GFX_NAP_revenge_for_1442-412
+		x = 4
+		y = 10
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = NAP_cross_the_sea  }
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = CAT
+			}
+			NAP = {
+			add_state_core = 114
+			add_state_core = 177
+			add_state_core = 165
+			add_state_core = 794
+			add_state_core = 166
+			add_state_core = 167
+			}
+		}
+	}
+
+	#Take Over the Rest of Spain
+	focus = {
+		id = NAP_take_over_the_rest_of_spain
+		icon = GFX_NAP_take_over_the_rest_of_spain-92
+		x = 4
+		y = 11
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = NAP_revenge_for_1442  }
+		available = {
+			NOT = {country_exists = CAT}
+			
+		}
+		completion_reward = {
+			create_wargoal = { 
+			type = puppet_wargoal_focus 
+			target = ADU
+			}
+			create_wargoal = { 
+			type = puppet_wargoal_focus 
+			target = SPR
+			}
+			create_wargoal = { 
+			type = puppet_wargoal_focus 
+			target = NAV
+			}
+		}
+	}
+
+	#An Iberian Puppet
+	focus = {
+		id = NAP_an_iberian_puppet
+		icon = GFX_focus_generic_concessions
+		x = 4
+		y = 13
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = NAP_subjegate_the_rest_of_iberia  }
+		available = {
+			GLC = {
+			is_subject_of = NAP
+			}
+			POR = {
+			is_subject_of = NAP
+			}
+		}
+		completion_reward = {
+			NAV = {
+			annex_country = {
+			target = SPR 
+			}
+			annex_country = {
+			target = GLC 
+			}
+			annex_country = {
+			target = POR 
+			}
+			annex_country = {
+			target = ADU 
+			}
+			every_owned_state = { add_core_of = NAV}
+			}
+		}
+	}
+
+	#Defend The Cities
+	focus = {
+		id = NAP_defend_the_cities
+		icon = GFX_focus_generic_air_defense
+		x = 18
+		y = 10
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = NAP_the_perfect_fighter_force  }
+		completion_reward = {
+			117 = {					add_building_construction = {
+			type = anti_air_building
+			level = 3
+			instant_build = yes
+			}
+			}
+			156 = {					add_building_construction = {
+			type = anti_air_building
+			level = 3
+			instant_build = yes
+			}
+			}
+			115 = {					add_building_construction = {
+			type = anti_air_building
+			level = 3
+			instant_build = yes
+			}
+			}
+		}
+	}
+
+	#High in The Sky
+	focus = {
+		id = NAP_highinthesky
+		icon = GFX_NAP_highinthesky-6201
+		x = 18
+		y = 7
+		cost = 9
+		search_filters = {
+			
+						FOCUS_FILTER_MANPOWER
+					
+		}
+		completion_reward = {
+			
+						air_experience = 20
+						add_tech_bonus = {
+						 bonus = 1 
+						uses = 3 
+						category = light_air
+						category = medium_air 
+						}
+					
+		}
+	}
+
+	#Direct Ground Support
+	focus = {
+		id = NAP_direct_ground_support
+		icon = GFX_goal_generic_air_bomber
+		x = 17
+		y = 8
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_highinthesky  } prerequisite = { focus = NAP_startofanarmy  }
+		completion_reward = {
+			
+						add_tech_bonus = {
+						bonus = 0.5 
+						uses = 2 
+						category = cas_bomber 
+						}
+						air_experience = 20
+						
+					
+		}
+	}
+
+	#New Tactics
+	focus = {
+		id = NAP_newtactics
+		icon = GFX_NAP_newtactics-17036
+		x = 15
+		y = 10
+		cost = 9
+		search_filters = {
+			
+						FOCUS_FILTER_WAR_SUPPORT
+					
+		}
+		prerequisite = { focus = NAP_thebiggerthebetter  }
+		completion_reward = {
+				if = {
+					limit = {
+						has_dlc = "No Step Back"
+					}
+						add_doctrine_cost_reduction = {
+						name = NAP_newtactics
+						cost_reduction = 0.5
+						uses = 2
+						category = land_doctrine
+						}
+					else = {
+						add_tech_bonus = {
+						bonus = 1 
+						uses = 2 
+						category = land_doctrine 
+						}
+					}
+				}
+		
+		}
+	}
+
+	#Start of an Army
+	focus = {
+		id = NAP_startofanarmy
+		icon = GFX_NAP_startofanarmy-110846
+		x = 16
+		y = 7
+		cost = 9
+		search_filters = {
+			
+						FOCUS_FILTER_WAR_SUPPORT
+					
+		}
+		completion_reward = {
+			
+						army_experience = 20
+						add_equipment_to_stockpile = {
+						 type = infantry_equipment_1 
+						amount = 2000 
+						producer = NAP 
+						}
+						
+					
+		}
+	}
+
+	#The bigger, the better
+	focus = {
+		id = NAP_thebiggerthebetter
+		icon = GFX_goal_generic_army_artillery
+		x = 15
+		y = 8
+		cost = 9
+		search_filters = {
+			
+						FOCUS_FILTER_WAR_SUPPORT
+					
+		}
+		prerequisite = { focus = NAP_startofanarmy  }
+		completion_reward = {
+			
+						add_tech_bonus = {
+						 bonus = 1 
+						uses = 2 
+						category = artillery 
+						}
+						army_experience = 30
+						
+					
+		}
+	}
+
+	#Special Forces
+	focus = {
+		id = NAP_special_forces
+		icon = GFX_goal_generic_special_forces
+		x = 15
+		y = 9
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_thebiggerthebetter  }
+		completion_reward = {
+			
+						add_tech_bonus = {
+						bonus = 1
+						uses = 4 
+						category = marine_tech
+						category = para_tech
+						category = mountaineers_tech
+						}
+					
+		}
+	}
+
+	#Bomb Them
+	focus = {
+		id = NAP_bombthem
+		icon = GFX_goal_generic_air_naval_bomber
+		x = 19
+		y = 8
+		cost = 9
+		search_filters = {
+			
+						FOCUS_FILTER_WAR_SUPPORT
+					
+		}
+		prerequisite = { focus = NAP_highinthesky  }
+		completion_reward = {
+			
+						add_tech_bonus = {
+						 bonus = 1 
+						uses = 2 
+						category = tactical_bomber 
+						}
+						add_tech_bonus = {
+						 bonus = 1 
+						uses = 2 
+						category = cat_strategic_bomber 
+						}
+				if = {
+					limit = {
+						has_dlc = "No Step Back"
+					}
+						add_doctrine_cost_reduction = {
+						name = NAP_bombthem
+						cost_reduction = 0.5
+						uses = 2
+						category = air_doctrine
+						}
+					else = {
+						add_tech_bonus = {
+						bonus = 1 
+						uses = 2 
+						category = air_doctrine 
+						}
+					}
+				}
+						
+					
+		}
+	}
+
+	#The Perfect Fighter Force
+	focus = {
+		id = NAP_the_perfect_fighter_force
+		icon = GFX_goal_generic_air_fighter2
+		x = 18
+		y = 9
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_bombthem  focus = NAP_direct_ground_support  }
+		completion_reward = {
+			add_ideas = NAP_perfect_fighter_force
+						
+					
+		}
+	}
+
+	#Creative Minds
+	focus = {
+		id = NAP_creative_minds
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 16
+		y = 4
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_help_the_farmers  focus = NAP_clear_the_slums  }
+		completion_reward = {
+			add_research_slot = 1
+			
+		}
+	}
+
+	#More Factories
+	focus = {
+		id = NAP_more_factories
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 16
+		y = 1
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_invest_in_factories  }
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#Focus on Rural Areas
+	focus = {
+		id = NAP_focus_on_rural_areas
+		icon = GFX_goal_generic_construct_civilian
+		x = 15
+		y = 2
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_more_factories  }
+		mutually_exclusive = { focus = NAP_focus_on_the_cities  }
+		completion_reward = {
+			add_ideas = NAP_rural_focus
+			
+		}
+	}
+
+	#New Innovations
+	focus = {
+		id = NAP_new_innovations
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 19
+		y = 2
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_arms_production  }
+		completion_reward = {
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 1 
+			category = computing_tech 
+			}
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 2 
+			category = electronics 
+			}
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 2 
+			category = industry
+			}
+			add_ideas = NAP_new_innovations
+			
+		}
+	}
+
+	#Expand the Harbour
+	focus = {
+		id = NAP_expand_the_harbour
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 19
+		y = 3
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_new_innovations  }
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = dockyard
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = dockyard
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = dockyard
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = dockyard
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = dockyard
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = dockyard
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#War Economy
+	focus = {
+		id = NAP_war_economy
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 19
+		y = 4
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_expand_the_harbour  }
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#Modern Technology
+	focus = {
+		id = NAP_modern_technology
+		icon = GFX_goal_generic_radar
+		x = 19
+		y = 5
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_war_economy  }
+		completion_reward = {
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 2 
+			category = radar_tech 
+			}
+			add_tech_bonus = {
+			 bonus = 1.5 
+			uses = 1 
+			category = rocketry 
+			}
+			
+		}
+	}
+
+	#Focus on the Cities
+	focus = {
+		id = NAP_focus_on_the_cities
+		icon = GFX_focus_generic_industry_2
+		x = 17
+		y = 2
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_more_factories  }
+		mutually_exclusive = { focus = NAP_focus_on_rural_areas  }
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#Help the Farmers
+	focus = {
+		id = NAP_help_the_farmers
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 15
+		y = 3
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_focus_on_rural_areas  }
+		completion_reward = {
+			156 = { add_extra_state_shared_building_slots = 2 
+			}
+			117 = {
+			 add_extra_state_shared_building_slots = 2 
+			}
+			add_stability = 0.15
+			
+		}
+	}
+
+	#Clear the Slums
+	focus = {
+		id = NAP_clear_the_slums
+		icon = GFX_goal_generic_fortify_city
+		x = 17
+		y = 3
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_focus_on_the_cities  }
+		completion_reward = {
+			156 = {
+			 add_extra_state_shared_building_slots = 2 
+			}
+			117 = {
+			 add_extra_state_shared_building_slots = 2 
+			}
+			add_manpower = 12000
+			
+		}
+	}
+
+	#Invest in Factories
+	focus = {
+		id = NAP_invest_in_factories
+		icon = GFX_focus_generic_industry_1
+		x = 17
+		y = 0
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#Arms Production
+	focus = {
+		id = NAP_arms_production
+		icon = GFX_focus_secret_rearmament
+		x = 19
+		y = 1
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_invest_in_factories  }
+		completion_reward = {
+			add_ideas = NAP_arms_production
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#A Military Academy
+	focus = {
+		id = NAP_a_military_academy
+		icon = GFX_focus_generic_military_academy
+		x = 15
+		y = 11
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = NAP_newtactics  }
+		completion_reward = {
+			add_command_power = 75
+			add_ideas = NAP_a_military_academy
+		}
+	}
+
+	#Create A Constitution
+	focus = {
+		id = NAP_create_a_constitution
+		icon = GFX_focus_generic_treaty
+		x = 8
+		y = 2
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_open_up_polling_hubs  }
+		completion_reward = {
+			add_ideas = NAP_a_constitution
+			add_stability = 0.05
+			
+		}
+	}
+
+	#Create More Jobs
+	focus = {
+		id = NAP_create_more_jobs
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 8
+		y = 4
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_help_the_poor  }
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#Help The Poor
+	focus = {
+		id = NAP_help_the_poor
+		icon = GFX_goal_generic_national_unity
+		x = 8
+		y = 3
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_create_a_constitution  }
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 50
+			add_manpower = 8000
+			
+		}
+	}
+
+	#Law...
+	focus = {
+		id = NAP_law
+		icon = GFX_goal_generic_neutrality_focus
+		x = 8
+		y = 5
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_create_more_jobs  }
+		completion_reward = {
+			add_ideas = NAP_law
+			
+		}
+	}
+
+	#... and Order
+	focus = {
+		id = NAP_andorder
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 8
+		y = 6
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_law  }
+		completion_reward = {
+			add_ideas = NAP_order
+			
+		}
+	}
+
+	#Diplomacy in Italy
+	focus = {
+		id = NAP_diplomacy_in_italy
+		icon = GFX_focus_befriend_italy
+		x = 8
+		y = 8
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_spread_the_idea_of_democarcy  }
+		completion_reward = {
+			every_country = {
+				limit = {
+					has_idea = NAP_democratic_influence
+				}
+				country_event = {
+					days = 3
+					id = NAP_faction.1
+				}
+			}
+		}
+	}
+
+	#Spread the Idea of Democarcy
+	focus = {
+		id = NAP_spread_the_idea_of_democarcy
+		icon = GFX_NAP_spread_the_idea_of_democarcy-427
+		x = 8
+		y = 7
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_andorder  }
+		completion_reward = {
+			PAP = {
+			add_timed_idea = { 
+			idea = NAP_democratic_influence 
+			days = 365 
+			}
+			}
+			TUS = {
+			add_timed_idea = { 
+			idea = NAP_democratic_influence 
+			days = 365 
+			}
+			}
+			MIL = {
+			add_timed_idea = { 
+			idea = NAP_democratic_influence 
+			days = 365 
+			}
+			}
+			ITA = {
+			add_timed_idea = { 
+			idea = NAP_democratic_influence 
+			days = 365 
+			}
+			}
+			VNC = {
+			add_timed_idea = { 
+			idea = NAP_democratic_influence 
+			days = 365 
+			}
+			}
+			create_faction = "Italian Defense League of Democratic Nations"
+		}
+	}
+
+	#Include the Alps
+	focus = {
+		id = NAP_include_the_alps
+		icon = GFX_NAP_include_the_alps-427
+		x = 8
+		y = 9
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_diplomacy_in_italy  }
+		completion_reward = {
+			SWI = {
+			add_timed_idea = { 
+			idea = NAP_democratic_influence 
+			days = 365 
+			}
+			}
+			AUS = {
+			add_timed_idea = { 
+			idea = NAP_democratic_influence 
+			days = 365 
+			}
+			}
+		}
+	}
+
+	#Invite the Alps
+	focus = {
+		id = NAP_invite_the_alps
+		icon = GFX_focus_GRE_a_land_of_mountains
+		x = 8
+		y = 10
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_include_the_alps  }
+		completion_reward = {
+			SWI = {
+			country_event = {
+			days = 3 
+			id = NAP_faction.1 
+			}
+			}
+			AUS = {
+			country_event = {
+			days = 3 
+			id = NAP_faction.1 
+			}
+			}
+		}
+	}
+
+	#Together for Victory
+	focus = {
+		id = NAP_together_for_victory
+		icon = GFX_focus_eng_special_air_service
+		x = 8
+		y = 11
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_invite_the_alps  }
+		completion_reward = {
+			add_ideas = NAP_together_for_victory
+			every_country = {
+			limit = {
+			is_in_faction_with = NAP
+			}
+			add_ideas = NAP_together_for_victory
+			}
+		}
+	}
+
+	#Increase Shipbuilding
+	focus = {
+		id = NAP_increase_shipbuilding
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 18
+		y = 12
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = dockyard
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = dockyard
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = dockyard
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = dockyard
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#Extra Training
+	focus = {
+		id = NAP_extra_training
+		icon = GFX_focus_generic_military_academy
+		x = 19
+		y = 13
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = NAP_increase_shipbuilding  }
+		completion_reward = {
+			navy_experience = 20
+			every_navy_leader = {
+				add_coordination = 1
+				add_maneuver = 1
+			}
+		}
+	}
+
+	#Advanced Tactics
+	focus = {
+		id = NAP_advanced_tactics
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 19
+		y = 14
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = NAP_extra_training  }
+		completion_reward = {
+			if = {
+					limit = {
+						has_dlc = "No Step Back"
+					}
+						add_doctrine_cost_reduction = {
+						name = NAP_advanced_tactics
+						cost_reduction = 0.5
+						uses = 2
+						category = naval_doctrine
+						}
+					else = {
+						add_tech_bonus = {
+						bonus = 1 
+						uses = 2 
+						category = naval_doctrine 
+						}
+					}
+				}
+			
+		}
+	}
+
+	#Cruiser Research
+	focus = {
+		id = NAP_cruiser_research
+		icon = GFX_focus_generic_cruiser2
+		x = 16
+		y = 13
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = NAP_increase_shipbuilding  }
+		completion_reward = {
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 2 
+			category = cl_tech 
+			}
+			
+		}
+	}
+
+	#Go Bigger...
+	focus = {
+		id = NAP_gobigger
+		icon = GFX_focus_generic_navy_battleship2
+		x = 15
+		y = 14
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = NAP_cruiser_research  }
+		mutually_exclusive = { focus = NAP_focus_on_light_ships  }
+		completion_reward = {
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 2 
+			category = bb_tech 
+			}
+		}
+	}
+
+	#... and in the Air
+	focus = {
+		id = NAP_andintheair
+		icon = GFX_goal_generic_navy_carrier
+		x = 15
+		y = 15
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = NAP_gobigger  }
+		completion_reward = {
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 2 
+			category = cv_tech 
+			}
+			
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 2 
+			category = fleet_in_being_tree
+			category = base_strike_main 
+			}
+			
+		}
+	}
+
+	#Focus on Light Ships
+	focus = {
+		id = NAP_focus_on_light_ships
+		icon = GFX_focus_generic_destroyer
+		x = 17
+		y = 14
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = NAP_cruiser_research  }
+		mutually_exclusive = { focus = NAP_gobigger  }
+		completion_reward = {
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 2 
+			category = dd_tech 
+			}
+			
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 1 
+			category = asw_tech 
+			}
+			
+		}
+	}
+
+	#Under The Sea
+	focus = {
+		id = NAP_under_the_sea
+		icon = GFX_goal_generic_navy_submarine
+		x = 17
+		y = 15
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = NAP_focus_on_light_ships  }
+		completion_reward = {
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 2 
+			category = ss_tech 
+			}
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 1 
+			category = trade_interdiction_tree 
+			}
+			
+		}
+	}
+
+	#The Vision
+	focus = {
+		id = NAP_the_vision
+		icon = GFX_focus_TUR_pivot_to_the_past
+		x = 12
+		y = 2
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_legacy_of_the_emirate  }
+		completion_reward = {
+			add_ideas = NAP_the_vision
+			
+		}
+	}
+
+	#Macedonia and Achaia
+	focus = {
+		id = NAP_macedonia_and_achaia
+		icon = GFX_focus_GRE_bedrock_of_balkan_stability
+		x = 12
+		y = 10
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_illyricum_and_moesia  }
+		completion_reward = {
+			NAP = {
+			add_state_claim = 44
+			add_state_claim = 805
+			add_state_claim = 106
+			add_state_claim = 185
+			add_state_claim = 731
+			add_state_claim = 184
+			add_state_claim = 47
+			add_state_claim = 186
+			add_state_claim = 182
+			add_state_claim = 187
+			}
+			
+		}
+	}
+
+	#The Army of The Eagle
+	focus = {
+		id = NAP_the_army_of_the_eagle
+		icon = GFX_NAP_the_army_of_the_eagle-154964
+		x = 12
+		y = 3
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = NAP_the_vision  }
+		completion_reward = {
+			army_experience = 20
+			add_ideas = NAP_army_of_the_eagle
+			add_manpower = 35000
+			
+		}
+	}
+
+	#Senatus Populusque Romanus
+	focus = {
+		id = NAP_senatus_populusque_romanus
+		icon = GFX_focus_generic_support_the_left_right
+		x = 12
+		y = 4
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_the_army_of_the_eagle  }
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.1
+			add_popularity = { 
+			ideology = neutrality 
+			popularity = 0.2 
+			}
+			
+		}
+	}
+
+	#Reintroduce The Akçe
+	focus = {
+		id = NAP_reintroducetheakce
+		icon = GFX_goal_generic_forceful_treaty
+		x = 12
+		y = 5
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = NAP_senatus_populusque_romanus  }
+		completion_reward = {
+			add_ideas = NAP_ake
+			add_political_power = 20
+			
+		}
+	}
+
+	#Ministries of the Ottoman Empire
+	focus = {
+		id = NAP_ministries_of_the_ottoman_empire
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		x = 12
+		y = 6
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_reintroducetheakce  }
+		completion_reward = {
+			add_ideas = NAP_ministeries_of_the_ottoman_empire
+			
+		}
+	}
+
+	#Unite Italia
+	focus = {
+		id = NAP_unite_italia
+		icon = GFX_focus_generic_adriatic_sea_focus
+		x = 12
+		y = 7
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_ministries_of_the_ottoman_empire  }
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = PAP
+			}
+			create_wargoal = { 
+			type = annex_everything 
+			target = TUS
+			}
+			create_wargoal = { 
+			type = annex_everything 
+			target = MIL
+			}
+			create_wargoal = { 
+			type = annex_everything 
+			target = ITA
+			}
+			create_wargoal = { 
+			type = annex_everything 
+			target = VNC
+			}
+		}
+	}
+
+	#Raetia, Noricum and Pannonia
+	focus = {
+		id = NAP_raetianoricumandpannonia
+		icon = GFX_focus_eng_global_defense
+		x = 12
+		y = 8
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_unite_italia  }
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = SWI
+			}
+			create_wargoal = { 
+			type = annex_everything 
+			target = AUS
+			}
+		}
+	}
+
+	#Asia
+	focus = {
+		id = NAP_asia
+		icon = GFX_focus_generic_attack_turkey
+		x = 12
+		y = 12
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_thracia  }
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = TUR
+			}
+			
+		}
+	}
+
+	#Illyricum and Moesia
+	focus = {
+		id = NAP_illyricum_and_moesia
+		icon = GFX_focus_YUG_dissolve_serbia
+		x = 12
+		y = 9
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_raetianoricumandpannonia  }
+		completion_reward = {
+			NAP = {
+			add_state_claim = 102
+			add_state_claim = 109
+			add_state_claim = 103
+			add_state_claim = 104
+			add_state_claim = 804
+			add_state_claim = 107
+			add_state_claim = 108
+			add_state_claim = 802
+			add_state_claim = 803
+			}
+		}
+	}
+
+	#Thracia
+	focus = {
+		id = NAP_thracia
+		icon = GFX_focus_generic_attack_bulgaria
+		x = 12
+		y = 11
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_macedonia_and_achaia  }
+		completion_reward = {
+			NAP = {
+			add_state_claim = 48
+			add_state_claim = 801
+			add_state_claim = 212
+			add_state_claim = 211
+			}
+		}
+	}
+
+	#United at Last
+	focus = {
+		id = NAP_united_at_last
+		icon = GFX_focus_generic_home_defense
+		x = 12
+		y = 13
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = NAP_asia  }
+		completion_reward = {
+			country_event = {
+			days = 2 
+			id = NAP_emirate.1 
+			}
+			every_owned_state = {
+			add_core_of = NAP
+			}
+			
+		}
+	}
+
+	#Gallia
+	focus = {
+		id = NAP_gallia
+		icon = GFX_focus_focus_fra_border
+		x = 12
+		y = 14
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_united_at_last  }
+		completion_reward = {
+			NAP = {
+			add_state_claim = 735
+			add_state_claim = 21
+			add_state_claim = 32
+			add_state_claim = 20
+			add_state_claim = 22
+			add_state_claim = 26
+			add_state_claim = 25
+			add_state_claim = 31
+			add_state_claim = 19
+			add_state_claim = 23
+			add_state_claim = 33
+			add_state_claim = 27
+			add_state_claim = 17
+			add_state_claim = 28
+			add_state_claim = 18
+			add_state_claim = 16
+			add_state_claim = 785
+			add_state_claim = 29
+			add_state_claim = 24
+			add_state_claim = 30
+			add_state_claim = 15
+			add_state_claim = 14
+			add_state_claim = 8
+			add_state_claim = 34
+			add_state_claim = 6
+			}
+		}
+	}
+
+	#Hispania
+	focus = {
+		id = NAP_hispania
+		icon = GFX_NAP_hispania-92
+		x = 12
+		y = 15
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_gallia }
+		completion_reward = {
+			NAP = {
+			add_state_claim = 806
+			add_state_claim = 172
+			add_state_claim = 165
+			add_state_claim = 794
+			add_state_claim = 166
+			add_state_claim = 176
+			add_state_claim = 792
+			add_state_claim = 790
+			add_state_claim = 171
+			add_state_claim = 174
+			add_state_claim = 791
+			add_state_claim = 788
+			add_state_claim = 41
+			add_state_claim = 793
+			add_state_claim = 167
+			add_state_claim = 168
+			add_state_claim = 175
+			add_state_claim = 170
+			add_state_claim = 789
+			add_state_claim = 169
+			add_state_claim = 173
+			add_state_claim = 179
+			add_state_claim = 795
+			add_state_claim = 112
+			add_state_claim = 181
+			add_state_claim = 180
+			add_state_claim = 177
+			add_state_claim = 114
+			}
+		}
+	}
+
+	#integrate the Last Lands
+	focus = {
+		id = NAP_integrate_the_last_lands
+		icon = GFX_goal_tripartite_pact
+		x = 12
+		y = 16
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = NAP_hispania  }
+		completion_reward = {
+			every_owned_state = {add_core_of = NAP}
+			
+		}
+	}
+
+}

@@ -1,0 +1,9 @@
+spriteTypes = { 
+	##Icon For: Tajikistan Industries
+	SpriteType = { 
+		name = "CvZFhPfL-1467"
+		texturefile = "gfx/interface/ideas/CvZFhPfL-1467.dds"
+	}
+
+ 
+ }

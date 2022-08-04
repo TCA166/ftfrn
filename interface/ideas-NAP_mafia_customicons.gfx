@@ -1,0 +1,21 @@
+spriteTypes = { 
+	##Icon For: Mafia Unrest
+	SpriteType = { 
+		name = "GFX_idea_NAP_mafia_unrest-1068"
+		texturefile = "gfx/interface/ideas/mafia-ideas/NAP_mafia_unrest-1068.dds"
+	}
+
+	##Icon For: Fighting the Mafia
+	SpriteType = { 
+		name = "GFX_idea_NAP_fighting_the_mafia-1953"
+		texturefile = "gfx/interface/ideas/mafia-ideas/NAP_fighting_the_mafia-1953.dds"
+	}
+
+	##Icon For: Embrace the Mafia
+	SpriteType = { 
+		name = "GFX_idea_NAP_embrace_the_mafia-1132"
+		texturefile = "gfx/interface/ideas/mafia-ideas/NAP_embrace_the_mafia-1132.dds"
+	}
+
+ 
+ }

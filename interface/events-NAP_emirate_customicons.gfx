@@ -1,0 +1,9 @@
+spriteTypes = { 
+	##Icon For: Naming our Empire
+	SpriteType = { 
+		name = "NAP_naming_our_empire-873"
+		texturefile = "gfx/interface/events/emirate-event/NAP_naming_our_empire-873.dds"
+	}
+
+ 
+ }

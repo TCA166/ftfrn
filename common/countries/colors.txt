@@ -26,11 +26,15 @@ PAP = {
 	color_ui = rgb {255 73 121}
 }
 NAP = {
-	color = rgb { 100 50 150 }
+	color = rgb { 38 127 0 }
 	color_ui = rgb { 53 56 234 }
 }
 USC = {
 	color = rgb { 53 56 234 }
+	color_ui = rgb { 53 56 234 }
+}
+TAJ = {
+	color = rgb { 124 94 98 }
 	color_ui = rgb { 53 56 234 }
 }
 #customs end here

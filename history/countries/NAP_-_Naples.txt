@@ -1,0 +1,89 @@
+﻿oob = "NAP_1936"
+capital = 117
+set_research_slots = 3
+set_stability = 0.75
+set_war_support = 0.5
+set_convoys = 50
+
+
+add_ideas = {
+	volunteer_only
+	civilian_economy
+	NAP_mafia_unrest
+}
+
+
+
+
+#For start date 1939.1.1
+1939.1.1 = {
+	add_political_power = 1000
+	oob = "NAP_1939"
+}
+
+#Politics for 1936.1.1
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	democratic = 10
+	fascism = 10
+	communism = 10
+	neutrality = 70
+}
+
+#Politics for 1939.1.1
+1939.1.1 = {
+	set_popularities = {
+		democratic = 10
+		fascism = 10
+		communism = 10
+		neutrality = 70
+	}
+}
+
+create_country_leader = {
+	name = "Gennaro Umana"
+	desc = "MARIO_DESC" #loc key here for a description of leader
+	picture = "Portrait_Afghanistan_Mohammed_Zahir_Shah.dds" #picture .dds file folder localisation
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+		
+	}
+}
+create_country_leader = {
+	name = "Maurizio Piraino"
+	desc = "" #or leave empty idc
+	picture = "Portrait_Afghanistan_Mohammed_Zahir_Shah.dds"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		
+	}
+}
+create_country_leader = {
+	name = "Menardo Morena"
+	desc = ""
+	picture = "Portrait_Afghanistan_Mohammed_Zahir_Shah.dds"
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+		
+	}
+}
+create_country_leader = {
+	name = "Icaro Manginelli"
+	desc = ""
+	picture = "Portrait_Afghanistan_Mohammed_Zahir_Shah.dds"
+	expire = "1965.1.1"
+	ideology = nazism
+	traits = {
+		
+	}
+}
+
+

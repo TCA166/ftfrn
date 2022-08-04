@@ -1,0 +1,15 @@
+spriteTypes = { 
+	##Icon For: Democratic Influence
+	SpriteType = { 
+		name = "GFX_idea_NAP_democratic_influence-1077"
+		texturefile = "gfx/interface/ideas/diplomacy-ideas/NAP_democratic_influence-1077.dds"
+	}
+
+	##Icon For: Together for Victory
+	SpriteType = { 
+		name = "GFX_idea_NAP_together_for_victory-1095"
+		texturefile = "gfx/interface/ideas/diplomacy-ideas/NAP_together_for_victory-1095.dds"
+	}
+
+ 
+ }

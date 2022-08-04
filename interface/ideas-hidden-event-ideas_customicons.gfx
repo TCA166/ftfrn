@@ -1,0 +1,15 @@
+spriteTypes = { 
+	##Icon For: event chain spirit 1
+	SpriteType = { 
+		name = "GFX_idea_event_chain_spirit_1-1"
+		texturefile = "gfx/interface/ideas/hidden-event-ideas-ideas/event_chain_spirit_1-1.dds"
+	}
+
+	##Icon For: event chain spirit accepted
+	SpriteType = { 
+		name = "GFX_idea_event_chain_spirit_accepted-1"
+		texturefile = "gfx/interface/ideas/hidden-event-ideas-ideas/event_chain_spirit_accepted-1.dds"
+	}
+
+ 
+ }

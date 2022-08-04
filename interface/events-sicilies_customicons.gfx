@@ -1,0 +1,9 @@
+spriteTypes = { 
+	##Icon For: The question of our identity
+	SpriteType = { 
+		name = "the_question_of_our_identity-788"
+		texturefile = "gfx/interface/events/sicilies-event/the_question_of_our_identity-788.dds"
+	}
+
+ 
+ }

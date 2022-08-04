@@ -1,0 +1,33 @@
+spriteTypes = { 
+	##Icon For: The Question of our Politics
+	SpriteType = { 
+		name = "the_question_of_our_politics-750"
+		texturefile = "gfx/interface/events/event_chain-event/the_question_of_our_politics-750.dds"
+	}
+
+	##Icon For: A strange king
+	SpriteType = { 
+		name = "a_strange_king-793"
+		texturefile = "gfx/interface/events/event_chain-event/a_strange_king-793.dds"
+	}
+
+	##Icon For: Democracy prevails!
+	SpriteType = { 
+		name = "democracy_prevails-750"
+		texturefile = "gfx/interface/events/event_chain-event/democracy_prevails-750.dds"
+	}
+
+	##Icon For: The Tour
+	SpriteType = { 
+		name = "the_tour-770"
+		texturefile = "gfx/interface/events/event_chain-event/the_tour-770.dds"
+	}
+
+	##Icon For: The Disaster
+	SpriteType = { 
+		name = "the_disaster-962"
+		texturefile = "gfx/interface/events/event_chain-event/the_disaster-962.dds"
+	}
+
+ 
+ }

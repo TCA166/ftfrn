@@ -1,0 +1,49 @@
+add_namespace = NAP_emirate
+
+#Naming our Empire
+country_event = {
+	id = NAP_emirate.1
+	title = NAP_emirate.1.t
+	desc = NAP_emirate.1.d
+
+	picture = NAP_naming_our_empire-873
+	fire_only_once = yes
+	is_triggered_only = yes
+	fire_for_sender = yes
+	option = {
+		name = NAP_emirate.1.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		NAP = {set_cosmetic_tag = ROE}
+
+		hidden_effect = {
+			
+		}
+	}
+	option = {
+		name = NAP_emirate.1.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		NAP = {set_cosmetic_tag = ROI}
+
+		hidden_effect = {
+			
+		}
+	}
+	option = {
+		name = NAP_emirate.1.c
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		NAP = {set_cosmetic_tag = MRO}
+
+		hidden_effect = {
+			
+		}
+	}
+}

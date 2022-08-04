@@ -1,0 +1,58 @@
+﻿oob = "TAJ_1936"
+capital = 742
+set_research_slots = 3
+set_stability = 0.5
+set_war_support = 0.5
+set_convoys = 5
+
+
+add_ideas = {
+	volunteer_only
+	civilian_economy
+fascist_unrest
+}
+
+
+#Starting tech
+set_technology = {
+	support_tech = 1
+}
+
+
+#For start date 1939.1.1
+1939.1.1 = {
+	add_political_power = 1000
+	oob = "TAJ_1939"
+}
+
+#Politics for 1936.1.1
+set_politics = {
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = yes
+}
+set_popularities = {
+	democratic = 50
+	fascism = 1
+	communism = 40
+	neutrality = 9
+}
+
+#Politics for 1939.1.1
+1939.1.1 = {
+	set_popularities = {
+		democratic = 50
+		fascism = 1
+		communism = 40
+		neutrality = 9
+	}
+}
+
+recruit_character = bahrom
+recruit_character = rustam
+recruit_character = sherzod
+recruit_character = davlat
+
+recruit_character = rozhiva
+

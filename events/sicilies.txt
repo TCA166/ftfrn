@@ -1,0 +1,36 @@
+add_namespace = sicilies
+
+#The question of our identity
+country_event = {
+	id = sicilies.1
+	title = sicilies.1.t
+	desc = sicilies.1.d
+
+	picture = the_question_of_our_identity-788
+	fire_only_once = yes
+	is_triggered_only = yes
+	fire_for_sender = yes
+	option = {
+		name = sicilies.1.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		NAP = {set_cosmetic_tag = KTS}
+
+		hidden_effect = {
+			
+		}
+	}
+	option = {
+		name = sicilies.1.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			
+		}
+	}
+}

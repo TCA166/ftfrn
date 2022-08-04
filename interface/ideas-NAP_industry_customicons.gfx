@@ -1,0 +1,33 @@
+spriteTypes = { 
+	##Icon For: Ministeries of The Ottoman Empire
+	SpriteType = { 
+		name = "GFX_idea_NAP_ministeries_of_the_ottoman_empire-1905"
+		texturefile = "gfx/interface/ideas/industry-ideas/NAP_ministeries_of_the_ottoman_empire-1905.dds"
+	}
+
+	##Icon For: Akçe
+	SpriteType = { 
+		name = "GFX_idea_NAP_ake-1079"
+		texturefile = "gfx/interface/ideas/industry-ideas/NAP_ake-1079.dds"
+	}
+
+	##Icon For: Arms Production
+	SpriteType = { 
+		name = "GFX_idea_NAP_arms_production-1671"
+		texturefile = "gfx/interface/ideas/industry-ideas/NAP_arms_production-1671.dds"
+	}
+
+	##Icon For: Rural Focus
+	SpriteType = { 
+		name = "GFX_idea_NAP_rural_focus-1366"
+		texturefile = "gfx/interface/ideas/industry-ideas/NAP_rural_focus-1366.dds"
+	}
+
+	##Icon For: New Innovations
+	SpriteType = { 
+		name = "GFX_idea_NAP_new_innovations-1697"
+		texturefile = "gfx/interface/ideas/industry-ideas/NAP_new_innovations-1697.dds"
+	}
+
+ 
+ }

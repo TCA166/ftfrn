@@ -1,0 +1,8 @@
+﻿l_english:
+NAP_faction.1.t:0 "An Invitation"
+NAP_faction.1.d:0 "Naples has send us a request to join their faction. They calim that united, we can face any threat that awaits us. Should we join them or not?"
+NAP_faction.1.a:0 "Accept the Offer"
+NAP_faction.1.b:0 "Decline the Offer"
+NAP_faction.2.t:0 "A new Ally"
+NAP_faction.2.d:0 "The negotiations were successful! We gained a new ally!"
+NAP_faction.2.a:0 "United we are strong!"

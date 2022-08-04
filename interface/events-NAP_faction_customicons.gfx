@@ -1,0 +1,15 @@
+spriteTypes = { 
+	##Icon For: An Invitation
+	SpriteType = { 
+		name = "NAP_an_invitation-1010"
+		texturefile = "gfx/interface/events/faction-event/NAP_an_invitation-1010.dds"
+	}
+
+	##Icon For: A new Ally
+	SpriteType = { 
+		name = "NAP_a_new_ally-1035"
+		texturefile = "gfx/interface/events/faction-event/NAP_a_new_ally-1035.dds"
+	}
+
+ 
+ }

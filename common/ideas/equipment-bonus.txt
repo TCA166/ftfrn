@@ -1,7 +1,7 @@
 ideas = {
 	country = {
 
-		xVJiytvL = {
+		TAJ_better_equipment = {
 			picture = xVJiytvL-1057
 			allowed = {
 				tag = TAJ

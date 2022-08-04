@@ -1,0 +1,21 @@
+spriteTypes = { 
+	##Icon For: Communist Propaganda
+	SpriteType = { 
+		name = "GFX_idea_communist_propaganda-1076"
+		texturefile = "gfx/interface/ideas/fascist-unrest-ideas/communist_propaganda-1076.dds"
+	}
+
+	##Icon For: Fascist Unrest
+	SpriteType = { 
+		name = "GFX_idea_fascist_unrest-1080"
+		texturefile = "gfx/interface/ideas/fascist-unrest-ideas/fascist_unrest-1080.dds"
+	}
+
+	##Icon For: Embraced Fascism
+	SpriteType = { 
+		name = "GFX_idea_embraced_fascism-1946"
+		texturefile = "gfx/interface/ideas/fascist-unrest-ideas/embraced_fascism-1946.dds"
+	}
+
+ 
+ }

@@ -1,0 +1,15 @@
+spriteTypes = { 
+	##Icon For: Giorgio Gigante
+	SpriteType = { 
+		name = "kLHWvFmd-122563"
+		texturefile = "gfx/interface/ideas/kLHWvFmd-122563.dds"
+	}
+
+	##Icon For: Carlo Conti
+	SpriteType = { 
+		name = "fkDAgoCn-1407"
+		texturefile = "gfx/interface/ideas/fkDAgoCn-1407.dds"
+	}
+
+ 
+ }

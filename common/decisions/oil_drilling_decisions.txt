@@ -1,0 +1,22 @@
+oil_drilling = {
+	ask_the_british_for_support = {
+		icon = decision_icon_ask_the_british_for_support
+		cost = 10
+		days_re_enable = 12
+		available = {
+			tag = TAJ
+		}
+		visible = {
+			always = yes
+		}
+		complete_effect = {
+			add_resource = { 
+type = oil 
+amount = 2 
+state = 742 
+}
+ENG = {add_offsite_building = { type = arms_factory level = 1 }}
+
+		}
+	}
+}

@@ -1,0 +1,61 @@
+add_namespace = NAP_faction
+
+#An Invitation
+country_event = {
+	id = NAP_faction.1
+	title = NAP_faction.1.t
+	desc = NAP_faction.1.d
+
+	picture = NAP_an_invitation-1010
+	is_triggered_only = yes
+	option = {
+		name = NAP_faction.1.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 4 }
+		NAP = {
+add_to_faction = THIS
+}
+		hidden_effect = {
+			NAP = {
+country_event = {
+days = 2 
+id = NAP_faction.2 
+}
+}
+		}
+	}
+	option = {
+		name = NAP_faction.1.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 3 }
+		
+		hidden_effect = {
+			
+		}
+	}
+}
+
+#A new Ally
+country_event = {
+	id = NAP_faction.2
+	title = NAP_faction.2.t
+	desc = NAP_faction.2.d
+
+	picture = NAP_a_new_ally-1035
+	is_triggered_only = yes
+	option = {
+		name = NAP_faction.2.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			
+		}
+	}
+}

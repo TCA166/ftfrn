@@ -1,0 +1,1762 @@
+focus_tree = {
+	id = tajikistan-focus-tree
+	continuous_focus_position = { x = 0 y = 1600 } 
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = TAJ
+		}
+	}
+	#Liberate Our Brothers
+	focus = {
+		id = TAJ_liberate_our_brothers
+		icon = GFX_TAJ_liberate_our_brothers-280
+		x = 6
+		y = 9
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = TAJ_gateway_to_our_brothers  }
+		available = {
+			NOT = {
+			country_exists = PER
+			}
+		}
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = TUR
+			}
+			
+		}
+	}
+
+	#Focus On Internal Development
+	focus = {
+		id = TAJ_focus_on_internal_development
+		icon = GFX_TAJ_focus_on_internal_development-387
+		x = 8
+		y = 8
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = TAJ_theturksareunited  }
+		mutually_exclusive = { focus = TAJ_gateway_to_our_brothers  }
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			every_owned_state = {
+			add_building_construction = {						type = infrastructure						level = 3
+			instant_build = yes					}
+			}
+			
+		}
+	}
+
+	#Tea in the Army
+	focus = {
+		id = TAJ_tea_in_the_army
+		icon = GFX_focus_generic_little_entente
+		x = 12
+		y = 7
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TAJ_british_takeover  }
+		completion_reward = {
+			add_manpower = 20000
+			add_war_support = 0.3
+			add_stability = 0.15
+			
+		}
+	}
+
+	#Elections
+	focus = {
+		id = TAJ_elections
+		icon = GFX_TAJ_elections-427
+		x = 0
+		y = 1
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = TAJ_political_discussion  }
+		mutually_exclusive = { focus = TAJ_communist_coup  } mutually_exclusive = { focus = TAJ_authority_goverment  } mutually_exclusive = { focus = TAJ_fascist_rule  }
+		available = {
+			NOT = {
+			has_completed_focus = TAJ_british_takeover
+			}
+			
+		}
+		completion_reward = {
+			add_popularity = { 
+			ideology = democratic
+			popularity = 0.20 
+			}
+			
+			set_politics = {
+			 ruling_party = democratic
+			elections_allowed = yes 
+			}
+			
+		}
+	}
+
+	#Political Discussion
+	focus = {
+		id = TAJ_political_discussion
+		icon = GFX_goal_tripartite_pact
+		x = 3
+		y = 0
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.10
+			
+		}
+	}
+
+	#The Turks are United!
+	focus = {
+		id = TAJ_theturksareunited
+		icon = GFX_focus_hol_united_netherlands
+		x = 6
+		y = 7
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = TAJ_strike_west  }
+		available = {
+			NOT = {
+			country_exists = UZB
+			}
+			
+			NOT = {
+			country_exists = TMS
+			}
+		}
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.5
+			add_political_power = 50
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#Communist Coup
+	focus = {
+		id = TAJ_communist_coup
+		icon = GFX_TAJ_communist_coup-426
+		x = 2
+		y = 1
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = TAJ_political_discussion  }
+		mutually_exclusive = { focus = TAJ_authority_goverment  } mutually_exclusive = { focus = TAJ_fascist_rule  } mutually_exclusive = { focus = TAJ_elections  }
+		available = {
+			NOT = {
+			has_completed_focus = TAJ_british_takeover
+			}
+			
+		}
+		completion_reward = {
+			set_politics = {
+			 ruling_party = communism
+			elections_allowed = no 
+			}
+			
+			add_popularity = { 
+			ideology = communism
+			popularity = 0.25 
+			}
+			
+		}
+	}
+
+	#Authority Goverment
+	focus = {
+		id = TAJ_authority_goverment
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = 4
+		y = 1
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = TAJ_political_discussion  }
+		mutually_exclusive = { focus = TAJ_elections  } mutually_exclusive = { focus = TAJ_communist_coup  } mutually_exclusive = { focus = TAJ_fascist_rule  }
+		available = {
+			NOT = {
+			has_completed_focus = TAJ_british_takeover
+			}
+			
+		}
+		completion_reward = {
+			set_politics = {
+			 ruling_party = neutrality
+			elections_allowed = no 
+			}
+			add_popularity = { 
+			ideology = neutrality
+			popularity = 0.25 
+			}
+			
+		}
+	}
+
+	#Fascist Rule
+	focus = {
+		id = TAJ_fascist_rule
+		icon = GFX_TAJ_fascist_rule-428
+		x = 6
+		y = 1
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = TAJ_political_discussion  }
+		mutually_exclusive = { focus = TAJ_elections  } mutually_exclusive = { focus = TAJ_communist_coup  } mutually_exclusive = { focus = TAJ_authority_goverment  }
+		available = {
+			NOT = {
+			has_completed_focus = TAJ_british_takeover
+			}
+			
+		}
+		completion_reward = {
+			set_politics = {
+			 ruling_party = fascism 
+			elections_allowed = no 
+			}
+			add_popularity = { 
+			ideology = fascism 
+			popularity = 0.25 
+			}
+			
+		}
+	}
+
+	#Preperation for War
+	focus = {
+		id = TAJ_preperation_for_war
+		icon = GFX_goal_generic_position_armies
+		x = 6
+		y = 2
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = TAJ_fascist_rule  }
+		completion_reward = {
+			add_war_support = 0.2
+			add_popularity = { 
+			ideology = fascism 
+			popularity = 0.1 
+			}
+			add_equipment_to_stockpile = {
+			 type = infantry_equipment_1 
+			amount = 1000 
+			}
+		}
+	}
+
+	#Embrace Fascism
+	focus = {
+		id = TAJ_embrace_fascism
+		icon = GFX_TAJ_embrace_fascism-283
+		x = 6
+		y = 3
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = TAJ_preperation_for_war  }
+		completion_reward = {
+			swap_ideas = {
+			 remove_idea = fascist_unrest 
+			add_idea = embraced_fascism 
+			}
+		}
+	}
+
+	#A University for our Country
+	focus = {
+		id = TAJ_a_university_for_our_country
+		icon = GFX_focus_research
+		x = 8
+		y = 2
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		prerequisite = { focus = TAJ_more_roads  }
+		completion_reward = {
+			add_research_slot = 1
+			add_tech_bonus = {
+			 bonus = 1.2 
+			uses = 2 
+			category = electronics 
+			category = 
+			}
+			
+		}
+	}
+
+	#Start Of An Industry
+	focus = {
+		id = TAJ_start_of_an_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 9
+		y = 0
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#War Economy
+	focus = {
+		id = TAJ_war_economy
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 10
+		y = 1
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = TAJ_start_of_an_industry  }
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#More Roads
+	focus = {
+		id = TAJ_more_roads
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 8
+		y = 1
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = TAJ_start_of_an_industry  }
+		completion_reward = {
+			random_owned_state = {
+			 add_extra_state_shared_building_slots = 2 
+			}
+			random_owned_controlled_state = {
+			add_building_construction = {						type = infrastructure						level = 3
+			instant_build = yes					}
+			}
+			
+		}
+	}
+
+	#An Iron Fist
+	focus = {
+		id = TAJ_an_iron_fist
+		icon = GFX_focus_hol_united_netherlands
+		x = 6
+		y = 4
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = TAJ_embrace_fascism  }
+		completion_reward = {
+			add_country_leader_trait = the_director
+			add_country_leader_trait = empire_builder
+			
+		}
+	}
+
+	#Liberate the Neighbouring Workers
+	focus = {
+		id = TAJ_liberate_the_neighbouring_workers
+		icon = GFX_goal_generic_major_war
+		x = 2
+		y = 3
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = TAJ_antifascist_propaganda  }
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = BUK
+					country_exists = KHI
+					country_exists = KKP
+				}
+					
+				create_wargoal = { 
+				type = puppet_wargoal_focus
+				target = KAZ
+				}
+				create_wargoal = { 
+				type = puppet_wargoal_focus 
+				target = KYR
+				}
+				create_wargoal = {
+				type = puppet_wargoal_focus
+				target = UZB
+				}
+				create_wargoal = { 
+				type = puppet_wargoal_focus 
+				target = TMS
+				}
+			
+				create_wargoal = { 
+				type = puppet_wargoal_focus 
+				target = BUK
+				}
+				create_wargoal = { 
+				type = puppet_wargoal_focus 
+				target = KHI
+				}
+				
+				create_wargoal = { 
+				type = puppet_wargoal_focus 
+				target = KKP
+				}
+				else = {
+					create_wargoal = { 
+					type = puppet_wargoal_focus
+					target = KAZ
+					}
+
+					create_wargoal = { 
+					type = puppet_wargoal_focus 
+					target = KYR
+					}
+
+					create_wargoal = {
+					type = puppet_wargoal_focus
+					target = UZB
+					}
+
+					create_wargoal = { 
+					type = puppet_wargoal_focus 
+					target = TMS
+					}
+				}
+			}
+		}
+	}
+
+	#The Worker's Faction
+	focus = {
+		id = TAJ_theworkersfaction
+		icon = GFX_TAJ_theworkersfaction-303
+		x = 2
+		y = 4
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = TAJ_liberate_the_neighbouring_workers  }
+		available = {
+			KAZ = {
+			is_subject_of = TAJ
+			}
+		}
+		completion_reward = {
+			create_faction = "Central Asian Worker's Union"
+			
+		}
+	}
+
+	#Expand the Mining Operations
+	focus = {
+		id = TAJ_expand_the_mining_operations
+		icon = GFX_focus_generic_industry_2
+		x = 10
+		y = 2
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = TAJ_war_economy  }
+		completion_reward = {
+			add_resource = { 
+			type = steel
+			amount = 5 
+			state = 742
+			}
+			
+			 742={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#Strike North
+	focus = {
+		id = TAJ_strike_north
+		icon = GFX_goal_generic_position_armies
+		x = 6
+		y = 5
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = TAJ_an_iron_fist  }
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = KYR
+			}
+			
+			create_wargoal = { 
+			type = annex_everything 
+			target = KAZ
+			}
+			
+		}
+	}
+
+	#A standing Army
+	focus = {
+		id = TAJ_a_standing_army
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 13
+		y = 0
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		completion_reward = {
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 1 
+			category = infantry_weapons 
+			}
+			army_experience = 25
+			add_command_power = 30
+			add_manpower = 12000
+		}
+	}
+
+	#New Tactics
+	focus = {
+		id = TAJ_new_tactics
+		icon = GFX_goal_generic_military_sphere
+		x = 12
+		y = 1
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = TAJ_a_standing_army  }
+		completion_reward = {
+			if = {
+					limit = {
+						has_dlc = "No Step Back"
+					}
+						add_doctrine_cost_reduction = {
+						name = TAJ_new_tactics
+						cost_reduction = 0.5
+						uses = 2
+						category = land_doctrine
+						}
+					else = {
+						add_tech_bonus = {
+						bonus = 1 
+						uses = 2 
+						category = land_doctrine 
+						}
+					}
+				}
+			
+		}
+	}
+
+	#Special Forces
+	focus = {
+		id = TAJ_special_forces
+		icon = GFX_goal_generic_special_forces
+		x = 12
+		y = 2
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = TAJ_new_tactics  }
+		completion_reward = {
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 0.5
+				uses = 2
+				technology = paratroopers
+				technology = paratroopers2
+			technology = tech_mountaineers
+			technology = tech_mountaineers
+			}
+		}
+	}
+
+	#Strike West
+	focus = {
+		id = TAJ_strike_west
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 6
+		y = 6
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = TAJ_strike_north  }
+		available = {
+			NOT = {
+			country_exists = KYR
+			}
+			
+			NOT = {
+			country_exists = KAZ
+			}
+		}
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = UZB
+			}
+			create_wargoal = { 
+			type = annex_everything 
+			target = TMS
+			}
+			
+		}
+	}
+
+	#Liberating the South
+	focus = {
+		id = TAJ_liberating_the_south
+		icon = GFX_goal_generic_position_armies
+		x = 2
+		y = 5
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = TAJ_theworkersfaction  }
+		available = {
+			KAZ = {is_subject_of = TAJ}
+			KYR = {is_subject_of = TAJ}
+			UZB = {is_subject_of = TAJ}TMS = {
+			is_subject_of = TAJ}
+			
+		}
+		completion_reward = {
+			create_wargoal = { 
+			type = puppet_wargoal_focus 
+			target = AFG
+			}
+			
+			create_wargoal = { 
+			type = puppet_wargoal_focus 
+			target = PER
+			}
+			
+			create_wargoal = { 
+			type = puppet_wargoal_focus 
+			target = PAK
+			}
+		}
+	}
+
+	#Improving the Country
+	focus = {
+		id = TAJ_improving_the_country
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 2
+		y = 6
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = TAJ_liberating_the_south  }
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#Anti-Fascist Propaganda
+	focus = {
+		id = TAJ_antifascist_propaganda
+		icon = GFX_focus_generic_self_management
+		x = 2
+		y = 2
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = TAJ_communist_coup  }
+		completion_reward = {
+			add_war_support = 2
+			swap_ideas = {
+			 remove_idea = fascist_unrest 
+			add_idea = communist_propaganda 
+			}
+		}
+	}
+
+	#End the Bolshevik Regime
+	focus = {
+		id = TAJ_end_the_bolshevik_regime
+		icon = GFX_focus_attack_soviet
+		x = 2
+		y = 7
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = TAJ_improving_the_country  }
+		completion_reward = {
+			create_wargoal = { 
+			type = puppet_wargoal_focus 
+			target = SOV
+			}
+			
+		}
+	}
+
+	#Free the indians
+	focus = {
+		id = TAJ_free_the_indians
+		icon = GFX_focus_RAJ_seek_help_from_soviet
+		x = 2
+		y = 8
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = TAJ_end_the_bolshevik_regime  }
+		available = {
+			PER = {
+			is_subject_of = TAJ
+			}
+			
+			PAK = {
+			is_subject_of = TAJ
+			}
+			
+			AFG = {
+			is_subject_of = TAJ
+			}
+			
+		}
+		completion_reward = {
+			create_wargoal = { 
+			type = puppet_wargoal_focus 
+			target = RAJ
+			}
+			
+		}
+	}
+
+	#A Miracle
+	focus = {
+		id = TAJ_a_miracle
+		icon = GFX_TAJ_a_miracle-230
+		x = 10
+		y = 4
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = TAJ_supply_from_everywhere  }
+		completion_reward = {
+			add_ideas = industrial_miracle
+			add_stability = 0.1
+			
+		}
+	}
+
+	#Supply from everywhere
+	focus = {
+		id = TAJ_supply_from_everywhere
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 10
+		y = 3
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = TAJ_expand_the_mining_operations  }
+		completion_reward = {
+			742 = {
+			add_building_construction = {
+			type = supply_node
+			level = 1
+			province = 10187
+			instant_build = yes
+			}
+			}
+			
+			742 = {
+			add_building_construction = {
+			type = supply_node
+			level = 1
+			province = 12805
+			instant_build = yes
+			}
+			}
+		}
+	}
+
+	#Unite The Workers
+	focus = {
+		id = TAJ_unite_the_workers
+		icon = GFX_focus_eng_liberate_the_home_of_marx
+		x = 2
+		y = 9
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = TAJ_free_the_indians  }
+		completion_reward = {
+			TAJ = { 
+			set_cosmetic_tag = GTU
+			}
+			annex_country = {
+			 target = UZB 
+			}
+			annex_country = {
+			 target = TMS 
+			}
+			annex_country = {
+			 target = KYR 
+			}
+			annex_country = {
+			 target = KAZ 
+			}
+			annex_country = {
+			 target = RAJ 
+			}
+			annex_country = {
+			 target = PER 
+			}
+			annex_country = {
+			 target = PAK 
+			}
+			annex_country = {
+			 target = AFG 
+			}
+			every_owned_state = { add_core_of = TAJ}
+		}
+	}
+
+	#Tracking The Enemy
+	focus = {
+		id = TAJ_tracking_the_enemy
+		icon = GFX_goal_generic_radar
+		x = 14
+		y = 4
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = TAJ_special_forces  } prerequisite = { focus = TAJ_bomb_their_land  }
+		completion_reward = {
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 2 
+			category = radar_tech 
+			}
+			
+		}
+	}
+
+	#Our Skies
+	focus = {
+		id = TAJ_our_skies
+		icon = GFX_goal_generic_air_bomber
+		x = 16
+		y = 0
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		completion_reward = {
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 1 
+			category = light_fighter 
+			}
+		}
+	}
+
+	#Direct Ground Support
+	focus = {
+		id = TAJ_direct_ground_support
+		icon = GFX_focus_usa_escort_fighters
+		x = 16
+		y = 1
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = TAJ_a_standing_army  } prerequisite = { focus = TAJ_our_skies  }
+		completion_reward = {
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 1 
+			category = cas_bomber 
+			}
+			
+		}
+	}
+
+	#Bomb Their Land
+	focus = {
+		id = TAJ_bomb_their_land
+		icon = GFX_goal_generic_air_naval_bomber
+		x = 16
+		y = 2
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = TAJ_direct_ground_support  }
+		completion_reward = {
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 3 
+			category = tactical_bomber
+			category = cat_strategic_bomber 
+			}
+			air_experience = 30
+		}
+	}
+
+	#Focus on Equipment
+	focus = {
+		id = TAJ_focus_on_equipment
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 12
+		y = 3
+		cost = 4
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = TAJ_special_forces  }
+		mutually_exclusive = { focus = TAJ_focus_on_airplanes  }
+		completion_reward = {
+			add_ideas = weapons_production_focus
+		}
+	}
+
+	#Focus On Airplanes
+	focus = {
+		id = TAJ_focus_on_airplanes
+		icon = GFX_goal_generic_air_fighter2
+		x = 16
+		y = 3
+		cost = 4
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = TAJ_bomb_their_land  }
+		mutually_exclusive = { focus = TAJ_focus_on_equipment  }
+		completion_reward = {
+			
+			add_ideas = plane_production_focus
+			
+		}
+	}
+
+	#Better Equipment
+	focus = {
+		id = TAJ_better_equipment
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		x = 12
+		y = 4
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = TAJ_focus_on_equipment  }
+		completion_reward = {
+			add_ideas = TAJ_better_equipment
+		}
+	}
+
+	#Training In The Mountains
+	focus = {
+		id = TAJ_training_in_the_mountains
+		icon = GFX_goal_generic_air_fighter
+		x = 16
+		y = 4
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = TAJ_focus_on_airplanes  }
+		completion_reward = {
+			add_ideas = better_planes
+			
+		}
+	}
+
+	#More Resources
+	focus = {
+		id = TAJ_more_resources
+		icon = GFX_goal_continuous_non_factory_construct
+		x = 8
+		y = 4
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = TAJ_supply_from_everywhere  }
+		completion_reward = {
+			742 ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			add_resource = { 
+			type = aluminium 
+			amount = 9 
+			state =  742
+			}
+			
+		}
+	}
+
+	#Gateway To Our Brothers
+	focus = {
+		id = TAJ_gateway_to_our_brothers
+		icon = GFX_focus_eng_global_defense
+		x = 6
+		y = 8
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = TAJ_theturksareunited  }
+		mutually_exclusive = { focus = TAJ_focus_on_internal_development  }
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = PER
+			}
+			
+		}
+	}
+
+	#Finally Peace
+	focus = {
+		id = TAJ_finally_peace
+		icon = GFX_goal_tripartite_pact
+		x = 8
+		y = 9
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = TAJ_focus_on_internal_development  }
+		completion_reward = {
+			add_stability = 0.20
+			add_political_power = 250
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#United At Last
+	focus = {
+		id = TAJ_united_at_last
+		icon = GFX_focus_generic_concessions
+		x = 6
+		y = 10
+		cost = 2
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = TAJ_liberate_our_brothers  }
+		available = {
+			NOT = {
+			country_exists = TUR
+			}
+		}
+		completion_reward = {
+			add_stability = 0.25
+			add_political_power = 50
+			every_owned_state = { add_core_of = TAJ}
+			
+		}
+	}
+
+	#Project Boom
+	focus = {
+		id = TAJ_project_boom
+		icon = GFX_focus_rocketry
+		x = 9
+		y = 5
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = TAJ_a_miracle  } prerequisite = { focus = TAJ_more_resources  }
+		completion_reward = {
+			add_tech_bonus = {
+			bonus = 1.0 
+			uses = 1
+			category = rocketry
+			}
+		}
+	}
+
+	#Project Mega Boom
+	focus = {
+		id = TAJ_project_mega_boom
+		icon = GFX_goal_poland_goal
+		x = 9
+		y = 6
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = TAJ_project_boom  }
+		completion_reward = {
+			add_tech_bonus = {
+			bonus = 1.0 
+			uses = 1
+			category = nuclear
+			} 
+		}
+	}
+
+	#British Takeover
+	focus = {
+		id = TAJ_british_takeover
+		icon = GFX_TAJ_british_takeover-44
+		x = 14
+		y = 6
+		cost = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		available = {
+			always = no
+		}
+		bypass = {
+			TAJ = {is_subject_of = ENG}
+			
+		}
+	}
+
+	#Tea Is Our Religion
+	focus = {
+		id = TAJ_tea_is_our_religion
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		x = 12
+		y = 8
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		prerequisite = { focus = TAJ_tea_in_the_army  }
+		completion_reward = {
+			add_stability = 0.25
+			add_political_power = 70
+			add_popularity = { 
+			ideology = democratic
+			popularity = 0.25 
+			}
+			
+		}
+	}
+
+	#Tea In Politics
+	focus = {
+		id = TAJ_tea_in_politics
+		icon = GFX_goal_generic_demand_territory
+		x = 14
+		y = 7
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = TAJ_british_takeover  }
+		completion_reward = {
+			set_party_name = { 
+			ideology = democratic 
+			long_name = "British Tea Party" 
+			name = "British Tea Party"
+			}
+		}
+	}
+
+	#More Tea Plants
+	focus = {
+		id = TAJ_more_tea_plants
+		icon = GFX_focus_generic_industry_1
+		x = 16
+		y = 7
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = TAJ_british_takeover  }
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#Tea In Our Equipment
+	focus = {
+		id = TAJ_tea_in_our_equipment
+		icon = GFX_TAJ_tea_in_our_equipment-145
+		x = 16
+		y = 8
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = TAJ_more_tea_plants  }
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#Tea Is the Only Thing In Our Goverment
+	focus = {
+		id = TAJ_tea_is_the_only_thing_in_our_goverment
+		icon = GFX_focus_usa_voter_registration_act
+		x = 14
+		y = 8
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = TAJ_tea_in_politics  }
+		completion_reward = {
+			set_party_name = { 
+			ideology = fascism 
+			long_name = Banned 
+			name = Banned 
+			}
+			set_party_name = { 
+			ideology = communism 
+			long_name = Banned 
+			name = Banned 
+			}
+			set_party_name = { 
+			ideology = neutrality 
+			long_name = Banned 
+			name = Banned 
+			}
+			add_popularity = { 
+			ideology = democratic 
+			popularity = 1 
+			}
+			
+			remove_ideas = fascist_unrest
+			
+		}
+	}
+
+	#Export Our Tea
+	focus = {
+		id = TAJ_export_our_tea
+		icon = GFX_TAJ_export_our_tea-230
+		x = 16
+		y = 9
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = TAJ_tea_in_our_equipment  }
+		completion_reward = {
+			add_ideas = tea_export
+			
+		}
+	}
+
+	#Spread The Tea
+	focus = {
+		id = TAJ_spread_the_tea
+		icon = GFX_goal_generic_territory_or_war
+		x = 14
+		y = 9
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = TAJ_tea_is_the_only_thing_in_our_goverment  }
+		available = {
+			TAJ = {has_completed_focus = TAJ_exploit_their_addiction}
+			
+		}
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = KYR
+			}
+			create_wargoal = { 
+			type = annex_everything 
+			target = UZB
+			}
+			
+		}
+	}
+
+	#Spread The Tea Even Further
+	focus = {
+		id = TAJ_spread_the_tea_even_further
+		icon = GFX_goal_generic_territory_or_war
+		x = 14
+		y = 10
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = TAJ_spread_the_tea  }
+		available = {
+			NOT = {
+			country_exists = UZB
+			}
+			
+			NOT = {
+			country_exists = KYR
+			}
+		}
+		completion_reward = {
+			create_wargoal = { 
+			type = annex_everything 
+			target = KAZ
+			}
+			create_wargoal = { 
+			type = annex_everything 
+			target = TMS
+			}
+			
+		}
+	}
+
+	#The Tea Empire
+	focus = {
+		id = TAJ_the_tea_empire
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = 14
+		y = 11
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = TAJ_spread_the_tea_even_further  }
+		available = {
+			NOT = {
+			country_exists = TMS
+			}
+			
+			NOT = {
+			country_exists = KAZ
+			}
+		}
+		completion_reward = {
+			add_stability = 0.5
+			TAJ = {
+			set_cosmetic_tag = TCO
+			}
+			every_owned_state = { add_core_of = TAJ}
+			every_state = {
+				add_claim_by = TAJ
+			}
+		}
+	}
+
+	#Exploit Their Addiction
+	focus = {
+		id = TAJ_exploit_their_addiction
+		icon = GFX_focus_generic_military_academy
+		x = 12
+		y = 9
+		cost = 3
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = TAJ_tea_is_our_religion  }
+		completion_reward = {
+			ENG = {end_puppet = TAJ}
+			
+			ENG = {add_to_faction = TAJ}
+			
+		}
+	}
+
+}
