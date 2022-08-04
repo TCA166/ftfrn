@@ -957,10 +957,10 @@ focus_tree = {
 		}
 		prerequisite = { focus = TAJ_communist_coup  }
 		completion_reward = {
-			add_war_support = 2
-			swap_ideas = {
-			 remove_idea = fascist_unrest 
-			add_idea = communist_propaganda 
+			add_war_support = 0.2
+			swap_ideas = {
+				remove_idea = fascist_unrest 
+				add_idea = communist_propaganda 
 			}
 		}
 	}

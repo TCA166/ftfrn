@@ -725,3 +725,38 @@ TBE_third_bulgarian_empire_neutrality = {
 	color = rgb { 138 249 195 }
 	color_ui = rgb { 138 249 195 }
 }
+
+CIE = {
+	color = rgb { 255 245 145 }
+	color_ui = rgb { 138 249 195 }
+}
+
+GTU = {
+	color = rgb { 255 0 34 }
+	color_ui = rgb { 138 249 195 }
+}
+
+KTS = {
+	color = rgb { 128 128 128 }
+	color_ui = rgb { 138 249 195 }
+}
+
+MFN = {
+	color = rgb { 255 245 145 }
+	color_ui = rgb { 138 249 195 }
+}
+
+MRO = {
+	color = rgb { 239 159 47 }
+	color_ui = rgb { 138 249 195 }
+}
+
+ROI = {
+	color = rgb { 239 159 47 }
+	color_ui = rgb { 138 249 195 }
+}
+
+ROE = {
+	color = rgb { 239 159 47 }
+	color_ui = rgb { 138 249 195 }
+}
