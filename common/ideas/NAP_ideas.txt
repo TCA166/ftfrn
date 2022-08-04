@@ -1,0 +1,404 @@
+ideas = {
+	country = {
+
+		NAP_perfect_fighter_force = {
+			picture = NAP_perfect_fighter_force-1044
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				air_accidents_factor = -0.5
+air_ace_generation_chance_factor = 0.2
+air_agility_factor = 0.2
+air_attack_factor = 0.2
+air_defence_factor = 0.2
+air_maximum_speed_factor = 0.2
+air_night_penalty = -0.2
+army_bonus_air_superiority_factor = 0.3
+ground_attack_factor = 0.3
+air_training_xp_gain_factor = 0.2
+			}
+		}
+
+		NAP_a_royal_army = {
+			picture = NAP_a_royal_army-1063
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				army_leader_start_attack_level = 1
+army_leader_start_defense_level = 1
+army_attack_factor = 0.2
+army_defence_factor = 0.2
+army_morale_factor = 0.2
+army_org_regain = 0.2
+			}
+		}
+
+		NAP_army_of_the_eagle = {
+			picture = NAP_army_of_the_eagle-1128
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				army_core_attack_factor = 0.2
+army_defence_factor = 0.2
+army_speed_factor = 0.3
+army_morale_factor = 0.1
+			}
+		}
+
+		NAP_night_army = {
+			picture = NAP_night_army-1224
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				land_night_attack = 0.5
+training_time_factor = -0.3
+supply_consumption_factor = -0.25
+planning_speed = 0.2
+			}
+		}
+
+		NAP_a_military_academy = {
+			picture = NAP_a_military_academy-1671
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				command_power_gain_mult = 0.2				experience_gain_army_factor = 0.2
+experience_gain_navy_factor = 0.2
+experience_gain_air_factor = 0.2			army_leader_start_logistics_level = 1		army_leader_start_planning_level = 1
+military_leader_cost_factor = -0.2
+planning_speed = 0.2
+max_planning_factor = 0.2
+			}
+		}
+	
+
+
+NAP_mafia_unrest = {
+			picture = NAP_mafia_unrest-1068
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				stability_weekly_factor = -0.08
+political_power_factor = -0.2
+consumer_goods_factor = 0.1
+research_speed_factor = -0.15
+			}
+		}
+
+		NAP_fighting_the_mafia = {
+			picture = NAP_fighting_the_mafia-1953
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				consumer_goods_factor = 0.2
+				stability_weekly_factor = -0.02
+				political_power_factor = -0.1
+				army_org_factor = -0.1
+				production_speed_buildings_factor = -0.15
+			}
+		}
+
+		NAP_embrace_the_mafia = {
+			picture = NAP_embrace_the_mafia-1132
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				stability_factor = -0.08
+political_power_factor = 0.03
+consumer_goods_factor = 0.05
+war_support_weekly_factor = 0.05
+justify_war_goal_time = -0.1
+			}
+		}
+	
+NAP_law = {
+			picture = NAP_law-2093
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				stability_weekly_factor = 0.1
+
+			}
+		}
+
+		NAP_order = {
+			picture = NAP_order-1695
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				war_support_weekly_factor = 0.05
+stability_weekly_factor = 0.05
+			}
+		}
+
+		NAP_the_kings_rule = {
+			picture = NAP_the_kings_rule-1083
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				political_power_factor = 0.2
+stability_weekly_factor = 0.05
+war_support_weekly_factor = 0.05
+drift_defence_factor = 0.3
+justify_war_goal_time = -0.3
+			}
+		}
+
+		NAP_a_constitution = {
+			picture = NAP_a_constitution-1440
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				political_power_factor = 0.2
+democratic_drift = 0.1
+			}
+		}
+
+		NAP_the_vision = {
+			picture = NAP_the_vision-1067
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				defensive_war_stability_factor = 0.2
+				offensive_war_stability_factor = 0.2
+				justify_war_goal_time = -0.5
+				generate_wargoal_tension = -0.6
+				fascism_drift = 0.09
+			}
+		}
+		
+		NAP_democratic_influence = {
+			picture = NAP_democratic_influence-1077
+			allowed = {
+				tag = PAP
+tag = TUS
+tag = MIL
+tag = ITA
+tag = VNC
+tag = AUS
+tag = SWI
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				democratic_acceptance = 40
+democratic_drift = 0.05
+			}
+		}
+
+		NAP_together_for_victory = {
+			picture = NAP_together_for_victory-1095
+			allowed = {
+				tag = NAP
+tag = TUS
+tag = MIL
+tag = PAP
+tag = ITA
+tag = VNC
+tag = SWI
+tag = AUS
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				army_core_attack_factor = 0.15
+army_core_defence_factor = 0.15
+political_power_factor = 0.1
+stability_weekly_factor = 0.08
+drift_defence_factor = 0.3
+			}
+		}
+		
+		NAP_ministeries_of_the_ottoman_empire = {
+			picture = NAP_ministeries_of_the_ottoman_empire-1905
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				political_power_factor = 0.15
+stability_factor = 0.2
+weekly_manpower = 1000
+research_speed_factor = 0.05
+			}
+		}
+
+		NAP_ake = {
+			picture = NAP_ake-1079
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				consumer_goods_factor = -0.2
+production_factory_efficiency_gain_factor = 0.1
+			}
+		}
+
+		NAP_arms_production = {
+			picture = NAP_arms_production-1671
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			equipment_bonus = {
+				infantry_equipment = {
+build_cost_ic = -0.25 instant = yes
+}
+			}
+		}
+
+		NAP_rural_focus = {
+			picture = NAP_rural_focus-1366
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				consumer_goods_factor = -0.1
+conscription_factor = 0.15
+monthly_population = 0.1
+			}
+		}
+
+		NAP_new_innovations = {
+			picture = NAP_new_innovations-1697
+			allowed = {
+				tag = NAP
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				research_speed_factor = 0.2
+production_factory_efficiency_gain_factor = 0.25
+production_factory_max_efficiency_factor = 0.25
+			}
+		}
+	}
+}
+
+
+

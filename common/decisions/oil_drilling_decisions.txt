@@ -7,16 +7,17 @@ oil_drilling = {
 			tag = TAJ
 		}
 		visible = {
-			always = yes
+			tag = TAJ
 		}
 		complete_effect = {
 			add_resource = { 
-type = oil 
-amount = 2 
-state = 742 
-}
-ENG = {add_offsite_building = { type = arms_factory level = 1 }}
-
+				type = oil 
+				amount = 2 
+				state = 742 
+			}
+			ENG = {
+				add_offsite_building = { type = arms_factory level = 1 }
+			}
 		}
 	}
 }
