@@ -760,3 +760,8 @@ ROE = {
 	color = rgb { 239 159 47 }
 	color_ui = rgb { 138 249 195 }
 }
+
+TCO = {
+	color = rgb { 117 183 255 }
+	color_ui = rgb { 138 249 195 }
+}
