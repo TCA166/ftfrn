@@ -1,0 +1,8 @@
+﻿l_english:
+IDU_faction.1.t:0 "An Invitation"
+IDU_faction.1.d:0 "We have recieved an offer to join a faction to defend against the threeat of a soviet invasion.  Should we join the faction or nott?"
+IDU_faction.1.a:0 "Accept the Offer"
+IDU_faction.1.b:0 "Decline the Offer"
+IDU_faction.2.t:0 "A New Ally"
+IDU_faction.2.d:0 "The negotiations were successful! We gained a new ally!"
+IDU_faction.2.a:0 "United we are strong!"

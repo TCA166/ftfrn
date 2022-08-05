@@ -1,0 +1,75 @@
+spriteTypes = { 
+	##Icon For: A Constitution
+	SpriteType = { 
+		name = "GFX_idea_IDU_a_constitution-1440"
+		texturefile = "gfx/interface/ideas/government-ideas/IDU_a_constitution-1440.dds"
+	}
+
+	##Icon For: Democratic Influence
+	SpriteType = { 
+		name = "GFX_idea_IDU_democratic_influence-1077"
+		texturefile = "gfx/interface/ideas/government-ideas/IDU_democratic_influence-1077.dds"
+	}
+
+	##Icon For: Kugu Jumo, The Godfather
+	SpriteType = { 
+		name = "GFX_idea_IDU_kugu_jumo_the_godfather-168981"
+		texturefile = "gfx/interface/ideas/government-ideas/IDU_kugu_jumo_the_godfather-168981.dds"
+	}
+
+	##Icon For: Tul, The God of Fire
+	SpriteType = { 
+		name = "GFX_idea_IDU_tul_the_god_of_fire-168986"
+		texturefile = "gfx/interface/ideas/government-ideas/IDU_tul_the_god_of_fire-168986.dds"
+	}
+
+	##Icon For: Mlande, The God of Earth
+	SpriteType = { 
+		name = "GFX_idea_IDU_mlande_the_god_of_earth-168998"
+		texturefile = "gfx/interface/ideas/government-ideas/IDU_mlande_the_god_of_earth-168998.dds"
+	}
+
+	##Icon For: Surt, The God of Household
+	SpriteType = { 
+		name = "GFX_idea_IDU_surt_the_god_of_household-169000"
+		texturefile = "gfx/interface/ideas/government-ideas/IDU_surt_the_god_of_household-169000.dds"
+	}
+
+	##Icon For: Shochyn-Ava, The Goddess of Childbirth
+	SpriteType = { 
+		name = "GFX_idea_IDU_shochynava_the_goddess_of_childbirth-169004"
+		texturefile = "gfx/interface/ideas/government-ideas/IDU_shochynava_the_goddess_of_childbirth-169004.dds"
+	}
+
+	##Icon For: Tylze, The God of the Moon
+	SpriteType = { 
+		name = "GFX_idea_IDU_tylze_the_god_of_the_moon-169007"
+		texturefile = "gfx/interface/ideas/government-ideas/IDU_tylze_the_god_of_the_moon-169007.dds"
+	}
+
+	##Icon For: Uzhara, The God of Dawn
+	SpriteType = { 
+		name = "GFX_idea_IDU_uzhara_the_god_of_dawn-169013"
+		texturefile = "gfx/interface/ideas/government-ideas/IDU_uzhara_the_god_of_dawn-169013.dds"
+	}
+
+	##Icon For: Tylmache, The Worker
+	SpriteType = { 
+		name = "GFX_idea_IDU_tylmache_the_worker-169023"
+		texturefile = "gfx/interface/ideas/government-ideas/IDU_tylmache_the_worker-169023.dds"
+	}
+
+	##Icon For: Küdryrchö Jumo, The God of Thunder
+	SpriteType = { 
+		name = "GFX_idea_IDU_kdryrch_jumo_the_god_of_thunder-169032"
+		texturefile = "gfx/interface/ideas/government-ideas/IDU_kdryrch_jumo_the_god_of_thunder-169032.dds"
+	}
+
+	##Icon For: Tünya, The God of Cosmos
+	SpriteType = { 
+		name = "GFX_idea_IDU_tnya_the_god_of_cosmos-169120"
+		texturefile = "gfx/interface/ideas/government-ideas/IDU_tnya_the_god_of_cosmos-169120.dds"
+	}
+
+ 
+ }

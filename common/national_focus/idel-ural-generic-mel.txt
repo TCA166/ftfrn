@@ -1,0 +1,1538 @@
+focus_tree = {
+	id = idel-ural-generic-mel
+	continuous_focus_position = { x = 0 y = 1900 } 
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = MEL
+		}
+	}
+	#Write Down A Constitution
+	focus = {
+		id = MEL_write_down_a_constitution
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 6
+		y = 2
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_stability_through_democracy  }
+		completion_reward = {
+			add_ideas = IDU_a_constitution
+			
+		}
+	}
+
+	#Independence
+	focus = {
+		id = MEL_independence
+		icon = GFX_goal_tripartite_pact
+		x = 4
+		y = 0
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			add_political_power = 90
+			
+		}
+	}
+
+	#Stability Through Fascism
+	focus = {
+		id = MEL_stability_through_fascism
+		icon = GFX_goal_generic_support_fascism
+		x = 2
+		y = 1
+		cost = 1
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_independence  }
+		mutually_exclusive = { focus = MEL_stability_through_democracy  }
+		completion_reward = {
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.15
+			}
+			add_stability = 0.1
+		}
+	}
+
+	#Stability Through Democracy
+	focus = {
+		id = MEL_stability_through_democracy
+		icon = GFX_MEL_stability_through_democracy-427
+		x = 7
+		y = 1
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_independence  }
+		mutually_exclusive = { focus = MEL_stability_through_fascism  }
+		completion_reward = {
+			set_politics = {
+			 ruling_party = democratic 
+			elections_allowed = yes 
+			}
+			add_popularity = { 
+			ideology = democratic 
+			popularity = 0.15 
+			}
+			add_stability = 0.05
+			
+		}
+	}
+
+	#Freedom Of The Press
+	focus = {
+		id = MEL_freedom_of_the_press
+		icon = GFX_goal_generic_propaganda
+		x = 8
+		y = 2
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_stability_through_democracy  }
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 130
+			
+		}
+	}
+
+	#Start Mining Operations
+	focus = {
+		id = MEL_start_mining_operations
+		icon = GFX_focus_generic_steel
+		x = 6
+		y = 3
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = MEL_write_down_a_constitution  }
+		completion_reward = {
+			random_owned_state = {
+							add_resource = { 
+								type = steel 
+								amount = 10 
+								state = THIS 
+							}
+						}
+						random_owned_state = {
+							add_resource = { 
+								type = aluminium 
+								amount = 8 
+								state = THIS 
+							}
+						}
+					
+		}
+	}
+
+	#Investments In Industry
+	focus = {
+		id = MEL_investments_in_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 8
+		y = 3
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = MEL_freedom_of_the_press  }
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#Defend Our Land
+	focus = {
+		id = MEL_defend_our_land
+		icon = GFX_goal_generic_demand_territory
+		x = 7
+		y = 4
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		prerequisite = { focus = MEL_start_mining_operations  } prerequisite = { focus = MEL_investments_in_industry  }
+		completion_reward = {
+			add_manpower = 10000
+			add_ideas = IDU_defend_our_land
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+			add_war_support = 0.2
+			add_stability = 0.05
+			
+		}
+	}
+
+	#Look Beyond The Sea
+	focus = {
+		id = MEL_look_beyond_the_sea
+		icon = GFX_goal_generic_improve_relations
+		x = 6
+		y = 5
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_defend_our_land  }
+		mutually_exclusive = { focus = MEL_look_at_the_british_isles  }
+		completion_reward = {
+			USA = {
+			give_guarantee = ROOT
+			}
+			
+		}
+	}
+
+	#Look At The British Isles
+	focus = {
+		id = MEL_look_at_the_british_isles
+		icon = GFX_goal_generic_improve_relations
+		x = 8
+		y = 5
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_defend_our_land  }
+		mutually_exclusive = { focus = MEL_look_beyond_the_sea  }
+		completion_reward = {
+			ENG = {
+			give_guarantee = ROOT
+			}
+			
+		}
+	}
+
+	#Defend Against The Threat Of Communism
+	focus = {
+		id = MEL_defend_against_the_threat_of_communism
+		icon = GFX_goal_generic_alliance
+		x = 7
+		y = 7
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_spread_democracy  }
+		bypass = {
+			MEL = {
+							is_in_faction_with = CHU
+							is_in_faction_with = TAT
+							is_in_faction_with = UDM
+							is_in_faction_with = BSK
+						}
+		}
+		completion_reward = {
+			create_faction = "Anti Communist Defense Pact"
+			
+		}
+	}
+
+	#Spread Democracy
+	focus = {
+		id = MEL_spread_democracy
+		icon = GFX_MEL_spread_democracy-427
+		x = 7
+		y = 6
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_look_beyond_the_sea  focus = MEL_look_at_the_british_isles  }
+		completion_reward = {
+									every_country = {
+										limit = {
+											is_neighbor_of = SOV
+											NOT = {
+												tag = EST
+												tag = LAT
+												tag = FIN
+												tag = JAP
+												tag = MAN
+												tag = UKR
+												tag = BLR
+												tag = POL
+												tag = ROM
+												tag = TUR
+												tag = USA
+												tag = TAJ
+												tag = KAZ
+											}
+										}
+									add_timed_idea = { 
+										idea = IDU_democratic_influence 
+										days = 360 
+										}
+									}
+									YAM = {
+										add_timed_idea = { 
+										idea = IDU_democratic_influence 
+										days = 360 
+										}
+									}
+									CKK = {
+										add_timed_idea = { 
+										idea = IDU_democratic_influence 
+										days = 360 
+										}
+									}
+									VLA = {
+										add_timed_idea = { 
+										idea = IDU_democratic_influence 
+										days = 360 
+										}
+									}
+									MON = {
+										add_timed_idea = { 
+										idea = IDU_democratic_influence 
+										days = 360 
+										}
+									}
+									AZR = {
+										add_timed_idea = { 
+										idea = IDU_democratic_influence 
+										days = 360 
+										}
+									}
+								
+					}
+		}
+
+	#Invite Other Democracies
+	focus = {
+		id = MEL_invite_other_democracies
+		icon = GFX_goal_generic_national_unity
+		x = 7
+		y = 8
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_defend_against_the_threat_of_communism  }
+		bypass = {
+			MEL = {
+				OR = {
+					is_in_faction_with = CHU
+					is_in_faction_with = TAT
+					is_in_faction_with = UDM
+					is_in_faction_with = BSK
+				}
+			}
+		}
+		completion_reward = {
+			every_country = {
+			limit = {
+			has_idea = IDU_democratic_influence
+			NOT = {
+			tag = ROOT
+			}
+			}
+			country_event = {
+			days = 3
+			id = IDU_faction.1
+			}
+			}
+		}
+	}
+
+	#End The Russian Threat
+	focus = {
+		id = MEL_end_the_russian_threat
+		icon = GFX_focus_attack_soviet
+		x = 7
+		y = 10
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = MEL_invite_other_democracies  }
+		bypass = {
+			OR = {
+				NOT = {
+					country_exists = SOV
+				}
+				SOV = {
+					is_subject = yes
+				}
+			}
+		}
+		cancel = {
+			OR = {
+				NOT = {
+					country_exists = SOV
+				}
+				SOV = {
+					is_subject = yes
+				}
+			}
+		}
+		completion_reward = {
+			create_wargoal = { 
+			type = puppet_wargoal_focus 
+			target = SOV
+			}
+			
+		}
+	}
+
+	#Prepare For The Invasion
+	focus = {
+		id = MEL_prepare_for_the_invasion
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 7
+		y = 9
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_invite_other_democracies  }
+		completion_reward = {
+			every_country = {
+				limit = {
+					is_in_faction_with = ROOT
+				}
+				add_timed_idea = { 
+					idea = IDU_war_preperations 
+					days = 360 
+				}
+			}
+			hidden_effect = {
+				TAT = {
+					unlock_national_focus = TAT_prepare_for_the_invasion
+				}
+				BSK = {
+					unlock_national_focus = BSK_prepare_for_the_invasion
+				}
+				CHU = {
+					unlock_national_focus = CHU_prepare_for_the_invasion
+				}
+				UDM = {
+					unlock_national_focus = UDM_prepare_for_the_invasion
+				}
+			}
+		}
+	}
+
+	#Build Factories
+	focus = {
+		id = MEL_build_factories
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 11
+		y = 0
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#Build New Roads
+	focus = {
+		id = MEL_build_new_roads
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 10
+		y = 1
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = MEL_build_factories  }
+		completion_reward = {
+			random_owned_controlled_state = {
+			add_building_construction = {						type = infrastructure						level = 3
+			instant_build = yes					}
+			}
+			random_owned_controlled_state = {
+			add_building_construction = {						type = infrastructure						level = 3
+			instant_build = yes					}
+			}
+			random_owned_controlled_state = {
+			 add_extra_state_shared_building_slots = 2 
+			}
+			
+		}
+	}
+
+	#An Industrial Miracle
+	focus = {
+		id = MEL_an_industrial_miracle
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = 11
+		y = 4
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = MEL_buisness_is_booming  }
+		completion_reward = {
+			add_stability = 0.05
+			add_ideas = IDU_industrial_miracle
+			
+		}
+	}
+
+	#Expand The Arms Production
+	focus = {
+		id = MEL_expand_the_arms_production
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 12
+		y = 1
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = MEL_build_factories  }
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#Aluminium Production
+	focus = {
+		id = MEL_aluminium_production
+		icon = GFX_focus_generic_aluminum
+		x = 10
+		y = 2
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = MEL_build_new_roads  }
+		completion_reward = {
+			random_owned_state = {
+			add_resource = { 
+			type = aluminium 
+			amount = 8 
+			state = THIS 
+			}
+			}
+		}
+	}
+
+	#Build Airfields
+	focus = {
+		id = MEL_build_airfields
+		icon = GFX_goal_generic_air_production
+		x = 12
+		y = 2
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = MEL_expand_the_arms_production  }
+		completion_reward = {
+			random_owned_controlled_state = {
+			add_building_construction = {
+			type = air_base
+			level = 3
+			instant_build = yes
+			}
+			}
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			
+		}
+	}
+
+	#Buisness Is Booming
+	focus = {
+		id = MEL_buisness_is_booming
+		icon = GFX_focus_generic_industry_2
+		x = 11
+		y = 3
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = MEL_aluminium_production  } prerequisite = { focus = MEL_build_airfields  }
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			random_owned_controlled_state = {
+			 add_extra_state_shared_building_slots = 2 
+			}
+			
+		}
+	}
+
+	#Progression Through Technology
+	focus = {
+		id = MEL_progression_through_technology
+		icon = GFX_focus_research
+		x = 11
+		y = 5
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		prerequisite = { focus = MEL_an_industrial_miracle  }
+		completion_reward = {
+			add_research_slot = 1
+			
+		}
+	}
+
+	#Support Companies
+	focus = {
+		id = MEL_support_companies
+		icon = GFX_goal_generic_army_motorized
+		x = 14
+		y = 2
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = MEL_new_equipment  }
+		completion_reward = {
+			add_tech_bonus = {
+			bonus = 1 
+			uses = 2 
+			category = support_tech 
+			}
+			add_tech_bonus = {
+			 bonus = 1
+			uses = 2 
+			category = mountaineers_tech 
+			}
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 2 
+			category = para_tech 
+			}
+			
+		}
+	}
+
+	#Armed Forces
+	focus = {
+		id = MEL_armed_forces
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 17
+		y = 0
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		completion_reward = {
+			army_experience = 70
+			add_war_support = 0.05
+			add_command_power = 50
+			
+		}
+	}
+
+	#New Equipment
+	focus = {
+		id = MEL_new_equipment
+		icon = GFX_goal_generic_army_doctrines
+		x = 16
+		y = 1
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = MEL_armed_forces  }
+		completion_reward = {
+			add_tech_bonus = {
+			name = MEI_new_equipment
+			bonus = 1
+			uses = 1
+			category = infantry_weapons
+			}
+			add_tech_bonus = {
+			name = MEI_new_equipment
+			bonus = 1
+			uses = 2
+			category = artillery
+			}
+		}
+	}
+
+	#A Military Academy
+	focus = {
+		id = MEL_a_military_academy
+		icon = GFX_focus_generic_military_academy
+		x = 16
+		y = 2
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = MEL_new_equipment  }
+		completion_reward = {
+			add_ideas = IDU_military_academy
+			add_command_power = 70
+			
+		}
+	}
+
+	#Tank Divisons
+	focus = {
+		id = MEL_tank_divisons
+		icon = GFX_goal_generic_army_tanks
+		x = 16
+		y = 3
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = MEL_a_military_academy  }
+		completion_reward = {
+			add_tech_bonus = {
+			 bonus = 1 
+			uses = 2 
+			category = armor 
+			}
+			
+		}
+	}
+
+	#Fighter Force
+	focus = {
+		id = MEL_fighter_force
+		icon = GFX_goal_generic_air_fighter
+		x = 18
+		y = 1
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = MEL_armed_forces  }
+		completion_reward = {
+			add_tech_bonus = { bonus = 1 
+			uses = 2 
+			category = light_fighter 
+			}
+			add_tech_bonus = {
+			bonus = 01
+			uses = 2 
+			category = cat_heavy_fighter 
+			}
+			
+		}
+	}
+
+	#Helping On The Ground
+	focus = {
+		id = MEL_helping_on_the_ground
+		icon = GFX_focus_usa_escort_fighters
+		x = 18
+		y = 3
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = MEL_destruction_from_above  }
+		completion_reward = {
+			add_tech_bonus = {
+			 bonus = 1.5 
+			uses = 2 
+			category = cas_bomber 
+			}
+			
+		}
+	}
+
+	#Destruction From Above
+	focus = {
+		id = MEL_destruction_from_above
+		icon = GFX_goal_generic_air_bomber
+		x = 18
+		y = 2
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = MEL_fighter_force  }
+		completion_reward = {
+			add_tech_bonus = {
+			 bonus = 1
+			uses = 2 
+			category = tactical_bomber 
+			}
+			add_tech_bonus = {
+			 bonus = 01
+			uses = 2 
+			category = cat_strategic_bomber 
+			}
+			
+		}
+	}
+
+	#Detecting The Enemy
+	focus = {
+		id = MEL_detecting_the_enemy
+		icon = GFX_goal_generic_radar
+		x = 17
+		y = 4
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		prerequisite = { focus = MEL_tank_divisons  } prerequisite = { focus = MEL_helping_on_the_ground  }
+		completion_reward = {
+			add_tech_bonus = {
+			bonus = 1 
+			uses = 2 
+			category = cat_scout_plane 
+			}
+			add_tech_bonus = {
+			bonus = 1 
+			uses = 2 
+			category = radar_tech 
+			}
+			
+		}
+	}
+	
+	#Make Fascism Popular
+	focus = {
+		id = MEL_make_fascism_popular
+		icon = GFX_goal_generic_propaganda
+		x = 2
+		y = 2
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_stability_through_fascism  }
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.2
+			}
+			add_war_support = 0.2
+			add_political_power = 30
+		}
+	}
+	
+	#Embrace The Native Religion
+	focus = {
+		id = MEL_embrace_native_religion
+		icon = GFX_MEL_native
+		x = 2
+		y = 3
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_make_fascism_popular  }
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 20
+		}
+	}
+	
+	#Build Temples
+	focus = {
+		id = MEL_build_temples
+		icon = GFX_focus_generic_self_management
+		x = 2
+		y = 4
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_embrace_native_religion  }
+		completion_reward = {
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			 random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = industrial_complex
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = industrial_complex
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			 random_owned_controlled_state = {
+			 add_extra_state_shared_building_slots = 1 
+			}
+		}
+	}
+	
+	#Pray To Kugu Jumo
+	focus = {
+		id = MEL_kugu_jumo
+		icon = GFX_MEL_kugu_jumo
+		x = 1
+		y = 5
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_build_temples  }
+		mutually_exclusive = { focus = MEL_tnya }
+		completion_reward = {
+			add_ideas = IDU_kugu_jumo_the_godfather
+		}
+	}
+	
+	#Pray To Tünya
+	focus = {
+		id = MEL_tnya
+		icon = GFX_MEL_tnya
+		x = 3
+		y = 5
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_build_temples  }
+		mutually_exclusive = { focus = MEL_kugu_jumo }
+		completion_reward = {
+			add_ideas = IDU_tnya_the_god_of_cosmos
+		}
+	}
+	
+	#Pray To Tul
+	focus = {
+		id = MEL_tul
+		icon = GFX_MEL_tul
+		x = 1
+		y = 6
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_kugu_jumo focus = MEL_tnya }
+		mutually_exclusive = { focus = MEL_mlande }
+		completion_reward = {
+			add_ideas = IDU_tul_the_god_of_fire
+		}
+	}
+	
+	#Pray To Mlande
+	focus = {
+		id = MEL_mlande
+		icon = GFX_MEL_mlande
+		x = 3
+		y = 6
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_kugu_jumo focus = MEL_tnya  }
+		mutually_exclusive = { focus = MEL_tul }
+		completion_reward = {
+			add_ideas = IDU_mlande_the_god_of_earth
+		}
+	}
+	
+	#Pray To Surt
+	focus = {
+		id = MEL_surt
+		icon = GFX_MEL_surt
+		x = 1
+		y = 7
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_tul focus = MEL_mlande  }
+		mutually_exclusive = { focus = MEL_shochyn_ava }
+		completion_reward = {
+			add_ideas = IDU_surt_the_god_of_household
+		}
+	}
+	
+	#Pray To Shochyn-Ava
+	focus = {
+		id = MEL_shochyn_ava
+		icon = GFX_MEL_shochyn_ava
+		x = 3
+		y = 7
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_tul focus = MEL_mlande  }
+		mutually_exclusive = { focus = MEL_surt }
+		completion_reward = {
+			add_ideas = IDU_shochynava_the_goddess_of_childbirth
+		}
+	}
+	
+	#Pray To Tylze
+	focus = {
+		id = MEL_tylze
+		icon = GFX_MEL_tylze
+		x = 1
+		y = 8
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_surt focus = MEL_shochyn_ava  }
+		mutually_exclusive = { focus = MEL_uzhara }
+		completion_reward = {
+			add_ideas = IDU_tylze_the_god_of_the_moon
+		}
+	}
+	
+	#Pray To Uzhara
+	focus = {
+		id = MEL_uzhara
+		icon = GFX_MEL_uzhara
+		x = 3
+		y = 8
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_surt focus = MEL_shochyn_ava  }
+		mutually_exclusive = { focus = MEL_tylze }
+		completion_reward = {
+			add_ideas = IDU_uzhara_the_god_of_dawn
+		}
+	}
+	
+	#Pray To Tylmache
+	focus = {
+		id = MEL_tylmache
+		icon = GFX_MEL_tylmache
+		x = 1
+		y = 9
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_tylze focus = MEL_uzhara  }
+		mutually_exclusive = { focus = MEL_kudryrcho_jumo }
+		completion_reward = {
+			add_ideas = IDU_tylmache_the_worker
+		}
+	}
+	
+	#Pray To Küdryrchö Jumo
+	focus = {
+		id = MEL_kudryrcho_jumo
+		icon = GFX_MEL_kudryrcho_jumo
+		x = 3
+		y = 9
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_tylze focus = MEL_uzhara  }
+		mutually_exclusive = { focus = MEL_tylmache }
+		completion_reward = {
+			add_ideas = IDU_kdryrch_jumo_the_god_of_thunder
+		}
+	}
+	
+	#Expand Our Territory
+	focus = {
+		id = MEL_expand_territory
+		icon = GFX_goal_generic_territory_or_war
+		x = 2
+		y = 10
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = MEL_tylmache focus = MEL_kudryrcho_jumo }
+		completion_reward = {
+			if = {
+				limit = {
+					CHU = {
+						is_in_faction = yes
+					}
+				}
+				CHU = {
+					leave_faction = yes
+				}
+				create_wargoal = { 
+					type = annex_everything 
+					target = CHU
+				}
+				else = {
+					create_wargoal = { 
+						type = annex_everything 
+						target = CHU
+					}
+				}
+			}
+			if = {
+				limit = {
+					TAT = {
+						is_in_faction = yes
+					}
+				}
+				TAT = {
+					leave_faction = yes
+				}
+				create_wargoal = { 
+					type = annex_everything 
+					target = TAT
+				}
+				else = {
+					create_wargoal = { 
+						type = annex_everything 
+						target = TAT
+					}
+				}
+			}
+			hidden_effect = {
+				CHU = {
+					set_rule = {
+						can_join_factions = no
+					}
+				}
+				TAT = {
+					set_rule = {
+						can_join_factions = no
+					}
+				}
+			}
+		}
+	}
+	
+	#Unite The Idel-Ural Region
+	focus = {
+		id = MEL_unite_ural
+		icon = GFX_goal_generic_position_armies
+		x = 2
+		y = 11
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = MEL_expand_territory }
+		completion_reward = {
+			if = {
+				limit = {
+					UDM = {
+						is_in_faction = yes
+					}
+				}
+				UDM = {
+					leave_faction = yes
+				}
+				create_wargoal = { 
+					type = annex_everything 
+					target = UDM
+				}
+				else = {
+					create_wargoal = { 
+						type = annex_everything 
+						target = UDM
+					}
+				}
+			}
+			if = {
+				limit = {
+					BSK = {
+						is_in_faction = yes
+					}
+				}
+				BSK = {
+					leave_faction = yes
+				}
+				create_wargoal = { 
+					type = annex_everything 
+					target = BSK
+				}
+				else = {
+					create_wargoal = { 
+						type = annex_everything 
+						target = BSK
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "No Step Back"
+				}
+				add_political_power = 20
+				else = {
+					256 = {
+						add_core_of = MEL
+					}
+					249 = {
+						add_core_of = MEL
+					}
+					399 = {
+						add_core_of = MEL
+					}
+					651 = {
+						add_core_of = MEL
+					}
+				}
+			}
+			hidden_effect = {
+				UDM = {
+					set_rule = {
+						can_join_factions = no
+					}
+				}
+				BSK = {
+					set_rule = {
+						can_join_factions = no
+					}
+				}
+			}
+		}
+	}
+	
+	#Strike First
+	focus = {
+		id = MEL_strike_first
+		icon = GFX_focus_attack_soviet
+		x = 3
+		y = 12
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_ANNEXATION
+		}
+		prerequisite = { focus = MEL_unite_ural }
+		mutually_exclusive = { focus = MEL_achieve_peace }
+		completion_reward = {
+			create_wargoal = { 
+				type = annex_everything 
+				target = SOV
+			}
+		}
+	}
+	
+	#Achieve Peace
+	focus = {
+		id = MEL_achieve_peace
+		icon = GFX_goal_tripartite_pact
+		x = 1
+		y = 12
+		cost = 9
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		prerequisite = { focus = MEL_unite_ural }
+		mutually_exclusive = { focus = MEL_strike_first }
+		completion_reward = {
+			add_stability = 0.20
+			add_political_power = 100
+			random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			 random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+			 random_owned_controlled_state ={
+			 limit = {
+			 free_building_slots = {
+			 building = arms_factory
+			 size > 0
+			 include_locked = yes
+			 }
+			 }
+			 add_extra_state_shared_building_slots = 1
+			 add_building_construction = {
+			 type = arms_factory
+			 level = 1
+			 instant_build = yes
+			 }
+			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+			 }
+		}
+	}
+}

@@ -1,0 +1,61 @@
+add_namespace = IDU_faction
+
+#An Invitation
+country_event = {
+	id = IDU_faction.1
+	title = IDU_faction.1.t
+	desc = IDU_faction.1.d
+
+	picture = IDU_an_invitation-1010
+	is_triggered_only = yes
+	option = {
+		name = IDU_faction.1.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 4 }
+		FROM = {
+			add_to_faction = ROOT
+			}
+		hidden_effect = {
+			FROM = {
+				country_event = {
+				days = 1 
+				id = IDU_faction.2 
+				}
+			}
+		}
+	}
+	option = {
+		name = IDU_faction.1.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 2 }
+		
+		hidden_effect = {
+			
+		}
+	}
+}
+
+#A New Ally
+country_event = {
+	id = IDU_faction.2
+	title = IDU_faction.2.t
+	desc = IDU_faction.2.d
+
+	picture = IDU_a_new_ally-895
+	is_triggered_only = yes
+	option = {
+		name = IDU_faction.2.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 1 }
+		
+		hidden_effect = {
+			
+		}
+	}
+}

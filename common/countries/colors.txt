@@ -37,6 +37,10 @@ TAJ = {
 	color = rgb { 124 94 98 }
 	color_ui = rgb { 53 56 234 }
 }
+MEL = {
+	color = rgb { 63 133 255 }
+	color_ui = rgb { 53 56 234 }
+}
 #customs end here
 GER = {
 	color = rgb { 106  119  89 }

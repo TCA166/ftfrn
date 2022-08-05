@@ -1,0 +1,304 @@
+ideas = {
+	country = {
+		IDU_a_constitution = {
+			picture = IDU_a_constitution-1440
+			allowed = {
+				tag = MEL
+				tag = UDM
+				tag = CHU
+				tag = TAT
+				tag = BSK
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				political_power_factor = 0.15
+			}
+		}
+
+		IDU_democratic_influence = {
+			picture = IDU_democratic_influence-1077
+			allowed = {
+				every_nation = {
+					limit = {
+						is_neighbor_of = SOV
+					}
+				}
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				democratic_drift = 0.1
+				democratic_acceptance = 80
+			}
+		}
+
+		IDU_kugu_jumo_the_godfather = {
+			picture = IDU_kugu_jumo_the_godfather-168981
+			allowed = {
+				tag = MEL
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				political_advisor_cost_factor = -0.25
+				political_power_factor = 0.06
+				fascism_drift = 0.1
+			}
+		}
+
+		IDU_tul_the_god_of_fire = {
+			picture = IDU_tul_the_god_of_fire-168986
+			allowed = {
+				tag = MEL
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				army_attack_factor = 0.06
+				army_core_attack_factor = 0.06
+				army_leader_start_attack_level = 1
+			}
+		}
+
+		IDU_mlande_the_god_of_earth = {
+			picture = IDU_mlande_the_god_of_earth-168998
+			allowed = {
+				tag = MEL
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				army_leader_start_defense_level = 1
+				army_defence_factor = 0.06
+				army_core_defence_factor = 0.06
+			}
+		}
+
+		IDU_surt_the_god_of_household = {
+			picture = IDU_surt_the_god_of_household-169000
+			allowed = {
+				tag = MEL
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				weekly_manpower = 200
+			}
+		}
+
+		IDU_shochynava_the_goddess_of_childbirth = {
+			picture = IDU_shochynava_the_goddess_of_childbirth-169004
+			allowed = {
+				tag = MEL
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				monthly_population = 0.055
+			}
+		}
+
+		IDU_tylze_the_god_of_the_moon = {
+			picture = IDU_tylze_the_god_of_the_moon-169007
+			allowed = {
+				tag = MEL
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				land_night_attack = 0.06
+				air_night_penalty = -0.06
+				air_strategic_bomber_night_penalty = -0.06
+			}
+		}
+
+		IDU_uzhara_the_god_of_dawn = {
+			picture = IDU_uzhara_the_god_of_dawn-169013
+			allowed = {
+				tag = MEL
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				air_attack_factor = 0.06
+				air_defence_factor = 0.06
+				air_agility_factor = 0.06
+			}
+		}
+
+		IDU_tylmache_the_worker = {
+			picture = IDU_tylmache_the_worker-169023
+			allowed = {
+				tag = MEL
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				industry_free_repair_factor = 0.1
+				industry_repair_factor = 0.1
+			}
+		}
+
+		IDU_kdryrch_jumo_the_god_of_thunder = {
+			picture = IDU_kdryrch_jumo_the_god_of_thunder-169032
+			allowed = {
+				tag = MEL
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				army_morale_factor = 0.06
+				attrition = -0.06
+				army_org_factor = 0.06
+			}
+		}
+
+		IDU_tnya_the_god_of_cosmos = {
+			picture = IDU_tnya_the_god_of_cosmos-169120
+			allowed = {
+				tag = MEL
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				stability_weekly_factor = 0.06
+				research_speed_factor = 0.06
+				fascism_drift = 0.1
+			}
+		}
+		
+		IDU_industrial_miracle = {
+			picture = IDU_industrial_miracle-1079
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				consumer_goods_factor = -0.15
+				production_factory_efficiency_gain_factor = 0.11
+				production_factory_max_efficiency_factor = 0.11
+				production_speed_buildings_factor = 0.18
+			}
+		}
+		
+		IDU_military_academy = {
+			picture = IDU_military_academy-1237
+			allowed = {
+				tag = MEL
+				tag = UDM
+				tag = CHU
+				tag = TAT
+				tag = BSK
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always =yes
+			}
+			modifier = {
+				army_leader_start_level = 1
+				army_leader_start_planning_level = 2
+				army_leader_start_logistics_level = 1
+				command_power_gain_mult = 0.25
+			}
+		}
+
+		IDU_war_preperations = {
+			picture = IDU_war_preperations-1084
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				weekly_manpower = 1200
+				production_speed_buildings_factor = 0.05
+				infantry_equipment = {
+					build_cost_ic = -0.25 instant = yes
+				}
+				war_support_weekly_factor = 0.06
+				training_time_factor = -0.1
+				ai_focus_aggressive_factor = 0.15
+				democratic_drift = 0.08
+				research_speed_factor = 0.04
+			}
+		}
+
+		IDU_defend_our_land = {
+			picture = IDU_defend_our_land-1082
+			allowed = {
+				tag = MEL
+				tag = UDM
+				tag = CHU
+				tag = TAT
+				tag = BSK
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				army_core_defence_factor = 0.1
+				army_defence_factor = 0.1
+				army_morale_factor = 0.1
+				army_org_factor = 0.1
+			}
+		}
+	}
+}

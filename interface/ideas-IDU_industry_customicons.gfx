@@ -1,0 +1,9 @@
+spriteTypes = { 
+	##Icon For: Industrial Miracle
+	SpriteType = { 
+		name = "GFX_idea_IDU_industrial_miracle-1079"
+		texturefile = "gfx/interface/ideas/industry-ideas/IDU_industrial_miracle-1079.dds"
+	}
+
+ 
+ }

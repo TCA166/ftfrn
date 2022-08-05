@@ -1,0 +1,21 @@
+spriteTypes = { 
+	##Icon For: Military Academy
+	SpriteType = { 
+		name = "GFX_idea_IDU_military_academy-1237"
+		texturefile = "gfx/interface/ideas/army-ideas/IDU_military_academy-1237.dds"
+	}
+
+	##Icon For: War Preperations
+	SpriteType = { 
+		name = "GFX_idea_IDU_war_preperations-1084"
+		texturefile = "gfx/interface/ideas/army-ideas/IDU_war_preperations-1084.dds"
+	}
+
+	##Icon For: Defend Our Land
+	SpriteType = { 
+		name = "GFX_idea_IDU_defend_our_land-1082"
+		texturefile = "gfx/interface/ideas/army-ideas/IDU_defend_our_land-1082.dds"
+	}
+
+ 
+ }
