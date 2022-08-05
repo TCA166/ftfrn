@@ -4,7 +4,15 @@ oil_drilling = {
 		cost = 10
 		days_re_enable = 12
 		available = {
-			tag = TAJ
+			AND = {
+				tag = TAJ
+				742 = {
+					has_resources_amount = {
+						resource = oil
+						amount < 10
+					}
+				}
+			}
 		}
 		visible = {
 			tag = TAJ

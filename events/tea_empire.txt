@@ -1,6 +1,6 @@
 add_namespace = tea_empire
 
-#Test
+#British Takeover
 country_event = {
 	id = tea_empire.1
 	title = tea_empire.1.t
@@ -36,7 +36,7 @@ country_event = {
 	}
 }
 
-#Test
+#Growing Influence
 country_event = {
 	id = tea_empire.2
 	title = tea_empire.2.t

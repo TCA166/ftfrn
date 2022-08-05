@@ -14,7 +14,7 @@ ideas = {
 			}
 			equipment_bonus = {
 				fighter_equipment = {
-build_cost_ic = -0.15 instant = yes
+				build_cost_ic = -0.15 instant = yes
 }
 tac_bomber_equipment = {
 build_cost_ic = -0.15 instant = yes
@@ -103,6 +103,11 @@ build_cost_ic = -0.15 instant = yes
 			allowed = {
 				tag = TAJ
 			}
+			cancel = {
+				TAJ = {
+					has_completed_focus = TAJ_british_takeover
+				}
+			}
 			available = {
 				always = yes
 			}
@@ -122,6 +127,11 @@ build_cost_ic = -0.15 instant = yes
 			allowed = {
 				tag = TAJ
 
+			}
+			cancel = {
+				TAJ = {
+					has_completed_focus = TAJ_british_takeover
+				}
 			}
 			available = {
 				always = yes
@@ -144,6 +154,11 @@ build_cost_ic = -0.15 instant = yes
 			}
 			available = {
 				always = yes
+			}
+			cancel = {
+				TAJ = {
+					has_completed_focus = TAJ_british_takeover
+				}
 			}
 			visible = {
 				always = yes
@@ -204,6 +219,26 @@ air_maximum_speed_factor = 0.1
 experience_gain_air_factor = 0.08
 air_weather_penalty = -0.1
 air_night_penalty = -0.1
+			}
+		}
+		
+		TAJ_tea_supply = {
+			picture = 
+			allowed = {
+				tag = TAJ
+			}
+			available = {
+				always = yes
+			}
+			visible = {
+				always = yes
+			}
+			modifier = {
+				army_speed_factor = 0.11
+				acclimatization_cold_climate_gain_factor = 0.1
+				army_morale_factor = 0.1
+				planning_speed = 0.08
+				breakthrough_factor = 0.09
 			}
 		}
 	}

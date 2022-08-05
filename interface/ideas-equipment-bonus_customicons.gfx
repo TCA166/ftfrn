@@ -11,5 +11,11 @@ spriteTypes = {
 		texturefile = "gfx/interface/ideas/equipment-bonus-ideas/better_planes-1044.dds"
 	}
 
+	##Icon For: Tea Supply
+	SpriteType = { 
+		name = "GFX_idea_tea_supply"
+		texturefile = "gfx/interface/ideas/equipment-bonus-ideas/tea_supply.dds"
+	}
+
  
  }
