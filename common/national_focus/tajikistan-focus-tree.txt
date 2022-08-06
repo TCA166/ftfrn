@@ -11,7 +11,7 @@ focus_tree = {
 	#Liberate Our Brothers
 	focus = {
 		id = TAJ_liberate_our_brothers
-		icon = GFX_TAJ_liberate_our_brothers-280
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
 		x = 6
 		y = 9
 		cost = 5
@@ -41,7 +41,7 @@ focus_tree = {
 	#Focus On Internal Development
 	focus = {
 		id = TAJ_focus_on_internal_development
-		icon = GFX_TAJ_focus_on_internal_development-387
+		icon = GFX_goal_generic_construction
 		x = 8
 		y = 8
 		cost = 5
@@ -183,7 +183,7 @@ focus_tree = {
 	#Elections
 	focus = {
 		id = TAJ_elections
-		icon = GFX_TAJ_elections-427
+		icon = GFX_goal_support_democracy
 		x = 0
 		y = 1
 		cost = 5
@@ -293,7 +293,7 @@ focus_tree = {
 	#Communist Coup
 	focus = {
 		id = TAJ_communist_coup
-		icon = GFX_TAJ_communist_coup-426
+		icon = GFX_goal_support_communism
 		x = 2
 		y = 1
 		cost = 5
@@ -356,7 +356,7 @@ focus_tree = {
 	#Fascist Rule
 	focus = {
 		id = TAJ_fascist_rule
-		icon = GFX_TAJ_fascist_rule-428
+		icon = GFX_goal_support_fascism
 		x = 6
 		y = 1
 		cost = 5
@@ -418,7 +418,7 @@ focus_tree = {
 	#Embrace Fascism
 	focus = {
 		id = TAJ_embrace_fascism
-		icon = GFX_TAJ_embrace_fascism-283
+		icon = GFX_focus_ger_reichskommisariats
 		x = 6
 		y = 3
 		cost = 5
@@ -691,7 +691,7 @@ focus_tree = {
 	#The Worker's Faction
 	focus = {
 		id = TAJ_theworkersfaction
-		icon = GFX_TAJ_theworkersfaction-303
+		icon = GFX_focus_SOV_builder_of_the_red_army
 		x = 2
 		y = 4
 		cost = 5
@@ -1116,7 +1116,7 @@ focus_tree = {
 	#A Miracle
 	focus = {
 		id = TAJ_a_miracle
-		icon = GFX_TAJ_a_miracle-230
+		icon = GFX_focus_mex_privatisation
 		x = 10
 		y = 4
 		cost = 5
@@ -1179,6 +1179,9 @@ focus_tree = {
 				TAJ = {
 					has_completed_focus = TAJ_british_takeover
 				}
+			}
+			RAJ = {
+				is_subject_of = TAJ
 			}
 		}
 		completion_reward = {
@@ -1510,7 +1513,8 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_WAR_SUPPORT
 		}
-		prerequisite = { focus = TAJ_a_miracle  } prerequisite = { focus = TAJ_more_resources  }
+		prerequisite = { focus = TAJ_a_miracle }
+		prerequisite = { focus = TAJ_more_resources }
 		completion_reward = {
 			add_tech_bonus = {
 			bonus = 1.0 
@@ -1543,7 +1547,7 @@ focus_tree = {
 	#British Takeover
 	focus = {
 		id = TAJ_british_takeover
-		icon = GFX_TAJ_british_takeover-44
+		icon = GFX_focus_chi_british_cooperation
 		x = 14
 		y = 6
 		cost = 1
@@ -1652,7 +1656,7 @@ focus_tree = {
 	#Tea In Our Equipment
 	focus = {
 		id = TAJ_tea_in_our_equipment
-		icon = GFX_TAJ_tea_in_our_equipment-145
+		icon = GFX_focus_eng_special_air_service
 		x = 16
 		y = 8
 		cost = 5
@@ -1753,7 +1757,7 @@ focus_tree = {
 	#Export Our Tea
 	focus = {
 		id = TAJ_export_our_tea
-		icon = GFX_TAJ_export_our_tea-230
+		icon = GFX_goal_generic_positive_trade_relations
 		x = 16
 		y = 9
 		cost = 5

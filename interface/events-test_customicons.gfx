@@ -1,9 +1,0 @@
-spriteTypes = { 
-	##Icon For: The British Coup
-	SpriteType = { 
-		name = "the_british_coup-504"
-		texturefile = "gfx/interface/events/test-event/the_british_coup-504.dds"
-	}
-
- 
- }

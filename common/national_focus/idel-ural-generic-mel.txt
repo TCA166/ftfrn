@@ -44,7 +44,7 @@ focus_tree = {
 	#Stability Through Fascism
 	focus = {
 		id = MEL_stability_through_fascism
-		icon = GFX_goal_generic_support_fascism
+		icon = GFX_goal_support_fascism
 		x = 2
 		y = 1
 		cost = 1
@@ -69,7 +69,7 @@ focus_tree = {
 	#Stability Through Democracy
 	focus = {
 		id = MEL_stability_through_democracy
-		icon = GFX_MEL_stability_through_democracy-427
+		icon = GFX_goal_support_democracy
 		x = 7
 		y = 1
 		cost = 9
@@ -342,7 +342,7 @@ focus_tree = {
 	#Spread Democracy
 	focus = {
 		id = MEL_spread_democracy
-		icon = GFX_MEL_spread_democracy-427
+		icon = GFX_focus_EST_republican_defence_league
 		x = 7
 		y = 6
 		cost = 9

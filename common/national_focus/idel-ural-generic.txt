@@ -64,14 +64,12 @@ focus_tree = {
 	#Stability Through Fascism
 	focus = {
 		id = BSK_stabilitythroughfascism
-		icon = GFX_goal_generic_support_fascism
+		icon = GFX_goal_support_fascism
 		x = 2
 		y = 1
 		cost = 1
 		search_filters = {
-			
-						FOCUS_FILTER_POLITICAL
-					
+			FOCUS_FILTER_POLITICAL	
 		}
 		prerequisite = { focus = BSK_independence  }
 		mutually_exclusive = { focus = BSK_stability_through_democracy  }
@@ -80,7 +78,7 @@ focus_tree = {
 	#Stability Through Democracy
 	focus = {
 		id = BSK_stability_through_democracy
-		icon = GFX_BSK_stability_through_democracy-427
+		icon = GFX_goal_support_democracy
 		x = 7
 		y = 1
 		cost = 9
@@ -164,7 +162,7 @@ focus_tree = {
 	#Investments In Industry
 	focus = {
 		id = BSK_investmentsinindustry
-		icon = GFX_BSK_investmentsinindustry-160058
+		icon = GFX_focus_generic_industry_3
 		x = 8
 		y = 3
 		cost = 9
@@ -258,7 +256,8 @@ focus_tree = {
 						FOCUS_FILTER_MANPOWER
 					
 		}
-		prerequisite = { focus = BSK_startminingoperations  focus = BSK_investmentsinindustry  }
+		prerequisite = { focus = BSK_startminingoperations }
+		prerequisite = { focus = BSK_investmentsinindustry }
 		completion_reward = {
 			
 						add_manpower = 10000
@@ -402,7 +401,7 @@ focus_tree = {
 	#Spread Democracy
 	focus = {
 		id = BSK_spread_democracy
-		icon = GFX_BSK_spread_democracy-427
+		icon = GFX_focus_EST_republican_defence_league
 		x = 7
 		y = 6
 		cost = 9
@@ -858,7 +857,8 @@ focus_tree = {
 						FOCUS_FILTER_INDUSTRY
 					
 		}
-		prerequisite = { focus = BSK_aluminiumproduction  focus = BSK_buildairfields  }
+		prerequisite = { focus = BSK_aluminiumproduction }
+		prerequisite = { focus = BSK_buildairfields  }
 		completion_reward = {
 			
 						random_owned_controlled_state ={
@@ -1185,21 +1185,19 @@ focus_tree = {
 						FOCUS_FILTER_WAR_SUPPORT
 					
 		}
-		prerequisite = { focus = BSK_tankdivisons  focus = BSK_helpingontheground  }
+		prerequisite = { focus = BSK_tankdivisons }
+		prerequisite = { focus = BSK_helpingontheground }
 		completion_reward = {
-			
-						add_tech_bonus = {
-						bonus = 1 
-						uses = 2 
-						category = cat_scout_plane 
-						}
-						add_tech_bonus = {
-						bonus = 1 
-						uses = 2 
-						category = radar_tech 
-						}
-						
-					
+			add_tech_bonus = {
+				bonus = 1 
+				uses = 2 
+				category = cat_scout_plane 
+			}
+			add_tech_bonus = {
+				bonus = 1 
+				uses = 2 
+				category = radar_tech 
+			}		
 		}
 	}
 

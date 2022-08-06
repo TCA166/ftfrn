@@ -65,7 +65,7 @@ focus_tree = {
 	#Empower The Mafia
 	focus = {
 		id = NAP_empower_the_mafia
-		icon = GFX_NAP_empower_the_mafia-59
+		icon = GFX_focus_CZE_german_puppet
 		x = 2
 		y = 0
 		cost = 5
@@ -204,13 +204,14 @@ focus_tree = {
 				long_name = NAP_CLAN_PARTY_LONG
 				name = NAP_CLAN_PARTY_SHORT
 			}
+			remove_ideas = NAP_mafia_unrest
 		}
 	}
 
 	#Open Up Polling Hubs
 	focus = {
 		id = NAP_open_up_polling_hubs
-		icon = GFX_NAP_open_up_polling_hubs-427
+		icon = GFX_goal_support_democracy
 		x = 8
 		y = 1
 		cost = 5
@@ -386,7 +387,7 @@ focus_tree = {
 	#Spy on our Neighbours
 	focus = {
 		id = NAP_spy_on_our_neighbours
-		icon = GFX_NAP_spy_on_our_neighbours-150523
+		icon = GFX_goal_generic_more_territorial_claims
 		x = 0
 		y = 4
 		cost = 9
@@ -1072,7 +1073,7 @@ focus_tree = {
 	#Revenge for 1442
 	focus = {
 		id = NAP_revenge_for_1442
-		icon = GFX_NAP_revenge_for_1442-412
+		icon = GFX_focus_focus_fra_intervention_spain
 		x = 4
 		y = 10
 		cost = 9
@@ -1099,7 +1100,7 @@ focus_tree = {
 	#Take Over the Rest of Spain
 	focus = {
 		id = NAP_take_over_the_rest_of_spain
-		icon = GFX_NAP_take_over_the_rest_of_spain-92
+		icon = GFX_focus_spa_strengthen_the_supreme_reality_of_spain
 		x = 4
 		y = 11
 		cost = 9
@@ -1201,7 +1202,7 @@ focus_tree = {
 	#High in The Sky
 	focus = {
 		id = NAP_highinthesky
-		icon = GFX_NAP_highinthesky-6201
+		icon = GFX_goal_generic_air_fighter
 		x = 18
 		y = 7
 		cost = 9
@@ -1250,7 +1251,7 @@ focus_tree = {
 	#New Tactics
 	focus = {
 		id = NAP_newtactics
-		icon = GFX_NAP_newtactics-17036
+		icon = GFX_goal_generic_air_doctrine
 		x = 15
 		y = 10
 		cost = 9
@@ -1286,7 +1287,7 @@ focus_tree = {
 	#Start of an Army
 	focus = {
 		id = NAP_startofanarmy
-		icon = GFX_NAP_startofanarmy-110846
+		icon = GFX_focus_generic_commonwealth_build_infantry
 		x = 16
 		y = 7
 		cost = 9
@@ -2094,7 +2095,7 @@ focus_tree = {
 	#Spread the Idea of Democarcy
 	focus = {
 		id = NAP_spread_the_idea_of_democarcy
-		icon = GFX_NAP_spread_the_idea_of_democarcy-427
+		icon = GFX_goal_support_democracy
 		x = 8
 		y = 7
 		cost = 9
@@ -2140,7 +2141,7 @@ focus_tree = {
 	#Include the Alps
 	focus = {
 		id = NAP_include_the_alps
-		icon = GFX_NAP_include_the_alps-427
+		icon = GFX_focus_usa_focus_on_europe
 		x = 8
 		y = 9
 		cost = 9
@@ -2752,7 +2753,7 @@ focus_tree = {
 	#Hispania
 	focus = {
 		id = NAP_hispania
-		icon = GFX_NAP_hispania-92
+		icon = GFX_focus_por_iberian_summit
 		x = 12
 		y = 15
 		cost = 9
