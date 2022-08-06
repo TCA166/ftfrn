@@ -1148,20 +1148,22 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			NAV = {
-			annex_country = {
-			target = SPR 
-			}
-			annex_country = {
-			target = GLC 
-			}
-			annex_country = {
-			target = POR 
-			}
-			annex_country = {
-			target = ADU 
-			}
-			every_owned_state = { add_core_of = NAV}
+			NAV = {
+				annex_country = {
+					target = SPR 
+				}
+				annex_country = {
+					target = GLC 
+				}
+				annex_country = {
+					target = POR 
+				}
+				annex_country = {
+					target = ADU 
+				}
+				every_owned_state = {
+					add_core_of = NAV
+				}
 			}
 		}
 	}

@@ -305,8 +305,7 @@ focus_tree = {
 		available = {
 			NOT = {
 			has_completed_focus = TAJ_british_takeover
-			}
-			
+			}
 		}
 		completion_reward = {
 			set_politics = {
@@ -985,7 +984,9 @@ focus_tree = {
 			 instant_build = yes
 			 }
 			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
-			 }random_owned_controlled_state ={
+			 }
+			 
+			 random_owned_controlled_state ={
 			 limit = {
 			 free_building_slots = {
 			 building = industrial_complex
@@ -1016,8 +1017,7 @@ focus_tree = {
 			 instant_build = yes
 			 }
 			 set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
-			 }
-			
+			}
 		}
 	}
 

@@ -223,7 +223,7 @@ air_night_penalty = -0.1
 		}
 		
 		TAJ_tea_supply = {
-			picture = 
+			picture = idea_eng_steady_as_she_goes
 			allowed = {
 				tag = TAJ
 			}
@@ -234,11 +234,11 @@ air_night_penalty = -0.1
 				always = yes
 			}
 			modifier = {
-				army_speed_factor = 0.11
-				acclimatization_cold_climate_gain_factor = 0.1
-				army_morale_factor = 0.1
-				planning_speed = 0.08
-				breakthrough_factor = 0.09
+				army_speed_factor = 0.2
+				acclimatization_cold_climate_gain_factor = 0.2
+				army_morale_factor = 0.2
+				planning_speed = 0.15
+				breakthrough_factor = 0.15
 			}
 		}
 	}

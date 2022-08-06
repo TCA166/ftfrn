@@ -23,7 +23,7 @@ ideas = {
 		IDU_democratic_influence = {
 			picture = IDU_democratic_influence-1077
 			allowed = {
-				every_nation = {
+				all_country = {
 					limit = {
 						is_neighbor_of = SOV
 					}
@@ -268,7 +268,7 @@ ideas = {
 				weekly_manpower = 1200
 				production_speed_buildings_factor = 0.05
 				infantry_equipment = {
-					build_cost_ic = -0.25 instant = yes
+					build_cost_ic = -0.15 instant = yes
 				}
 				war_support_weekly_factor = 0.06
 				training_time_factor = -0.1
