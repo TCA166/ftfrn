@@ -608,13 +608,13 @@ spriteTypes = {	##Icon For:
 
 	##Icon For: 
 	SpriteType = { 
-		name = "GFX_BSK_amilitaryacademy-19443"
+		name = "GFX_IDU_amilitaryacademy-19443"
 		texturefile = "gfx/interface/goals/GFX_BSK_amilitaryacademy-19443.dds"
 	}
 
 	##Icon Shine For: 
 	SpriteType = { 
-		name = "GFX_BSK_amilitaryacademy-19443_shine"
+		name = "GFX_IDU_amilitaryacademy-19443_shine"
 		texturefile = "gfx/interface/goals/GFX_BSK_amilitaryacademy-19443.dds"
 		effectFile = "gfx/FX/buttonstate.lua"
 		animation = {
