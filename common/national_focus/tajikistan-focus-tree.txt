@@ -1496,10 +1496,11 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			add_stability = 0.25
-			add_political_power = 50
-			every_owned_state = { add_core_of = TAJ}
-			
+			add_stability = 0.25
+			add_political_power = 50
+			every_owned_state = { 
+				add_core_of = TAJ
+			}
 		}
 	}
 
